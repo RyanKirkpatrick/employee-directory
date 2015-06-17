@@ -1,0 +1,15 @@
+{
+  "name": "deskmap",
+  "version": "0.0.0",
+  "description": "Desk Map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Copeland",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4",
+    "jade": "^1.11.0"
+  }
+}
