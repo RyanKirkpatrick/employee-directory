@@ -27,11 +27,11 @@ app.use(stylus.middleware({
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
-mongoose.connect('mongodb://localhost/deskmap');
+mongoose.connect('mongodb://localhost/employeedirectory');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error…'));
 db.once('open', function callback() {
-  console.log('deskmap db opened');
+  console.log('employeedirectory db opened');
 });
 
 var employeeSchema = mongoose.Schema({
@@ -39,16 +39,16 @@ var employeeSchema = mongoose.Schema({
     firstName: String,
     lastName: String
   },
-  deskLocation: {
+  deskLoc: {
     floor: Number,
     pod: Number,
-    seat: Number
+    seat: String
   }
 });
 var Employee = mongoose.model('Employee', employeeSchema);
 var mongoMessage;
 Employee.findOne({}).exec(function (err, messageDoc) {
-  mongoMessage = messageDoc.deskLocation.seat;
+  mongoMessage = messageDoc.deskLoc.seat;
 });
 
 app.get('/partials/*', function (req, res) {
