@@ -1,0 +1,38 @@
+floor {
+  background: #fff url("/imagesfloor-6.png") left top no-repeat;
+  display: block;
+  height: 1149px;
+  margin: 20px;
+  position: relative;
+  width: 1256px;
+}
+.floor-6 {
+  background-image: url("/images/floor-6.png");
+}
+desk {
+  background-color: #ddd;
+  border: 1px solid #f00;
+  box-sizing: border-box;
+  height: 24px;
+  position: absolute;
+  width: 55px;
+  white-space: nowrap;
+}
+desk div.pos {
+  font: normal 12px 'Lobster', cursive;
+  line-height: 22px;
+  text-align: center;
+}
+desk.vert {
+  height: 55px;
+  width: 24px;
+}
+desk.vert div.pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+desk.active {
+  z-index: 1;
+}

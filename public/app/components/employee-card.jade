@@ -1,0 +1,5 @@
+.panel.panel-default.employee-card
+  .panel-heading
+    h3.panel-title {{employee.name.firstName}} {{employee.name.lastName}}
+  .panel-body
+    div(ng-click="vm.mapEmployee(employee)") {{employee.deskLoc.pos}}

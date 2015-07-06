@@ -1,0 +1,10 @@
+extends ../includes/layout
+
+block main-content    
+  div#wrapper
+    div#sidebar-wrapper
+      div(ng-include="'partials/components/employee-selector'")
+    div#page-content-wrapper
+      div.page-content
+        div.container
+          div(ng-view)

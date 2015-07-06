@@ -1,15 +1,23 @@
 {
-  "name": "deskmap",
+  "name": "Employee Directory",
   "version": "0.0.0",
-  "description": "Desk Map",
-  "main": "index.js",
+  "description": "Employee Directory",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Copeland",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.13.1",
     "express": "^4.12.4",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "mongoose": "^4.0.6",
+    "morgan": "^1.6.0",
+    "nib": "^1.1.0",
+    "stylus": "^0.51.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.7"
   }
 }
