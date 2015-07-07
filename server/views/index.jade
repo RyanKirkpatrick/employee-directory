@@ -1,10 +1,12 @@
 extends ../includes/layout
 
-block main-content    
-  div#wrapper
-    div#sidebar-wrapper
-      div(ng-include="'partials/components/employee-selector'")
-    div#page-content-wrapper
-      div.page-content
-        div.container
-          div(ng-view)
+block main-content
+  header.navbar.navbar-fixed-top.navbar-shadow
+    .navbar-branding
+      .navbar-brand <b>Employee</b>Directory
+  aside#sidebar-left.affix
+    div(ng-include="'partials/components/employee-selector'")
+  section#page-content-wrapper
+    div.page-content
+      div.container
+        div(ng-view)
