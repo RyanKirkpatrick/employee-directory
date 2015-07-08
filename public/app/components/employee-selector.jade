@@ -1,5 +1,7 @@
-div.employee-selector(ng-controller="edEmployeeSelectorCtrl as vm")
-  div.employee(ng-repeat="employee in vm.employees | orderBy: 'name.lastName'" ng-click="vm.selectEmployee(employee)" ng-class="{'selected': employee.selected}") {{employee.name.lastName}}, {{employee.name.firstName}}
+ul.employee-selector(ng-controller="edEmployeeSelectorCtrl as vm")
+  li.employee(ng-repeat="employee in vm.employees | orderBy: 'name.lastName'" ng-click="vm.selectEmployee(employee)" ng-class="{'selected': employee.selected}")
+    i.fa(class="fa-{{employee.gender}}")
+    span {{employee.name.lastName}}, {{employee.name.firstName}}
   
   a(href="/") Employee Directory
   br

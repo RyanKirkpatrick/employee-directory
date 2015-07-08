@@ -7,6 +7,5 @@ block main-content
   aside#sidebar-left.affix
     div(ng-include="'partials/components/employee-selector'")
   section#page-content-wrapper
-    div.page-content
-      div.container
-        div(ng-view)
+    div.container-fluid.page-content
+      div(ng-view)

@@ -1,16 +1,16 @@
 body
   background #fafafa url('images/content_inner_bg.png')
+  font-family 'Open Sans', Helvetica, Arial, sans-serif
+  padding-top 60px
 
 .navbar
-  z-index 1030
-  margin-bottom 0
-  height 60px
-  color #666
   background-color #fff
   border-radius 0
   border 0
-  border-bottom 0
   box-shadow 0 1px 0 0 #e0e0e0
+  color #666
+  height 60px
+  margin-bottom 0
 
 .navbar.navbar-shadow
   box-shadow 0px 1px 0px 0px rgba(0, 0, 0, 0.08), 0px 2px 0px 0px rgba(0, 0, 0, 0.02)
@@ -45,42 +45,35 @@ body
   min-height 100%
   padding-top 60px
 
-#wrapper
+#page-content-wrapper
   padding-left 250px
-  transition all 0.4s ease 0s
 
-#sidebar-wrapper 
-  margin-left -250px
-  left 250px
-  width 250px
-  background #000
-  position fixed
-  height 100%
-  overflow-y auto
-  z-index 1
-  transition all 0.4s ease 0s
+  > .page-content
+    padding-top 30px
 
-.employee-selector
+ul.employee-selector
+  margin-bottom 0
+  padding-left 0
+  list-style none
+
+  li
+    border-top 1px solid rgba(255,255,255,.05);
+    display block
+    height 37px
+    line-height 37px
+    
+    &:last-child
+      border-bottom 1px solid rgba(255,255,255,.05);
+
+    > i
+      line-height 37px
+      padding-left 13px
+      text-align center
+      width 38px
+
+    span
+      line-height 37px
+      padding-left 6px
 
   .selected
     color #f00
-
-#page-content-wrapper 
-  width 100%
-
-@media (max-width: 767px) 
-  #wrapper 
-    padding-left 0
-
-  #sidebar-wrapper 
-    left 0
-
-  #wrapper.active 
-    position relative
-    left 250px
-    
-
-  #wrapper.active #sidebar-wrapper 
-    left 250px
-    width 250px
-    transition all 0.4s ease 0s

@@ -26,6 +26,7 @@
             firstName: 'First1',
             lastName: 'Last1'
           },
+          gender: 'male',
           deskLoc: {
             floor: 6,
             pod: 1,
@@ -37,6 +38,7 @@
             firstName: 'First2',
             lastName: 'Last2'
           },
+          gender: 'female',
           deskLoc: {
             floor: 6,
             pod: 1,
@@ -48,6 +50,7 @@
             firstName: 'First3',
             lastName: 'Last3'
           },
+          gender: 'male',
           deskLoc: {
             floor: 6,
             pod: 1,
@@ -59,6 +62,7 @@
             firstName: 'First4',
             lastName: 'Last4'
           },
+          gender: 'female',
           deskLoc: {
             floor: 6,
             pod: 3,
