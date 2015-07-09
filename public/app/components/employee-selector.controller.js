@@ -11,9 +11,7 @@
     vm.selectEmployee = selectEmployee;
 
     function selectEmployee(employee) {
-      vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
-
-      //$rootScope.$broadcast('selectedEmployeeChange', vm.selectedEmployees);
+      edEmployeeService.updateSelectedEmployees(employee);
     }
   }
 })();

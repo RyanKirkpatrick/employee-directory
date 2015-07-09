@@ -24,11 +24,16 @@
   function ctrlFunc($location, edEmployeeService) {
     var vm = this;
     vm.mapEmployee = mapEmployee;
+    vm.deselectEmployee = deselectEmployee;
 
     function mapEmployee(employee) {
       edEmployeeService.removeAllSelectedEmployees();
       edEmployeeService.updateSelectedEmployees(employee);
       $location.path('seat-map/' + employee.deskLoc.pos);
+    }
+
+    function deselectEmployee(employee) {
+      edEmployeeService.updateSelectedEmployees(employee);
     }
   }
 })();

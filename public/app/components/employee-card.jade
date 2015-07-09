@@ -4,6 +4,6 @@
       i.fa.fa-user
     span.panel-title {{employee.name.firstName}} {{employee.name.lastName}}
     span.panel-controls
-      a.fa.fa-times(href="#")
+      a.fa.fa-times(href="#" ng-click="vm.deselectEmployee(employee)")
   .panel-body
     div(ng-click="vm.mapEmployee(employee)") {{employee.deskLoc.pos}}
