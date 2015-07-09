@@ -1,0 +1,40 @@
+floor
+  background #fff url('/imagesfloor-6.png') left top no-repeat
+  display: block
+  height: 1149px
+  position: relative
+  width: 1256px
+
+.floor-6
+  background-image url('/images/floor-6.png')
+
+$desk-width = 55px
+$desk-height = 24px
+$desk-border = 1px
+
+desk
+  background-color #ddd
+  border 1px solid #f00
+  box-sizing border-box
+  height $desk-height
+  position absolute
+  width $desk-width
+  white-space nowrap
+
+  div.pos
+    font-size 12px
+    line-height $desk-height - 2 * $desk-border
+    text-align center
+
+desk.vert
+  height $desk-width
+  width $desk-height
+
+  div.pos
+    position absolute
+    top 50%
+    left 50%
+    transform translateX(-50%) translateY(-50%) rotate(90deg)
+
+desk.active
+  z-index 1

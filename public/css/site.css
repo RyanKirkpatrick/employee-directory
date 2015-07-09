@@ -1,38 +1,204 @@
-floor {
-  background: #fff url("/imagesfloor-6.png") left top no-repeat;
-  display: block;
-  height: 1149px;
-  margin: 20px;
+body {
+  background: #fafafa url("images/content_inner_bg.png");
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  padding-top: 60px;
+  -webkit-font-smoothing: antialiased;
+}
+.navbar {
+  background-color: #fff;
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0 1px 0 0 #e0e0e0;
+  color: #666;
+  height: 60px;
+  margin-bottom: 0;
+}
+.navbar.navbar-shadow {
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.08), 0px 2px 0px 0px rgba(0,0,0,0.02);
+}
+.navbar-branding {
   position: relative;
-  width: 1256px;
+  overflow: hidden;
+  float: left;
+  width: 250px;
+  height: 60px;
+  margin-right: 10px;
+  background-color: transparent;
 }
-.floor-6 {
-  background-image: url("/images/floor-6.png");
+.navbar-branding .navbar-brand {
+  color: #666;
+  height: 60px;
+  line-height: 58px;
+  padding: 0;
+  padding-left: 18px;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
-desk {
-  background-color: #ddd;
-  border: 1px solid #f00;
-  box-sizing: border-box;
-  height: 24px;
-  position: absolute;
-  width: 55px;
-  white-space: nowrap;
+.sidebar {
+  background-color: #4c4a49;
+  color: #fff;
+  font-size: 13px;
 }
-desk div.pos {
-  font: normal 12px 'Lobster', cursive;
-  line-height: 22px;
+.sidebar-left {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 250px;
+  min-height: 100%;
+  padding-top: 60px;
+}
+.sidebar-left .sidebar-left-content {
+  height: 100%;
+  overflow-y: auto;
+}
+.page-content-wrapper {
+  padding-left: 250px;
+}
+.page-content-wrapper > .page-content {
+  padding-top: 30px;
+}
+.page-content-wrapper .topbar {
+  background: #e7e7e7;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 15px;
+}
+a {
+  color: #3498db;
+}
+a:hover,
+a:focus {
+  color: #1d6fa5;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+.sidebar .sidebar-label {
+  color: #908885;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 37px;
+  padding-left: 18px;
+  text-transform: uppercase;
+}
+/**************************************************
+  Panels
+**************************************************/
+.panel {
+  border: none;
+  box-shadow: none;
+}
+.panel .panel-heading {
+  position: relative;
+  height: 52px;
+  line-height: 49px;
+  letter-spacing: 0.2px;
+  color: #999;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 0 8px;
+  background: #fafafa;
+  border: 1px solid #e2e2e2;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.panel .panel-heading .panel-icon {
+  padding-left: 5px;
+}
+.panel .panel-heading .panel-title {
+  font-size: 15px;
+  line-height: 49px;
+  padding-left: 6px;
+}
+.panel .panel-heading .panel-controls {
+  float: right;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 7px;
+  margin-right: -8px;
+  background: rgba(0,0,0,0.028);
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.panel .panel-heading .panel-controls > a {
+  padding-top: 1px;
+  display: inline-block;
+  opacity: 0.7;
+  width: 26px;
+  color: #999;
+  font-size: 13px;
+  font-weight: normal;
   text-align: center;
 }
-desk.vert {
-  height: 55px;
-  width: 24px;
+.panel .panel-heading .panel-controls > a:hover,
+.panel .panel-heading .panel-controls > a:focus {
+  color: #1d6fa5;
+  text-decoration: none;
 }
-desk.vert div.pos {
+.panel .panel-body {
+  border: 1px solid #e2e2e2;
+  border-top: none;
+}
+/**************************************************
+  Employee Selector
+**************************************************/
+ul.employee-selector {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.employee-selector li {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: block;
+  height: 37px;
+  line-height: 37px;
+}
+ul.employee-selector li:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+ul.employee-selector li.selected > a {
+  background-color: #585858;
+}
+ul.employee-selector li.selected > a > i {
+  color: #3498db;
+}
+ul.employee-selector li.selected > a:before {
+  background-color: #3498db;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  top: 0;
+  width: 4px;
 }
-desk.active {
-  z-index: 1;
+ul.employee-selector li a {
+  display: block;
+  position: relative;
+}
+ul.employee-selector li a:hover {
+  background-color: #585858;
+}
+ul.employee-selector li a:hover:before {
+  background-color: #3498db;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+ul.employee-selector li a > i {
+  line-height: 37px;
+  padding-left: 13px;
+  text-align: center;
+  width: 38px;
+}
+ul.employee-selector li a span {
+  line-height: 37px;
+  padding-left: 6px;
 }
