@@ -1,0 +1,14 @@
+form(ng-hide="vm.identity.isAuthenticated()")
+  .form-group
+      input.form-control(placeholder="Email", ng-model="vm.username")
+  .form-group
+      input.form-control(type="password", placeholder="Password", ng-model="vm.password")
+  button.btn.btn-primary(ng-click="vm.signin(vm.username, vm.password)") Sign In
+
+div(ng-show="vm.identity.isAuthenticated()")
+  span
+    | Welcome, {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}} -
+    a(href="" ng-click="vm.signout()") Sign Out
+
+  div
+    a(href="/admin/employees" ng-show="vm.identity.currentUser.isAdmin()") Employee Admin

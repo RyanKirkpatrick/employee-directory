@@ -2,18 +2,20 @@ body {
   background: #fafafa url("images/content_inner_bg.png");
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   padding-top: 60px;
-  -webkit-font-smoothing: antialiased;
 }
 .navbar {
   background-color: #fff;
+  -webkit-border-radius: 0;
   border-radius: 0;
   border: 0;
+  -webkit-box-shadow: 0 1px 0 0 #e0e0e0;
   box-shadow: 0 1px 0 0 #e0e0e0;
   color: #666;
   height: 60px;
   margin-bottom: 0;
 }
 .navbar.navbar-shadow {
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.08), 0px 2px 0px 0px rgba(0,0,0,0.02);
   box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.08), 0px 2px 0px 0px rgba(0,0,0,0.02);
 }
 .navbar-branding {
@@ -84,11 +86,18 @@ a:focus {
   padding-left: 18px;
   text-transform: uppercase;
 }
+#toast-container > div {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.toast-success {
+  background-color: #8cd481;
+}
 /**************************************************
   Panels
 **************************************************/
 .panel {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .panel .panel-heading {
@@ -128,6 +137,8 @@ a:focus {
   padding-top: 1px;
   display: inline-block;
   opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
   width: 26px;
   color: #999;
   font-size: 13px;

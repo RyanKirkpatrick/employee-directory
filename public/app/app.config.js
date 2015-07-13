@@ -17,6 +17,11 @@
         controller: 'edSeatMapCtrl',
         controllerAs: 'vm'
       })
+      .when('/login', {
+        templateUrl: '/partials/account/login',
+        controller: 'edLoginCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo:'/'});
   }
 })();
