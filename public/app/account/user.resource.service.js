@@ -1,10 +1,10 @@
 (function () {
   'use strict';
-  angular.module('app').factory('UserResource', UserResource);
+  angular.module('app').factory('edUserResourceService', edUserResourceService);
 
-  UserResource.$inject = ['$resource'];
+  edUserResourceService.$inject = ['$resource'];
 
-  function UserResource($resource) {
+  function edUserResourceService($resource) {
     var userResource = $resource('/api/users/:id', {
       _id: '@id'
     });

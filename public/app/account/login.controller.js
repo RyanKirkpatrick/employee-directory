@@ -2,9 +2,9 @@
   'use strict';
   angular.module('app').controller('edLoginCtrl', edLoginCtrl);
 
-  edLoginCtrl.$inject = ['$http', '$location', 'edIdentityService', 'edNotifierService', 'edAuthService'];
+  edLoginCtrl.$inject = ['$http', 'edIdentityService', 'edNotifierService', 'edAuthService'];
 
-  function edLoginCtrl($http, $location, edIdentityService, edNotifierService, edAuthService) {
+  function edLoginCtrl($http, edIdentityService, edNotifierService, edAuthService) {
     var vm = this;
     vm.identity = edIdentityService;
     vm.signin = signin;
@@ -26,7 +26,6 @@
         vm.username = '';
         vm.password = '';
         edNotifierService.notify('You have successfully signed out');
-        //$location.path('/');
       });
     }
   }

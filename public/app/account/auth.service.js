@@ -2,12 +2,13 @@
   'use strict';
   angular.module('app').factory('edAuthService', edAuthService);
 
-  edAuthService.$inject = ['$http', '$q', 'edIdentityService', 'UserResource'];
+  edAuthService.$inject = ['$http', '$q', 'edIdentityService', 'edUserResourceService'];
 
-  function edAuthService($http, $q, edIdentityService, UserResource) {
+  function edAuthService($http, $q, edIdentityService, edUserResourceService) {
     var service = {
       authenticateUser: authenticateUser,
-      logoutUser: logoutUser
+      logoutUser: logoutUser,
+      authorizeCurrentUserForRoute: authorizeCurrentUserForRoute
     };
     return service;
 
@@ -18,7 +19,7 @@
         password: password
       }).then(function (response) {
         if (response.data.success) {
-          var user = new UserResource();
+          var user = new edUserResourceService();
           angular.extend(user, response.data.user);
           edIdentityService.currentUser = user;
           dfd.resolve(true);
@@ -38,6 +39,14 @@
         dfd.resolve();
       });
       return dfd.promise;
+    }
+
+    function authorizeCurrentUserForRoute(role) {
+      if (edIdentityService.isAuthorized(role)) {
+        return true;
+      } else {
+        return $q.reject('not authorized');
+      }
     }
   }
 })();
