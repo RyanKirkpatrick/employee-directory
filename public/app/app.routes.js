@@ -34,6 +34,14 @@
           auth: routeRoleChecks.admin
         }
       })
+      .when('/admin/create-user', {
+        templateUrl: '/partials/admin/create-user',
+        controller: 'edCreateUserCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          auth: routeRoleChecks.admin
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -11,4 +11,5 @@ div(ng-show="vm.identity.isAuthenticated()")
     a(href="" ng-click="vm.signout()") Sign Out
 
   div
-    a(href="/admin/users" ng-show="vm.identity.currentUser.isAdmin()") Employee Admin
+    a(href="/admin/users" ng-show="vm.identity.currentUser.isAdmin()") User Admin
+    a(href="/admin/create-user" ng-show="vm.identity.currentUser.isAdmin()") Create User

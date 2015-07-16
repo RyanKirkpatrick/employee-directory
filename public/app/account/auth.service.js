@@ -7,6 +7,7 @@
   function edAuthService($http, $q, edIdentityService, edUserResourceService) {
     var service = {
       authenticateUser: authenticateUser,
+      createUser: createUser,
       logoutUser: logoutUser,
       authorizeCurrentUserForRoute: authorizeCurrentUserForRoute
     };
@@ -26,6 +27,18 @@
         } else {
           dfd.resolve(false);
         }
+      });
+      return dfd.promise;
+    }
+
+    function createUser(newUserData) {
+      var newUser = new edUserResourceService(newUserData);
+      var dfd = $q.defer();
+
+      newUser.$save().then(function () {
+        dfd.resolve();
+      }, function (response) {
+        dfd.reject(response.data.reason);
       });
       return dfd.promise;
     }
