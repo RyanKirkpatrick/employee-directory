@@ -10,6 +10,10 @@ div(ng-show="vm.identity.isAuthenticated()")
     | Welcome, {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}} -
     a(href="" ng-click="vm.signout()") Sign Out
 
-  div
-    a(href="/admin/users" ng-show="vm.identity.currentUser.isAdmin()") User Admin
-    a(href="/admin/create-user" ng-show="vm.identity.currentUser.isAdmin()") Create User
+  ul(ng-if="vm.identity.currentUser.isAdmin()")
+    li
+      a(href="/admin/users") User Admin
+    li
+      a(href="/admin/create-user") Create User
+    li
+      a(href="/admin/update-user") Update User

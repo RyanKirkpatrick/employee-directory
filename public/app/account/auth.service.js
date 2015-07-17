@@ -8,8 +8,10 @@
     var service = {
       authenticateUser: authenticateUser,
       createUser: createUser,
+      updateCurrentUser: updateCurrentUser,
       logoutUser: logoutUser,
-      authorizeCurrentUserForRoute: authorizeCurrentUserForRoute
+      authorizeCurrentUserForRoute: authorizeCurrentUserForRoute,
+      authorizeAuthenticatedUserForRoute: authorizeAuthenticatedUserForRoute
     };
     return service;
 
@@ -43,6 +45,19 @@
       return dfd.promise;
     }
 
+    function updateCurrentUser(newUserData) {
+      var dfd = $q.defer();
+      var clone = angular.copy(edIdentityService.currentUser);
+      angular.extend(clone, newUserData);
+      clone.$update().then(function () {
+        edIdentityService.currentUser = clone;
+        dfd.resolve();
+      }, function (response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promise;
+    }
+
     function logoutUser() {
       var dfd = $q.defer();
       $http.post('/logout', {
@@ -56,6 +71,14 @@
 
     function authorizeCurrentUserForRoute(role) {
       if (edIdentityService.isAuthorized(role)) {
+        return true;
+      } else {
+        return $q.reject('not authorized');
+      }
+    }
+
+    function authorizeAuthenticatedUserForRoute() {
+      if (edIdentityService.isAuthenticated()) {
         return true;
       } else {
         return $q.reject('not authorized');

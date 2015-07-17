@@ -6,7 +6,8 @@
 
   function configure($routeProvider, $locationProvider) {
     var routeRoleChecks = {
-      admin: requireAdmin
+      admin: requireAdmin,
+      user: requireAuth
     };
 
     $locationProvider.html5Mode(true);
@@ -42,6 +43,14 @@
           auth: routeRoleChecks.admin
         }
       })
+      .when('/admin/update-user', {
+        templateUrl: '/partials/admin/update-user',
+        controller: 'edUpdateUserCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          auth: routeRoleChecks.user
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -51,5 +60,11 @@
 
   function requireAdmin(edAuthService) {
     return edAuthService.authorizeCurrentUserForRoute('admin');
+  }
+
+  requireAuth.$inject = ['edAuthService'];
+
+  function requireAuth(edAuthService) {
+    return edAuthService.authorizeAuthenticatedUserForRoute();
   }
 })();

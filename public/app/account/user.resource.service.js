@@ -7,6 +7,8 @@
   function edUserResourceService($resource) {
     var userResource = $resource('/api/users/:id', {
       _id: '@id'
+    }, {
+      update: {method: 'PUT', isArray: false}
     });
 
     userResource.prototype.isAdmin = function () {
