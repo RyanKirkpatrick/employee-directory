@@ -9,6 +9,14 @@ $ npm install
 $ bower install
 ```
 
+create 'credentials.js' in /server/config/
+```sh
+module.exports = {
+  sessionSecret: 'this is my session secrect',
+  cookieSecret: 'this is my cookie secrect'
+};
+```
+
 ### Tech
 
 Employee Directory uses a number of open source projects to work properly:
