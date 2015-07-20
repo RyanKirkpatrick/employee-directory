@@ -155,6 +155,21 @@ a
 /**************************************************
   Employee Selector
 **************************************************/
+random(min, max)
+  return floor( math(0, "random") * max + min )
+
+random-hues = ()
+
+for i in (0..15)
+  push(random-hues, random(0, 360))
+
+for i in (0..15)
+  .pastel-color-{i}
+    &:before
+      background-color hsl(random-hues[i], 100%, 87.5%) !important
+  .selected > .pastel-color-{i} > i
+      color hsl(random-hues[i], 100%, 87.5%) !important
+
 ul.employee-selector
   margin-bottom 0
   padding-left 0
@@ -170,10 +185,13 @@ ul.employee-selector
       border-bottom 1px solid rgba(255,255,255,.05)
 
     &.selected > a
-      background-color #585858
+      background-color #6B6B6B
+
+      &:hover
+        background-color #6B6B6B
 
       > i
-          color primary-color
+        color primary-color
 
       &:before
         background-color primary-color
@@ -203,6 +221,7 @@ ul.employee-selector
           width 4px
 
       > i
+        color #fff
         line-height 37px
         padding-left 13px
         text-align center

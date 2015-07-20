@@ -157,6 +157,102 @@ a:focus {
 /**************************************************
   Employee Selector
 **************************************************/
+.pastel-color-0:before {
+  background-color: #fff2bf !important;
+}
+.selected > .pastel-color-0 > i {
+  color: #fff2bf !important;
+}
+.pastel-color-1:before {
+  background-color: #bfffed !important;
+}
+.selected > .pastel-color-1 > i {
+  color: #bfffed !important;
+}
+.pastel-color-2:before {
+  background-color: #e2bfff !important;
+}
+.selected > .pastel-color-2 > i {
+  color: #e2bfff !important;
+}
+.pastel-color-3:before {
+  background-color: #fff8bf !important;
+}
+.selected > .pastel-color-3 > i {
+  color: #fff8bf !important;
+}
+.pastel-color-4:before {
+  background-color: #cfffbf !important;
+}
+.selected > .pastel-color-4 > i {
+  color: #cfffbf !important;
+}
+.pastel-color-5:before {
+  background-color: #e2bfff !important;
+}
+.selected > .pastel-color-5 > i {
+  color: #e2bfff !important;
+}
+.pastel-color-6:before {
+  background-color: #bffffb !important;
+}
+.selected > .pastel-color-6 > i {
+  color: #bffffb !important;
+}
+.pastel-color-7:before {
+  background-color: #edffbf !important;
+}
+.selected > .pastel-color-7 > i {
+  color: #edffbf !important;
+}
+.pastel-color-8:before {
+  background-color: #bffff1 !important;
+}
+.selected > .pastel-color-8 > i {
+  color: #bffff1 !important;
+}
+.pastel-color-9:before {
+  background-color: #ffbff1 !important;
+}
+.selected > .pastel-color-9 > i {
+  color: #ffbff1 !important;
+}
+.pastel-color-10:before {
+  background-color: #f4bfff !important;
+}
+.selected > .pastel-color-10 > i {
+  color: #f4bfff !important;
+}
+.pastel-color-11:before {
+  background-color: #bfcbff !important;
+}
+.selected > .pastel-color-11 > i {
+  color: #bfcbff !important;
+}
+.pastel-color-12:before {
+  background-color: #ccffbf !important;
+}
+.selected > .pastel-color-12 > i {
+  color: #ccffbf !important;
+}
+.pastel-color-13:before {
+  background-color: #bfd8ff !important;
+}
+.selected > .pastel-color-13 > i {
+  color: #bfd8ff !important;
+}
+.pastel-color-14:before {
+  background-color: #eabfff !important;
+}
+.selected > .pastel-color-14 > i {
+  color: #eabfff !important;
+}
+.pastel-color-15:before {
+  background-color: #bfccff !important;
+}
+.selected > .pastel-color-15 > i {
+  color: #bfccff !important;
+}
 ul.employee-selector {
   margin-bottom: 0;
   padding-left: 0;
@@ -172,7 +268,10 @@ ul.employee-selector li:last-child {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 ul.employee-selector li.selected > a {
-  background-color: #585858;
+  background-color: #6b6b6b;
+}
+ul.employee-selector li.selected > a:hover {
+  background-color: #6b6b6b;
 }
 ul.employee-selector li.selected > a > i {
   color: #3498db;
@@ -205,6 +304,7 @@ ul.employee-selector li a:hover:before {
   width: 4px;
 }
 ul.employee-selector li a > i {
+  color: #fff;
   line-height: 37px;
   padding-left: 13px;
   text-align: center;
