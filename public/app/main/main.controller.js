@@ -1,3 +1,6 @@
+/**
+ * ngdoc Main controller
+ */
 (function () {
   'use strict';
   angular.module('app').controller('edMainCtrl', edMainCtrl);
