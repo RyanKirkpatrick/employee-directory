@@ -9,7 +9,8 @@
 
   function edMainCtrl(edEmployeeService) {
     var vm = this;
-    vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+    vm.selectedEmployees = edEmployeeService
+        .getSelectedEmployees();
     edEmployeeService.setSelectMultipleEmployees(true);
   }
 })();
