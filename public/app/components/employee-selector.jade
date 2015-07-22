@@ -1,6 +1,6 @@
 .sidebar-label Select Employees
 ul.employee-selector(ng-controller="edEmployeeSelectorCtrl as vm")
   li.employee(ng-repeat="employee in vm.employees | orderBy: 'name.lastName'" ng-class="{'selected': employee.selected}")
-    a(href="#" ng-click="vm.selectEmployee(employee)" class="pastel-color-{{$index}}")
+    a(href="#" ng-click="vm.selectEmployee(employee)")
       i.fa(class="fa-{{employee.gender}}")
       span {{employee.name.lastName}}, {{employee.name.firstName}}

@@ -7,9 +7,10 @@
   function edSeatMapCtrl(edEmployeeService, edDeskService, $routeParams, $rootScope, $location) {
     var vm = this;
     vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
-    vm.desks = edDeskService.getAllDesksByFloor(6);
+    vm.desks = edDeskService.getAllDesks();
 
     edEmployeeService.setSelectMultipleEmployees(false);
+
     if (!$routeParams.pos) {
       edEmployeeService.removeAllSelectedEmployees();
     } else if (vm.selectedEmployees < 1) {

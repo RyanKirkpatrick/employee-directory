@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'),
-  userModel = require('../models/User');
+  userModel = require('../models/User'),
+  employeeModel = require('../models/Employee'),
+  deskModel = require('../models/Desk');
 
 module.exports = function (config) {
   mongoose.connect(config.db);
@@ -10,25 +12,6 @@ module.exports = function (config) {
   });
 
   userModel.createDefaultUsers();
-
-  var employeeSchema = mongoose.Schema({
-    name: {
-      firstName: String,
-      lastName: String
-    },
-    gender: String,
-    deskLoc: {
-      floor: Number,
-      pod: Number,
-      seat: String
-    }
-  });
-  var Employee = mongoose.model('Employee', employeeSchema);
-
-  /*
-  var mongoMessage;
-  Employee.findOne({}).exec(function (err, messageDoc) {
-    mongoMessage = messageDoc.deskLoc.seat;
-  });
-  */
+  employeeModel.createDefaultEmployees();
+  deskModel.createDefaultDesks();
 };

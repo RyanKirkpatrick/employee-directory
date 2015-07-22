@@ -2,9 +2,9 @@
   'use strict';
   angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-  edEmployeeService.$inject = ['$rootScope'];
+  edEmployeeService.$inject = ['$rootScope', 'edEmployeeResourceService'];
 
-  function edEmployeeService($rootScope) {
+  function edEmployeeService($rootScope, edEmployeeResourceService) {
     var selectedEmployees = [];
     var selectMultipleEmployees = false;
     var service = {
@@ -20,56 +20,7 @@
     return service;
 
     function getAllEmployees() {
-      return [
-        {
-          name: {
-            firstName: 'First1',
-            lastName: 'Last1'
-          },
-          gender: 'male',
-          deskLoc: {
-            floor: 6,
-            pod: 1,
-            pos: '1-1'
-          }
-        },
-        {
-          name: {
-            firstName: 'First2',
-            lastName: 'Last2'
-          },
-          gender: 'female',
-          deskLoc: {
-            floor: 6,
-            pod: 1,
-            pos: '1-2'
-          }
-        },
-        {
-          name: {
-            firstName: 'First3',
-            lastName: 'Last3'
-          },
-          gender: 'male',
-          deskLoc: {
-            floor: 6,
-            pod: 1,
-            pos: '1-3'
-          }
-        },
-        {
-          name: {
-            firstName: 'First4',
-            lastName: 'Last4'
-          },
-          gender: 'female',
-          deskLoc: {
-            floor: 6,
-            pod: 3,
-            pos: '3-1'
-          }
-        }
-      ];
+      return edEmployeeResourceService.query();
     }
 
     function getSelectedEmployees() {
