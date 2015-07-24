@@ -6,15 +6,11 @@
 
   function edSeatMapCtrl(edEmployeeService, edDeskService, $routeParams, $rootScope, $location) {
     var vm = this;
-    vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+    vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
     vm.desks = edDeskService.getAllDesks();
 
-    edEmployeeService.setSelectMultipleEmployees(false);
-
-    if (!$routeParams.pos) {
-      edEmployeeService.removeAllSelectedEmployees();
-    } else if (vm.selectedEmployees < 1) {
-      $location.path('/seat-map');
+    if (vm.selectedEmployees.length === 1) {
+      $routeParams.pos = vm.selectedEmployees[0].deskLoc.pos;
     }
   }
 })();
