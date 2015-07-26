@@ -1,16 +1,16 @@
 extends ../includes/layout
 
 block main-content
-  header.navbar.navbar-fixed-top.navbar-shadow
-    .navbar-branding
-      .navbar-brand <b>Employee</b>Directory
-  aside.sidebar.sidebar-left.affix
-    .sidebar-left-content
-      div(ng-include="'partials/components/employee-selector'")
-  section.page-content-wrapper
-    header.topbar
-      a(href="/") Home
-      span /
-      a(href="/seat-map") Seat Map
-    div.container-fluid.page-content
-      div(ng-view)
+    header.navbar.navbar-fixed-top.navbar-shadow
+        .navbar-branding
+            .navbar-brand <b>Employee</b>Directory
+    aside.sidebar.sidebar-left.affix
+        .sidebar-left-content
+            div(ng-include="'partials/components/employee-selector'")
+    section.page-content-wrapper
+        header.topbar
+            a(href="/") Home
+            span /
+            a(href="/seat-map") Seat Map
+        div.container-fluid.page-content
+            div(ng-view)

@@ -19,8 +19,8 @@
                 .col-md-10
                     input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
             .form-group
-                    .col-md-10.col-offset-2
-                        .pull-right
-                            button.btn.btn-primary(ng-click="vm.createUser()", ng-disabled="signupForm.$invalid") Submit
-                            | &nbsp;
-                            a.btn.btn-default(href="/admin/login") Cancel
+                .col-md-10.col-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.createUser()", ng-disabled="signupForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(href="/admin/login") Cancel

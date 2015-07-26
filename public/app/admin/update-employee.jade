@@ -1,11 +1,7 @@
 .well
-    form.form-horizontal(name="userProfileForm")
+    form.form-horizontal(name="employeeProfileForm")
         fieldset
-            legend User Profile
-            .form-group
-                label.col-md-2.control-label(for="username") Username
-                .col-md-10
-                    input.form-control(name="username", type="text", placeholder="Username", ng-model="vm.username", required)
+            legend Employee Profile
             .form-group
                 label.col-md-2.control-label(for="fame") First Name
                 .col-md-10
@@ -15,12 +11,12 @@
                 .col-md-10
                     input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
             .form-group
-                label.col-md-2.control-label(for="password") Password
+                label.col-md-2.control-label(for="gender") Gender
                 .col-md-10
-                    input.form-control(name="password", type="password", placeholder="Password", ng-model="vm.password")
+                    select.form-control(name="gender", ng-model="vm.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions")
             .form-group
                 .col-md-10.col-offset-2
                     .pull-right
-                        button.btn.btn-primary(ng-click="vm.updateUser()", ng-disabled="userProfileForm.$invalid") Submit
+                        button.btn.btn-primary(ng-click="vm.updateEmployee()", ng-disabled="employeeProfileForm.$invalid") Submit
                         | &nbsp;
                         a.btn.btn-default(href="/admin/login") Cancel

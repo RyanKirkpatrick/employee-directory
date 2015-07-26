@@ -1,17 +1,17 @@
 (function () {
-  'use strict';
-  angular.module('app').factory('edDeskService', edDeskService);
+	'use strict';
+	angular.module('app').factory('edDeskService', edDeskService);
 
-  edDeskService.$inject = ['edDeskResourceService'];
+	edDeskService.$inject = ['edCachedDeskResourceService'];
 
-  function edDeskService(edDeskResourceService) {
-    var service = {
-      getAllDesks: getAllDesks,
-    };
-    return service;
+	function edDeskService(edCachedDeskResourceService) {
+		var service = {
+			getAllDesks: getAllDesks,
+		};
+		return service;
 
-    function getAllDesks() {
-      return edDeskResourceService.query();
-    }
-  }
+		function getAllDesks() {
+			return edCachedDeskResourceService.query();
+		}
+	}
 })();
