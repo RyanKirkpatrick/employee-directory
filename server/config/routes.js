@@ -1,9 +1,8 @@
-var auth = require('./auth'),
-	users = require('../controllers/users'),
-	employees = require('../controllers/employees'),
-	desks = require('../controllers/desks'),
-	mongoose = require('mongoose'),
-	User = mongoose.model('User');
+var auth      = require('./auth'),
+    users     = require('../controllers/users'),
+    employees = require('../controllers/employees'),
+    desks     = require('../controllers/desks'),
+    mongoose  = require('mongoose');
 
 module.exports = function (app) {
 	app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
@@ -11,6 +10,7 @@ module.exports = function (app) {
 	app.put('/api/users', auth.requiresRole('admin'), users.updateUser);
 
 	app.get('/api/employees', employees.getEmployees);
+	app.put('/api/employees', auth.requiresRole('admin'), employees.updateEmployee);
 
 	app.get('/api/desks', desks.getDesks);
 

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', 'edEmployeeResourceService'];
+	edEmployeeService.$inject = ['$rootScope', '$q', 'edEmployeeResourceService'];
 
-	function edEmployeeService($rootScope, edEmployeeResourceService) {
+	function edEmployeeService($rootScope, $q, edEmployeeResourceService) {
 		var selectedEmployees = [];
 		var selectMultipleEmployees = false;
 		var service = {
@@ -15,7 +15,8 @@
 			updateSelectedEmployees: updateSelectedEmployees,
 			removeAllSelectedEmployees: removeAllSelectedEmployees,
 			setSelectMultipleEmployees: setSelectMultipleEmployees,
-			getSelectMultipleEmployees: getSelectMultipleEmployees
+			getSelectMultipleEmployees: getSelectMultipleEmployees,
+			updateEmployee: updateEmployee
 		};
 		return service;
 
@@ -90,6 +91,20 @@
 
 		function getSelectMultipleEmployees() {
 			return selectMultipleEmployees;
+		}
+
+		function updateEmployee(newEmployeeData) {
+			var dfd = $q.defer();
+			var clone = angular.copy(selectedEmployees[0]);
+			angular.extend(clone, newEmployeeData);
+			clone.$update().then(function () {
+				removeAllSelectedEmployees();
+				$rootScope.$broadcast('employeesUpdated', getAllEmployees());
+				dfd.resolve();
+			}, function (response) {
+				dfd.reject(response.data.reason);
+			});
+			return dfd.promise;
 		}
 	}
 })();
