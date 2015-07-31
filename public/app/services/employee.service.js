@@ -45,7 +45,7 @@
 				// This employee is not already selected, so add them and removed (and deselected) everyone else
 				if (!employee.selected) {
 					// set all selected employee's selected property to false
-					angular.forEach(selectedEmployees, function (prevSelected, value) {
+					angular.forEach(selectedEmployees, function (prevSelected) {
 						prevSelected.selected = false;
 					});
 					// Set this employee's selected property to true
@@ -64,7 +64,7 @@
 		}
 
 		function removeAllSelectedEmployees() {
-			angular.forEach(selectedEmployees, function (prevSelected, value) {
+			angular.forEach(selectedEmployees, function (prevSelected) {
 				prevSelected.selected = false;
 			});
 			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
@@ -74,8 +74,8 @@
 		/**
 		 * Sets the ability to select more than one employee at a time
 		 *
-		 * @param {boolean} selectMultiple allowed to select multiple employees
-		 * @return {array} selected employees
+		 * @param {Boolean} selectMultiple allowed to select multiple employees
+		 * @return {Array} selected employees
 		 */
 		function setSelectMultipleEmployees(selectMultiple) {
 			selectMultipleEmployees = selectMultiple;
@@ -93,6 +93,12 @@
 			return selectMultipleEmployees;
 		}
 
+		/**
+		 * Updates employee record in database
+		 *
+		 * @param {Object} newEmployeeData employee data to update
+		 * @return {Object} promise
+		 */
 		function updateEmployee(newEmployeeData) {
 			var dfd = $q.defer();
 			var clone = angular.copy(selectedEmployees[0]);

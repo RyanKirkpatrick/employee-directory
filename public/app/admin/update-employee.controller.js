@@ -7,9 +7,7 @@
 	function edUpdateEmployeeCtrl($rootScope, edNotifierService, edEmployeeService) {
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
-		vm.fname = '';
-		vm.lname = '';
-		vm.gender = '';
+		vm.selectedEmployee = {};
 		vm.genderOptions = [
 			{
 				value: 'male',
@@ -27,34 +25,70 @@
 			var selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
+			} else {
+				clearForm();
 			}
 		}
 
 		function populateEmployee(selectedEmployees) {
-			vm.fname = selectedEmployees[0].name.firstName;
-			vm.lname = selectedEmployees[0].name.lastName;
-			vm.gender = selectedEmployees[0].gender;
+			vm.selectedEmployee = {
+				name: {
+					firstName: selectedEmployees[0].name.firstName,
+					lastName: selectedEmployees[0].name.lastName
+				},
+				image: selectedEmployees[0].image,
+				gender: selectedEmployees[0].gender,
+				title: selectedEmployees[0].title,
+				department: selectedEmployees[0].department,
+				team: selectedEmployees[0].team,
+				deskLoc: {
+					floor: selectedEmployees[0].deskLoc.floor,
+					pos: selectedEmployees[0].deskLoc.pos
+				}
+			};
 		}
 
 		function clearForm() {
-			vm.fname = '';
-			vm.lname = '';
-			vm.gender = '';
+			vm.selectedEmployee = {
+				name: {
+					firstName: '',
+					lastName: ''
+				},
+				image: '',
+				gender: '',
+				title: '',
+				department: '',
+				team: '',
+				deskLoc: {
+					floor: '',
+					pos: ''
+				}
+			};
 		}
 
 		$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
+			} else {
+				clearForm();
 			}
 		});
 
 		function updateEmployee() {
 			var newEmployeeData = {
 				name: {
-					firstName: vm.fname,
-					lastName: vm.lname
+					firstName: vm.selectedEmployee.name.firstName,
+					lastName: vm.selectedEmployee.name.lastName
 				},
-				gender: vm.gender
+				image: vm.selectedEmployee.image,
+				gender: vm.selectedEmployee.gender,
+				title: vm.selectedEmployee.title,
+				department: vm.selectedEmployee.department,
+				team: vm.selectedEmployee.team,
+				deskLoc: {
+					floor: vm.selectedEmployee.deskLoc.floor,
+					pos: vm.selectedEmployee.deskLoc.pos
+				}
 			};
 
 			edEmployeeService.updateEmployee(newEmployeeData).then(function () {

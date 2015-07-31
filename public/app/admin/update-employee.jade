@@ -3,17 +3,41 @@
         fieldset
             legend Employee Profile
             .form-group
-                label.col-md-2.control-label(for="fame") First Name
+                label.col-md-2.control-label(for="firstName") First Name
                 .col-md-10
-                    input.form-control(name="fname", type="text", placeholder="First Name", ng-model="vm.fname", required)
+                    input.form-control(name="firstName", type="text", placeholder="First Name", ng-model="vm.selectedEmployee.name.firstName", required)
             .form-group
-                label.col-md-2.control-label(for="lname") Last Name
+                label.col-md-2.control-label(for="lastName") Last Name
                 .col-md-10
-                    input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
+                    input.form-control(name="lastName", type="text", placeholder="Last Name", ng-model="vm.selectedEmployee.name.lastName", required)
+            .form-group
+                label.col-md-2.control-label(for="image") Image
+                .col-md-10
+                    input.form-control(name="image", type="text", placeholder="Image", ng-model="vm.selectedEmployee.image")
             .form-group
                 label.col-md-2.control-label(for="gender") Gender
                 .col-md-10
-                    select.form-control(name="gender", ng-model="vm.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions")
+                    select.form-control(name="gender", ng-model="vm.selectedEmployee.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions")
+            .form-group
+                label.col-md-2.control-label(for="title") Title
+                .col-md-10
+                    input.form-control(name="title", type="text", placeholder="Title", ng-model="vm.selectedEmployee.title")
+            .form-group
+                label.col-md-2.control-label(for="department") Department
+                .col-md-10
+                    input.form-control(name="department", type="text", placeholder="Department", ng-model="vm.selectedEmployee.department")
+            .form-group
+                label.col-md-2.control-label(for="team") Team
+                .col-md-10
+                    input.form-control(name="team", type="text", placeholder="Team", ng-model="vm.selectedEmployee.team")
+            .form-group
+                label.col-md-2.control-label(for="floor") Floor
+                .col-md-10
+                    input.form-control(name="floor", type="number", min="6", max="8", placeholder="floor", ng-model="vm.selectedEmployee.deskLoc.floor")
+            .form-group
+                label.col-md-2.control-label(for="pos") Seat
+                .col-md-10
+                    input.form-control(name="pos", type="text", placeholder="Seat", ng-model="vm.selectedEmployee.deskLoc.pos")
             .form-group
                 .col-md-10.col-offset-2
                     .pull-right

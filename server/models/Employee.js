@@ -9,11 +9,25 @@ var employeeSchema = mongoose.Schema({
 		lastName: {
 			type: String,
 			required: '{PATH} is required!'
-		},
+		}
+	},
+	image: {
+		type: String
 	},
 	gender: {
 		type: String,
 		required: '{PATH} is required!'
+	},
+	title: {
+		type: String,
+		required: '{PATH} is required!'
+	},
+	department: {
+		type: String,
+		required: '{PATH} is required!'
+	},
+	team: {
+		type: String
 	},
 	deskLoc: {
 		floor: {
@@ -38,7 +52,11 @@ function createDefaultEmployees() {
 					firstName: 'John',
 					lastName: 'Doe'
 				},
+				image: 'johndoe.jpg',
 				gender: 'male',
+				department: 'Software Engineering',
+				title: 'Software Engineer',
+				team: 'Prestige Worldwide',
 				deskLoc: {
 					floor: 6,
 					pod: 1,
@@ -50,7 +68,10 @@ function createDefaultEmployees() {
 					firstName: 'Jane',
 					lastName: 'Doe'
 				},
+				image: 'janedoe.jpg',
 				gender: 'female',
+				department: 'Customer Service',
+				title: 'Manager',
 				deskLoc: {
 					floor: 6,
 					pod: 1,
@@ -62,7 +83,11 @@ function createDefaultEmployees() {
 					firstName: 'Jim',
 					lastName: 'Beam'
 				},
+				image: 'jimbeam.jpg',
 				gender: 'male',
+				department: 'Software Engineering',
+				title: 'Senior Software Engineer',
+				team: '00 Agents',
 				deskLoc: {
 					floor: 6,
 					pod: 1,
@@ -74,7 +99,10 @@ function createDefaultEmployees() {
 					firstName: 'Sally',
 					lastName: 'Ride'
 				},
+				image: 'sallyride.jpg',
 				gender: 'female',
+				department: 'People Operations',
+				title: 'Intern',
 				deskLoc: {
 					floor: 6,
 					pod: 1,
