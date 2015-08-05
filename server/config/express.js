@@ -1,12 +1,14 @@
-var express = require('express'),
-	stylus = require('stylus'),
-	nib = require('nib'),
-	logger = require('morgan'),
-	bodyParser = require('body-parser'),
-	cookieParser = require('cookie-parser'),
-	session = require('express-session'),
-	passport = require('passport'),
-	credentials = require('./credentials');
+var express      = require('express'),
+    stylus       = require('stylus'),
+    nib          = require('nib'),
+    logger       = require('morgan'),
+    bodyParser   = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session      = require('express-session'),
+    passport     = require('passport'),
+    credentials  = require('./credentials'),
+    mongoose     = require('mongoose'),
+    MongoStore   = require('connect-mongo')(session);
 
 module.exports = function (app, config) {
 	function compile(str, path) {
@@ -24,7 +26,8 @@ module.exports = function (app, config) {
 	app.use(session({
 		secret: credentials.sessionSecret,
 		resave: false,
-		saveUninitialized: false
+		saveUninitialized: false,
+		store: new MongoStore({mongooseConnection: mongoose.connection})
 	}));
 	app.use(passport.initialize());
 	app.use(passport.session());
