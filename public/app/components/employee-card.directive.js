@@ -20,9 +20,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['$location', 'edEmployeeService'];
+	ctrlFunc.$inject = ['$state', 'edEmployeeService'];
 
-	function ctrlFunc($location, edEmployeeService) {
+	function ctrlFunc($state, edEmployeeService) {
 		var vm = this;
 		vm.mapEmployee = mapEmployee;
 		vm.deselectEmployee = deselectEmployee;
@@ -30,7 +30,7 @@
 		function mapEmployee(employee) {
 			edEmployeeService.removeAllSelectedEmployees();
 			edEmployeeService.updateSelectedEmployees(employee);
-			$location.path('seat-map/' + employee.deskLoc.pos);
+			$state.go('seat-map', {'pos': employee.deskLoc.pos});
 		}
 
 		function deselectEmployee(employee) {

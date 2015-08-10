@@ -7,7 +7,7 @@
 	function edUpdateEmployeeCtrl($rootScope, edNotifierService, edEmployeeService) {
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
-		vm.selectedEmployee = {};
+		vm.selectedEmployee = null;
 		vm.genderOptions = [
 			{
 				value: 'male',
@@ -25,8 +25,6 @@
 			var selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
-			} else {
-				clearForm();
 			}
 		}
 
@@ -48,33 +46,15 @@
 			};
 		}
 
-		function clearForm() {
-			vm.selectedEmployee = {
-				name: {
-					firstName: '',
-					lastName: ''
-				},
-				image: '',
-				gender: '',
-				title: '',
-				department: '',
-				team: '',
-				deskLoc: {
-					floor: '',
-					pos: ''
-				}
-			};
-		}
-
 		$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
 			} else {
-				clearForm();
+				vm.selectedEmployee = null;
 			}
 		});
 
-		function updateEmployee() {
+		function updateEmployee(deleteEmployee) {
 			var newEmployeeData = {
 				name: {
 					firstName: vm.selectedEmployee.name.firstName,
@@ -91,9 +71,17 @@
 				}
 			};
 
+			if (deleteEmployee) {
+				newEmployeeData.deleted = true;
+			}
+
 			edEmployeeService.updateEmployee(newEmployeeData).then(function () {
-				edNotifierService.notify('Employee information updated!');
-				clearForm();
+				if (deleteEmployee) {
+					edNotifierService.notify('Employee deleted!');
+				} else {
+					edNotifierService.notify('Employee information updated!');
+				}
+				vm.selectedEmployee = null;
 			}, function (reason) {
 				edNotifierService.error(reason);
 			});

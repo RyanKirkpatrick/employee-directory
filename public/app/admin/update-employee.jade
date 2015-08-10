@@ -1,7 +1,9 @@
-.well
+.well(ng-if="!vm.selectedEmployee")
+    div Please selected an employee to update
+.well(ng-if="vm.selectedEmployee")
     form.form-horizontal(name="employeeProfileForm")
         fieldset
-            legend Employee Profile
+            legend Update Employee Profile
             .form-group
                 label.col-md-2.control-label(for="firstName") First Name
                 .col-md-10
@@ -39,8 +41,10 @@
                 .col-md-10
                     input.form-control(name="pos", type="text", placeholder="Seat", ng-model="vm.selectedEmployee.deskLoc.pos")
             .form-group
-                .col-md-10.col-offset-2
+                .col-md-6
+                    button.btn.btn-danger(type="button", ng-click="vm.updateEmployee(true)") Delete Employee
+                .col-md-6
                     .pull-right
-                        button.btn.btn-primary(ng-click="vm.updateEmployee()", ng-disabled="employeeProfileForm.$invalid") Submit
-                        | &nbsp;
-                        a.btn.btn-default(href="/admin/login") Cancel
+                        button.btn.btn-primary(type="submit", ng-click="vm.updateEmployee()", ng-disabled="employeeProfileForm.$invalid") Submit
+                        span
+                        a.btn.btn-default(ui-sref="login") Cancel

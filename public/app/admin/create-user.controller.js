@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edCreateUserCtrl', edCreateUserCtrl);
 
-	edCreateUserCtrl.$inject = ['$location', 'edUserResourceService', 'edNotifierService', 'edAuthService'];
+	edCreateUserCtrl.$inject = ['$state', 'edNotifierService', 'edAuthService'];
 
-	function edCreateUserCtrl($location, edUserResourceService, edNotifierService, edAuthService) {
+	function edCreateUserCtrl($state, edNotifierService, edAuthService) {
 		var vm = this;
 		vm.createUser = createUser;
 
@@ -18,7 +18,7 @@
 
 			edAuthService.createUser(newUserData).then(function () {
 				edNotifierService.notify('User account created!');
-				$location.path('/admin/login');
+				$state.go('main');
 			}, function (reason) {
 				edNotifierService.error(reason);
 			});

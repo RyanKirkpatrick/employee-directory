@@ -11,7 +11,7 @@
 		vm.selectEmployee = selectEmployee;
 
 		function selectEmployee(employee) {
-			edEmployeeService.updateSelectedEmployees(employee);
+			vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
 		}
 
 		$rootScope.$on('employeesUpdated', function (event, employees) {

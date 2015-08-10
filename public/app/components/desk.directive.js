@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edDesk', edDesk);
 
-	edDesk.$inject = ['$rootScope', '$routeParams'];
+	edDesk.$inject = ['$rootScope', '$stateParams'];
 
-	function edDesk($rootScope, $routeParams) {
+	function edDesk($rootScope, $stateParams) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/components/desk',
@@ -21,7 +21,7 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs) {
-			if ($routeParams.pos === attrs.pos) {
+			if ($stateParams.pos === attrs.pos) {
 				el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 			}
 

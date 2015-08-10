@@ -6,11 +6,13 @@ block main-content
             .navbar-brand <b>Employee</b>Directory
     aside.sidebar.sidebar-left.affix
         .sidebar-left-content
-            div(ng-include="'partials/components/employee-selector'")
+            div(ui-view="sidebar")
     section.page-content-wrapper
         header.topbar
-            a(href="/") Home
+            a(ui-sref="main") Home
             span /
-            a(href="/seat-map") Seat Map
+            a(ui-sref="seat-map") Seat Map
+            span /
+            a(ui-sref="admin.update-employee") Update Employee
         div.container-fluid.page-content
-            div(ng-view)
+            div(ui-view="main")

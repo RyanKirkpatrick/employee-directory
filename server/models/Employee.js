@@ -39,6 +39,10 @@ var employeeSchema = mongoose.Schema({
 		pos: {
 			type: String
 		}
+	},
+	deleted: {
+		type: Boolean,
+		default: false
 	}
 });
 
@@ -91,7 +95,7 @@ function createDefaultEmployees() {
 				deskLoc: {
 					floor: 6,
 					pod: 1,
-					pos: '2-6'
+					pos: '3-6'
 				}
 			});
 			Employee.create({

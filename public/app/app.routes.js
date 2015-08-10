@@ -2,65 +2,133 @@
 	'use strict';
 	angular.module('app').config(configure);
 
-	configure.$inject = ['$routeProvider', '$locationProvider'];
+	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-	function configure($routeProvider, $locationProvider) {
+	function configure($stateProvider, $urlRouterProvider, $locationProvider) {
 		var routeRoleChecks = {
 			admin: requireAdmin,
 			user: requireAuth
 		};
 
 		$locationProvider.html5Mode(true);
-		$routeProvider
-			.when('/', {
-				templateUrl: '/partials/main/main',
-				controller: 'edMainCtrl',
-				controllerAs: 'vm'
+
+		// for any unmatched url
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+			.state('main', {
+				url: '/',
+				views: {
+					'main': {
+						templateUrl: '/partials/main/main',
+						controller: 'edMainCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/employee-selector',
+						controller: 'edEmployeeSelectorCtrl',
+						controllerAs: 'vm'
+					}
+				}
 			})
-			.when('/seat-map/:pos?', {
-				templateUrl: '/partials/seat-map/seat-map',
-				controller: 'edSeatMapCtrl',
-				controllerAs: 'vm'
+			.state('seat-map', {
+				url: '/seat-map/:pos?',
+				views: {
+					'main': {
+						templateUrl: '/partials/seat-map/seat-map',
+						controller: 'edSeatMapCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/employee-selector',
+						controller: 'edEmployeeSelectorCtrl',
+						controllerAs: 'vm'
+					}
+				}
 			})
-			.when('/login', {
-				templateUrl: '/partials/account/login',
-				controller: 'edLoginCtrl',
-				controllerAs: 'vm'
+			.state('login', {
+				url: '/login',
+				views: {
+					'main': {
+						templateUrl: '/partials/account/login',
+						controller: 'edLoginCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						template: '<div>hi</div>'
+					}
+				}
 			})
-			.when('/admin/users', {
-				templateUrl: '/partials/admin/user-list',
-				controller: 'edUserListCtrl',
-				controllerAs: 'vm',
+			.state('admin', {
+				url: '/admin',
+				'views': {
+					'main': {
+						template: '<div ui-view="main"></div>'
+					},
+					'sidebar': {
+						template: '<div ui-view="sidebar"></div>'
+					}
+				},
 				resolve: {
 					auth: routeRoleChecks.admin
 				}
 			})
-			.when('/admin/create-user', {
-				templateUrl: '/partials/admin/create-user',
-				controller: 'edCreateUserCtrl',
-				controllerAs: 'vm',
-				resolve: {
-					auth: routeRoleChecks.admin
+			.state('admin.users', {
+				url: '/users',
+				views: {
+					'main': {
+						templateUrl: '/partials/admin/user-list',
+						controller: 'edUserListCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/admin-menu'
+					}
 				}
 			})
-			.when('/admin/update-user', {
-				templateUrl: '/partials/admin/update-user',
-				controller: 'edUpdateUserCtrl',
-				controllerAs: 'vm',
+			.state('admin.create-user', {
+				url: '/create-user',
+				views: {
+					'main': {
+						templateUrl: '/partials/admin/create-user',
+						controller: 'edCreateUserCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/admin-menu'
+					}
+				}
+			})
+			.state('admin.update-user', {
+				url: '/update-user',
+				views: {
+					'main': {
+						templateUrl: '/partials/admin/update-user',
+						controller: 'edUpdateUserCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/admin-menu'
+					}
+				},
 				resolve: {
 					auth: routeRoleChecks.user
 				}
 			})
-			.when('/admin/update-employee', {
-				templateUrl: '/partials/admin/update-employee',
-				controller: 'edUpdateEmployeeCtrl',
-				controllerAs: 'vm',
-				resolve: {
-					auth: routeRoleChecks.admin
+			.state('admin.update-employee', {
+				url: '/update-employee',
+				views: {
+					'main': {
+						templateUrl: '/partials/admin/update-employee',
+						controller: 'edUpdateEmployeeCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/employee-selector',
+						controller: 'edEmployeeSelectorCtrl',
+						controllerAs: 'vm'
+					}
 				}
-			})
-			.otherwise({
-				redirectTo: '/'
 			});
 	}
 

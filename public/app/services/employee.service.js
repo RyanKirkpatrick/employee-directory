@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', '$q', 'edEmployeeResourceService'];
+	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService'];
 
-	function edEmployeeService($rootScope, $q, edEmployeeResourceService) {
+	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService) {
 		var selectedEmployees = [];
 		var selectMultipleEmployees = false;
 		var service = {
@@ -20,8 +20,8 @@
 		};
 		return service;
 
-		function getAllEmployees() {
-			return edEmployeeResourceService.query();
+		function getAllEmployees(cacheBust) {
+			return edCachedEmployeeResourceService.query(cacheBust);
 		}
 
 		function getSelectedEmployees() {
@@ -102,10 +102,11 @@
 		function updateEmployee(newEmployeeData) {
 			var dfd = $q.defer();
 			var clone = angular.copy(selectedEmployees[0]);
-			angular.extend(clone, newEmployeeData);
+			var updatedEmployee = angular.extend(clone, newEmployeeData);
+			console.log(updatedEmployee.image);
 			clone.$update().then(function () {
 				removeAllSelectedEmployees();
-				$rootScope.$broadcast('employeesUpdated', getAllEmployees());
+				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
 				dfd.resolve();
 			}, function (response) {
 				dfd.reject(response.data.reason);
