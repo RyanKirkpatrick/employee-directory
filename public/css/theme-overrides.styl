@@ -1,0 +1,36 @@
+primary-color = #4a89dc
+
+.sidebar-menu
+  > li
+
+    &:last-child a
+      border-bottom 1px solid rgba(255, 255, 255, .05)
+
+    > a
+      border-top 1px solid rgba(255, 255, 255, .05)
+
+      &:hover
+        background-color #585858
+
+        &:before
+          background-color primary-color
+          bottom 0
+          content ""
+          display block
+          right 0
+          position absolute
+          top 0
+          width 4px
+
+    &.active > a
+      background-color #6B6B6B
+
+      &:before
+        background-color primary-color
+        bottom 0
+        content ""
+        display block
+        right 0
+        position absolute
+        top 0
+        width 4px
