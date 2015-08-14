@@ -115,6 +115,19 @@
 					auth: routeRoleChecks.user
 				}
 			})
+			.state('admin.create-employee', {
+				url: '/create-employee',
+				views: {
+					'main': {
+						templateUrl: '/partials/admin/create-employee',
+						controller: 'edCreateEmployeeCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar': {
+						templateUrl: '/partials/components/admin-menu'
+					}
+				}
+			})
 			.state('admin.update-employee', {
 				url: '/update-employee',
 				views: {

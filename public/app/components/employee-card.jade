@@ -1,9 +1,10 @@
-.panel.panel-default.employee-card
+.panel.employee-card
     .panel-heading
         span.panel-icon
             i.fa.fa-user
         span.panel-title {{employee.name.firstName}} {{employee.name.lastName}}
         span.panel-controls
-            a.fa.fa-times(ng-click="vm.deselectEmployee(employee)")
+            a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
     .panel-body
+        img.employee-photo(src="/images/employee-photos/{{employee.image}}", ng-if="employee.image")
         div(ng-click="vm.mapEmployee(employee)") {{employee.deskLoc.pos}}

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService'];
+	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService', 'edEmployeeResourceService', 'Upload'];
 
-	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService) {
+	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload) {
 		var selectedEmployees = [];
 		var selectMultipleEmployees = false;
 		var service = {
@@ -16,7 +16,9 @@
 			removeAllSelectedEmployees: removeAllSelectedEmployees,
 			setSelectMultipleEmployees: setSelectMultipleEmployees,
 			getSelectMultipleEmployees: getSelectMultipleEmployees,
-			updateEmployee: updateEmployee
+			updateEmployee: updateEmployee,
+			createEmployee: createEmployee,
+			uploadEmployeePhoto: uploadEmployeePhoto
 		};
 		return service;
 
@@ -102,8 +104,7 @@
 		function updateEmployee(newEmployeeData) {
 			var dfd = $q.defer();
 			var clone = angular.copy(selectedEmployees[0]);
-			var updatedEmployee = angular.extend(clone, newEmployeeData);
-			console.log(updatedEmployee.image);
+			angular.extend(clone, newEmployeeData);
 			clone.$update().then(function () {
 				removeAllSelectedEmployees();
 				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
@@ -112,6 +113,43 @@
 				dfd.reject(response.data.reason);
 			});
 			return dfd.promise;
+		}
+
+		/**
+		 * Create employee record in database
+		 *
+		 * @param {Object} newEmployeeData employee data to insert
+		 * @return {Object} promise
+		 */
+		function createEmployee(newEmployeeData) {
+			var newEmployee = new edEmployeeResourceService(newEmployeeData);
+			var dfd = $q.defer();
+
+			newEmployee.$save().then(function (employee) {
+				dfd.resolve(employee);
+			}, function (response) {
+				dfd.reject(response.data.reason);
+			});
+			return dfd.promise;
+		}
+
+		/**
+		 * Upload employee photo to disk
+		 *
+		 * @param {Object} employeePhoto employee photo data
+		 * @param {Object} employeeData employee data
+		 * @return {Object} promise
+		 */
+		function uploadEmployeePhoto(employeePhoto, employeeData) {
+			Upload.upload({
+				url: 'api/employees/uploadphoto',
+				file: employeePhoto,
+				fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
+			}).success(function (data, status, headers, config) {
+				//console.log('file ' + config.file.name + ' uploaded. Response: ' + data);
+			}).error(function (data, status, headers, config) {
+				//console.log('error status: ' + status);
+			});
 		}
 	}
 })();

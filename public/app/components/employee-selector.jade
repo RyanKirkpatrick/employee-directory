@@ -1,6 +1,6 @@
-.sidebar-label Select Employees
-ul.employee-selector
-    li.employee(ng-repeat="employee in vm.employees | orderBy: 'name.lastName'" ng-class="{'selected': employee.selected}")
-        a(ng-click="vm.selectEmployee(employee)")
-            i.fa(class="fa-{{employee.gender}}")
+ul.nav.sidebar-menu.employee-selector
+    li.sidebar-label.pt10.pb10 Select Employees
+    li(ng-repeat="employee in vm.employees | orderBy: ['name.lastName', 'name.firstName']", ng-class="{'active': employee.selected}")
+        a(href="javascript:void(0);", ng-click="vm.selectEmployee(employee)")
+            span.fa(class="fa-{{employee.gender}}")
             span {{employee.name.lastName}}, {{employee.name.firstName}}

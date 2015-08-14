@@ -8,4 +8,4 @@ form(ng-hide="vm.identity.isAuthenticated()")
 div(ng-show="vm.identity.isAuthenticated()")
     span
         | Welcome, {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}} -
-        a(ng-click="vm.signout()") Sign Out
+        a(href="" ng-click="vm.signout()") Sign Out

@@ -1,50 +1,59 @@
-.well(ng-if="!vm.selectedEmployee")
-    div Please selected an employee to update
-.well(ng-if="vm.selectedEmployee")
-    form.form-horizontal(name="employeeProfileForm")
-        fieldset
-            legend Update Employee Profile
-            .form-group
-                label.col-md-2.control-label(for="firstName") First Name
-                .col-md-10
-                    input.form-control(name="firstName", type="text", placeholder="First Name", ng-model="vm.selectedEmployee.name.firstName", required)
-            .form-group
-                label.col-md-2.control-label(for="lastName") Last Name
-                .col-md-10
-                    input.form-control(name="lastName", type="text", placeholder="Last Name", ng-model="vm.selectedEmployee.name.lastName", required)
-            .form-group
-                label.col-md-2.control-label(for="image") Image
-                .col-md-10
-                    input.form-control(name="image", type="text", placeholder="Image", ng-model="vm.selectedEmployee.image")
-            .form-group
-                label.col-md-2.control-label(for="gender") Gender
-                .col-md-10
-                    select.form-control(name="gender", ng-model="vm.selectedEmployee.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions")
-            .form-group
-                label.col-md-2.control-label(for="title") Title
-                .col-md-10
-                    input.form-control(name="title", type="text", placeholder="Title", ng-model="vm.selectedEmployee.title")
-            .form-group
-                label.col-md-2.control-label(for="department") Department
-                .col-md-10
-                    input.form-control(name="department", type="text", placeholder="Department", ng-model="vm.selectedEmployee.department")
-            .form-group
-                label.col-md-2.control-label(for="team") Team
-                .col-md-10
-                    input.form-control(name="team", type="text", placeholder="Team", ng-model="vm.selectedEmployee.team")
-            .form-group
-                label.col-md-2.control-label(for="floor") Floor
-                .col-md-10
-                    input.form-control(name="floor", type="number", min="6", max="8", placeholder="floor", ng-model="vm.selectedEmployee.deskLoc.floor")
-            .form-group
-                label.col-md-2.control-label(for="pos") Seat
-                .col-md-10
-                    input.form-control(name="pos", type="text", placeholder="Seat", ng-model="vm.selectedEmployee.deskLoc.pos")
-            .form-group
-                .col-md-6
-                    button.btn.btn-danger(type="button", ng-click="vm.updateEmployee(true)") Delete Employee
-                .col-md-6
-                    .pull-right
-                        button.btn.btn-primary(type="submit", ng-click="vm.updateEmployee()", ng-disabled="employeeProfileForm.$invalid") Submit
-                        span
-                        a.btn.btn-default(ui-sref="login") Cancel
+.mw1000.center-block
+    .panel.panel-primary(ng-if="!vm.selectedEmployee")
+         .panel-body Please selected an employee to update
+    .admin-form.theme-primary(ng-if="vm.selectedEmployee")
+        .panel.heading-border.panel-primary
+            .panel-body.bg-light
+                form(name="updateEmployeeForm")
+                    .section-divider
+                        span Update Employee Profile
+                    .row
+                        .col-md-6
+                            .section
+                                label.field
+                                    input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.selectedEmployee.name.firstName", required)
+                        .col-md-6
+                            .section
+                                label.field
+                                    input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.selectedEmployee.name.lastName", required)
+                    .row
+                        .col-md-6
+                            .section
+                                label.field.prepend-icon.file
+                                    span.button.btn-primary Choose File
+                                    input.gui-file(type="file", name="image", ng-model="vm.selectedEmployee.image", ngf-select, ngf-max-size="100000", accept="image/*", onchange="document.getElementById('employee-photo').value = this.value.replace('C:\\\\fakepath\\\\', '')")
+                                    input.gui-input(type="text", placeholder="Employee Photo", id="employee-photo")
+                                    label.field-icon
+                                        i.fa.fa-upload
+                        .col-md-6
+                            .section
+                                label.field.select
+                                    select(name="gender", ng-model="vm.selectedEmployee.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions", require)
+                                        option(disabled, value="") Select Gender
+                                    i.arrow
+                    .row
+                        .col-md-6
+                            .section
+                                label.field
+                                    input.gui-input(name="title", type="text", placeholder="Title", ng-model="vm.selectedEmployee.title", required)
+                        .col-md-6
+                            .section
+                                label.field
+                                    input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.selectedEmployee.department", required)
+                    .row
+                        .col-md-6
+                            .section
+                                label.field
+                                    input.gui-input(name="team", type="text", placeholder="Team", ng-model="vm.selectedEmployee.team")
+                        .col-md-3
+                            .section
+                                label.field
+                                    input.gui-input(name="floor", type="number", min="6", max="8", placeholder="floor", ng-model="vm.selectedEmployee.deskLoc.floor")
+                        .col-md-3
+                            .section
+                                label.field
+                                    input.gui-input(name="pos", type="text", placeholder="Seat", ng-model="vm.selectedEmployee.deskLoc.pos")
+            .panel-footer.text-right
+                button.button.btn-danger.pull-left(type="button", ng-click="vm.updateEmployee(true)") Delete Employee
+                button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit
+                button.button.btn-default(type="reset") Cancel

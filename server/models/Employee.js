@@ -56,7 +56,6 @@ function createDefaultEmployees() {
 					firstName: 'John',
 					lastName: 'Doe'
 				},
-				image: 'johndoe.jpg',
 				gender: 'male',
 				department: 'Software Engineering',
 				title: 'Software Engineer',
@@ -72,7 +71,6 @@ function createDefaultEmployees() {
 					firstName: 'Jane',
 					lastName: 'Doe'
 				},
-				image: 'janedoe.jpg',
 				gender: 'female',
 				department: 'Customer Service',
 				title: 'Manager',
@@ -87,7 +85,6 @@ function createDefaultEmployees() {
 					firstName: 'Jim',
 					lastName: 'Beam'
 				},
-				image: 'jimbeam.jpg',
 				gender: 'male',
 				department: 'Software Engineering',
 				title: 'Senior Software Engineer',
@@ -103,7 +100,6 @@ function createDefaultEmployees() {
 					firstName: 'Sally',
 					lastName: 'Ride'
 				},
-				image: 'sallyride.jpg',
 				gender: 'female',
 				department: 'People Operations',
 				title: 'Intern',
