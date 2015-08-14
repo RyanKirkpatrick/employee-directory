@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Directory</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css">
+    <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/theme-overrides.css">
+    <link rel="stylesheet" href="/css/admin-form.css">
+    <link rel="stylesheet" href="/css/admin-form-overrides.css">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/seat-map.css">
+    <link rel="stylesheet" href="/css/map-marker.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,700,600">
+    <base href="/">
+  </head>
+  <body ng-app="app">
+    <div id="main">
+      <header class="navbar navbar-fixed-top navbar-shadow">
+        <div class="navbar-branding">
+          <div class="navbar-brand"><b>Employee</b>Directory</div>
+        </div>
+      </header>
+      <aside id="sidebar_left" class="nano nano-light sidebar-default affix">
+        <div class="sidebar-left-content nano-content">
+          <div ui-view="sidebar"></div>
+        </div>
+      </aside>
+      <section id="content_wrapper">
+        <header id="topbar" class="alt">
+          <div class="top-bar-left">
+            <ol class="breadcrumb">
+              <li class="crumb-active"><a ui-sref="main">Home</a></li>
+              <li class="crumb-link"><a ui-sref="seat-map">Seat Map</a></li>
+              <li class="crumb-link"><a ui-sref="admin.update-employee">Update Employee</a></li>
+            </ol>
+          </div>
+        </header>
+        <section id="content">
+          <div ui-view="main"></div>
+        </section>
+        <footer id="content-footer" class="affix">
+          <div class="row">
+            <div class="col-xs-6"><span class="footer-legal">&copy; 2015 The Maestro</span></div>
+            <div class="col-xs-6 text-right"><a href="#content" class="footer-return-top"><span class="fa fa-arrow-up"></span></a></div>
+          </div>
+        </footer>
+      </section>
+    </div>
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/bower_components/toastr/toastr.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script type="text/javascript" src="/app/app.module.js"></script>
+    <script type="text/javascript" src="/app/app.routes.js"></script>
+    <script type="text/javascript" src="/app/app.run.js"></script>
+    <script type="text/javascript" src="/app/main/main.controller.js"></script>
+    <script type="text/javascript" src="/app/seat-map/seat-map.controller.js"></script>
+    <script type="text/javascript" src="/app/components/employee-selector.controller.js"></script>
+    <script type="text/javascript" src="/app/services/employee.service.js"></script>
+    <script type="text/javascript" src="/app/services/desk.service.js"></script>
+    <script type="text/javascript" src="/app/components/desk.directive.js"></script>
+    <script type="text/javascript" src="/app/components/employee-card.directive.js"></script>
+    <script type="text/javascript" src="/app/account/identity.service.js"></script>
+    <script type="text/javascript" src="/app/common/notifier.service.js"></script>
+    <script type="text/javascript" src="/app/account/login.controller.js"></script>
+    <script type="text/javascript" src="/app/account/auth.service.js"></script>
+    <script type="text/javascript" src="/app/account/user-resource.service.js"></script>
+    <script type="text/javascript" src="/app/admin/user-list.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/create-user.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/update-user.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/create-employee.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/update-employee.controller.js"></script>
+    <script type="text/javascript" src="/app/services/employee-resource.service.js"></script>
+    <script type="text/javascript" src="/app/services/cached-employee-resource.service.js"></script>
+    <script type="text/javascript" src="/app/services/desk-resource.service.js"></script>
+    <script type="text/javascript" src="/app/services/cached-desk-resource.service.js"></script>
+  </body>
+</html>

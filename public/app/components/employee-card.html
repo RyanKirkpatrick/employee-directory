@@ -1,0 +1,7 @@
+
+<div class="panel employee-card">
+  <div class="panel-heading"><span class="panel-icon"><i class="fa fa-user"></i></span><span class="panel-title">{{employee.name.firstName}} {{employee.name.lastName}}</span><span class="panel-controls"><a ng-click="vm.deselectEmployee(employee)" class="panel-control-remove"></a></span></div>
+  <div class="panel-body"><img src="/images/employee-photos/{{employee.image}}" ng-if="employee.image" class="employee-photo"/>
+    <div ng-click="vm.mapEmployee(employee)">{{employee.deskLoc.pos}}</div>
+  </div>
+</div>

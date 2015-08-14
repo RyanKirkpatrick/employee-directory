@@ -1,0 +1,5 @@
+
+<ul class="nav sidebar-menu employee-selector">
+  <li class="sidebar-label pt10 pb10">Select Employees</li>
+  <li ng-repeat="employee in vm.employees | orderBy: ['name.lastName', 'name.firstName']" ng-class="{'active': employee.selected}"><a href="javascript:void(0);" ng-click="vm.selectEmployee(employee)"><span class="fa fa-{{employee.gender}}"></span><span>{{employee.name.lastName}}, {{employee.name.firstName}}</span></a></li>
+</ul>

@@ -1,0 +1,32 @@
+.sidebar-menu > li:last-child a {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sidebar-menu > li > a {
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.sidebar-menu > li > a:hover {
+  background-color: #585858;
+}
+.sidebar-menu > li > a:hover:before {
+  background-color: #4a89dc;
+  bottom: 0;
+  content: "";
+  display: block;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+.sidebar-menu > li.active > a {
+  background-color: #6b6b6b;
+}
+.sidebar-menu > li.active > a:before {
+  background-color: #4a89dc;
+  bottom: 0;
+  content: "";
+  display: block;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}

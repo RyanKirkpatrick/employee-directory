@@ -1,0 +1,11 @@
+
+<form ng-hide="vm.identity.isAuthenticated()">
+  <div class="form-group">
+    <input placeholder="Email" ng-model="vm.username" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" ng-model="vm.password" class="form-control"/>
+  </div>
+  <button ng-click="vm.signin(vm.username, vm.password)" class="btn btn-primary">Sign In</button>
+</form>
+<div ng-show="vm.identity.isAuthenticated()"><span>Welcome, {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}} -<a href="" ng-click="vm.signout()">Sign Out</a></span></div>
