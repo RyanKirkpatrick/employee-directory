@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService', 'edEmployeeResourceService', 'Upload'];
+	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService', 'edEmployeeResourceService', 'Upload', 'edNotifierService'];
 
-	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload) {
+	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload, edNotifierService) {
 		var selectedEmployees = [];
 		var selectMultipleEmployees = false;
 		var service = {
@@ -22,14 +22,30 @@
 		};
 		return service;
 
+		/**
+		 * Gets all employees from the database (or memory)
+		 *
+		 * @return {Array} employees
+		 */
 		function getAllEmployees(cacheBust) {
 			return edCachedEmployeeResourceService.query(cacheBust);
 		}
 
+		/**
+		 * Gets the selected employees
+		 *
+		 * @return {Array} selected employees
+		 */
 		function getSelectedEmployees() {
 			return selectedEmployees;
 		}
 
+		/**
+		 * Updates the array of selected employees
+		 *
+		 * @param {Object} employee the employee to add / remove from selected employees
+		 * @return {Array} selected employees
+		 */
 		function updateSelectedEmployees(employee) {
 			// Allowed to have multiple employees selected
 			if (selectMultipleEmployees) {
@@ -65,12 +81,15 @@
 			return selectedEmployees;
 		}
 
+		/**
+		 * Removes all selected employees
+		 */
 		function removeAllSelectedEmployees() {
 			angular.forEach(selectedEmployees, function (prevSelected) {
 				prevSelected.selected = false;
 			});
-			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
 			selectedEmployees = [];
+			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
 		}
 
 		/**
@@ -97,6 +116,7 @@
 
 		/**
 		 * Updates employee record in database
+		 * Uses the selected employee for updating
 		 *
 		 * @param {Object} newEmployeeData employee data to update
 		 * @return {Object} promise
@@ -105,10 +125,10 @@
 			var dfd = $q.defer();
 			var clone = angular.copy(selectedEmployees[0]);
 			angular.extend(clone, newEmployeeData);
-			clone.$update().then(function () {
+			clone.$update().then(function (employee) {
 				removeAllSelectedEmployees();
 				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
-				dfd.resolve();
+				dfd.resolve(employee);
 			}, function (response) {
 				dfd.reject(response.data.reason);
 			});
@@ -138,17 +158,18 @@
 		 *
 		 * @param {Object} employeePhoto employee photo data
 		 * @param {Object} employeeData employee data
-		 * @return {Object} promise
 		 */
 		function uploadEmployeePhoto(employeePhoto, employeeData) {
 			Upload.upload({
 				url: 'api/employees/uploadphoto',
 				file: employeePhoto,
 				fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
-			}).success(function (data, status, headers, config) {
-				//console.log('file ' + config.file.name + ' uploaded. Response: ' + data);
-			}).error(function (data, status, headers, config) {
-				//console.log('error status: ' + status);
+			}).success(function (data) {
+				if (data.reason) {
+					edNotifierService.error(data.reason);
+				}
+			}).error(function () {
+				// something went wrong
 			});
 		}
 	}

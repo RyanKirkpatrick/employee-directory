@@ -22,12 +22,38 @@ exports.createEmployee = function (req, res) {
 	});
 };
 
+exports.updateEmployee = function (req, res) {
+	var employeeUpdates = req.body;
+	if (!req.user.hasRole('admin')) {
+		res.status(403);
+		return res.end();
+	}
+
+	Employee.findByIdAndUpdate(employeeUpdates._id, employeeUpdates, function (err, employee) {
+		if (err) {
+			res.status(400);
+			return res.send({
+				reason: err.toString()
+			});
+		}
+		res.send(employee);
+	});
+};
+
 exports.uploadEmployeePhoto = function (req, res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
 		var oldPath  = files.file.path,
-				fileName = files.file.name,
-				newPath  = path.join(process.env.PWD, '/public/images/employee-photos/', fileName);
+        fileName = files.file.name,
+        fileSize = files.file.size,
+        fileSizeLimit = 300000,
+        newPath  = path.join(process.env.PWD, '/public/images/employee-photos/', fileName);
+
+		if (fileSize > fileSizeLimit) {
+			return res.send({
+				reason: 'Photo is too big.  Must be less than ' + fileSizeLimit + ' bytes.'
+			});
+		}
 
 		fs.readFile(oldPath, function (err, data) {
 			fs.writeFile(newPath, data, function (err) {
@@ -42,23 +68,5 @@ exports.uploadEmployeePhoto = function (req, res) {
 				});
 			});
 		});
-	});
-};
-
-exports.updateEmployee = function (req, res) {
-	var employeeUpdates = req.body;
-	if (!req.user.hasRole('admin')) {
-		res.status(403);
-		return res.end();
-	}
-
-	Employee.findByIdAndUpdate(employeeUpdates._id, employeeUpdates, function (err) {
-		if (err) {
-			res.status(400);
-			return res.send({
-				reason: err.toString()
-			});
-		}
-		res.send('Done');
 	});
 };

@@ -33,7 +33,10 @@ var employeeSchema = mongoose.Schema({
 		floor: {
 			type: Number
 		},
-		pod: {
+		section: {
+			type: Number
+		},
+		seat: {
 			type: Number
 		},
 		pos: {
@@ -62,7 +65,8 @@ function createDefaultEmployees() {
 				team: 'Prestige Worldwide',
 				deskLoc: {
 					floor: 6,
-					pod: 1,
+					section: 1,
+					seat: 1,
 					pos: '1-1'
 				}
 			});
@@ -76,7 +80,8 @@ function createDefaultEmployees() {
 				title: 'Manager',
 				deskLoc: {
 					floor: 6,
-					pod: 1,
+					section: 1,
+					seat: 2,
 					pos: '1-2'
 				}
 			});
@@ -91,7 +96,8 @@ function createDefaultEmployees() {
 				team: '00 Agents',
 				deskLoc: {
 					floor: 6,
-					pod: 1,
+					section: 3,
+					seat: 6,
 					pos: '3-6'
 				}
 			});
@@ -105,7 +111,8 @@ function createDefaultEmployees() {
 				title: 'Intern',
 				deskLoc: {
 					floor: 6,
-					pod: 1,
+					section: 3,
+					seat: 1,
 					pos: '3-1'
 				}
 			});

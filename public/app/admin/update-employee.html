@@ -4,9 +4,9 @@
     <div class="panel-body">Please selected an employee to update</div>
   </div>
   <div ng-if="vm.selectedEmployee" class="admin-form theme-primary">
-    <div class="panel heading-border panel-primary">
-      <div class="panel-body bg-light">
-        <form name="updateEmployeeForm">
+    <form name="updateEmployeeForm" novalidate="novalidate">
+      <div class="panel heading-border panel-primary">
+        <div class="panel-body bg-light">
           <div class="section-divider"><span>Update Employee Profile</span></div>
           <div class="row">
             <div class="col-md-6">
@@ -28,7 +28,7 @@
             <div class="col-md-6">
               <div class="section">
                 <label class="field prepend-icon file"><span class="button btn-primary">Choose File</span>
-                  <input type="file" name="image" ng-model="vm.selectedEmployee.image" ngf-select="ngf-select" ngf-max-size="100000" accept="image/*" onchange="document.getElementById('employee-photo').value = this.value.replace('C:\\fakepath\\', '')" class="gui-file"/>
+                  <input type="file" name="imageFile" ng-model="vm.selectedEmployee.imageFile" ngf-select="ngf-select" ngf-max-size="300000" accept="image/*" onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\fakepath\\', '')" class="gui-file"/>
                   <input type="text" placeholder="Employee Photo" id="employee-photo" class="gui-input"/>
                   <label class="field-icon"><i class="fa fa-upload"></i></label>
                 </label>
@@ -70,26 +70,30 @@
             </div>
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
-                  <input name="floor" type="number" min="6" max="8" placeholder="floor" ng-model="vm.selectedEmployee.deskLoc.floor" class="gui-input"/>
+                <label class="field select">
+                  <select name="floor" ng-model="vm.selectedEmployee.deskLoc.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'">
+                    <option disabled="disabled" value="">Floor</option>
+                  </select><i class="arrow"></i>
                 </label>
               </div>
             </div>
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
-                  <input name="pos" type="text" placeholder="Seat" ng-model="vm.selectedEmployee.deskLoc.pos" class="gui-input"/>
+                <label class="field select">
+                  <select name="pos" ng-model="vm.selectedEmployee.deskLoc.pos" ng-options="desk.pos as desk.pos for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']">
+                    <option disabled="disabled" value="">Seat</option>
+                  </select><i class="arrow"></i>
                 </label>
               </div>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="panel-footer text-right">
+          <button type="button" ng-click="vm.deleteEmployee()" class="button btn-danger pull-left">Delete Employee</button>
+          <button type="submit" ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''" ng-disabled="updateEmployeeForm.$invalid" class="button btn-primary">Submit</button>
+          <button type="reset" class="button btn-default">Cancel</button>
+        </div>
       </div>
-      <div class="panel-footer text-right">
-        <button type="button" ng-click="vm.updateEmployee(true)" class="button btn-danger pull-left">Delete Employee</button>
-        <button type="submit" ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''" ng-disabled="updateEmployeeForm.$invalid" class="button btn-primary">Submit</button>
-        <button type="reset" class="button btn-default">Cancel</button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

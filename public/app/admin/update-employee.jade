@@ -2,9 +2,9 @@
     .panel.panel-primary(ng-if="!vm.selectedEmployee")
          .panel-body Please selected an employee to update
     .admin-form.theme-primary(ng-if="vm.selectedEmployee")
-        .panel.heading-border.panel-primary
-            .panel-body.bg-light
-                form(name="updateEmployeeForm")
+        form(name="updateEmployeeForm", novalidate)
+            .panel.heading-border.panel-primary
+                .panel-body.bg-light
                     .section-divider
                         span Update Employee Profile
                     .row
@@ -21,7 +21,7 @@
                             .section
                                 label.field.prepend-icon.file
                                     span.button.btn-primary Choose File
-                                    input.gui-file(type="file", name="image", ng-model="vm.selectedEmployee.image", ngf-select, ngf-max-size="100000", accept="image/*", onchange="document.getElementById('employee-photo').value = this.value.replace('C:\\\\fakepath\\\\', '')")
+                                    input.gui-file(type="file", name="imageFile", ng-model="vm.selectedEmployee.imageFile", ngf-select, ngf-max-size="300000", accept="image/*", onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\\\fakepath\\\\', '')")
                                     input.gui-input(type="text", placeholder="Employee Photo", id="employee-photo")
                                     label.field-icon
                                         i.fa.fa-upload
@@ -47,13 +47,17 @@
                                     input.gui-input(name="team", type="text", placeholder="Team", ng-model="vm.selectedEmployee.team")
                         .col-md-3
                             .section
-                                label.field
-                                    input.gui-input(name="floor", type="number", min="6", max="8", placeholder="floor", ng-model="vm.selectedEmployee.deskLoc.floor")
+                                label.field.select
+                                    select(name="floor", ng-model="vm.selectedEmployee.deskLoc.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
+                                        option(disabled, value="") Floor
+                                    i.arrow
                         .col-md-3
                             .section
-                                label.field
-                                    input.gui-input(name="pos", type="text", placeholder="Seat", ng-model="vm.selectedEmployee.deskLoc.pos")
-            .panel-footer.text-right
-                button.button.btn-danger.pull-left(type="button", ng-click="vm.updateEmployee(true)") Delete Employee
-                button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit
-                button.button.btn-default(type="reset") Cancel
+                                label.field.select
+                                    select(name="pos", ng-model="vm.selectedEmployee.deskLoc.pos", ng-options="desk.pos as desk.pos for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']")
+                                        option(disabled, value="") Seat
+                                    i.arrow
+                .panel-footer.text-right
+                    button.button.btn-danger.pull-left(type="button", ng-click="vm.deleteEmployee()") Delete Employee
+                    button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit
+                    button.button.btn-default(type="reset") Cancel

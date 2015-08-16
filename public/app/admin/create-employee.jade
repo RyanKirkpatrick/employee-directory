@@ -1,8 +1,8 @@
 .mw1000.center-block
     .admin-form.theme-primary
-        .panel.heading-border.panel-primary
-            .panel-body.bg-light
-                form(name="createEmployeeForm")
+        form(name="createEmployeeForm", novalidate)
+            .panel.heading-border.panel-primary
+                .panel-body.bg-light
                     .section-divider
                         span Create New Employee
                     .row
@@ -19,7 +19,7 @@
                             .section
                                 label.field.prepend-icon.file
                                     span.button.btn-primary Choose File
-                                    input.gui-file(type="file", name="image", ng-model="vm.newEmployee.image", ngf-select, ngf-max-size="100000", accept="image/*", onchange="document.getElementById('employee-photo').value = this.value.replace('C:\\\\fakepath\\\\', '')")
+                                    input.gui-file(type="file", name="image", ng-model="vm.newEmployee.image", ngf-select, ngf-max-size="300000", accept="image/*", onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\\\fakepath\\\\', '')")
                                     input.gui-input(type="text", placeholder="Employee Photo", id="employee-photo")
                                     label.field-icon
                                         i.fa.fa-upload
@@ -45,12 +45,16 @@
                                     input.gui-input(name="team", type="text", placeholder="Team", ng-model="vm.newEmployee.team")
                         .col-md-3
                             .section
-                                label.field
-                                    input.gui-input(name="floor", type="number", min="6", max="8", placeholder="floor", ng-model="vm.newEmployee.deskLoc.floor")
+                                label.field.select
+                                    select(name="floor", ng-model="vm.newEmployee.deskLoc.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
+                                        option(disabled, value="") Floor
+                                    i.arrow
                         .col-md-3
                             .section
-                                label.field
-                                    input.gui-input(name="pos", type="text", placeholder="Seat", ng-model="vm.newEmployee.deskLoc.pos")
-            .panel-footer.text-right
-                button.button.btn-primary(type="submit", ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="createEmployeeForm.$invalid") Submit
-                button.button.btn-default(type="reset") Cancel
+                                label.field.select
+                                    select(name="pos", ng-model="vm.newEmployee.deskLoc.pos", ng-options="desk.pos as desk.pos for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']")
+                                        option(disabled, value="") Seat
+                                    i.arrow
+                .panel-footer.text-right
+                    button.button.btn-primary(type="submit", ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="createEmployeeForm.$invalid") Submit
+                    button.button.btn-default(type="reset") Cancel
