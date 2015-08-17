@@ -6,8 +6,9 @@
 
 	function edDeskService(edCachedDeskResourceService) {
 		var service = {
-			getAllDesks: getAllDesks,
+			getAllDesks: getAllDesks
 		};
+
 		return service;
 
 		function getAllDesks() {

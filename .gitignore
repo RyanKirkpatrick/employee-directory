@@ -18,6 +18,10 @@ build
 ###################
 **/credentials.js
 
+# Ignore Directories
+###################
+**/employee-photos
+
 # Ignore Test reporters
 ###################
 **/test/coverage

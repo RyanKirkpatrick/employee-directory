@@ -6,5 +6,5 @@
         span.panel-controls
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
     .panel-body
-        img.employee-photo(src="/images/employee-photos/{{employee.image}}", ng-if="employee.image")
+        img.employee-photo(ng-src="/images/employee-photos/{{employee.image}}", ng-if="employee.image != null")
         div(ng-click="vm.mapEmployee(employee)") {{employee.deskLoc.pos}}

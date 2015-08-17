@@ -7,7 +7,7 @@
 	function edCachedDeskResourceService(edDeskResourceService) {
 		var desks;
 		var service = {
-			query: query,
+			query: query
 		};
 
 		return service;

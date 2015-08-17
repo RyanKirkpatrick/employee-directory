@@ -32,16 +32,46 @@
 				}
 			})
 			.state('seat-map', {
-				url: '/seat-map/:pos?',
+				url: '/seat-map',
 				views: {
 					'main': {
-						templateUrl: '/partials/seat-map/seat-map',
+						template: 'Hi',
 						controller: 'edSeatMapCtrl',
 						controllerAs: 'vm'
 					},
 					'sidebar': {
 						templateUrl: '/partials/components/employee-selector',
 						controller: 'edEmployeeSelectorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('seat-map.floor-6', {
+				url: '/floor-6/:pos',
+				views: {
+					'main@': {
+						templateUrl: '/partials/seat-map/seat-map',
+						controller: 'edSeatMapFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('seat-map.floor-7', {
+				url: '/floor-7/:pos',
+				views: {
+					'main@': {
+						templateUrl: '/partials/seat-map/seat-map',
+						controller: 'edSeatMapFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('seat-map.floor-8', {
+				url: '/floor-8/:pos',
+				views: {
+					'main@': {
+						templateUrl: '/partials/seat-map/seat-map',
+						controller: 'edSeatMapFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}

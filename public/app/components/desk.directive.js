@@ -10,6 +10,7 @@
 			templateUrl: '/partials/components/desk',
 			replace: true,
 			scope: {
+				floor: '@',
 				pos: '@',
 				orientation: '@',
 				xpos: '@',
@@ -26,7 +27,7 @@
 			}
 
 			$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-				if (selectedEmployees.length === 1 && (selectedEmployees[0].deskLoc.pos === attrs.pos)) {
+				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc.pos === attrs.pos) {
 					el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 				} else {
 					el.removeClass('active').find('.marker').remove();

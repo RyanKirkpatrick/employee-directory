@@ -8,6 +8,12 @@ floor {
 .floor-6 {
   background-image: url("/images/floor-6.png");
 }
+.floor-7 {
+  background-image: url("/images/floor-7.png");
+}
+.floor-8 {
+  background-image: url("/images/floor-8.png");
+}
 desk {
   background-color: #ddd;
   border: 1px solid #f00;

@@ -1,4 +1,5 @@
 
-<floor class="floor-6">
-  <ed-desk ng-repeat="desk in vm.desks" pos="{{desk.pos}}" orientation="{{desk.orientation}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}"></ed-desk>
+<div>Floor {{vm.floor}}</div>
+<floor class="floor-{{vm.floor}}">
+  <ed-desk ng-repeat="desk in vm.desks" floor="{{desk.floor}}" pos="{{desk.pos}}" orientation="{{desk.orientation}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}"></ed-desk>
 </floor>
