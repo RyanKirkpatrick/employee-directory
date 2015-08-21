@@ -1,10 +1,36 @@
-.panel.employee-card
+.panel
     .panel-heading
-        span.panel-icon
+        span.panel-icon.mr10
             i.fa.fa-user
         span.panel-title {{employee.name.firstName}} {{employee.name.lastName}}
         span.panel-controls
+            a.panel-control-map-marker(ng-click="vm.mapEmployee(employee)")
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
-    .panel-body
-        img.employee-photo(ng-src="/images/employee-photos/{{employee.image}}", ng-if="employee.image != null")
-        div(ng-click="vm.mapEmployee(employee)") {{employee.deskLoc.pos}}
+    .panel-body.pn
+        .row.table-layout
+            .col-xs-4.text-center.va-t.of-h
+                img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{employee.image}}", ng-if="employee.image")
+                span(class="fa fa-{{employee.gender}} fs100 mt20", ng-if="!employee.image")
+            .col-xs-8.br-l.pn.admin-form
+                table.table.mbn
+                    tbody
+                        tr
+                            td.va-m.fw600 {{employee.title}}
+                        tr
+                            td.va-m.fw600.text-muted {{employee.department}}
+                        tr(ng-if="employee.team")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-group.mr10
+                                | {{employee.team}}
+                        tr(ng-if="employee.email")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-at.mr10
+                                | {{employee.email}}
+                        tr(ng-if="employee.phone")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-phone.mr10
+                                | {{employee.phone}}
+                        tr
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-map-marker.fs15.mr10.cursor(ng-click="vm.mapEmployee(employee)")
+                                | Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}

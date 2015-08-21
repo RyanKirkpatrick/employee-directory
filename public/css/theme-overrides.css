@@ -30,3 +30,6 @@
   top: 0;
   width: 4px;
 }
+.panel-control-map-marker:after {
+  content: "\f041";
+}

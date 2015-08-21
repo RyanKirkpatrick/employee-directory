@@ -1,6 +1,50 @@
 /**************************************************
+Employee Selector
+**************************************************/
+.employee-selector {
+  position: relative;
+  top: -122px;
+  -webkit-transition: top 0.3s ease-in-out;
+  -moz-transition: top 0.3s ease-in-out;
+  -o-transition: top 0.3s ease-in-out;
+  -ms-transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+}
+.employee-selector.open {
+  top: 0;
+}
+.employee-selector .sidebar-label {
+  padding-left: 44px;
+}
+.employee-selector .employee-filter {
+  color: #666;
+  position: relative;
+}
+.employee-selector .employee-filter .panel {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.employee-selector .employee-filter .toggle {
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  bottom: -33px;
+  cursor: pointer;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  width: 32px;
+  z-index: 1;
+}
+/**************************************************
 Employee Card
 **************************************************/
+.employee-card:nth-child(odd) {
+  clear: left;
+}
 .employee-card .employee-photo {
-  width: 150px;
+  width: 120px;
 }

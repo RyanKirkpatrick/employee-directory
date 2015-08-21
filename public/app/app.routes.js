@@ -51,7 +51,7 @@
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',
-						controller: 'edSeatMapFloorCtrl',
+						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}
@@ -61,7 +61,7 @@
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',
-						controller: 'edSeatMapFloorCtrl',
+						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}
@@ -71,7 +71,7 @@
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',
-						controller: 'edSeatMapFloorCtrl',
+						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}

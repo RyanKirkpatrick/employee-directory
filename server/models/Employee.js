@@ -11,6 +11,12 @@ var employeeSchema = mongoose.Schema({
 			required: '{PATH} is required!'
 		}
 	},
+	email: {
+		type: String
+	},
+	phone: {
+		type: String
+	},
 	image: {
 		type: String
 	},
@@ -59,6 +65,8 @@ function createDefaultEmployees() {
 					firstName: 'John',
 					lastName: 'Doe'
 				},
+				email: 'john.doe@maestro.com',
+				phone: '(716) 555-1212',
 				gender: 'male',
 				department: 'Software Engineering',
 				title: 'Software Engineer',
@@ -75,6 +83,8 @@ function createDefaultEmployees() {
 					firstName: 'Jane',
 					lastName: 'Doe'
 				},
+				email: 'jane.doe@maestro.com',
+				phone: '(716) 555-1212',
 				gender: 'female',
 				department: 'Customer Service',
 				title: 'Manager',
@@ -90,6 +100,8 @@ function createDefaultEmployees() {
 					firstName: 'Jim',
 					lastName: 'Beam'
 				},
+				email: 'jim.beam@maestro.com',
+				phone: '(716) 555-1212',
 				gender: 'male',
 				department: 'Software Engineering',
 				title: 'Senior Software Engineer',
@@ -106,6 +118,8 @@ function createDefaultEmployees() {
 					firstName: 'Sally',
 					lastName: 'Ride'
 				},
+				email: 'sally.ride@maestro.com',
+				phone: '(716) 555-1212',
 				gender: 'female',
 				department: 'People Operations',
 				title: 'Intern',

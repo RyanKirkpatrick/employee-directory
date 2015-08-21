@@ -1,10 +1,52 @@
 @import nib
 
+text-color = #666
 primary-color = #4a89dc
 primary-a-color = #3498db
+
+
+/**************************************************
+Employee Selector
+**************************************************/
+.employee-selector
+  position relative
+  top -122px
+  transition top 0.3s ease-in-out
+
+  &.open
+    top 0
+
+  .sidebar-label
+    padding-left 44px
+
+  .employee-filter
+    color text-color
+    position relative
+
+    .panel
+      border-radius 0
+      margin-bottom 0
+
+    .toggle
+      background-color #fff
+      border 1px solid #e2e2e2
+      border-top none
+      border-bottom-left-radius 3px
+      border-bottom-right-radius 3px
+      bottom -33px
+      cursor pointer
+      left 0
+      padding 10px
+      position absolute
+      width 32px
+      z-index 1
 
 /**************************************************
 Employee Card
 **************************************************/
+.employee-card:nth-child(odd)
+  clear left
+
+
 .employee-card .employee-photo
-  width 150px
+  width 120px
