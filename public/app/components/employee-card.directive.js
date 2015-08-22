@@ -20,12 +20,14 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['$state', 'edEmployeeService'];
+	ctrlFunc.$inject = ['$state', 'edEmployeeService', 'edIdentityService'];
 
-	function ctrlFunc($state, edEmployeeService) {
+	function ctrlFunc($state, edEmployeeService, edIdentityService) {
 		var vm = this;
+		vm.identity = edIdentityService;
 		vm.mapEmployee = mapEmployee;
 		vm.deselectEmployee = deselectEmployee;
+		vm.editEmployee = editEmployee;
 
 		function mapEmployee(employee) {
 			edEmployeeService.removeAllSelectedEmployees();
@@ -35,6 +37,12 @@
 
 		function deselectEmployee(employee) {
 			edEmployeeService.updateSelectedEmployees(employee);
+		}
+
+		function editEmployee(employee) {
+			edEmployeeService.removeAllSelectedEmployees();
+			edEmployeeService.updateSelectedEmployees(employee);
+			$state.go('admin.update-employee');
 		}
 	}
 })();

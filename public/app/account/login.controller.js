@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edLoginCtrl', edLoginCtrl);
 
-	edLoginCtrl.$inject = ['$http', 'edIdentityService', 'edNotifierService', 'edAuthService'];
+	edLoginCtrl.$inject = ['edIdentityService', 'edNotifierService', 'edAuthService'];
 
-	function edLoginCtrl($http, edIdentityService, edNotifierService, edAuthService) {
+	function edLoginCtrl(edIdentityService, edNotifierService, edAuthService) {
 		var vm = this;
 		vm.identity = edIdentityService;
 		vm.signin = signin;

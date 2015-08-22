@@ -2,9 +2,10 @@
     .panel-heading
         span.panel-icon.mr10
             i.fa.fa-user
-        span.panel-title {{employee.name.firstName}} {{employee.name.lastName}}
+        span.panel-title Employee Profile
         span.panel-controls
             a.panel-control-map-marker(ng-click="vm.mapEmployee(employee)")
+            a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
     .panel-body.pn
         .row.table-layout
@@ -15,7 +16,9 @@
                 table.table.mbn
                     tbody
                         tr
-                            td.va-m.fw600 {{employee.title}}
+                            td.va-m.fw600 {{employee.name.firstName}} {{employee.name.lastName}}
+                        tr
+                            td.va-m.fw600.text-muted {{employee.title}}
                         tr
                             td.va-m.fw600.text-muted {{employee.department}}
                         tr(ng-if="employee.team")
@@ -31,6 +34,6 @@
                                 span.fa.fa-phone.mr10
                                 | {{employee.phone}}
                         tr
-                            td.va-m.fw600.text-muted
-                                span.fa.fa-map-marker.fs15.mr10.cursor(ng-click="vm.mapEmployee(employee)")
+                            td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)")
+                                span.fa.fa-map-marker.fs15.mr10
                                 | Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}
