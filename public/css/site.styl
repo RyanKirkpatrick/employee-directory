@@ -10,14 +10,11 @@ Employee Selector
 **************************************************/
 .employee-selector
   position relative
-  top -107px
+  top -274px
   transition top 0.3s ease-in-out
 
   &.open
     top 0
-
-  .sidebar-label
-    padding-left 44px
 
   .employee-filter
     color text-color
@@ -26,6 +23,9 @@ Employee Selector
     .panel
       border-radius 0
       margin-bottom 0
+
+      .panel-heading
+        border-radius 0
 
     .toggle
       background-color #fff
@@ -46,7 +46,6 @@ Employee Card
 **************************************************/
 .employee-card:nth-child(odd)
   clear left
-
 
 .employee-card .employee-photo
   width 120px

@@ -3,6 +3,11 @@
 }
 .sidebar-menu > li > a {
   border-top: 1px solid rgba(255,255,255,0.05);
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 .sidebar-menu > li > a:hover {
   background-color: #585858;
@@ -30,6 +35,17 @@
   top: 0;
   width: 4px;
 }
+.sidebar-menu .sidebar-label-tray {
+  position: absolute;
+  right: 13px;
+  top: 6px;
+}
 .panel-control-map-marker:after {
   content: "\f041";
+}
+@media (max-width: 1100px) {
+  #content_wrapper {
+    margin-left: 250px;
+    left: 0;
+  }
 }

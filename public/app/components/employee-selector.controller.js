@@ -9,6 +9,9 @@
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 		vm.selectEmployee = selectEmployee;
+		vm.selectAll = selectAll;
+		vm.selectNone = selectNone;
+		vm.filteredEmployees = edEmployeeService.getAllEmployees();
 		vm.filterOpen = false;
 		vm.floorFilter = floorFilter;
 		vm.filterFloors = filterFloors;
@@ -20,7 +23,7 @@
 		vm.floors = [6, 7, 8];
 
 		function selectEmployee(employee) {
-			vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
+			edEmployeeService.updateSelectedEmployees(employee);
 		}
 
 		function filterFloors(floor) {
@@ -33,6 +36,22 @@
 
 		function floorFilter(employee) {
 			return vm.floors.indexOf(employee.deskLoc.floor) > -1;
+		}
+
+		function selectAll() {
+			angular.forEach(vm.filteredEmployees, function (employee) {
+				if (!employee.selected) {
+					edEmployeeService.updateSelectedEmployees(employee);
+				}
+			});
+		}
+
+		function selectNone() {
+			angular.forEach(vm.filteredEmployees, function (employee) {
+				if (employee.selected) {
+					edEmployeeService.updateSelectedEmployees(employee);
+				}
+			});
 		}
 
 		$rootScope.$on('employeesUpdated', function (event, employees) {

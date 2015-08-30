@@ -3,7 +3,7 @@ Employee Selector
 **************************************************/
 .employee-selector {
   position: relative;
-  top: -107px;
+  top: -274px;
   -webkit-transition: top 0.3s ease-in-out;
   -moz-transition: top 0.3s ease-in-out;
   -o-transition: top 0.3s ease-in-out;
@@ -13,9 +13,6 @@ Employee Selector
 .employee-selector.open {
   top: 0;
 }
-.employee-selector .sidebar-label {
-  padding-left: 44px;
-}
 .employee-selector .employee-filter {
   color: #666;
   position: relative;
@@ -24,6 +21,10 @@ Employee Selector
   -webkit-border-radius: 0;
   border-radius: 0;
   margin-bottom: 0;
+}
+.employee-selector .employee-filter .panel .panel-heading {
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 .employee-selector .employee-filter .toggle {
   background-color: #fff;
