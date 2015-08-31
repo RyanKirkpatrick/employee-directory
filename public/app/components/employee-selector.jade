@@ -43,7 +43,7 @@
                             div.bs-component
                                 select.form-control.input-sm(name="team", ng-model="vm.team", ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department} | filter: {team : '!!'} | unique: 'team' | orderBy: 'team'")
                                     option(value="", selected) All Teams
-                    button.btn.btn-xs.btn-success.pull-right.ml10(type="submit", ng-click="vm.selectAll()") Select All
+                    button.btn.btn-xs.btn-success.pull-right.ml10(type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll") Select All
                     button.btn.btn-xs.btn-warning.pull-right(type="button", ng-click="vm.selectNone()") Select None
                         //.col-md-3
                             .radio-custom

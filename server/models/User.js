@@ -49,7 +49,7 @@ function createDefaultUsers() {
 				username: 'matt',
 				salt: salt,
 				hashedPwd: hash,
-				roles: ['admin']
+				roles: ['super-admin', 'admin']
 			});
 			salt = encrypt.createSalt();
 			hash = encrypt.hashPwd(salt, 'tom');
@@ -59,7 +59,7 @@ function createDefaultUsers() {
 				username: 'tom',
 				salt: salt,
 				hashedPwd: hash,
-				roles: []
+				roles: ['admin']
 			});
 		}
 	});

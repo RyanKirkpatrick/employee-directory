@@ -8,6 +8,7 @@
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
+		vm.cancelUpdateEmployee = cancelUpdateEmployee;
 		vm.desks = edDeskService.getAllDesks();
 		vm.selectedEmployee = null;
 		vm.genderOptions = [
@@ -117,6 +118,10 @@
 			}, function (reason) {
 				edNotifierService.error(reason);
 			});
+		}
+
+		function cancelUpdateEmployee() {
+			edEmployeeService.removeAllSelectedEmployees();
 		}
 	}
 })();

@@ -1,10 +1,22 @@
-.sidebar-label Admin Options
-ul
+ul.nav.sidebar-menu
+    li.sidebar-label.pt10.pb10 Admin Options
     li
-        a(ui-sref="admin.users") User Admin
+        a(ui-sref="admin.create-employee")
+            span.fa.fa-plus-square
+            span Create Employee
     li
-        a(ui-sref="admin.create-user") Create User
-    li
-        a(ui-sref="admin.update-user") Update User
-    li
-        a(ui-sref="admin.update-employee") Update Employees
+        a(ui-sref="admin.update-employee")
+            span.fa.fa-pencil-square
+            span Update Employees
+    li(ng-if="vm.identity.isAuthorized('super-admin')")
+        a(ui-sref="admin.users")
+            span.fa.fa-pencil
+            span User Admin
+    li(ng-if="vm.identity.isAuthorized('super-admin')")
+        a(ui-sref="admin.create-user")
+            span.fa.fa-plus-square
+            span Create User
+    li(ng-if="vm.identity.isAuthorized('super-admin')")
+        a(ui-sref="admin.update-user")
+            span.fa.fa-pencil-square
+            span Update User

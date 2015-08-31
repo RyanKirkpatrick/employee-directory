@@ -6,6 +6,7 @@
 
 	function configure($stateProvider, $urlRouterProvider, $locationProvider) {
 		var routeRoleChecks = {
+			superAdmin: requireSuperAdmin,
 			admin: requireAdmin,
 			user: requireAuth
 		};
@@ -112,8 +113,13 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/admin-menu'
+						templateUrl: '/partials/components/admin-menu',
+						controller: 'edAdminMenuCtrl',
+						controllerAs: 'vm'
 					}
+				},
+				resolve: {
+					auth: routeRoleChecks.superAdmin
 				}
 			})
 			.state('admin.create-user', {
@@ -125,8 +131,13 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/admin-menu'
+						templateUrl: '/partials/components/admin-menu',
+						controller: 'edAdminMenuCtrl',
+						controllerAs: 'vm'
 					}
+				},
+				resolve: {
+					auth: routeRoleChecks.superAdmin
 				}
 			})
 			.state('admin.update-user', {
@@ -138,7 +149,9 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/admin-menu'
+						templateUrl: '/partials/components/admin-menu',
+						controller: 'edAdminMenuCtrl',
+						controllerAs: 'vm'
 					}
 				},
 				resolve: {
@@ -154,7 +167,9 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/admin-menu'
+						templateUrl: '/partials/components/admin-menu',
+						controller: 'edAdminMenuCtrl',
+						controllerAs: 'vm'
 					}
 				}
 			})
@@ -179,6 +194,12 @@
 
 	function requireAdmin(edAuthService) {
 		return edAuthService.authorizeCurrentUserForRoute('admin');
+	}
+
+	requireSuperAdmin.$inject = ['edAuthService'];
+
+	function requireSuperAdmin(edAuthService) {
+		return edAuthService.authorizeCurrentUserForRoute('super-admin');
 	}
 
 	requireAuth.$inject = ['edAuthService'];

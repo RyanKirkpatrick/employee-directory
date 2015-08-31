@@ -60,4 +60,4 @@
                 .panel-footer.text-right
                     button.button.btn-danger.pull-left(type="button", ng-click="vm.deleteEmployee()") Delete Employee
                     button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit
-                    button.button.btn-default(type="reset") Cancel
+                    button.button.btn-default(type="button", ng-click="vm.cancelUpdateEmployee();") Cancel

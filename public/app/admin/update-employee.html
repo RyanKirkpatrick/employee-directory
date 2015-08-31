@@ -91,7 +91,7 @@
         <div class="panel-footer text-right">
           <button type="button" ng-click="vm.deleteEmployee()" class="button btn-danger pull-left">Delete Employee</button>
           <button type="submit" ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''" ng-disabled="updateEmployeeForm.$invalid" class="button btn-primary">Submit</button>
-          <button type="reset" class="button btn-default">Cancel</button>
+          <button type="button" ng-click="vm.cancelUpdateEmployee();" class="button btn-default">Cancel</button>
         </div>
       </div>
     </form>

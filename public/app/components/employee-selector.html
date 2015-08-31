@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" ng-click="vm.selectAll()" class="btn btn-xs btn-success pull-right ml10">Select All</button>
+          <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll" class="btn btn-xs btn-success pull-right ml10">Select All</button>
           <button type="button" ng-click="vm.selectNone()" class="btn btn-xs btn-warning pull-right">Select None
             <!--.col-md-3
             .radio-custom

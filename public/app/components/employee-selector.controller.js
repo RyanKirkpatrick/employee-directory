@@ -11,6 +11,7 @@
 		vm.selectEmployee = selectEmployee;
 		vm.selectAll = selectAll;
 		vm.selectNone = selectNone;
+		vm.allowSelectAll = false;
 		vm.filteredEmployees = edEmployeeService.getAllEmployees();
 		vm.filterOpen = false;
 		vm.floorFilter = floorFilter;
@@ -56,6 +57,10 @@
 
 		$rootScope.$on('employeesUpdated', function (event, employees) {
 			vm.employees = employees;
+		});
+
+		$rootScope.$on('selectMultipleEmployeesChange', function (event, allowSelectMultipleEmployees) {
+			vm.allowSelectAll = allowSelectMultipleEmployees;
 		});
 	}
 })();

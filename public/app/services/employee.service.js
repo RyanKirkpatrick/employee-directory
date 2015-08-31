@@ -52,7 +52,7 @@
 				// This employee is not already selected, so add them (and select them in the list)
 				if (!employee.selected) {
 					employee.selected = true;
-					selectedEmployees.push(employee);
+					selectedEmployees.unshift(employee);
 					// This employee was already selected, so remove them (and deselect them in the list)
 				} else {
 					employee.selected = false;
@@ -102,11 +102,12 @@
 			selectMultipleEmployees = selectMultiple;
 			// If there are multiple selected employees, remove all but the last one added
 			if (!selectMultiple && selectedEmployees.length > 1) {
-				var lastSelectedEmployee = selectedEmployees.pop();
-				// This employee will be reslected in updateSelectedEmployees
+				var lastSelectedEmployee = selectedEmployees.shift();
+				// This employee will be reselected in updateSelectedEmployees
 				lastSelectedEmployee.selected = false;
 				selectedEmployees = updateSelectedEmployees(lastSelectedEmployee);
 			}
+			$rootScope.$broadcast('selectMultipleEmployeesChange', selectMultipleEmployees);
 			return selectedEmployees;
 		}
 
