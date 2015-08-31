@@ -40,6 +40,52 @@ Employee Selector
   width: 32px;
   z-index: 1;
 }
+.employee-selector .employee-item.ng-enter {
+  -webkit-transition: 0.15s linear all;
+  -moz-transition: 0.15s linear all;
+  -o-transition: 0.15s linear all;
+  -ms-transition: 0.15s linear all;
+  transition: 0.15s linear all;
+  left: -250px;
+}
+.employee-selector .employee-item.ng-enter-stagger {
+  -webkit-transition-delay: 0.15s;
+  -moz-transition-delay: 0.15s;
+  -o-transition-delay: 0.15s;
+  -ms-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.employee-selector .employee-item.ng-enter.ng-enter-active {
+  left: 0;
+}
+.employee-selector .employee-item.ng-leave {
+  -webkit-transition: 0.15s linear all;
+  -moz-transition: 0.15s linear all;
+  -o-transition: 0.15s linear all;
+  -ms-transition: 0.15s linear all;
+  transition: 0.15s linear all;
+  left: 0;
+}
+.employee-selector .employee-item.ng-leave-stagger {
+  -webkit-transition-delay: 0.15s;
+  -moz-transition-delay: 0.15s;
+  -o-transition-delay: 0.15s;
+  -ms-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.employee-selector .employee-item.ng-leave.ng-leave-active {
+  left: -250px;
+}
 /**************************************************
 Employee Card
 **************************************************/
@@ -48,4 +94,33 @@ Employee Card
 }
 .employee-card .employee-photo {
   width: 100%;
+}
+.employee-card.ng-enter {
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  top: -400px;
+}
+.employee-card.ng-enter-stagger {
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  -ms-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.employee-card.ng-enter.ng-enter-active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  top: 0;
 }

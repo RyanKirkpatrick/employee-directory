@@ -90,6 +90,6 @@
   </div>
   <ul class="nav sidebar-menu">
     <li class="sidebar-label pt10 pb10">Select Employees<span class="sidebar-label-tray"><span ng-click="vm.filterOpen = !vm.filterOpen" ng-class="vm.filterOpen ? 'bg-primary' : 'bg-light'" class="label label-xs cursor">Filter</span></span></li>
-    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['name.lastName', 'name.firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filter: vm.employeeName | filter: vm.floorFilter))" ng-class="{'active': employee.selected}"><a href="javascript:void(0);" ng-click="vm.selectEmployee(employee)"><span class="fa fa-{{employee.gender}}"></span><span>{{employee.name.lastName}}, {{employee.name.firstName}}</span></a></li>
+    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['name.lastName', 'name.firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filter: vm.employeeName | filter: vm.floorFilter))" ng-class="{'active': employee.selected}" class="employee-item"><a href="javascript:void(0);" ng-click="vm.selectEmployee(employee)"><span class="fa fa-{{employee.gender}}"></span><span>{{employee.name.lastName}}, {{employee.name.firstName}}</span></a></li>
   </ul>
 </div>

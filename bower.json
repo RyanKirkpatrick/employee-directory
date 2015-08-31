@@ -7,14 +7,15 @@
   "description": "Employee Directory",
   "license": "MIT",
   "dependencies": {
-    "toastr": "~2.1.1",
+    "toastr": "~2.1.2",
     "jquery": "~2.1.4",
-    "angular": "~1.4.1",
+    "angular": "~1.4.5",
     "angular-ui-router": "~0.2.15",
-    "angular-resource": "~1.4.1",
+    "angular-resource": "~1.4.5",
     "bootstrap": "~3.3.5",
-    "fontawesome": "~4.3.0",
+    "fontawesome": "~4.4.0",
     "ng-file-upload": "~6.0.4",
-    "angular-filter": "~0.5.5"
+    "angular-filter": "~0.5.5",
+    "angular-animate": "~1.4.5"
   }
 }
