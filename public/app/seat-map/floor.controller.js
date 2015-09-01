@@ -22,7 +22,7 @@
 		}
 
 		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-			if (selectedEmployees.length === 1) {
+			if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc) {
 				$state.go('seat-map.floor-' + selectedEmployees[0].deskLoc.floor, {'pos': selectedEmployees[0].deskLoc.pos});
 			}
 		});

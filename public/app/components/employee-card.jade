@@ -33,7 +33,7 @@
                             td.va-m.fw600.text-muted
                                 span.fa.fa-phone.mr10
                                 | {{employee.phone}}
-                        tr
+                        tr(ng-if="employee.deskLoc")
                             td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)")
                                 span.fa.fa-map-marker.fs15.mr10
                                 | Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}

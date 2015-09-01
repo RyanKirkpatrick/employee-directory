@@ -26,13 +26,15 @@
 				el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 			}
 
-			$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc.pos === attrs.pos) {
+			var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc && selectedEmployees[0].deskLoc.pos === attrs.pos) {
 					el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 				} else {
 					el.removeClass('active').find('.marker').remove();
 				}
 			});
+
+			scope.$on('$destroy', deregister);
 		}
 	}
 })();

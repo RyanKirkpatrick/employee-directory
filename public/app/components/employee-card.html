@@ -25,7 +25,7 @@
             <tr ng-if="employee.phone">
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>{{employee.phone}}</td>
             </tr>
-            <tr>
+            <tr ng-if="employee.deskLoc">
               <td ng-click="vm.mapEmployee(employee)" class="va-m fw600 text-muted cursor"><span class="fa fa-map-marker fs15 mr10"></span>Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}</td>
             </tr>
           </tbody>

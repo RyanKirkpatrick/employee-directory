@@ -17,11 +17,11 @@
 		vm.floorFilter = floorFilter;
 		vm.filterFloors = filterFloors;
 		vm.floor = {
-			'6': true,
-			'7': true,
-			'8': true
+			'6': false,
+			'7': false,
+			'8': false
 		};
-		vm.floors = [6, 7, 8];
+		vm.floors = [];
 
 		function selectEmployee(employee) {
 			edEmployeeService.updateSelectedEmployees(employee);
@@ -36,7 +36,13 @@
 		}
 
 		function floorFilter(employee) {
-			return vm.floors.indexOf(employee.deskLoc.floor) > -1;
+			if (vm.floors.length > 0) {
+				if (employee.deskLoc && employee.deskLoc.floor) {
+					return vm.floors.indexOf(employee.deskLoc.floor) > -1;
+				}
+			} else {
+				return true;
+			}
 		}
 
 		function selectAll() {

@@ -40,14 +40,17 @@
 				gender: selectedEmployees[0].gender,
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
-				team: selectedEmployees[0].team,
-				deskLoc: {
+				team: selectedEmployees[0].team
+			};
+
+			if (selectedEmployees[0].deskLoc) {
+				vm.selectedEmployee.deskLoc = {
 					floor: selectedEmployees[0].deskLoc.floor,
 					section: selectedEmployees[0].deskLoc.section,
 					seat: selectedEmployees[0].deskLoc.seat,
 					pos: selectedEmployees[0].deskLoc.pos
-				}
-			};
+				};
+			}
 		}
 
 		$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
@@ -59,10 +62,6 @@
 		});
 
 		function updateEmployee() {
-			var pos = vm.selectedEmployee.deskLoc.pos.split('-');
-			var section = pos[0];
-			var seat = pos[1];
-
 			// Get the employee data from the form
 			var newEmployeeData = {
 				name: {
@@ -72,14 +71,21 @@
 				gender: vm.selectedEmployee.gender,
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
-				team: vm.selectedEmployee.team,
-				deskLoc: {
+				team: vm.selectedEmployee.team
+			};
+
+			if (vm.selectedEmployee.deskLoc) {
+				var pos = vm.selectedEmployee.deskLoc.pos.split('-');
+				var section = pos[0];
+				var seat = pos[1];
+
+				newEmployeeData.deskLoc = {
 					floor: vm.selectedEmployee.deskLoc.floor,
 					section: section,
 					seat: seat,
 					pos: vm.selectedEmployee.deskLoc.pos
-				}
-			};
+				};
+			}
 
 			// Save the image file for uploading
 			var imageFile = vm.selectedEmployee.imageFile;
