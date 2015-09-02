@@ -54,7 +54,7 @@
             </div>
             <div class="col-xs-9 pn">
               <div class="bs-component">
-                <select name="team" ng-model="vm.team" ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department} | filter: {team : '!!'} | unique: 'team' | orderBy: 'team'" class="form-control input-sm">
+                <select name="team" ng-model="vm.team" ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department || undefined} | filter: {team : '!!'} | unique: 'team' | orderBy: 'team'" class="form-control input-sm">
                   <option value="" selected="selected">All Teams</option>
                 </select>
               </div>

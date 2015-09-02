@@ -1,7 +1,7 @@
 @import nib
 
 floor
-  background #fff url('/imagesfloor-6.png') left top no-repeat
+  background transparent url('/imagesfloor-6.png') left top no-repeat
   display: block
   height: 1149px
   position: relative
@@ -16,8 +16,12 @@ floor
 .floor-8
   background-image url('/images/floor-8.png')
 
-$desk-width = 55px
-$desk-height = 24px
+$desk-width = 58px
+$desk-height = 20px
+$desk-border = 1px
+
+$floor6-desk-width = 55px
+$floor6-desk-height = 24px
 $desk-border = 1px
 
 desk
@@ -46,3 +50,16 @@ desk.vert
 
 desk.active
   z-index 1
+
+.floor-6 desk
+  height $floor6-desk-height
+  width $floor6-desk-width
+
+  div.pos
+    font-size 12px
+    line-height $floor6-desk-height - 2 * $desk-border
+    text-align center
+
+.floor-6 desk.vert
+  height $floor6-desk-width
+  width $floor6-desk-height
