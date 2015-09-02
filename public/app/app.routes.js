@@ -32,22 +32,17 @@
 					}
 				}
 			})
-			.state('seat-map', {
-				url: '/seat-map',
+			.state('main.seat-map', {
+				url: 'seat-map',
 				views: {
-					'main': {
-						template: 'Hi',
+					'main@': {
+						templateUrl: '/partials/seat-map/seat-map',
 						controller: 'edSeatMapCtrl',
-						controllerAs: 'vm'
-					},
-					'sidebar': {
-						templateUrl: '/partials/components/employee-selector',
-						controller: 'edEmployeeSelectorCtrl',
 						controllerAs: 'vm'
 					}
 				}
 			})
-			.state('seat-map.floor-6', {
+			.state('main.seat-map.floor-6', {
 				url: '/floor-6/:pos',
 				views: {
 					'main@': {
@@ -57,7 +52,7 @@
 					}
 				}
 			})
-			.state('seat-map.floor-7', {
+			.state('main.seat-map.floor-7', {
 				url: '/floor-7/:pos',
 				views: {
 					'main@': {
@@ -67,7 +62,7 @@
 					}
 				}
 			})
-			.state('seat-map.floor-8', {
+			.state('main.seat-map.floor-8', {
 				url: '/floor-8/:pos',
 				views: {
 					'main@': {

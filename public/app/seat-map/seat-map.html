@@ -1,5 +1,16 @@
 
-<div>Floor {{vm.floor}}</div>
-<floor class="floor-{{vm.floor}}">
+<div ng-if="vm.selectedEmployees.length &lt; 1 || vm.unknownLocationEmployee" class="mw1000 center-block">
+  <div class="panel panel-primary">
+    <div ng-if="vm.selectedEmployees.length &lt; 1" class="panel-body text-center">
+      <div class="fa fa-map-marker fs100 mb30"></div>
+      <div class="fs20">Select a person to view their desk location</div>
+    </div>
+    <div ng-if="vm.unknownLocationEmployee" class="panel-body text-center">
+      <div class="fa fa-question fs100 mb30"></div>
+      <div class="fs20">I'm not sure where {{vm.selectedEmployees[0].name.firstName}} sits... Pick someone else!</div>
+    </div>
+  </div>
+</div>
+<floor ng-if="vm.floor" class="floor-{{vm.floor}}">
   <ed-desk ng-repeat="desk in vm.desks" floor="{{desk.floor}}" pos="{{desk.pos}}" orientation="{{desk.orientation}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}"></ed-desk>
 </floor>
