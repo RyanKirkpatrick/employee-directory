@@ -540,6 +540,105 @@ function createDefaultDesks() {
 				xpos: 364,
 				ypos: 191
 			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 17,
+				pos: '1-17',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 18,
+				pos: '1-10',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 19,
+				pos: '1-19',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 20,
+				pos: '1-20',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 21,
+				pos: '1-21',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 22,
+				pos: '1-22',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 23,
+				pos: '1-23',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 24,
+				pos: '1-24',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 25,
+				pos: '1-25',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 26,
+				pos: '126',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				section: 1,
+				seat: 27,
+				pos: '127',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 283
+			});
 		}
 	});
 }
