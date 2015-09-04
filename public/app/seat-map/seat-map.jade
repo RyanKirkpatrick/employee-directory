@@ -7,4 +7,4 @@
             .fa.fa-question.fs100.mb30
             div.fs20 I'm not sure where {{vm.selectedEmployees[0].name.firstName}} sits... Pick someone else!
 floor(class="floor-{{vm.floor}}", ng-if="vm.floor")
-    ed-desk(ng-repeat="desk in vm.desks" floor="{{desk.floor}}" pos="{{desk.pos}}" orientation="{{desk.orientation}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}")
+    ed-desk(ng-repeat="desk in vm.desks" floor="{{desk.floor}}" pos="{{desk.pos}}" orientation="{{desk.orientation}}" classification="{{desk.classification}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}")

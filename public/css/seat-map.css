@@ -20,21 +20,46 @@ desk {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height: 20px;
   position: absolute;
-  width: 58px;
   white-space: nowrap;
 }
 desk div.pos {
   font-size: 12px;
-  line-height: 18px;
   text-align: center;
 }
-desk.vert {
+desk.employee {
+  height: 20px;
+  width: 58px;
+}
+desk.employee div.pos {
+  line-height: 18px;
+}
+desk.employee.vert {
   height: 58px;
   width: 20px;
 }
-desk.vert div.pos {
+desk.employee.vert div.pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -o-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+desk.manager {
+  height: 55px;
+  width: 64px;
+}
+desk.manager div.pos {
+  line-height: 53px;
+}
+desk.manager.vert {
+  height: 64px;
+  width: 55px;
+}
+desk.manager.vert div.pos {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -47,7 +72,7 @@ desk.vert div.pos {
 desk.active {
   z-index: 1;
 }
-.floor-6 desk {
+.floor-6 desk.employee {
   height: 24px;
   width: 55px;
 }

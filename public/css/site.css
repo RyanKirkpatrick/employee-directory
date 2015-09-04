@@ -48,18 +48,6 @@ Employee Selector
   transition: 0.15s linear all;
   left: -250px;
 }
-.employee-selector .employee-item.ng-enter-stagger {
-  -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
-  transition-delay: 0.1s;
-  -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  -ms-transition-duration: 0s;
-  transition-duration: 0s;
-}
 .employee-selector .employee-item.ng-enter.ng-enter-active {
   left: 0;
 }
@@ -70,18 +58,6 @@ Employee Selector
   -ms-transition: 0.15s linear all;
   transition: 0.15s linear all;
   left: 0;
-}
-.employee-selector .employee-item.ng-leave-stagger {
-  -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
-  transition-delay: 0.1s;
-  -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  -ms-transition-duration: 0s;
-  transition-duration: 0s;
 }
 .employee-selector .employee-item.ng-leave.ng-leave-active {
   left: -250px;
