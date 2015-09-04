@@ -16,50 +16,76 @@ floor
 .floor-8
   background-image url('/images/floor-8.png')
 
-$desk-width = 58px
-$desk-height = 20px
 $desk-border = 1px
+$employee-width = 58px
+$employee-height = 20px
+$employee-border = 1px
 
-$floor6-desk-width = 55px
-$floor6-desk-height = 24px
-$desk-border = 1px
+$manager-width = 64px
+$manager-height = 55px
+
+$floor6-employee-width = 55px
+$floor6-employee-height = 24px
 
 desk
   background-color #ddd
   border 1px solid #f00
   box-sizing border-box
-  height $desk-height
   position absolute
-  width $desk-width
   white-space nowrap
 
   div.pos
     font-size 12px
-    line-height $desk-height - 2 * $desk-border
     text-align center
 
-desk.vert
-  height $desk-width
-  width $desk-height
+  &.employee
+    height $employee-height
+    width $employee-width
 
-  div.pos
-    position absolute
-    top 50%
-    left 50%
-    transform translateX(-50%) translateY(-50%) rotate(90deg)
+    div.pos
+      line-height $employee-height - 2 * $desk-border
 
-desk.active
-  z-index 1
+    &.vert
+      height $employee-width
+      width $employee-height
+
+      div.pos
+        position absolute
+        top 50%
+        left 50%
+        transform translateX(-50%) translateY(-50%) rotate(90deg)
+
+  &.manager
+    height $manager-height
+    width $manager-width
+
+    div.pos
+      line-height $manager-height - 2 * $desk-border
+
+    &.vert
+      height $manager-width
+      width $manager-height
+
+      div.pos
+        position absolute
+        top 50%
+        left 50%
+        transform translateX(-50%) translateY(-50%) rotate(90deg)
+
+  &.active
+    z-index 1
 
 .floor-6 desk
-  height $floor6-desk-height
-  width $floor6-desk-width
+
+  &.employee
+    height $floor6-employee-height
+    width $floor6-employee-width
 
   div.pos
     font-size 12px
-    line-height $floor6-desk-height - 2 * $desk-border
+    line-height $floor6-employee-height - 2 * $desk-border
     text-align center
 
-.floor-6 desk.vert
-  height $floor6-desk-width
-  width $floor6-desk-height
+  &.vert
+    height $floor6-employee-width
+    width $floor6-employee-height

@@ -13,6 +13,7 @@
 				floor: '@',
 				pos: '@',
 				orientation: '@',
+				classification: '@',
 				xpos: '@',
 				ypos: '@'
 			},
