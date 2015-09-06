@@ -10,8 +10,7 @@
 			templateUrl: '/partials/components/desk',
 			replace: true,
 			scope: {
-				floor: '@',
-				pos: '@',
+				seat: '@',
 				orientation: '@',
 				classification: '@',
 				xpos: '@',
@@ -23,12 +22,12 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs) {
-			if ($stateParams.pos === attrs.pos) {
+			if ($stateParams.seat === attrs.seat) {
 				el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 			}
 
 			var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc && selectedEmployees[0].deskLoc.pos === attrs.pos) {
+				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc && selectedEmployees[0].deskLoc.seat === attrs.seat) {
 					el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 				} else {
 					el.removeClass('active').find('.marker').remove();

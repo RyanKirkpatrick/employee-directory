@@ -43,7 +43,7 @@
 				}
 			})
 			.state('main.seat-map.floor-6', {
-				url: '/floor-6/:pos',
+				url: '/floor-6/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',
@@ -53,7 +53,7 @@
 				}
 			})
 			.state('main.seat-map.floor-7', {
-				url: '/floor-7/:pos',
+				url: '/floor-7/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',
@@ -63,7 +63,7 @@
 				}
 			})
 			.state('main.seat-map.floor-8', {
-				url: '/floor-8/:pos',
+				url: '/floor-8/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/seat-map/seat-map',

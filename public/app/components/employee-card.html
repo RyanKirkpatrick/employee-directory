@@ -29,7 +29,7 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Desk: {{employee.phone}}</td>
             </tr>
             <tr ng-if="employee.location">
-              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.deskLoc" class="va-m fw600 text-muted cursor"><span class="fa fa-map-marker fs15 mr10"></span>{{employee.location}} / Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}</td>
+              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.deskLoc" class="va-m fw600 text-muted cursor"><span class="fa fa-map-marker fs15 mr10"></span>{{employee.location}} / Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.seat}}</td>
               <td ng-if="!employee.deskLoc" class="va-m fw600 text-muted"><span class="fa fa-map-marker fs15 mr10"></span>{{employee.location}}</td>
             </tr>
           </tbody>

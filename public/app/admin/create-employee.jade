@@ -52,7 +52,7 @@
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="pos", ng-disabled="!vm.newEmployee.deskLoc.floor", ng-model="vm.newEmployee.deskLoc.pos", ng-options="desk.pos as desk.pos for desk in vm.desks | filterBy: ['floor'] : vm.newEmployee.deskLoc.floor | orderBy: ['section','seat']")
+                                    select(name="seat", ng-disabled="!vm.newEmployee.deskLoc.floor", ng-model="vm.newEmployee.deskLoc.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.newEmployee.deskLoc.floor | orderBy: ['section','seat']")
                                         option(disabled, value="") Seat
                                     i.arrow
                 .panel-footer.text-right

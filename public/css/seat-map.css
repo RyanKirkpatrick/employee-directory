@@ -15,7 +15,6 @@ floor {
   background-image: url("/images/floor-8.png");
 }
 desk {
-  background-color: #ddd;
   border: 1px solid #f00;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -23,22 +22,26 @@ desk {
   position: absolute;
   white-space: nowrap;
 }
-desk div.pos {
+desk div.seat {
   font-size: 12px;
+  text-align: center;
+}
+desk div.seat span {
+  background-color: transparent;
   text-align: center;
 }
 desk.employee {
   height: 20px;
   width: 58px;
 }
-desk.employee div.pos {
+desk.employee div.seat {
   line-height: 18px;
 }
 desk.employee.vert {
   height: 58px;
   width: 20px;
 }
-desk.employee.vert div.pos {
+desk.employee.vert div.seat {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,25 +52,47 @@ desk.employee.vert div.pos {
   transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
 desk.manager {
+  border-color: transparent;
   height: 55px;
   width: 64px;
 }
-desk.manager div.pos {
+desk.manager div.seat {
   line-height: 53px;
+}
+desk.manager div.seat span {
+  background-color: rgba(255,255,255,0.65);
 }
 desk.manager.vert {
   height: 64px;
   width: 55px;
 }
-desk.manager.vert div.pos {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-  -moz-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-  -o-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-  -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+desk.manager.vert div.seat {
+  line-height: 62px;
+}
+desk.manager.ewa {
+  -webkit-transform: rotate(26deg);
+  -moz-transform: rotate(26deg);
+  -o-transform: rotate(26deg);
+  -ms-transform: rotate(26deg);
+  transform: rotate(26deg);
+}
+desk.manager.ewa div.seat {
+  -webkit-transform: rotate(-26deg);
+  -moz-transform: rotate(-26deg);
+  -o-transform: rotate(-26deg);
+  -ms-transform: rotate(-26deg);
+  transform: rotate(-26deg);
+}
+desk.office {
+  border-color: transparent;
+  height: 84px;
+  width: 114px;
+}
+desk.office div.seat {
+  line-height: 82px;
+}
+desk.office div.seat span {
+  background-color: rgba(255,255,255,0.65);
 }
 desk.active {
   z-index: 1;
@@ -76,7 +101,7 @@ desk.active {
   height: 24px;
   width: 55px;
 }
-.floor-6 desk div.pos {
+.floor-6 desk div.seat {
   font-size: 12px;
   line-height: 22px;
   text-align: center;

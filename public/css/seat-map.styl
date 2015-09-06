@@ -24,53 +24,78 @@ $employee-border = 1px
 $manager-width = 64px
 $manager-height = 55px
 
+$office-width = 114px
+$office-height = 84px
+
 $floor6-employee-width = 55px
 $floor6-employee-height = 24px
 
 desk
-  background-color #ddd
   border 1px solid #f00
   box-sizing border-box
   position absolute
   white-space nowrap
 
-  div.pos
+  div.seat
     font-size 12px
     text-align center
 
+    span
+      background-color transparent
+      text-align center
+
   &.employee
+    //background-color #ddd
     height $employee-height
     width $employee-width
 
-    div.pos
+    div.seat
       line-height $employee-height - 2 * $desk-border
 
     &.vert
       height $employee-width
       width $employee-height
 
-      div.pos
+      div.seat
         position absolute
         top 50%
         left 50%
         transform translateX(-50%) translateY(-50%) rotate(90deg)
 
   &.manager
+    border-color transparent
     height $manager-height
     width $manager-width
 
-    div.pos
+    div.seat
       line-height $manager-height - 2 * $desk-border
+
+      span
+        background-color rgba(255,255,255,.65);
 
     &.vert
       height $manager-width
       width $manager-height
 
-      div.pos
-        position absolute
-        top 50%
-        left 50%
-        transform translateX(-50%) translateY(-50%) rotate(90deg)
+      div.seat
+        line-height $manager-width - 2 * $desk-border
+
+    &.ewa
+      transform rotate(26deg)
+
+      div.seat
+        transform rotate(-26deg)
+
+  &.office
+    border-color transparent
+    height $office-height
+    width $office-width
+
+    div.seat
+      line-height $office-height - 2 * $desk-border
+
+      span
+        background-color rgba(255,255,255,.65);
 
   &.active
     z-index 1
@@ -81,7 +106,7 @@ desk
     height $floor6-employee-height
     width $floor6-employee-width
 
-  div.pos
+  div.seat
     font-size 12px
     line-height $floor6-employee-height - 2 * $desk-border
     text-align center

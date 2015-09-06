@@ -38,18 +38,12 @@
 				team: '',
 				deskLoc: {
 					floor: '',
-					section: '',
-					seat: '',
-					pos: ''
+					seat: ''
 				}
 			};
 		}
 
 		function createEmployee() {
-			var pos = vm.newEmployee.deskLoc.pos.split('-');
-			var section = pos[0];
-			var seat = pos[1];
-
 			var newEmployeeData = {
 				name: {
 					firstName: vm.newEmployee.name.firstName,
@@ -61,9 +55,7 @@
 				team: vm.newEmployee.team,
 				deskLoc: {
 					floor: vm.newEmployee.deskLoc.floor,
-					section: section,
-					seat: seat,
-					pos: vm.newEmployee.deskLoc.pos
+					seat: vm.newEmployee.deskLoc.seat
 				}
 			};
 

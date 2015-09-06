@@ -40,7 +40,7 @@
                         tr(ng-if="employee.location")
                             td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.deskLoc")
                                 span.fa.fa-map-marker.fs15.mr10
-                                | {{employee.location}} / Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.pos}}
+                                | {{employee.location}} / Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.seat}}
                             td.va-m.fw600.text-muted(ng-if="!employee.deskLoc")
                                 span.fa.fa-map-marker.fs15.mr10
                                 | {{employee.location}}

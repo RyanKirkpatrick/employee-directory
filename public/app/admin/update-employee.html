@@ -80,7 +80,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="pos" ng-model="vm.selectedEmployee.deskLoc.pos" ng-options="desk.pos as desk.pos for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']">
+                  <select name="seat" ng-model="vm.selectedEmployee.deskLoc.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']">
                     <option disabled="disabled" value="">Seat</option>
                   </select><i class="arrow"></i>
                 </label>

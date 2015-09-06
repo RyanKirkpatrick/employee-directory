@@ -46,9 +46,7 @@
 			if (selectedEmployees[0].deskLoc) {
 				vm.selectedEmployee.deskLoc = {
 					floor: selectedEmployees[0].deskLoc.floor,
-					section: selectedEmployees[0].deskLoc.section,
-					seat: selectedEmployees[0].deskLoc.seat,
-					pos: selectedEmployees[0].deskLoc.pos
+					seat: selectedEmployees[0].deskLoc.seat
 				};
 			}
 		}
@@ -75,15 +73,9 @@
 			};
 
 			if (vm.selectedEmployee.deskLoc) {
-				var pos = vm.selectedEmployee.deskLoc.pos.split('-');
-				var section = pos[0];
-				var seat = pos[1];
-
 				newEmployeeData.deskLoc = {
 					floor: vm.selectedEmployee.deskLoc.floor,
-					section: section,
-					seat: seat,
-					pos: vm.selectedEmployee.deskLoc.pos
+					seat: vm.selectedEmployee.deskLoc.seat
 				};
 			}
 
