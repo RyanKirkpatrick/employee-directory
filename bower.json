@@ -16,6 +16,7 @@
     "fontawesome": "~4.4.0",
     "ng-file-upload": "~6.0.4",
     "angular-filter": "~0.5.5",
-    "angular-animate": "~1.4.5"
+    "angular-animate": "~1.4.5",
+    "angular-scroll": "~0.7.2"
   }
 }

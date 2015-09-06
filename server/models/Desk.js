@@ -33,6 +33,7 @@ var Desk = mongoose.model('Desk', deskSchema);
 function createDefaultDesks() {
 	Desk.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
+			/*
 			Desk.create({
 				floor: 6,
 				seat: '1-1',
@@ -313,951 +314,7 @@ function createDefaultDesks() {
 				xpos: 1001,
 				ypos: 135
 			});
-			// Floor 8
-			Desk.create({
-				floor: 8,
-				seat: '083006',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 80
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082906',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083008',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 80
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083010',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 80
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083011',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 80
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082908',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082910',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082911',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082804',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 172
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082806',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 172
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082604',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 191
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082808',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 172
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082810',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 172
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082811',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 172
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082708',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 191
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082711',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 191
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082504',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082506',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082404',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082406',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082508',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082510',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082511',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082513',
-				orientation: 'horz',
-				xpos: 421,
-				ypos: 264
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082408',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082410',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082411',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082413',
-				orientation: 'horz',
-				xpos: 421,
-				ypos: 283
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082304',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082306',
-				orientation: 'horz',
-				xpos: 160,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082104',
-				orientation: 'horz',
-				xpos: 103,
-				ypos: 375
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082308',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082310',
-				orientation: 'horz',
-				xpos: 307,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082311',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082313',
-				orientation: 'horz',
-				xpos: 421,
-				ypos: 356
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082108',
-				orientation: 'horz',
-				xpos: 250,
-				ypos: 375
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082111',
-				orientation: 'horz',
-				xpos: 364,
-				ypos: 375
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082113',
-				orientation: 'horz',
-				xpos: 421,
-				ypos: 375
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082802',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 183
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082502',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082302',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 313
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082923',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082924',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082926',
-				orientation: 'horz',
-				xpos: 876,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082929',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082930',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 99
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082823',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082824',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082826',
-				orientation: 'horz',
-				xpos: 876,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082723',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 188
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082724',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 188
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082829',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082830',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082832',
-				orientation: 'horz',
-				xpos: 1087,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082833',
-				orientation: 'horz',
-				xpos: 1144,
-				ypos: 169
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082729',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 188
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082732',
-				orientation: 'horz',
-				xpos: 1087,
-				ypos: 188
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082733',
-				orientation: 'horz',
-				xpos: 1144,
-				ypos: 188
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082523',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082524',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082526',
-				orientation: 'horz',
-				xpos: 875,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082423',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082424',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082426',
-				orientation: 'horz',
-				xpos: 875,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082529',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082530',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082532',
-				orientation: 'horz',
-				xpos: 1087,
-				ypos: 259
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082429',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082430',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082432',
-				orientation: 'horz',
-				xpos: 1087,
-				ypos: 278
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082323',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 348
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082324',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 348
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082326',
-				orientation: 'horz',
-				xpos: 875,
-				ypos: 348
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082223',
-				orientation: 'horz',
-				xpos: 762,
-				ypos: 367
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082224',
-				orientation: 'horz',
-				xpos: 819,
-				ypos: 367
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082329',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 348
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082330',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 348
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082229',
-				orientation: 'horz',
-				xpos: 973,
-				ypos: 367
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082230',
-				orientation: 'horz',
-				xpos: 1030,
-				ypos: 367
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083122',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 726,
-				ypos: 9
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083124',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 806,
-				ypos: 9
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083126',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 860,
-				ypos: 9
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083129',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 939,
-				ypos: 9
-			});
-			Desk.create({
-				floor: 8,
-				seat: '083130',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 993,
-				ypos: 9
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080812',
-				orientation: 'vert',
-				xpos: 435,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080814',
-				orientation: 'vert',
-				xpos: 454,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080612',
-				orientation: 'vert',
-				xpos: 435,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080614',
-				orientation: 'vert',
-				xpos: 454,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080512',
-				orientation: 'vert',
-				xpos: 435,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080514',
-				orientation: 'vert',
-				xpos: 454,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080815',
-				orientation: 'vert',
-				xpos: 527,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080816',
-				orientation: 'vert',
-				xpos: 546,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080616',
-				orientation: 'vert',
-				xpos: 546,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080515',
-				orientation: 'vert',
-				xpos: 527,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080516',
-				orientation: 'vert',
-				xpos: 546,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080818',
-				orientation: 'vert',
-				xpos: 619,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080819',
-				orientation: 'vert',
-				xpos: 638,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080618',
-				orientation: 'vert',
-				xpos: 619,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080619',
-				orientation: 'vert',
-				xpos: 638,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080518',
-				orientation: 'vert',
-				xpos: 619,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080619',
-				orientation: 'vert',
-				xpos: 638,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080820',
-				orientation: 'vert',
-				xpos: 712,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080821',
-				orientation: 'vert',
-				xpos: 731,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080621',
-				orientation: 'vert',
-				xpos: 731,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080520',
-				orientation: 'vert',
-				xpos: 712,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080521',
-				orientation: 'vert',
-				xpos: 731,
-				ypos: 967
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080823',
-				orientation: 'vert',
-				xpos: 804,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080623',
-				orientation: 'vert',
-				xpos: 804,
-				ypos: 910
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080824',
-				orientation: 'vert',
-				classification: 'manager',
-				xpos: 823,
-				ypos: 853
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080410',
-				orientation: 'vert',
-				xpos: 339,
-				ypos: 1001
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080411',
-				orientation: 'vert',
-				xpos: 358,
-				ypos: 1001
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080210',
-				orientation: 'vert',
-				xpos: 339,
-				ypos: 1058
-			});
-			Desk.create({
-				floor: 8,
-				seat: '080211',
-				orientation: 'vert',
-				xpos: 358,
-				ypos: 1058
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082005',
-				orientation: 'horz',
-				xpos: 125,
-				ypos: 460
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082006',
-				orientation: 'horz',
-				xpos: 182,
-				ypos: 460
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081905',
-				orientation: 'horz',
-				xpos: 125,
-				ypos: 479
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081906',
-				orientation: 'horz',
-				xpos: 182,
-				ypos: 479
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081704',
-				orientation: 'horz',
-				xpos: 114,
-				ypos: 554
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081706',
-				orientation: 'horz',
-				xpos: 184,
-				ypos: 554
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081804',
-				orientation: 'horz',
-				xpos: 114,
-				ypos: 573
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081806',
-				orientation: 'horz',
-				xpos: 184,
-				ypos: 573
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081405',
-				orientation: 'horz',
-				xpos: 125,
-				ypos: 652
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081406',
-				orientation: 'horz',
-				xpos: 182,
-				ypos: 652
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081305',
-				orientation: 'horz',
-				xpos: 125,
-				ypos: 671
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081306',
-				orientation: 'horz',
-				xpos: 182,
-				ypos: 671
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081204',
-				orientation: 'horz',
-				xpos: 114,
-				ypos: 745
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081206',
-				orientation: 'horz',
-				xpos: 184,
-				ypos: 745
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081104',
-				orientation: 'horz',
-				xpos: 114,
-				ypos: 764
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081106',
-				orientation: 'horz',
-				xpos: 184,
-				ypos: 764
-			});
-			Desk.create({
-				floor: 8,
-				seat: '082002',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 433
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081802',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 487
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081502',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 581
-			});
-			Desk.create({
-				floor: 8,
-				seat: '081302',
-				orientation: 'horz',
-				classification: 'manager',
-				xpos: 9,
-				ypos: 667
-			});
+			*/
 			// Floor 7
 			Desk.create({
 				floor: 7,
@@ -2338,6 +1395,951 @@ function createDefaultDesks() {
 				classification: 'office',
 				xpos: 9,
 				ypos: 493
+			});
+			// Floor 8
+			Desk.create({
+				floor: 8,
+				seat: '083006',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 80
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082906',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083008',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 80
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083010',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 80
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083011',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 80
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082908',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082910',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082911',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082804',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 172
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082806',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 172
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082604',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 191
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082808',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 172
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082810',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 172
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082811',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 172
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082708',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 191
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082711',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 191
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082504',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082506',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082404',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082406',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082508',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082510',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082511',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082513',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 264
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082408',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082410',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082411',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082413',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 283
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082304',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082306',
+				orientation: 'horz',
+				xpos: 160,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082104',
+				orientation: 'horz',
+				xpos: 103,
+				ypos: 375
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082308',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082310',
+				orientation: 'horz',
+				xpos: 307,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082311',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082313',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 356
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082108',
+				orientation: 'horz',
+				xpos: 250,
+				ypos: 375
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082111',
+				orientation: 'horz',
+				xpos: 364,
+				ypos: 375
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082113',
+				orientation: 'horz',
+				xpos: 421,
+				ypos: 375
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082802',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 183
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082502',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082302',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 313
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082923',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082924',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082926',
+				orientation: 'horz',
+				xpos: 876,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082929',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082930',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 99
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082823',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082824',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082826',
+				orientation: 'horz',
+				xpos: 876,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082723',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 188
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082724',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 188
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082829',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082830',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082832',
+				orientation: 'horz',
+				xpos: 1087,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082833',
+				orientation: 'horz',
+				xpos: 1144,
+				ypos: 169
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082729',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 188
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082732',
+				orientation: 'horz',
+				xpos: 1087,
+				ypos: 188
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082733',
+				orientation: 'horz',
+				xpos: 1144,
+				ypos: 188
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082523',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082524',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082526',
+				orientation: 'horz',
+				xpos: 875,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082423',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082424',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082426',
+				orientation: 'horz',
+				xpos: 875,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082529',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082530',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082532',
+				orientation: 'horz',
+				xpos: 1087,
+				ypos: 259
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082429',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082430',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082432',
+				orientation: 'horz',
+				xpos: 1087,
+				ypos: 278
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082323',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 348
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082324',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 348
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082326',
+				orientation: 'horz',
+				xpos: 875,
+				ypos: 348
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082223',
+				orientation: 'horz',
+				xpos: 762,
+				ypos: 367
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082224',
+				orientation: 'horz',
+				xpos: 819,
+				ypos: 367
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082329',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 348
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082330',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 348
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082229',
+				orientation: 'horz',
+				xpos: 973,
+				ypos: 367
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082230',
+				orientation: 'horz',
+				xpos: 1030,
+				ypos: 367
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083122',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 726,
+				ypos: 9
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083124',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 806,
+				ypos: 9
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083126',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 860,
+				ypos: 9
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083129',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 939,
+				ypos: 9
+			});
+			Desk.create({
+				floor: 8,
+				seat: '083130',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 993,
+				ypos: 9
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080812',
+				orientation: 'vert',
+				xpos: 435,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080814',
+				orientation: 'vert',
+				xpos: 454,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080612',
+				orientation: 'vert',
+				xpos: 435,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080614',
+				orientation: 'vert',
+				xpos: 454,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080512',
+				orientation: 'vert',
+				xpos: 435,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080514',
+				orientation: 'vert',
+				xpos: 454,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080815',
+				orientation: 'vert',
+				xpos: 527,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080816',
+				orientation: 'vert',
+				xpos: 546,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080616',
+				orientation: 'vert',
+				xpos: 546,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080515',
+				orientation: 'vert',
+				xpos: 527,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080516',
+				orientation: 'vert',
+				xpos: 546,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080818',
+				orientation: 'vert',
+				xpos: 619,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080819',
+				orientation: 'vert',
+				xpos: 638,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080618',
+				orientation: 'vert',
+				xpos: 619,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080619',
+				orientation: 'vert',
+				xpos: 638,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080518',
+				orientation: 'vert',
+				xpos: 619,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080619',
+				orientation: 'vert',
+				xpos: 638,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080820',
+				orientation: 'vert',
+				xpos: 712,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080821',
+				orientation: 'vert',
+				xpos: 731,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080621',
+				orientation: 'vert',
+				xpos: 731,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080520',
+				orientation: 'vert',
+				xpos: 712,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080521',
+				orientation: 'vert',
+				xpos: 731,
+				ypos: 967
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080823',
+				orientation: 'vert',
+				xpos: 804,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080623',
+				orientation: 'vert',
+				xpos: 804,
+				ypos: 910
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080824',
+				orientation: 'vert',
+				classification: 'manager',
+				xpos: 823,
+				ypos: 853
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080410',
+				orientation: 'vert',
+				xpos: 339,
+				ypos: 1001
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080411',
+				orientation: 'vert',
+				xpos: 358,
+				ypos: 1001
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080210',
+				orientation: 'vert',
+				xpos: 339,
+				ypos: 1058
+			});
+			Desk.create({
+				floor: 8,
+				seat: '080211',
+				orientation: 'vert',
+				xpos: 358,
+				ypos: 1058
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082005',
+				orientation: 'horz',
+				xpos: 125,
+				ypos: 460
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082006',
+				orientation: 'horz',
+				xpos: 182,
+				ypos: 460
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081905',
+				orientation: 'horz',
+				xpos: 125,
+				ypos: 479
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081906',
+				orientation: 'horz',
+				xpos: 182,
+				ypos: 479
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081704',
+				orientation: 'horz',
+				xpos: 114,
+				ypos: 554
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081706',
+				orientation: 'horz',
+				xpos: 184,
+				ypos: 554
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081804',
+				orientation: 'horz',
+				xpos: 114,
+				ypos: 573
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081806',
+				orientation: 'horz',
+				xpos: 184,
+				ypos: 573
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081405',
+				orientation: 'horz',
+				xpos: 125,
+				ypos: 652
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081406',
+				orientation: 'horz',
+				xpos: 182,
+				ypos: 652
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081305',
+				orientation: 'horz',
+				xpos: 125,
+				ypos: 671
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081306',
+				orientation: 'horz',
+				xpos: 182,
+				ypos: 671
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081204',
+				orientation: 'horz',
+				xpos: 114,
+				ypos: 745
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081206',
+				orientation: 'horz',
+				xpos: 184,
+				ypos: 745
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081104',
+				orientation: 'horz',
+				xpos: 114,
+				ypos: 764
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081106',
+				orientation: 'horz',
+				xpos: 184,
+				ypos: 764
+			});
+			Desk.create({
+				floor: 8,
+				seat: '082002',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 433
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081802',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 487
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081502',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 581
+			});
+			Desk.create({
+				floor: 8,
+				seat: '081302',
+				orientation: 'horz',
+				classification: 'manager',
+				xpos: 9,
+				ypos: 667
 			});
 		}
 	});
