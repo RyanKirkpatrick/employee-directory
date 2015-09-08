@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'ed-glyphs';
+    src:url('/fonts/ed-glyphs.eot?-ays15i');
+    src:url('/fonts/ed-glyphs.eot?#iefix-ays15i') format('embedded-opentype'),
+    url('/fonts/ed-glyphs.ttf?-ays15i') format('truetype'),
+    url('/fonts/ed-glyphs.woff?-ays15i') format('woff'),
+    url('/fonts/ed-glyphs.svg?-ays15i#ed-glyphs') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    font-family: 'ed-glyphs';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Leslie:before {
+    content: "\a001";
+}
