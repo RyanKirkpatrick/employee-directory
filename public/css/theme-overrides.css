@@ -1,10 +1,8 @@
 #topbar {
   position: fixed;
 }
-@media (min-width: 1100px) {
-  #content {
-    padding: 95px 20px 50px 21px;
-  }
+#content {
+  padding: 95px 20px 50px 21px;
 }
 .sidebar-menu > li:last-child a {
   border-bottom: 1px solid rgba(255,255,255,0.05);
