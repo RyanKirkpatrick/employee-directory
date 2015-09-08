@@ -2,7 +2,7 @@
 
 floor
   background transparent url('/imagesfloor-6.png') left top no-repeat
-  display: block
+  display: table
   height: 1149px
   position: relative
   width: 1256px
@@ -17,15 +17,9 @@ floor
   background-image url('/images/floor-8.png')
 
 .floor-label
-  line-height 1149px
+  display table-cell
   text-align center
-
-  span
-    background-color rgba(200,200,200,.5);
-    color #4a89dc
-    font-size 50px
-    font-weight bold
-    padding 10px
+  vertical-align middle
 
 $desk-border = 1px
 $employee-width = 58px
@@ -41,72 +35,134 @@ $office-height = 84px
 $floor6-employee-width = 55px
 $floor6-employee-height = 24px
 
-desk
+room
   border 1px solid transparent
   box-sizing border-box
+  display table
   position absolute
   white-space nowrap
 
-  div.seat
-    font-size 12px
+  .room
+    display table-cell
     text-align center
+    vertical-align middle
 
     span
-      background-color transparent
+      text-align center
+      text-transform capitalize
+
+  &.allentown
+    height 122px
+    width 123px
+
+  &.kaisertown
+    height 116px
+    width 89px
+
+  &.cobblestone
+    height 145px
+    width 141px
+
+  &.canalside
+    height 145px
+    width 216px
+
+  &.break7
+    height 197px
+    width 280px
+
+  &.goodell
+    height 92px
+    width 89px
+
+  &.niagara
+    height 110px
+    width 145px
+
+  &.tupper
+    height 110px
+    width 71px
+
+  &.main
+    height 305px
+    width 170px
+
+  &.erie
+    height 89px
+    width 91px
+
+  &.scott
+    height 113px
+    width 91px
+
+  &.delaware
+    height 86px
+    width 113px
+
+  &.elmwood
+    height 89px
+    width 80px
+
+  &.washington
+    height 117px
+    width 94px
+
+  &.ontario
+    height 79px
+    width 102px
+
+  &.break8
+    height 197px
+    width 280px
+
+desk
+  border 1px solid transparent
+  box-sizing border-box
+  display table
+  position absolute
+  white-space nowrap
+
+  .seat
+    display table-cell
+    font-size 12px
+    text-align center
+    vertical-align middle
+
+    span
+      background-color rgba(255,255,255,.65);
       text-align center
 
   &.employee
-    //background-color #ddd
     height $employee-height
     width $employee-width
-
-    div.seat
-      line-height $employee-height - 2 * $desk-border
 
     &.vert
       height $employee-width
       width $employee-height
 
-      div.seat
+      .seat
         position absolute
         top 50%
         left 50%
         transform translateX(-50%) translateY(-50%) rotate(90deg)
 
   &.manager
-    border-color transparent
     height $manager-height
     width $manager-width
-
-    div.seat
-      line-height $manager-height - 2 * $desk-border
-
-      span
-        background-color rgba(255,255,255,.65);
 
     &.vert
       height $manager-width
       width $manager-height
 
-      div.seat
-        line-height $manager-width - 2 * $desk-border
-
     &.ewa
       transform rotate(26deg)
 
-      div.seat
+      .seat
         transform rotate(-26deg)
 
   &.office
-    border-color transparent
     height $office-height
     width $office-width
-
-    div.seat
-      line-height $office-height - 2 * $desk-border
-
-      span
-        background-color rgba(255,255,255,.65);
 
   &.active
     z-index 1
@@ -116,11 +172,6 @@ desk
   &.employee
     height $floor6-employee-height
     width $floor6-employee-width
-
-  div.seat
-    font-size 12px
-    line-height $floor6-employee-height - 2 * $desk-border
-    text-align center
 
   &.vert
     height $floor6-employee-width

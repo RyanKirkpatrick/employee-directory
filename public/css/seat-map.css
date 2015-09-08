@@ -1,6 +1,6 @@
 floor {
   background: transparent url("/imagesfloor-6.png") left top no-repeat;
-  display: block;
+  display: table;
   height: 1149px;
   position: relative;
   width: 1256px;
@@ -15,44 +15,120 @@ floor {
   background-image: url("/images/floor-8.png");
 }
 .floor-label {
-  line-height: 1149px;
+  display: table-cell;
   text-align: center;
+  vertical-align: middle;
 }
-.floor-label span {
-  background-color: rgba(200,200,200,0.5);
-  color: #4a89dc;
-  font-size: 50px;
-  font-weight: bold;
-  padding: 10px;
+room {
+  border: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table;
+  position: absolute;
+  white-space: nowrap;
+}
+room .room {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+room .room span {
+  text-align: center;
+  text-transform: capitalize;
+}
+room.allentown {
+  height: 122px;
+  width: 123px;
+}
+room.kaisertown {
+  height: 116px;
+  width: 89px;
+}
+room.cobblestone {
+  height: 145px;
+  width: 141px;
+}
+room.canalside {
+  height: 145px;
+  width: 216px;
+}
+room.break7 {
+  height: 197px;
+  width: 280px;
+}
+room.goodell {
+  height: 92px;
+  width: 89px;
+}
+room.niagara {
+  height: 110px;
+  width: 145px;
+}
+room.tupper {
+  height: 110px;
+  width: 71px;
+}
+room.main {
+  height: 305px;
+  width: 170px;
+}
+room.erie {
+  height: 89px;
+  width: 91px;
+}
+room.scott {
+  height: 113px;
+  width: 91px;
+}
+room.delaware {
+  height: 86px;
+  width: 113px;
+}
+room.elmwood {
+  height: 89px;
+  width: 80px;
+}
+room.washington {
+  height: 117px;
+  width: 94px;
+}
+room.ontario {
+  height: 79px;
+  width: 102px;
+}
+room.break8 {
+  height: 197px;
+  width: 280px;
 }
 desk {
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: table;
   position: absolute;
   white-space: nowrap;
 }
-desk div.seat {
+desk .seat {
+  display: table-cell;
   font-size: 12px;
   text-align: center;
+  vertical-align: middle;
 }
-desk div.seat span {
-  background-color: transparent;
+desk .seat span {
+  background-color: rgba(255,255,255,0.65);
   text-align: center;
 }
 desk.employee {
   height: 20px;
   width: 58px;
 }
-desk.employee div.seat {
-  line-height: 18px;
-}
 desk.employee.vert {
   height: 58px;
   width: 20px;
 }
-desk.employee.vert div.seat {
+desk.employee.vert .seat {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,22 +139,12 @@ desk.employee.vert div.seat {
   transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
 desk.manager {
-  border-color: transparent;
   height: 55px;
   width: 64px;
-}
-desk.manager div.seat {
-  line-height: 53px;
-}
-desk.manager div.seat span {
-  background-color: rgba(255,255,255,0.65);
 }
 desk.manager.vert {
   height: 64px;
   width: 55px;
-}
-desk.manager.vert div.seat {
-  line-height: 62px;
 }
 desk.manager.ewa {
   -webkit-transform: rotate(26deg);
@@ -87,7 +153,7 @@ desk.manager.ewa {
   -ms-transform: rotate(26deg);
   transform: rotate(26deg);
 }
-desk.manager.ewa div.seat {
+desk.manager.ewa .seat {
   -webkit-transform: rotate(-26deg);
   -moz-transform: rotate(-26deg);
   -o-transform: rotate(-26deg);
@@ -95,15 +161,8 @@ desk.manager.ewa div.seat {
   transform: rotate(-26deg);
 }
 desk.office {
-  border-color: transparent;
   height: 84px;
   width: 114px;
-}
-desk.office div.seat {
-  line-height: 82px;
-}
-desk.office div.seat span {
-  background-color: rgba(255,255,255,0.65);
 }
 desk.active {
   z-index: 1;
@@ -111,11 +170,6 @@ desk.active {
 .floor-6 desk.employee {
   height: 24px;
   width: 55px;
-}
-.floor-6 desk div.seat {
-  font-size: 12px;
-  line-height: 22px;
-  text-align: center;
 }
 .floor-6 desk.vert {
   height: 55px;

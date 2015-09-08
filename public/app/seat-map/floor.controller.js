@@ -2,12 +2,13 @@
 	'use strict';
 	angular.module('app').controller('edFloorCtrl', edFloorCtrl);
 
-	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope', '$rootScope'];
+	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope', '$rootScope', 'edRoomService'];
 
-	function edFloorCtrl(edEmployeeService, edDeskService, $state, $scope, $rootScope) {
+	function edFloorCtrl(edEmployeeService, edDeskService, $state, $scope, $rootScope, edRoomService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 		vm.desks = null;
+		vm.rooms = null;
 		vm.floor = null;
 
 		activate();
@@ -16,6 +17,7 @@
 			if (vm.selectedEmployees.length === 1 && vm.selectedEmployees[0].deskLoc.floor) {
 				vm.floor = vm.selectedEmployees[0].deskLoc.floor;
 				edDeskService.getAllDesks().$promise.then(deskFilter);
+				edRoomService.getAllRooms().$promise.then(roomFilter);
 			} else {
 				$state.go('main');
 			}
@@ -36,6 +38,12 @@
 		function deskFilter(desks) {
 			vm.desks = desks.filter(function (desk) {
 				return desk.floor === vm.floor;
+			});
+		}
+
+		function roomFilter(rooms) {
+			vm.rooms = rooms.filter(function (room) {
+				return room.floor === vm.floor;
 			});
 		}
 	}

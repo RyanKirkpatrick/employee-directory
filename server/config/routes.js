@@ -2,6 +2,7 @@ var auth      = require('./auth'),
     users     = require('../controllers/users'),
     employees = require('../controllers/employees'),
     desks     = require('../controllers/desks'),
+    rooms     = require('../controllers/rooms'),
     mongoose  = require('mongoose');
 
 module.exports = function (app) {
@@ -15,6 +16,7 @@ module.exports = function (app) {
 	app.put('/api/employees', auth.requiresRole('admin'), employees.updateEmployee);
 
 	app.get('/api/desks', desks.getDesks);
+	app.get('/api/rooms', rooms.getRooms);
 
 	app.get('/partials/*', function (req, res) {
 		res.render('../../public/app/' + req.params[0]);

@@ -7,6 +7,7 @@
             .fa.fa-question.fs100.mb30
             div.fs20 I'm not sure where {{vm.selectedEmployees[0].name.firstName}} sits... Pick someone else!
 floor(class="floor-{{vm.floor}}", ng-if="vm.floor")
-    div.floor-label
-        span {{vm.floor}}th Floor
+    span.floor-label
+        span.label.bg-primary.fs30 {{vm.floor}}th Floor
     ed-desk(ng-repeat="desk in vm.desks" floor="{{desk.floor}}" seat="{{desk.seat}}" orientation="{{desk.orientation}}" classification="{{desk.classification}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}")
+    ed-room(ng-repeat="room in vm.rooms" floor="{{room.floor}}" name="{{room.name}}" location="{{room.location}}" number="{{room.number}}" classification="{{room.classification}}" xpos="{{room.xpos}}" ypos="{{room.ypos}}")

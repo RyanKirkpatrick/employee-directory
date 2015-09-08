@@ -1,7 +1,8 @@
 var mongoose = require('mongoose'),
 	userModel = require('../models/User'),
 	employeeModel = require('../models/Employee'),
-	deskModel = require('../models/Desk');
+	deskModel = require('../models/Desk'),
+	roomModel = require('../models/Room');
 
 module.exports = function (config) {
 	mongoose.connect(config.db);
@@ -14,4 +15,5 @@ module.exports = function (config) {
 	userModel.createDefaultUsers();
 	employeeModel.createDefaultEmployees();
 	deskModel.createDefaultDesks();
+	roomModel.createDefaultRooms();
 };
