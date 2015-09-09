@@ -1,6 +1,10 @@
 #topbar {
   position: fixed;
 }
+#topbar.alt {
+  min-height: 69px;
+  padding: 19px 22px;
+}
 #content {
   padding: 95px 20px 50px 21px;
 }
