@@ -58,8 +58,11 @@ Employee Selector
 /**************************************************
 Employee Card
 **************************************************/
-.employee-card:nth-child(odd)
-  clear left
+.employee-card .row.table-layout
+  overflow hidden
+
+.employee-card .row.table-layout td
+  white-space nowrap
 
 .employee-card .employee-photo
   width 100%
