@@ -33,22 +33,15 @@
 
 		function populateEmployee(selectedEmployees) {
 			vm.selectedEmployee = {
-				name: {
-					firstName: selectedEmployees[0].name.firstName,
-					lastName: selectedEmployees[0].name.lastName
-				},
+				firstName: selectedEmployees[0].firstName,
+				lastName: selectedEmployees[0].lastName,
 				gender: selectedEmployees[0].gender,
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
-				team: selectedEmployees[0].team
+				team: selectedEmployees[0].team,
+				floor: selectedEmployees[0].floor,
+				seat: selectedEmployees[0].seat
 			};
-
-			if (selectedEmployees[0].deskLoc) {
-				vm.selectedEmployee.deskLoc = {
-					floor: selectedEmployees[0].deskLoc.floor,
-					seat: selectedEmployees[0].deskLoc.seat
-				};
-			}
 		}
 
 		$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
@@ -62,22 +55,15 @@
 		function updateEmployee() {
 			// Get the employee data from the form
 			var newEmployeeData = {
-				name: {
-					firstName: vm.selectedEmployee.name.firstName,
-					lastName: vm.selectedEmployee.name.lastName
-				},
+				firstName: vm.selectedEmployee.firstName,
+				lastName: vm.selectedEmployee.lastName,
 				gender: vm.selectedEmployee.gender,
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
-				team: vm.selectedEmployee.team
+				team: vm.selectedEmployee.team,
+				floor: vm.selectedEmployee.floor,
+				seat: vm.selectedEmployee.seat
 			};
-
-			if (vm.selectedEmployee.deskLoc) {
-				newEmployeeData.deskLoc = {
-					floor: vm.selectedEmployee.deskLoc.floor,
-					seat: vm.selectedEmployee.deskLoc.seat
-				};
-			}
 
 			// Save the image file for uploading
 			var imageFile = vm.selectedEmployee.imageFile;
@@ -112,7 +98,7 @@
 			};
 
 			edEmployeeService.updateEmployee(newEmployeeData).then(function (employee) {
-				edNotifierService.notify(employee.name.firstName + ' ' + employee.name.lastName + ' deleted!');
+				edNotifierService.notify(employee.firstName + ' ' + employee.lastName + ' deleted!');
 			}, function (reason) {
 				edNotifierService.error(reason);
 			});

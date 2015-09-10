@@ -37,8 +37,8 @@
 
 		function floorFilter(employee) {
 			if (vm.floors.length > 0) {
-				if (employee.deskLoc && employee.deskLoc.floor) {
-					return vm.floors.indexOf(employee.deskLoc.floor) > -1;
+				if (employee.deskLoc && employee.floor) {
+					return vm.floors.indexOf(employee.floor) > -1;
 				}
 			} else {
 				return true;

@@ -28,35 +28,27 @@
 
 		function resetForm() {
 			vm.newEmployee = {
-				name: {
-					firstName: '',
-					lastName: ''
-				},
+				firstName: '',
+				lastName: '',
 				gender: '',
 				title: '',
 				department: '',
 				team: '',
-				deskLoc: {
-					floor: '',
-					seat: ''
-				}
+				floor: '',
+				seat: ''
 			};
 		}
 
 		function createEmployee() {
 			var newEmployeeData = {
-				name: {
-					firstName: vm.newEmployee.name.firstName,
-					lastName: vm.newEmployee.name.lastName
-				},
+				firstName: vm.newEmployee.firstName,
+				lastName: vm.newEmployee.lastName,
 				gender: vm.newEmployee.gender,
 				title: vm.newEmployee.title,
 				department: vm.newEmployee.department,
 				team: vm.newEmployee.team,
-				deskLoc: {
-					floor: vm.newEmployee.deskLoc.floor,
-					seat: vm.newEmployee.deskLoc.seat
-				}
+				floor: vm.newEmployee.floor,
+				seat: vm.newEmployee.seat
 			};
 
 			edEmployeeService.createEmployee(newEmployeeData).then(function (employee) {

@@ -9,11 +9,11 @@
                         .col-md-6
                             .section
                                 label.field
-                                    input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.newEmployee.name.firstName", required)
+                                    input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.newEmployee.firstName", required)
                         .col-md-6
                             .section
                                 label.field
-                                    input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.newEmployee.name.lastName", required)
+                                    input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.newEmployee.lastName", required)
                     .row
                         .col-md-6
                             .section
@@ -46,13 +46,13 @@
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="floor", ng-model="vm.newEmployee.deskLoc.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
+                                    select(name="floor", ng-model="vm.newEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
                                         option(disabled, value="") Floor
                                     i.arrow
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="seat", ng-disabled="!vm.newEmployee.deskLoc.floor", ng-model="vm.newEmployee.deskLoc.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.newEmployee.deskLoc.floor | orderBy: ['section','seat']")
+                                    select(name="seat", ng-disabled="!vm.newEmployee.floor", ng-model="vm.newEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.newEmployee.floor | orderBy: ['section','seat']")
                                         option(disabled, value="") Seat
                                     i.arrow
                 .panel-footer.text-right

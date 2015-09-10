@@ -16,7 +16,7 @@
                 table.table.mbn
                     tbody
                         tr
-                            td.va-m.fw600 {{employee.name.firstName}} {{employee.name.lastName}}
+                            td.va-m.fw600 {{employee.firstName}} {{employee.lastName}}
                         tr
                             td.va-m.fw600.text-muted {{employee.title}}
                         tr
@@ -38,9 +38,9 @@
                                 span.fa.fa-phone.mr10
                                 | Desk: {{employee.phone}}
                         tr(ng-if="employee.location")
-                            td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.deskLoc")
+                            td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
-                                | {{employee.location}} / Floor: {{employee.deskLoc.floor}} / Seat: {{employee.deskLoc.seat}}
-                            td.va-m.fw600.text-muted(ng-if="!employee.deskLoc")
+                                | {{employee.location}} / Floor: {{employee.floor}} / Seat: {{employee.seat}}
+                            td.va-m.fw600.text-muted(ng-if="!employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
                                 | {{employee.location}}

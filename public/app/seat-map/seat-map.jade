@@ -5,7 +5,7 @@
             div.fs20 Select a person to view their desk location
         .panel-body.text-center(ng-if="vm.unknownLocationEmployee")
             .fa.fa-question.fs100.mb30
-            div.fs20 I'm not sure where {{vm.selectedEmployees[0].name.firstName}} sits... Pick someone else!
+            div.fs20 I'm not sure where {{vm.selectedEmployees[0].firstName}} sits... Pick someone else!
 floor(class="floor-{{vm.floor}}", ng-if="vm.floor")
     span.floor-label
         span.label.bg-primary.fs30 {{vm.floor}}th Floor

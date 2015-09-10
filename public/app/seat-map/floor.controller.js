@@ -14,8 +14,8 @@
 		activate();
 
 		function activate() {
-			if (vm.selectedEmployees.length === 1 && vm.selectedEmployees[0].deskLoc.floor) {
-				vm.floor = vm.selectedEmployees[0].deskLoc.floor;
+			if (vm.selectedEmployees.length === 1 && vm.selectedEmployees[0].floor) {
+				vm.floor = vm.selectedEmployees[0].floor;
 				edDeskService.getAllDesks().$promise.then(deskFilter);
 				edRoomService.getAllRooms().$promise.then(roomFilter);
 			} else {
@@ -25,8 +25,8 @@
 
 		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
-				if (selectedEmployees[0].deskLoc && selectedEmployees[0].deskLoc.floor !== vm.floor) {
-					$state.go('main.seat-map.floor-' + selectedEmployees[0].deskLoc.floor, {'seat': selectedEmployees[0].deskLoc.seat});
+				if (selectedEmployees[0].floor !== vm.floor) {
+					$state.go('main.seat-map.floor-' + selectedEmployees[0].floor, {'seat': selectedEmployees[0].seat});
 				} else if (!selectedEmployees[0].deskLoc) {
 					$state.go('main.seat-map');
 				}

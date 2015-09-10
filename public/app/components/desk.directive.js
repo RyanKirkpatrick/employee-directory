@@ -33,7 +33,7 @@
 			}
 
 			var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-				if (selectedEmployees.length === 1 && selectedEmployees[0].deskLoc && selectedEmployees[0].deskLoc.seat === attrs.seat) {
+				if (selectedEmployees.length === 1 && selectedEmployees[0].seat === attrs.seat) {
 					$timeout(function () {
 						$document.scrollToElement(el, 700, 300).then(function () {
 							el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');

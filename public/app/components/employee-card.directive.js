@@ -32,7 +32,7 @@
 		function mapEmployee(employee) {
 			edEmployeeService.removeAllSelectedEmployees();
 			edEmployeeService.updateSelectedEmployees(employee);
-			$state.go('main.seat-map.floor-' + employee.deskLoc.floor, {'seat': employee.deskLoc.seat});
+			$state.go('main.seat-map.floor-' + employee.floor, {'seat': employee.seat});
 		}
 
 		function deselectEmployee(employee) {

@@ -1,24 +1,22 @@
 var mongoose = require('mongoose');
 
 var employeeSchema = mongoose.Schema({
-	name: {
-		firstName: {
-			type: String,
-			required: '{PATH} is required!'
-		},
-		lastName: {
-			type: String,
-			required: '{PATH} is required!'
-		}
+	firstName: {
+		type: String,
+		required: '{PATH} is required!'
+	},
+	lastName: {
+		type: String,
+		required: '{PATH} is required!'
 	},
 	email: {
 		type: String
 	},
 	phone: {
-		type: String
+		type: Number
 	},
 	ext: {
-		type: String
+		type: Number
 	},
 	image: {
 		type: String
@@ -41,19 +39,11 @@ var employeeSchema = mongoose.Schema({
 	location: {
 		type: String
 	},
-	deskLoc: {
-		floor: {
-			type: Number
-		},
-		section: {
-			type: Number
-		},
-		seat: {
-			type: Number
-		},
-		pos: {
-			type: String
-		}
+	floor: {
+		type: Number
+	},
+	seat: {
+		type: String
 	},
 	deleted: {
 		type: Boolean,
@@ -66,7 +56,20 @@ var Employee = mongoose.model('Employee', employeeSchema);
 function createDefaultEmployees() {
 	Employee.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
-			// replace with good stuff
+			Employee.create({
+				firstName: 'John',
+				lastName: 'Doe',
+				email: 'john.doe@liazon.com',
+				phone: '(716) 123-4567',
+				ext: '123',
+				gender: 'male',
+				department: 'Software Engineering',
+				title: 'Software Engineer',
+				team: 'Prestige Worldwide',
+				location: 'Buffalo',
+				floor: 8,
+				seat: '083006'
+			});
 		}
 	});
 }

@@ -12,14 +12,14 @@
             <div class="col-md-6">
               <div class="section">
                 <label class="field">
-                  <input name="firstName" type="text" placeholder="First Name" ng-model="vm.selectedEmployee.name.firstName" required="required" class="gui-input"/>
+                  <input name="firstName" type="text" placeholder="First Name" ng-model="vm.selectedEmployee.firstName" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="section">
                 <label class="field">
-                  <input name="lastName" type="text" placeholder="Last Name" ng-model="vm.selectedEmployee.name.lastName" required="required" class="gui-input"/>
+                  <input name="lastName" type="text" placeholder="Last Name" ng-model="vm.selectedEmployee.lastName" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="floor" ng-model="vm.selectedEmployee.deskLoc.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'">
+                  <select name="floor" ng-model="vm.selectedEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'">
                     <option disabled="disabled" value="">Floor</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -80,7 +80,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="seat" ng-model="vm.selectedEmployee.deskLoc.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.deskLoc.floor | orderBy: ['section','seat']">
+                  <select name="seat" ng-model="vm.selectedEmployee.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']">
                     <option disabled="disabled" value="">Seat</option>
                   </select><i class="arrow"></i>
                 </label>
