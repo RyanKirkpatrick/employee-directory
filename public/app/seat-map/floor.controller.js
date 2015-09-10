@@ -27,7 +27,7 @@
 			if (selectedEmployees.length === 1) {
 				if (selectedEmployees[0].floor !== vm.floor) {
 					$state.go('main.seat-map.floor-' + selectedEmployees[0].floor, {'seat': selectedEmployees[0].seat});
-				} else if (!selectedEmployees[0].deskLoc) {
+				} else if (!selectedEmployees[0].floor) {
 					$state.go('main.seat-map');
 				}
 			}
