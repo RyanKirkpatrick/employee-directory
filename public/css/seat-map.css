@@ -102,7 +102,7 @@ room.break8 {
   width: 280px;
 }
 desk {
-  border: 1px solid transparent;
+  border: 1px solid #f00;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -144,6 +144,13 @@ desk.manager {
 }
 desk.manager.vert {
   height: 64px;
+  width: 55px;
+}
+desk.manager.it {
+  width: 78px;
+}
+desk.manager.it.vert {
+  height: 78px;
   width: 55px;
 }
 desk.manager.ewa {

@@ -28,6 +28,7 @@ $employee-border = 1px
 
 $manager-width = 64px
 $manager-height = 55px
+$manager-it-width = 78px
 
 $office-width = 114px
 $office-height = 84px
@@ -116,7 +117,7 @@ room
     width 280px
 
 desk
-  border 1px solid transparent
+  border 1px solid #f00
   box-sizing border-box
   display table
   position absolute
@@ -153,6 +154,13 @@ desk
     &.vert
       height $manager-width
       width $manager-height
+
+    &.it
+      width $manager-it-width
+
+      &.vert
+        height $manager-it-width
+        width $manager-height
 
     &.ewa
       transform rotate(26deg)
