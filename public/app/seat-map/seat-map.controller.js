@@ -7,7 +7,7 @@
 	function edSeatMapCtrl($state, $rootScope, $scope, edEmployeeService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
-		vm.mappedEmployee = null;
+		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
 		vm.unknownLocationEmployee = false;
 
 		edEmployeeService.setDisplayEmployeeInfoType('location');
@@ -30,11 +30,11 @@
 					$state.go('main.seat-map.floor-' + employee.floor, {'seat': employee.seat});
 				} else {
 					vm.unknownLocationEmployee = true;
-					vm.mappededEmployee = null;
+					vm.mappedEmployee = employee;
 				}
 			} else {
 				vm.unknownLocationEmployee = false;
-				vm.mappededEmployee = null;
+				vm.mappedEmployee = null;
 			}
 		}
 	}

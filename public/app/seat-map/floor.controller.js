@@ -28,7 +28,7 @@
 
 		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 			if (mappedEmployee) {
-				if (mappedEmployee.floor !== vm.floor) {
+				if (mappedEmployee.floor && mappedEmployee.floor !== vm.floor) {
 					$state.go('main.seat-map.floor-' + mappedEmployee.floor, {'seat': mappedEmployee.seat});
 				} else if (!mappedEmployee.floor) {
 					$state.go('main.seat-map');
