@@ -51,16 +51,6 @@ function createDefaultUsers() {
 				hashedPwd: hash,
 				roles: ['super-admin', 'admin']
 			});
-			salt = encrypt.createSalt();
-			hash = encrypt.hashPwd(salt, 'tom');
-			User.create({
-				firstName: 'Tom',
-				lastName: 'K',
-				username: 'tom',
-				salt: salt,
-				hashedPwd: hash,
-				roles: ['admin']
-			});
 		}
 	});
 }

@@ -60,7 +60,7 @@ function createDefaultEmployees() {
 				firstName: 'John',
 				lastName: 'Doe',
 				email: 'john.doe@liazon.com',
-				phone: '(716) 123-4567',
+				phone: '(212) 123-4567',
 				ext: '123',
 				gender: 'male',
 				department: 'Software Engineering',

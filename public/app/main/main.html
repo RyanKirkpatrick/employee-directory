@@ -8,7 +8,7 @@
   </div>
 </div>
 <div vertilize-container="vertilize-container" class="row">
-  <div ng-repeat="employee in vm.selectedEmployees" vertilize="vertilize" class="col-lg-6 col-xl-4 employee-card">
+  <div ng-repeat="employee in vm.selectedEmployees track by employee._id" vertilize="vertilize" class="col-lg-6 col-xl-4 employee-card">
     <ed-employee-card employee="employee"></ed-employee-card>
   </div>
 </div>

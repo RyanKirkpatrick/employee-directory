@@ -12,6 +12,7 @@
 			selectMultipleEmployees: selectMultipleEmployees,
 			getAllEmployees: getAllEmployees,
 			getSelectedEmployees: getSelectedEmployees,
+			addAllFilteredEmployees: addAllFilteredEmployees,
 			updateSelectedEmployees: updateSelectedEmployees,
 			removeAllSelectedEmployees: removeAllSelectedEmployees,
 			setSelectMultipleEmployees: setSelectMultipleEmployees,
@@ -37,6 +38,26 @@
 		 * @return {Array} selected employees
 		 */
 		function getSelectedEmployees() {
+			return selectedEmployees;
+		}
+
+		/**
+		 * Adds all the filtered employees to the selected employees
+		 * Removes any unfiltered employees from selected employees
+		 *
+		 * @param {Array} employees to add to selected
+		 * @return {Array} selected employees
+		 */
+		function addAllFilteredEmployees(employees) {
+			angular.forEach(selectedEmployees, function (prevSelected) {
+				prevSelected.selected = false;
+			});
+			angular.forEach(employees, function (employee) {
+				employee.selected = true;
+			});
+			selectedEmployees = employees;
+			// Broadcast event for listeners
+			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
 			return selectedEmployees;
 		}
 

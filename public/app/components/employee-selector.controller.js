@@ -14,6 +14,7 @@
 		vm.allowSelectAll = false;
 		vm.filteredEmployees = edEmployeeService.getAllEmployees();
 		vm.filterOpen = false;
+		vm.clearFilter = clearFilter;
 		vm.floorFilter = floorFilter;
 		vm.filterFloors = filterFloors;
 		vm.floor = {
@@ -46,19 +47,23 @@
 		}
 
 		function selectAll() {
-			angular.forEach(vm.filteredEmployees, function (employee) {
-				if (!employee.selected) {
-					edEmployeeService.updateSelectedEmployees(employee);
-				}
-			});
+			edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
 		}
 
 		function selectNone() {
-			angular.forEach(vm.filteredEmployees, function (employee) {
-				if (employee.selected) {
-					edEmployeeService.updateSelectedEmployees(employee);
-				}
-			});
+			edEmployeeService.removeAllSelectedEmployees();
+		}
+
+		function clearFilter() {
+			vm.employeeName = '';
+			vm.floors = [];
+			vm.floor = {
+				'6': false,
+				'7': false,
+				'8': false
+			};
+			vm.department = '';
+			vm.team = '';
 		}
 
 		$rootScope.$on('employeesUpdated', function (event, employees) {
