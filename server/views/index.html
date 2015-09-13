@@ -29,14 +29,7 @@
         </div>
       </aside>
       <section id="content_wrapper">
-        <header id="topbar" class="alt">
-          <div class="top-bar-left">
-            <ol class="breadcrumb">
-              <li class="crumb-active"><a ui-sref="main">Home</a></li>
-              <li class="crumb-link"><a ui-sref="main.seat-map">Seat Map</a></li>
-            </ol>
-          </div>
-        </header>
+        <ed-content-header></ed-content-header>
         <section id="content">
           <div ui-view="main"></div>
         </section>
@@ -69,6 +62,7 @@
     <script type="text/javascript" src="/app/services/employee.service.js"></script>
     <script type="text/javascript" src="/app/services/desk.service.js"></script>
     <script type="text/javascript" src="/app/services/room.service.js"></script>
+    <script type="text/javascript" src="/app/components/content-header.directive.js"></script>
     <script type="text/javascript" src="/app/components/desk.directive.js"></script>
     <script type="text/javascript" src="/app/components/room.directive.js"></script>
     <script type="text/javascript" src="/app/components/employee-card.directive.js"></script>

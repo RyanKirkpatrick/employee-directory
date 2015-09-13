@@ -81,7 +81,7 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						template: '<div>hi</div>'
+						template: '<div></div>'
 					}
 				}
 			})

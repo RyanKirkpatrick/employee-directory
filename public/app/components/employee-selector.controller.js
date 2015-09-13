@@ -8,6 +8,7 @@
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+		vm.displayEmployeeInfoType = edEmployeeService.getDisplayEmployeeInfoType();
 		vm.selectEmployee = selectEmployee;
 		vm.selectAll = selectAll;
 		vm.selectNone = selectNone;
@@ -25,7 +26,20 @@
 		vm.floors = [];
 
 		function selectEmployee(employee) {
+			if (vm.displayEmployeeInfoType === 'profile') {
+				displayEmployeeProfile(employee);
+			}
+			else if (vm.displayEmployeeInfoType === 'location') {
+				displayEmployeeLocation(employee);
+			}
+		}
+
+		function displayEmployeeProfile(employee) {
 			edEmployeeService.updateSelectedEmployees(employee);
+		}
+
+		function displayEmployeeLocation(employee) {
+			edEmployeeService.updateMappedEmployee(employee);
 		}
 
 		function filterFloors(floor) {
@@ -72,6 +86,10 @@
 
 		$rootScope.$on('selectMultipleEmployeesChange', function (event, allowSelectMultipleEmployees) {
 			vm.allowSelectAll = allowSelectMultipleEmployees;
+		});
+
+		$rootScope.$on('displayEmployeeInfoTypeChange', function (event, displayEmployeeInfoType) {
+			vm.displayEmployeeInfoType = displayEmployeeInfoType;
 		});
 	}
 })();

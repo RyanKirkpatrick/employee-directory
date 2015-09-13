@@ -24,23 +24,23 @@
 		function linkFunc(scope, el, attrs) {
 			if ($stateParams.seat === attrs.seat) {
 				$timeout(function () {
-					$document.scrollToElement(el, 700, 300).then(function () {
-						el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
+					$document.scrollToElement(el, 300, 300).then(function () {
+						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 					});
 				}, 300);
 			} else {
-				el.removeClass('active').find('.marker').remove();
+				el.removeClass('mapped').find('.marker').remove();
 			}
 
-			var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-				if (selectedEmployees.length === 1 && selectedEmployees[0].seat === attrs.seat) {
+			var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+				if (mappedEmployee && mappedEmployee.seat === attrs.seat) {
 					$timeout(function () {
-						$document.scrollToElement(el, 700, 300).then(function () {
-							el.addClass('active').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
+						$document.scrollToElement(el, 300, 300).then(function () {
+							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 						});
 					}, 300);
 				} else {
-					el.removeClass('active').find('.marker').remove();
+					el.removeClass('mapped').find('.marker').remove();
 				}
 			});
 

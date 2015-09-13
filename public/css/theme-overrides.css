@@ -1,13 +1,3 @@
-#topbar {
-  position: fixed;
-}
-#topbar.alt {
-  min-height: 69px;
-  padding: 19px 22px;
-}
-#content {
-  padding: 95px 20px 50px 21px;
-}
 .sidebar-menu > li:last-child a {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
@@ -32,9 +22,6 @@
   top: 0;
   width: 4px;
 }
-.sidebar-menu > li.active > a {
-  background-color: #6b6b6b;
-}
 .sidebar-menu > li.active > a:before {
   background-color: #4a89dc;
   bottom: 0;
@@ -44,6 +31,12 @@
   position: absolute;
   top: 0;
   width: 4px;
+}
+.sidebar-menu > li.mapped > a:before {
+  background-color: #de5858;
+}
+.sidebar-menu > li.mapped > a > span:nth-child(1) {
+  color: #de5858;
 }
 .sidebar-menu .sidebar-label-tray {
   position: absolute;

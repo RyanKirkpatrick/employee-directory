@@ -46,28 +46,11 @@
                     button.btn.btn-xs.btn-success.pull-right.ml10(type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll") Select All
                     button.btn.btn-xs.btn-warning.pull-right(type="button", ng-click="vm.selectNone()") Select None
                     button.btn.btn-xs.btn-primary.pull-left(type="button", ng-click="vm.clearFilter()") Reset
-                        //.col-md-3
-                            .radio-custom
-                                input(type="radio", id="floor6", name="floor", value="6", ng-model="vm.floor")
-                                label(for="floor6") 6
-                        //.col-md-3
-                            .radio-custom
-                                input(type="radio" id="floor7", name="floor", value="7", ng-model="vm.floor")
-                                label(for="floor7") 7
-                        //.col-md-3
-                            .radio-custom
-                                input(type="radio" id="floor8", name="floor", value="8", ng-model="vm.floor")
-                                label(for="floor8") 8
-                    //.form-group
-                        label.col-xs-6.control-label(for="floor") Floor
-                        .col-xs-6
-                            select.form-control(name="floor", ng-model="vm.floor", ng-options="floor as floor for floor in [6,7,8]")
-                                option(value="", selected) All
     ul.nav.sidebar-menu
         li.sidebar-label.pt10.pb10 Select Employees
             span.sidebar-label-tray
                 span.label.label-xs.cursor(ng-click="vm.filterOpen = !vm.filterOpen", ng-class="vm.filterOpen ? 'bg-primary' : 'bg-light'") Filter
-        li.employee-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filter: vm.employeeName | filter: vm.floorFilter))", ng-class="{'active': employee.selected}")
+        li.employee-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filter: vm.employeeName | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
             a(href="", ng-click="vm.selectEmployee(employee)")
-                span.fa(class="fa-{{::employee.gender}}")
+                span.fa(ng-class="employee.mapped ? 'fa-map-marker' : 'fa-{{::employee.gender}}'")
                 span {{::employee.lastName}}, {{::employee.firstName}}

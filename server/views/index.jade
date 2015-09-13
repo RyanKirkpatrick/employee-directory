@@ -9,13 +9,7 @@ block main-content
             .sidebar-left-content.nano-content
                 div(ui-view="sidebar")
         section#content_wrapper
-            header#topbar.alt
-                .top-bar-left
-                    ol.breadcrumb
-                        li.crumb-active
-                            a(ui-sref="main") Home
-                        li.crumb-link
-                            a(ui-sref="main.seat-map") Seat Map
+            ed-content-header
             section#content
                 div(ui-view="main")
             footer#content-footer.affix

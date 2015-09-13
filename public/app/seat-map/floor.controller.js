@@ -6,16 +6,19 @@
 
 	function edFloorCtrl(edEmployeeService, edDeskService, $state, $scope, $rootScope, edRoomService) {
 		var vm = this;
-		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
+		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
+		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
 		vm.desks = null;
 		vm.rooms = null;
 		vm.floor = null;
 
+		edEmployeeService.setDisplayEmployeeInfoType('location');
+
 		activate();
 
 		function activate() {
-			if (vm.selectedEmployees.length === 1 && vm.selectedEmployees[0].floor) {
-				vm.floor = vm.selectedEmployees[0].floor;
+			if (vm.mappedEmployee && vm.mappedEmployee.floor) {
+				vm.floor = vm.mappedEmployee.floor;
 				edDeskService.getAllDesks().$promise.then(deskFilter);
 				edRoomService.getAllRooms().$promise.then(roomFilter);
 			} else {
@@ -23,11 +26,11 @@
 			}
 		}
 
-		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-			if (selectedEmployees.length === 1) {
-				if (selectedEmployees[0].floor !== vm.floor) {
-					$state.go('main.seat-map.floor-' + selectedEmployees[0].floor, {'seat': selectedEmployees[0].seat});
-				} else if (!selectedEmployees[0].floor) {
+		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+			if (mappedEmployee) {
+				if (mappedEmployee.floor !== vm.floor) {
+					$state.go('main.seat-map.floor-' + mappedEmployee.floor, {'seat': mappedEmployee.seat});
+				} else if (!mappedEmployee.floor) {
 					$state.go('main.seat-map');
 				}
 			}

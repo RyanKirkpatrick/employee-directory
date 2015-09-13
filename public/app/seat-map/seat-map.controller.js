@@ -6,32 +6,35 @@
 
 	function edSeatMapCtrl($state, $rootScope, $scope, edEmployeeService) {
 		var vm = this;
-		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
+		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
+		vm.mappedEmployee = null;
 		vm.unknownLocationEmployee = false;
+
+		edEmployeeService.setDisplayEmployeeInfoType('location');
 
 		activate();
 
 		function activate() {
-			locateEmployee(vm.selectedEmployees);
+			locateEmployee(vm.mappedEmployee);
 		}
 
-		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-			locateEmployee(selectedEmployees);
+		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+			locateEmployee(mappedEmployee);
 		});
 
 		$scope.$on('$destroy', deregister);
 
-		function locateEmployee(employees) {
-			if (employees.length === 1) {
-				if (employees[0].seat) {
-					$state.go('main.seat-map.floor-' + employees[0].floor, {'seat': employees[0].seat});
+		function locateEmployee(employee) {
+			if (employee) {
+				if (employee.seat) {
+					$state.go('main.seat-map.floor-' + employee.floor, {'seat': employee.seat});
 				} else {
 					vm.unknownLocationEmployee = true;
-					vm.selectedEmployees = employees;
+					vm.mappededEmployee = null;
 				}
 			} else {
 				vm.unknownLocationEmployee = false;
-				vm.selectedEmployees = [];
+				vm.mappededEmployee = null;
 			}
 		}
 	}

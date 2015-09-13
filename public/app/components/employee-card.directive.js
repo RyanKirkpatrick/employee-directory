@@ -30,8 +30,7 @@
 		vm.editEmployee = editEmployee;
 
 		function mapEmployee(employee) {
-			edEmployeeService.removeAllSelectedEmployees();
-			edEmployeeService.updateSelectedEmployees(employee);
+			edEmployeeService.updateMappedEmployee(employee);
 			$state.go('main.seat-map.floor-' + employee.floor, {'seat': employee.seat});
 		}
 

@@ -1,6 +1,6 @@
-.mw1000.center-block(ng-if="vm.selectedEmployees.length < 1 || vm.unknownLocationEmployee")
+.mw1000.center-block(ng-if="!vm.mappedEmployee || vm.unknownLocationEmployee")
     .panel.panel-primary
-        .panel-body.text-center(ng-if="vm.selectedEmployees.length < 1")
+        .panel-body.text-center(ng-if="!vm.mappedEmployee")
             .fa.fa-map-marker.fs100.mb30
             div.fs20 Select a person to view their desk location
         .panel-body.text-center(ng-if="vm.unknownLocationEmployee")

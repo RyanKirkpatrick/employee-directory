@@ -6,7 +6,9 @@
 
 	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload, edNotifierService) {
 		var selectedEmployees = [];
+		var mappedEmployee = null;
 		var selectMultipleEmployees = false;
+		var displayEmployeeInfoType = 'profile';
 		var service = {
 			selectedEmployees: selectedEmployees,
 			selectMultipleEmployees: selectMultipleEmployees,
@@ -19,7 +21,11 @@
 			getSelectMultipleEmployees: getSelectMultipleEmployees,
 			updateEmployee: updateEmployee,
 			createEmployee: createEmployee,
-			uploadEmployeePhoto: uploadEmployeePhoto
+			uploadEmployeePhoto: uploadEmployeePhoto,
+			updateMappedEmployee: updateMappedEmployee,
+			getMappedEmployee: getMappedEmployee,
+			setDisplayEmployeeInfoType: setDisplayEmployeeInfoType,
+			getDisplayEmployeeInfoType: getDisplayEmployeeInfoType
 		};
 		return service;
 
@@ -59,6 +65,67 @@
 			// Broadcast event for listeners
 			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
 			return selectedEmployees;
+		}
+
+		/**
+		 * Updates the mapped employee
+		 *
+		 * @param {Object} employee to map / un-map
+		 * @return {Object} mapped employee
+		 */
+		function updateMappedEmployee(employee) {
+			// Un-map the currently mapped employee
+			if (!employee && mappedEmployee) {
+				mappedEmployee.mapped = false;
+				mappedEmployee = null;
+				// Un-map the currently mapped employee and (possibly) map the new one
+			} else if (employee && mappedEmployee) {
+				mappedEmployee.mapped = false;
+				// Map the new employee
+				if (mappedEmployee._id !== employee._id) {
+					employee.mapped = true;
+					mappedEmployee = employee;
+					// Just remove the currently mapped employee
+				} else {
+					mappedEmployee = null;
+				}
+				// Map the requested employee (none currently mapped)
+			} else if (employee && !mappedEmployee) {
+				employee.mapped = true;
+				mappedEmployee = employee;
+			}
+			$rootScope.$broadcast('mappedEmployeeChange', mappedEmployee);
+			return mappedEmployee;
+		}
+
+		/**
+		 * Gets the mapped employee
+		 *
+		 * @return {Object} mapped employee
+		 */
+		function getMappedEmployee() {
+			return mappedEmployee;
+		}
+
+		/**
+		 * Sets the type of info to display
+		 *
+		 * @param {String} infoType type of info we want to deal with
+		 * @return {String} type of info we want to deal with
+		 */
+		function setDisplayEmployeeInfoType(infoType) {
+			displayEmployeeInfoType = infoType;
+			$rootScope.$broadcast('displayEmployeeInfoTypeChange', displayEmployeeInfoType);
+			return displayEmployeeInfoType;
+		}
+
+		/**
+		 * Gets the type of info to display
+		 *
+		 * @return {String} type of info we should deal with
+		 */
+		function getDisplayEmployeeInfoType() {
+			return displayEmployeeInfoType;
 		}
 
 		/**
@@ -132,6 +199,11 @@
 			return selectedEmployees;
 		}
 
+		/**
+		 * Gets wether or not we should allow multiple employees to be selected
+		 *
+		 * @return {Boolean} allow selecting multiple employee
+		 */
 		function getSelectMultipleEmployees() {
 			return selectMultipleEmployees;
 		}

@@ -7,6 +7,9 @@
 	function edMainCtrl($scope, $rootScope, edEmployeeService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+
+		edEmployeeService.setDisplayEmployeeInfoType('profile');
+		edEmployeeService.updateMappedEmployee(null);
 		edEmployeeService.setSelectMultipleEmployees(true);
 
 		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {

@@ -2,16 +2,6 @@
 
 primary-color = #4a89dc
 
-#topbar
-  position fixed
-
-  &.alt
-    min-height 69px
-    padding 19px 22px
-
-#content
-  padding: 95px 20px 50px 21px
-
 .sidebar-menu
   > li
 
@@ -35,18 +25,23 @@ primary-color = #4a89dc
           top 0
           width 4px
 
-    &.active > a
-      background-color #6B6B6B
+    &.active > a:before
+      background-color primary-color
+      bottom 0
+      content ""
+      display block
+      right 0
+      position absolute
+      top 0
+      width 4px
+
+    &.mapped > a
 
       &:before
-        background-color primary-color
-        bottom 0
-        content ""
-        display block
-        right 0
-        position absolute
-        top 0
-        width 4px
+        background-color #de5858
+
+      > span:nth-child(1)
+        color #de5858
 
   .sidebar-label-tray
     position absolute
