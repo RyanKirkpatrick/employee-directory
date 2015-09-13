@@ -13,7 +13,7 @@
   background-color: #585858;
 }
 .sidebar-menu > li > a:hover:before {
-  background-color: #4a89dc;
+  background-color: #fff;
   bottom: 0;
   content: "";
   display: block;
@@ -34,6 +34,13 @@
 }
 .sidebar-menu > li.mapped > a:before {
   background-color: #de5858;
+  bottom: 0;
+  content: "";
+  display: block;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
 }
 .sidebar-menu > li.mapped > a > span:nth-child(1) {
   color: #de5858;
