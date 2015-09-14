@@ -1,3 +1,16 @@
+.navbar-branding {
+  width: 275px;
+}
+.navbar-branding .navbar-brand {
+  padding: 0;
+}
+.navbar-branding .navbar-brand img {
+  height: 60px;
+  padding: 5px 0;
+}
+#topbar .nav.nav-list-topbar li.active.location-tab a {
+  border-color: #de5858;
+}
 .sidebar-menu > li:last-child a {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
@@ -23,7 +36,7 @@
   width: 4px;
 }
 .sidebar-menu > li.active > a:before {
-  background-color: #4a89dc;
+  background-color: #3498db;
   bottom: 0;
   content: "";
   display: block;

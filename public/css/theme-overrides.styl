@@ -1,6 +1,20 @@
 @import nib
 
-primary-color = #4a89dc
+primary-color-blue = #3498db
+primary-color-red = #de5858
+
+.navbar-branding
+  width 275px
+
+  .navbar-brand
+    padding 0
+
+    img
+      height 60px
+      padding 5px 0
+
+#topbar .nav.nav-list-topbar li.active.location-tab a
+  border-color primary-color-red
 
 .sidebar-menu
   > li
@@ -26,7 +40,7 @@ primary-color = #4a89dc
           width 4px
 
     &.active > a:before
-      background-color primary-color
+      background-color primary-color-blue
       bottom 0
       content ""
       display block
@@ -38,7 +52,7 @@ primary-color = #4a89dc
     &.mapped > a
 
       &:before
-        background-color #de5858
+        background-color primary-color-red
         bottom 0
         content ""
         display block
@@ -48,7 +62,7 @@ primary-color = #4a89dc
         width 4px
 
       > span:nth-child(1)
-        color #de5858
+        color primary-color-red
 
   .sidebar-label-tray
     position absolute
