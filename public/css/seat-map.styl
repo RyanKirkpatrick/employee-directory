@@ -130,7 +130,6 @@ desk
     vertical-align middle
 
     span
-      background-color rgba(255,255,255,.65);
       text-align center
 
   &.employee
@@ -150,6 +149,9 @@ desk
   &.manager
     height $manager-height
     width $manager-width
+
+    .seat span
+      background-color rgba(255,255,255,.75);
 
     &.vert
       height $manager-width
@@ -171,6 +173,9 @@ desk
   &.office
     height $office-height
     width $office-width
+
+    .seat span
+      background-color rgba(255,255,255,.75);
 
   &.mapped
     z-index 1

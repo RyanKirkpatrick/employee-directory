@@ -117,7 +117,6 @@ desk .seat {
   vertical-align: middle;
 }
 desk .seat span {
-  background-color: rgba(255,255,255,0.65);
   text-align: center;
 }
 desk.employee {
@@ -141,6 +140,9 @@ desk.employee.vert .seat {
 desk.manager {
   height: 55px;
   width: 64px;
+}
+desk.manager .seat span {
+  background-color: rgba(255,255,255,0.75);
 }
 desk.manager.vert {
   height: 64px;
@@ -170,6 +172,9 @@ desk.manager.ewa .seat {
 desk.office {
   height: 84px;
   width: 114px;
+}
+desk.office .seat span {
+  background-color: rgba(255,255,255,0.75);
 }
 desk.mapped {
   z-index: 1;
