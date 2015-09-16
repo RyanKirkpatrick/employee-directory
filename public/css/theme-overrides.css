@@ -2,8 +2,14 @@
   height: 60px;
   padding: 5px 0;
 }
+#topbar {
+  position: fixed;
+}
 #topbar .nav.nav-list-topbar li.active.location-tab a {
   border-color: #de5858;
+}
+#sidebar_left {
+  z-index: 1;
 }
 .sidebar-menu > li:last-child a {
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -65,4 +71,7 @@
     margin-left: 250px;
     left: 0;
   }
+}
+#content {
+  padding: 0;
 }

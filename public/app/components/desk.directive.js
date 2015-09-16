@@ -27,7 +27,7 @@
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 					});
-				}, 300);
+				}, 800);
 			} else {
 				el.removeClass('mapped').find('.marker').remove();
 			}
@@ -38,7 +38,7 @@
 						$document.scrollToElement(el, 300, 300).then(function () {
 							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>');
 						});
-					}, 300);
+					}, 100);
 				} else {
 					el.removeClass('mapped').find('.marker').remove();
 				}
