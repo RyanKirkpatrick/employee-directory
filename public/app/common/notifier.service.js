@@ -9,18 +9,27 @@
 	function edNotifierService(edToastr) {
 		var service = {
 			notify: notify,
+			info: info,
 			error: error
 		};
+
+		edToastr.options = {
+			'showDuration': '300',
+			'hideDuration': '300'
+		};
+
 		return service;
 
 		function notify(msg) {
 			edToastr.success(msg);
-			console.log(msg);
+		}
+
+		function info(msg) {
+			edToastr.info(msg);
 		}
 
 		function error(msg) {
 			edToastr.error(msg);
-			console.log(msg);
 		}
 	}
 })();

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeSelectorCtrl', edEmployeeSelectorCtrl);
 
-	edEmployeeSelectorCtrl.$inject = ['$rootScope', 'edEmployeeService'];
+	edEmployeeSelectorCtrl.$inject = ['$rootScope', 'edEmployeeService', 'edNotifierService'];
 
-	function edEmployeeSelectorCtrl($rootScope, edEmployeeService) {
+	function edEmployeeSelectorCtrl($rootScope, edEmployeeService, edNotifierService) {
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
@@ -62,6 +62,9 @@
 
 		function selectAll() {
 			edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
+			if (vm.team === 'Prestige Worldwide') {
+				edNotifierService.info('Investors?  Possibly you!');
+			}
 		}
 
 		function selectNone() {

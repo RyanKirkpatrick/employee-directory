@@ -58,6 +58,9 @@
 .sidebar-menu > li.mapped > a > span:nth-child(1) {
   color: #de5858;
 }
+.sidebar-menu > li.active.mapped > a:before {
+  background-color: #3498db;
+}
 .sidebar-menu .sidebar-label-tray {
   position: absolute;
   right: 13px;

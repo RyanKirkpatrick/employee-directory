@@ -4,7 +4,7 @@
             i.icon.icon-Leslie
         span.panel-title Employee Profile
         span.panel-controls
-            a.panel-control-map-marker(ng-click="vm.mapEmployee(employee)")
+            a.panel-control-map-marker(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
             a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
     .panel-body.pn
@@ -36,7 +36,7 @@
                         tr(ng-if="employee.phone")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-phone.mr10
-                                | Desk: {{::employee.phone}}
+                                | Desk: {{::employee.phone | edPhoneNumberFilter}}
                         tr(ng-if="employee.location")
                             td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10

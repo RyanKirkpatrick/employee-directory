@@ -9,7 +9,6 @@
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 
 		edEmployeeService.setDisplayEmployeeInfoType('profile');
-		edEmployeeService.updateMappedEmployee(null);
 		edEmployeeService.setSelectMultipleEmployees(true);
 
 		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
