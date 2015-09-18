@@ -12,6 +12,7 @@
             .col-xs-4.text-center.va-t.of-h
                 img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span(class="fa fa-{{::employee.gender}} fs100 mt20", ng-if="!employee.image")
+                h5.text-primary(ng-if="employee.nickname") "{{::employee.nickname}}"
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody

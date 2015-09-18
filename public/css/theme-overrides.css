@@ -5,8 +5,35 @@
 #topbar {
   position: fixed;
 }
-#topbar .nav.nav-list-topbar li.active.location-tab a {
-  border-color: #de5858;
+#topbar .nav.nav-list-topbar li a {
+  border: none;
+  padding-bottom: 15px;
+  position: relative;
+}
+#topbar .nav.nav-list-topbar li a:before {
+  background-color: #3498db;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  right: 0;
+  position: absolute;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  -ms-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+  width: 0;
+}
+#topbar .nav.nav-list-topbar li.active a {
+  border: none;
+}
+#topbar .nav.nav-list-topbar li.active a:before {
+  width: 100%;
+}
+#topbar .nav.nav-list-topbar li.location-tab a:before,
+#topbar .nav.nav-list-topbar li.active.location-tab a:before {
+  background-color: #de5858;
+  left: 0;
 }
 #sidebar_left {
   z-index: 1;

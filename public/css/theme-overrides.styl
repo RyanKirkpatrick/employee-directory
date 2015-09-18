@@ -10,8 +10,31 @@ primary-color-red = #de5858
 #topbar
   position fixed
 
-#topbar .nav.nav-list-topbar li.active.location-tab a
-  border-color primary-color-red
+#topbar .nav.nav-list-topbar li a
+  border none
+  padding-bottom 15px
+  position relative
+
+  &:before
+    background-color primary-color-blue
+    bottom 0
+    content: ""
+    height 3px
+    right 0
+    position absolute
+    transition width 0.5s ease
+    width 0
+
+#topbar .nav.nav-list-topbar li.active a
+  border none
+
+  &:before
+    width 100%
+
+#topbar .nav.nav-list-topbar li.location-tab a:before,
+#topbar .nav.nav-list-topbar li.active.location-tab a:before
+  background-color primary-color-red
+  left 0
 
 #sidebar_left
   z-index 1
