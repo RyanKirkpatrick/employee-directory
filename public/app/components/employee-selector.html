@@ -7,7 +7,7 @@
         <form name="employeesFilter" class="form-horizontal">
           <div class="form-group mln mrn">
             <div class="col-xs-3 control-label pn pt5 pr10">
-              <label for="employeeName">Name</label>
+              <label for="employeeName" ng-class="{'text-primary' : vm.employeeName}">Name</label>
             </div>
             <div class="col-xs-9 pn">
               <input type="text" name="employeeName" placeholder="Filter by name" ng-model="vm.employeeName" class="form-control input-sm"/>
@@ -15,7 +15,7 @@
           </div>
           <div class="form-group mln mrn">
             <div class="col-xs-3 control-label pn pt5 pr10">
-              <label>Floors</label>
+              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">Floors</label>
             </div>
             <div class="col-xs-3 pn pt5">
               <div class="checkbox-custom checkbox-default">
@@ -38,7 +38,7 @@
           </div>
           <div class="form-group mln mrn">
             <div class="col-xs-3 control-label pn pt5 pr10">
-              <label for="department">Dept</label>
+              <label for="department" ng-class="{'text-primary' : vm.department}">Dept</label>
             </div>
             <div class="col-xs-9 pn">
               <div class="bs-component">
@@ -50,7 +50,7 @@
           </div>
           <div class="form-group mln mrn">
             <div class="col-xs-3 control-label pn pt5 pr10">
-              <label for="team">Team</label>
+              <label for="team" ng-class="{'text-primary' : vm.team}">Team</label>
             </div>
             <div class="col-xs-9 pn">
               <div class="bs-component">
