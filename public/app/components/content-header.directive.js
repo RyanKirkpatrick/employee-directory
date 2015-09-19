@@ -14,9 +14,9 @@
 		return directive;
 	}
 
-	ctrlFunc.$inject = ['$state', 'edEmployeeService', 'edIdentityService'];
+	ctrlFunc.$inject = ['edIdentityService'];
 
-	function ctrlFunc($state, edEmployeeService, edIdentityService) {
+	function ctrlFunc(edIdentityService) {
 		var vm = this;
 		vm.identity = edIdentityService;
 	}

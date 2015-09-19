@@ -30,10 +30,14 @@
 			vm.newEmployee = {
 				firstName: '',
 				lastName: '',
+				email: '',
+				phone: '',
+				ext: '',
 				gender: '',
 				title: '',
 				department: '',
 				team: '',
+				location: '',
 				floor: '',
 				seat: ''
 			};
@@ -43,10 +47,14 @@
 			var newEmployeeData = {
 				firstName: vm.newEmployee.firstName,
 				lastName: vm.newEmployee.lastName,
+				email: vm.newEmployee.email,
+				phone: vm.newEmployee.phone,
+				ext: vm.newEmployee.ext,
 				gender: vm.newEmployee.gender,
 				title: vm.newEmployee.title,
 				department: vm.newEmployee.department,
 				team: vm.newEmployee.team,
+				location: vm.newEmployee.location,
 				floor: vm.newEmployee.floor,
 				seat: vm.newEmployee.seat
 			};

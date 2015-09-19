@@ -9,17 +9,26 @@
         <div class="panel-body bg-light">
           <div class="section-divider"><span>Update Employee Profile</span></div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="section">
                 <label class="field">
                   <input name="firstName" type="text" placeholder="First Name" ng-model="vm.selectedEmployee.firstName" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="section">
                 <label class="field">
                   <input name="lastName" type="text" placeholder="Last Name" ng-model="vm.selectedEmployee.lastName" required="required" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="section">
+                <label class="field select">
+                  <select name="gender" ng-model="vm.selectedEmployee.gender" ng-options="gender.value as gender.text for gender in vm.genderOptions" require="require">
+                    <option disabled="disabled" value="">Select Gender</option>
+                  </select><i class="arrow"></i>
                 </label>
               </div>
             </div>
@@ -36,39 +45,58 @@
             </div>
             <div class="col-md-6">
               <div class="section">
-                <label class="field select">
-                  <select name="gender" ng-model="vm.selectedEmployee.gender" ng-options="gender.value as gender.text for gender in vm.genderOptions" require="require">
-                    <option disabled="disabled" value="">Select Gender</option>
-                  </select><i class="arrow"></i>
+                <label class="field">
+                  <input name="email" type="text" placeholder="Email" ng-model="vm.selectedEmployee.email" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <div class="section">
-                <label class="field">
-                  <input name="title" type="text" placeholder="Title" ng-model="vm.selectedEmployee.title" required="required" class="gui-input"/>
-                </label>
-              </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="section">
                 <label class="field">
                   <input name="department" type="text" placeholder="Department" ng-model="vm.selectedEmployee.department" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+              <div class="section">
+                <label class="field">
+                  <input name="title" type="text" placeholder="Title" ng-model="vm.selectedEmployee.title" required="required" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
               <div class="section">
                 <label class="field">
                   <input name="team" type="text" placeholder="Team" ng-model="vm.selectedEmployee.team" class="gui-input"/>
                 </label>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-3">
+              <div class="section">
+                <label class="field">
+                  <input name="phone" type="text" placeholder="Phone" ng-model="vm.selectedEmployee.phone" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="section">
+                <label class="field">
+                  <input name="ext" type="text" placeholder="Ext" ng-model="vm.selectedEmployee.ext" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field">
+                  <input name="team" type="text" placeholder="Location" ng-model="vm.selectedEmployee.location" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
               <div class="section">
                 <label class="field select">
                   <select name="floor" ng-model="vm.selectedEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'">
@@ -77,7 +105,7 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="section">
                 <label class="field select">
                   <select name="seat" ng-model="vm.selectedEmployee.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']">

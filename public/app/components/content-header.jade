@@ -5,3 +5,7 @@ header#topbar.ph10
                 a(ui-sref="main") Employee Profiles
             li.location-tab(ui-sref-active="active")
                 a(ui-sref="main.seat-map") Employee Location
+            li.create-employee-tab(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+                a(ui-sref="admin.create-employee") Create Employee
+            li.update-employee-tab(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+                a(ui-sref="admin.update-employee") Update Employee

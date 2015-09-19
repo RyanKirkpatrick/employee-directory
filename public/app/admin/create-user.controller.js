@@ -13,7 +13,8 @@
 				username: vm.username,
 				password: vm.password,
 				firstName: vm.fname,
-				lastName: vm.lname
+				lastName: vm.lname,
+				roles: vm.roles.split(',')
 			};
 
 			edAuthService.createUser(newUserData).then(function () {

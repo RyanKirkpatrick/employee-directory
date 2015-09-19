@@ -35,10 +35,14 @@
 			vm.selectedEmployee = {
 				firstName: selectedEmployees[0].firstName,
 				lastName: selectedEmployees[0].lastName,
+				email: selectedEmployees[0].email,
+				phone: selectedEmployees[0].phone,
+				ext: selectedEmployees[0].ext,
 				gender: selectedEmployees[0].gender,
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
 				team: selectedEmployees[0].team,
+				location: selectedEmployees[0].location,
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat
 			};
@@ -57,10 +61,14 @@
 			var newEmployeeData = {
 				firstName: vm.selectedEmployee.firstName,
 				lastName: vm.selectedEmployee.lastName,
+				email: vm.selectedEmployee.email,
+				phone: vm.selectedEmployee.phone,
+				ext: vm.selectedEmployee.ext,
 				gender: vm.selectedEmployee.gender,
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
 				team: vm.selectedEmployee.team,
+				location: vm.selectedEmployee.location,
 				floor: vm.selectedEmployee.floor,
 				seat: vm.selectedEmployee.seat
 			};

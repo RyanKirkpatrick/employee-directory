@@ -58,10 +58,12 @@
 				return employee.seat === $stateParams.seat;
 			});
 
-			vm.mappedEmployee = edEmployeeService.updateMappedEmployee(mappedEmployeeArray[0]);
-			vm.floor = vm.mappedEmployee.floor;
-			edDeskService.getAllDesks().$promise.then(deskFilter);
-			edRoomService.getAllRooms().$promise.then(roomFilter);
+			if (mappedEmployeeArray.length > 0) {
+				vm.mappedEmployee = edEmployeeService.updateMappedEmployee(mappedEmployeeArray[0]);
+				vm.floor = vm.mappedEmployee.floor;
+				edDeskService.getAllDesks().$promise.then(deskFilter);
+				edRoomService.getAllRooms().$promise.then(roomFilter);
+			}
 		}
 	}
 })();

@@ -19,6 +19,10 @@
                 .col-md-10
                     input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
             .form-group
+                label.col-md-2.control-label(for="roles") Roles
+                .col-md-10
+                    input.form-control(name="roles", type="text", placeholder="Roles (comma separated)", ng-model="vm.roles", required)
+            .form-group
                 .col-md-10.col-offset-2
                     .pull-right
                         button.btn.btn-primary(ng-click="vm.createUser()", ng-disabled="signupForm.$invalid") Submit
