@@ -22,7 +22,7 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-group mr10"></span>{{::employee.team}}</td>
             </tr>
             <tr ng-if="employee.email">
-              <td class="va-m fw600 text-muted"><span class="fa fa-envelope mr10"></span>{{::employee.email}}</td>
+              <td class="va-m fw600 text-primary"><span class="fa fa-envelope mr10"></span><a href="mailto:{{::employee.email}}">{{::employee.email}}</a></td>
             </tr>
             <tr ng-if="employee.ext">
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Internal: x{{::employee.ext}}</td>
@@ -31,7 +31,7 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Desk: {{::employee.phone | edPhoneNumberFilter}}</td>
             </tr>
             <tr ng-if="employee.location">
-              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.seat" class="va-m fw600 text-muted cursor"><span class="fa fa-map-marker fs15 mr10"></span>{{::employee.location}} / Floor: {{::employee.floor}} / Seat: {{::employee.seat}}</td>
+              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.seat" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span>{{::employee.location}} / Floor: {{::employee.floor}} / Seat: {{::employee.seat}}</td>
               <td ng-if="!employee.seat" class="va-m fw600 text-muted"><span class="fa fa-map-marker fs15 mr10"></span>{{::employee.location}}</td>
             </tr>
           </tbody>

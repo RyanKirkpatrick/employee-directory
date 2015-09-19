@@ -1,5 +1,6 @@
 floor {
-  background: transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
   display: table;
   height: 1149px;
   position: relative;
@@ -102,13 +103,23 @@ room.break8 {
   width: 280px;
 }
 desk {
+  background-color: transparent;
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  cursor: pointer;
   display: table;
   position: absolute;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
   white-space: nowrap;
+}
+desk:hover {
+  background-color: rgba(222,88,88,0.5);
 }
 desk .seat {
   display: table-cell;
@@ -178,6 +189,12 @@ desk.office .seat span {
 }
 desk.mapped {
   z-index: 1;
+}
+desk.mapped .mapped-employee-label {
+  bottom: -10px;
+  left: -8px;
+  line-height: 1.2em;
+  position: absolute;
 }
 .floor-6 desk.employee {
   height: 24px;

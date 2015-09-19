@@ -27,9 +27,9 @@
                                 span.fa.fa-group.mr10
                                 | {{::employee.team}}
                         tr(ng-if="employee.email")
-                            td.va-m.fw600.text-muted
+                            td.va-m.fw600.text-primary
                                 span.fa.fa-envelope.mr10
-                                | {{::employee.email}}
+                                a(href="mailto:{{::employee.email}}") {{::employee.email}}
                         tr(ng-if="employee.ext")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-phone.mr10
@@ -39,7 +39,7 @@
                                 span.fa.fa-phone.mr10
                                 | Desk: {{::employee.phone | edPhoneNumberFilter}}
                         tr(ng-if="employee.location")
-                            td.va-m.fw600.text-muted.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
+                            td.va-m.fw600.text-danger.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
                                 | {{::employee.location}} / Floor: {{::employee.floor}} / Seat: {{::employee.seat}}
                             td.va-m.fw600.text-muted(ng-if="!employee.seat")
