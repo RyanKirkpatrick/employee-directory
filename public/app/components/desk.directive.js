@@ -56,13 +56,14 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['edEmployeeService', 'edNotifierService'];
+	ctrlFunc.$inject = ['edEmployeeService', 'edNotifierService', 'edIdentityService'];
 
-	function ctrlFunc(edEmployeeService, edNotifierService) {
+	function ctrlFunc(edEmployeeService, edNotifierService, edIdentityService) {
 		var vm = this;
 		vm.mapEmployee = mapEmployee;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.mappedEmployee = null;
+		vm.identity = edIdentityService;
 
 		function mapEmployee(seat) {
 			var mappedEmployeeArray = vm.employees.filter(function (employee) {

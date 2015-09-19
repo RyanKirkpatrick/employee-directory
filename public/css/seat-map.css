@@ -129,6 +129,10 @@ desk .seat {
 }
 desk .seat span {
   text-align: center;
+  visibility: hidden;
+}
+desk .seat span.admin {
+  visibility: visible;
 }
 desk.employee {
   height: 20px;

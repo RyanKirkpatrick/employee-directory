@@ -1,4 +1,4 @@
 
 <desk id="desk-{{seat}}" ng-class="[classification, orientation]" ng-style="{'left': xpos + 'px', 'top': ypos + 'px'}" ng-click="vm.mapEmployee(seat)">
-  <div class="seat"><span>{{seat}}</span></div>
+  <div class="seat"><span ng-class="{'admin': vm.identity.isAuthorized('admin')}">{{seat}}</span></div>
 </desk>
