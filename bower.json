@@ -17,6 +17,7 @@
     "bootstrap": "~3.3.5",
     "fontawesome": "~4.4.0",
     "jquery": "~2.1.4",
+    "nanoscroller": "~0.8.7",
     "ng-file-upload": "~6.0.4",
     "toastr": "~2.1.2"
   }
