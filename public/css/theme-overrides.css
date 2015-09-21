@@ -40,7 +40,6 @@
 }
 .nano > .nano-content {
   position: absolute;
-  width: 100%;
   z-index: 1;
 }
 .nano.affix > .nano-pane {
