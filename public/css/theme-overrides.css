@@ -38,11 +38,9 @@
 #sidebar_left {
   z-index: 1;
 }
-.nano > .nano-content {
-  position: absolute;
-  z-index: 1;
-}
 .nano.affix > .nano-pane {
+  left: 0;
+  right: auto;
   width: 4px;
 }
 .sidebar-menu > li:last-child a {

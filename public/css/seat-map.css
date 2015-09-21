@@ -195,10 +195,13 @@ desk.mapped {
   z-index: 1;
 }
 desk.mapped .mapped-employee-label {
-  bottom: -10px;
+  bottom: -25px;
   left: -8px;
   line-height: 1.2em;
   position: absolute;
+}
+desk.vert .mapped-employee-label {
+  bottom: -10px;
 }
 .floor-6 desk.employee {
   height: 24px;
