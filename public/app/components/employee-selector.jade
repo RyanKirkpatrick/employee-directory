@@ -51,6 +51,6 @@
             span.sidebar-label-tray
                 span.label.label-xs.cursor(ng-click="vm.filterOpen = !vm.filterOpen", ng-class="vm.filterOpen ? 'bg-primary' : 'bg-light'") Filter
         li.employee-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filterBy: ['firstName','lastName'] : vm.employeeName | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
-            a(href="", ng-click="vm.selectEmployee(employee)")
+            a(ng-click="vm.selectEmployee(employee)")
                 span.fa(ng-class="employee.mapped ? 'fa-map-marker' : 'fa-{{::employee.gender}}'")
                 span {{::employee.lastName}}, {{::employee.firstName}}

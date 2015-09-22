@@ -40,6 +40,9 @@ Employee Selector
   width: 32px;
   z-index: 1;
 }
+.employee-selector .employee-item > a {
+  cursor: pointer;
+}
 .employee-selector .employee-item.ng-enter {
   -webkit-transition: 0.15s linear all;
   -moz-transition: 0.15s linear all;
