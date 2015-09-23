@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll" class="btn btn-xs btn-success pull-right ml10">Select All</button>
+          <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'" class="btn btn-xs btn-success pull-right ml10">Select All</button>
           <button type="button" ng-click="vm.selectNone()" class="btn btn-xs btn-warning pull-right">Select None</button>
           <button type="button" ng-click="vm.clearFilter()" class="btn btn-xs btn-primary pull-left">Reset</button>
         </form>
