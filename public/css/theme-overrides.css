@@ -1,3 +1,6 @@
+.navbar-brand {
+  border-bottom: 3px solid #6e6e6e;
+}
 .navbar-brand img {
   height: 60px;
   padding: 5px 0;
