@@ -3,7 +3,14 @@
 text-color = #666
 primary-color = #4a89dc
 primary-a-color = #3498db
+primary-color-blue = #3498db
+primary-color-red = #de5858
 
+.location-color
+  color primary-color-red
+
+.profile-color
+  color primary-color-blue
 
 /**************************************************
 Employee Selector
@@ -93,6 +100,7 @@ View Transitions
 
 .main-view.ng-enter
   animation moveFromRight .5s ease both
+  animation-delay: .1s;
 
 .main-view.ng-leave
   animation moveToLeft .5s ease both

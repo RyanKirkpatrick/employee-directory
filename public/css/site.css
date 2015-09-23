@@ -1,3 +1,9 @@
+.location-color {
+  color: #de5858;
+}
+.profile-color {
+  color: #3498db;
+}
 /**************************************************
 Employee Selector
 **************************************************/
@@ -112,6 +118,11 @@ View Transitions
   -o-animation: moveFromRight 0.5s ease both;
   -ms-animation: moveFromRight 0.5s ease both;
   animation: moveFromRight 0.5s ease both;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  -o-animation-delay: 0.1s;
+  -ms-animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 .main-view.ng-leave {
   -webkit-animation: moveToLeft 0.5s ease both;

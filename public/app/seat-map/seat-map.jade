@@ -1,10 +1,10 @@
 .mw1000.center-block(ng-if="!vm.mappedEmployee || vm.unknownLocationEmployee")
     .panel.panel-primary
         .panel-body.text-center(ng-if="!vm.mappedEmployee")
-            .fa.fa-map-marker.fs100.mb30
+            .fa.fa-map-marker.fs100.mb30.location-color
             div.fs20 Select a person to view their desk location
         .panel-body.text-center(ng-if="vm.unknownLocationEmployee")
-            .fa.fa-question.fs100.mb30
+            .fa.fa-question.fs100.mb30.location-color
             div.fs20 I'm not sure where {{vm.mappedEmployee.firstName}} sits... Pick someone else!
 floor(class="floor-{{vm.floor}}", ng-if="vm.floor")
     span.floor-label
