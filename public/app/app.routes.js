@@ -46,7 +46,7 @@
 				url: '/floor-6/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/seat-map',
+						templateUrl: '/partials/seat-map/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
@@ -56,7 +56,7 @@
 				url: '/floor-7/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/seat-map',
+						templateUrl: '/partials/seat-map/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
@@ -66,7 +66,7 @@
 				url: '/floor-8/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/seat-map',
+						templateUrl: '/partials/seat-map/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
