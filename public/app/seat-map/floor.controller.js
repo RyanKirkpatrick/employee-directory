@@ -17,20 +17,27 @@
 		activate();
 
 		function activate() {
+			// Get the floor based on the current state
+			var currentState = $state.current.name;
+			vm.floor = parseInt(currentState.substr(currentState.length - 1));
+			// Map all the desks and rooms on this floor
+			edDeskService.getAllDesks().$promise.then(deskFilter);
+			edRoomService.getAllRooms().$promise.then(roomFilter);
+
+			// If there is a mapped employee and we know their floor
 			if (vm.mappedEmployee && vm.mappedEmployee.floor) {
-				vm.floor = vm.mappedEmployee.floor;
-				edDeskService.getAllDesks().$promise.then(deskFilter);
-				edRoomService.getAllRooms().$promise.then(roomFilter);
+				// If the mapped employee is on a different floor, un-map them
+				if (vm.floor !== vm.mappedEmployee.floor) {
+					vm.mappedEmployee = edEmployeeService.updateMappedEmployee(null);
+				}
+			// Map an employee based on a seat number
 			} else if ($stateParams.seat) {
-				edEmployeeService.getAllEmployees().$promise.then(mapEmployee);
-			}
-			else {
-				$state.go('main');
+				edEmployeeService.getAllEmployees().$promise.then(mapEmployeeBySeat);
 			}
 		}
 
 		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
-			if (mappedEmployee && vm.mappedEmployee) {
+			if (mappedEmployee) {
 				if (mappedEmployee.floor && mappedEmployee.floor !== vm.floor) {
 					$state.go('main.seat-map.floor-' + mappedEmployee.floor, {'seat': mappedEmployee.seat});
 				} else if (!mappedEmployee.floor) {
@@ -53,7 +60,7 @@
 			});
 		}
 
-		function mapEmployee(employees) {
+		function mapEmployeeBySeat(employees) {
 			var mappedEmployeeArray = employees.filter(function (employee) {
 				return employee.seat === $stateParams.seat;
 			});
@@ -61,8 +68,6 @@
 			if (mappedEmployeeArray.length > 0) {
 				vm.mappedEmployee = edEmployeeService.updateMappedEmployee(mappedEmployeeArray[0]);
 				vm.floor = vm.mappedEmployee.floor;
-				edDeskService.getAllDesks().$promise.then(deskFilter);
-				edRoomService.getAllRooms().$promise.then(roomFilter);
 			}
 		}
 	}

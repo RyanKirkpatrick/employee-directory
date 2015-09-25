@@ -10,6 +10,7 @@
 
 		edEmployeeService.setDisplayEmployeeInfoType('profile');
 		edEmployeeService.setSelectMultipleEmployees(true);
+		edEmployeeService.updateMappedEmployee(null);
 
 		if ($stateParams.firstname || $stateParams.lastname) {
 			edEmployeeService.getAllEmployees().$promise.then(selectEmployee);
