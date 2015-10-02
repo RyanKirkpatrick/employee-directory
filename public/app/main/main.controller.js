@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edMainCtrl', edMainCtrl);
 
-	edMainCtrl.$inject = ['$scope', '$rootScope', 'edEmployeeService', '$state', '$stateParams'];
+	edMainCtrl.$inject = ['$scope', 'edEmployeeService', '$state', '$stateParams'];
 
-	function edMainCtrl($scope, $rootScope, edEmployeeService, $state, $stateParams) {
+	function edMainCtrl($scope, edEmployeeService, $state, $stateParams) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 
@@ -70,7 +70,7 @@
 			});
 		}
 
-		var deregister = $rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			vm.selectedEmployees = selectedEmployees;
 		});
 

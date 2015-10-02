@@ -240,6 +240,8 @@
 			var dfd = $q.defer();
 
 			newEmployee.$save().then(function (employee) {
+				removeAllSelectedEmployees();
+				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
 				dfd.resolve(employee);
 			}, function (response) {
 				dfd.reject(response.data.reason);

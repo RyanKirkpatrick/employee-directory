@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edFloorCtrl', edFloorCtrl);
 
-	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', '$rootScope', 'edRoomService'];
+	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService'];
 
-	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, $rootScope, edRoomService) {
+	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -36,7 +36,7 @@
 			}
 		}
 
-		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+		var deregister = $scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 			if (mappedEmployee) {
 				if (mappedEmployee.floor && mappedEmployee.floor !== vm.floor) {
 					$state.go('main.seat-map.floor-' + mappedEmployee.floor, {'seat': mappedEmployee.seat});

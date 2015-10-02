@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edSeatMapCtrl', edSeatMapCtrl);
 
-	edSeatMapCtrl.$inject = ['$state', '$rootScope', '$scope', 'edEmployeeService'];
+	edSeatMapCtrl.$inject = ['$state', '$scope', 'edEmployeeService'];
 
-	function edSeatMapCtrl($state, $rootScope, $scope, edEmployeeService) {
+	function edSeatMapCtrl($state, $scope, edEmployeeService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -18,7 +18,7 @@
 			locateEmployee(vm.mappedEmployee);
 		}
 
-		var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+		var deregister = $scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 			locateEmployee(mappedEmployee);
 		});
 

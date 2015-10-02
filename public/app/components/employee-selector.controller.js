@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeSelectorCtrl', edEmployeeSelectorCtrl);
 
-	edEmployeeSelectorCtrl.$inject = ['$rootScope', 'edEmployeeService', 'edNotifierService'];
+	edEmployeeSelectorCtrl.$inject = ['$scope', 'edEmployeeService', 'edNotifierService'];
 
-	function edEmployeeSelectorCtrl($rootScope, edEmployeeService, edNotifierService) {
+	function edEmployeeSelectorCtrl($scope, edEmployeeService, edNotifierService) {
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
@@ -83,15 +83,15 @@
 			vm.team = '';
 		}
 
-		$rootScope.$on('employeesUpdated', function (event, employees) {
+		$scope.$on('employeesUpdated', function (event, employees) {
 			vm.employees = employees;
 		});
 
-		$rootScope.$on('selectMultipleEmployeesChange', function (event, allowSelectMultipleEmployees) {
+		$scope.$on('selectMultipleEmployeesChange', function (event, allowSelectMultipleEmployees) {
 			vm.allowSelectAll = allowSelectMultipleEmployees;
 		});
 
-		$rootScope.$on('displayEmployeeInfoTypeChange', function (event, displayEmployeeInfoType) {
+		$scope.$on('displayEmployeeInfoTypeChange', function (event, displayEmployeeInfoType) {
 			vm.displayEmployeeInfoType = displayEmployeeInfoType;
 		});
 	}

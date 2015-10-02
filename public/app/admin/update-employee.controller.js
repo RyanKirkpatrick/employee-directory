@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$rootScope', 'edNotifierService', 'edEmployeeService', 'edDeskService'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService'];
 
-	function edUpdateEmployeeCtrl($rootScope, edNotifierService, edEmployeeService, edDeskService) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService) {
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
@@ -48,13 +48,15 @@
 			};
 		}
 
-		$rootScope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
 			} else {
 				vm.selectedEmployee = null;
 			}
 		});
+
+		$scope.$on('$destroy', deregister);
 
 		function updateEmployee() {
 			// Get the employee data from the form

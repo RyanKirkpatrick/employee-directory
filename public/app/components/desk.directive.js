@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edDesk', edDesk);
 
-	edDesk.$inject = ['$rootScope', '$stateParams', '$document', '$timeout', 'edEmployeeService'];
+	edDesk.$inject = ['$stateParams', '$document', '$timeout', 'edEmployeeService'];
 
-	function edDesk($rootScope, $stateParams, $document, $timeout, edEmployeeService) {
+	function edDesk($stateParams, $document, $timeout, edEmployeeService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/components/desk',
@@ -38,7 +38,7 @@
 				el.find('.mapped-employee-label').remove();
 			}
 
-			var deregister = $rootScope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
+			var deregister = scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 				if (mappedEmployee && mappedEmployee.seat === attrs.seat) {
 					$timeout(function () {
 						$document.scrollToElement(el, 300, 300).then(function () {
