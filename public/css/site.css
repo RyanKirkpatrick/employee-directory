@@ -1,8 +1,8 @@
 .location-color {
-  color: #de5858;
+  color: #de5858 !important;
 }
 .profile-color {
-  color: #3498db;
+  color: #3498db !important;
 }
 /**************************************************
 Employee Selector
