@@ -22,6 +22,8 @@
 			}
 		];
 
+		edEmployeeService.setDisplayEmployeeInfoType('profile');
+
 		activate();
 
 		function activate() {
