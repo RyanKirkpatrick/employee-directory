@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeSelectorCtrl', edEmployeeSelectorCtrl);
 
-	edEmployeeSelectorCtrl.$inject = ['$scope', 'edEmployeeService', 'edNotifierService'];
+	edEmployeeSelectorCtrl.$inject = ['$scope', '$document', 'edEmployeeService', 'edNotifierService'];
 
-	function edEmployeeSelectorCtrl($scope, edEmployeeService, edNotifierService) {
+	function edEmployeeSelectorCtrl($scope, $document, edEmployeeService, edNotifierService) {
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
@@ -27,19 +27,17 @@
 
 		function selectEmployee(employee) {
 			if (vm.displayEmployeeInfoType === 'profile') {
-				displayEmployeeProfile(employee);
+				// Store the list of current selected employees to see if we added a new one
+				var oldSelectedEmloyees = angular.copy(vm.selectedEmployees);
+				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
+				// If we added to selected employees, scroll to the top
+				if (vm.selectedEmployees.length > oldSelectedEmloyees.length) {
+					$document.scrollTopAnimated(0, 300);
+				}
 			}
 			else if (vm.displayEmployeeInfoType === 'location') {
-				displayEmployeeLocation(employee);
+				edEmployeeService.updateMappedEmployee(employee);
 			}
-		}
-
-		function displayEmployeeProfile(employee) {
-			edEmployeeService.updateSelectedEmployees(employee);
-		}
-
-		function displayEmployeeLocation(employee) {
-			edEmployeeService.updateMappedEmployee(employee);
 		}
 
 		function filterFloors(floor) {
@@ -61,14 +59,15 @@
 		}
 
 		function selectAll() {
-			edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
+			vm.selectedEmployees = edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
+			$document.scrollTopAnimated(0, 300);
 			if (vm.team === 'Prestige Worldwide') {
 				edNotifierService.info('Investors?  Possibly you!');
 			}
 		}
 
 		function selectNone() {
-			edEmployeeService.removeAllSelectedEmployees();
+			vm.selectedEmployees = edEmployeeService.removeAllSelectedEmployees();
 		}
 
 		function clearFilter() {
