@@ -2,11 +2,13 @@
 	'use strict';
 	angular.module('app').controller('edMainCtrl', edMainCtrl);
 
-	edMainCtrl.$inject = ['$scope', 'edEmployeeService', '$state', '$stateParams'];
+	edMainCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams'];
 
-	function edMainCtrl($scope, edEmployeeService, $state, $stateParams) {
+	function edMainCtrl($scope, $document, edEmployeeService, $stateParams) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+		vm.changePage = changePage;
+		vm.currentPage = 1;
 
 		edEmployeeService.setDisplayEmployeeInfoType('profile');
 		edEmployeeService.setSelectMultipleEmployees(true);
@@ -70,8 +72,13 @@
 			});
 		}
 
+		function changePage() {
+			$document.scrollTopAnimated(0, 300);
+		}
+
 		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			vm.selectedEmployees = selectedEmployees;
+			vm.currentPage = 1;
 		});
 
 		$scope.$on('$destroy', deregister);
