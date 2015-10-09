@@ -2,11 +2,13 @@
 	'use strict';
 	angular.module('app').controller('edMainCtrl', edMainCtrl);
 
-	edMainCtrl.$inject = ['$scope', 'edEmployeeService', '$state', '$stateParams'];
+	edMainCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams'];
 
-	function edMainCtrl($scope, edEmployeeService, $state, $stateParams) {
+	function edMainCtrl($scope, $document, edEmployeeService, $stateParams) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
+		vm.changePage = changePage;
+		vm.currentPage = edEmployeeService.getProfilePageNumber();
 
 		edEmployeeService.setDisplayEmployeeInfoType('profile');
 		edEmployeeService.setSelectMultipleEmployees(true);
@@ -39,16 +41,16 @@
 										return false;
 									}
 								});
-							// No last name query so only worry about the first name
+								// No last name query so only worry about the first name
 							} else {
 								match = true;
 							}
-						// This employee's first name is not a match
+							// This employee's first name is not a match
 						} else {
 							return false;
 						}
 					});
-				// No first name query so only worry about the last name
+					// No first name query so only worry about the last name
 				} else if ($stateParams.lastname) {
 					var lastnames = $stateParams.lastname.split(',');
 					// Loop over all the last names
@@ -56,7 +58,7 @@
 						// If the employee's last name is part of the query string we have match
 						if (employee.lastName.toLocaleLowerCase() === lastname.toLowerCase()) {
 							match = true;
-						// This employee's last name is not a match
+							// This employee's last name is not a match
 						} else {
 							return false;
 						}
@@ -70,8 +72,18 @@
 			});
 		}
 
+		function changePage(newPageNumber) {
+			edEmployeeService.setProfilePageNumber(newPageNumber);
+			$document.scrollTopAnimated(0, 300);
+		}
+
 		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			vm.selectedEmployees = selectedEmployees;
+			// If we added to selected employees, go to first page and scroll to the top
+			if (edEmployeeService.getSelectedEmployeeAdded()) {
+				vm.currentPage = 1;
+				$document.scrollTopAnimated(0, 300);
+			}
 		});
 
 		$scope.$on('$destroy', deregister);

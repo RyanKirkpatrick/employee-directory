@@ -4,5 +4,6 @@
             .icon.icon-Leslie.fs100.mb30.profile-color
             div.fs20 Select some people to view their profile
 .row(vertilize-container)
-    div.col-lg-6.col-xl-4.employee-card(ng-repeat="employee in vm.selectedEmployees track by employee._id" vertilize)
+    div.col-lg-6.col-xl-4.employee-card(dir-paginate="employee in vm.selectedEmployees | itemsPerPage: 12 track by employee._id" current-page="vm.currentPage" vertilize)
         ed-employee-card(employee="employee")
+dir-pagination-controls.center-block.text-center(on-page-change="vm.changePage(newPageNumber)")

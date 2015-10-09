@@ -6,6 +6,8 @@
 
 	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload, edNotifierService) {
 		var selectedEmployees = [];
+		var selectedEmployeeAdded = false;
+		var profilePageNumber = 1;
 		var mappedEmployee = null;
 		var selectMultipleEmployees = false;
 		var displayEmployeeInfoType = 'profile';
@@ -25,7 +27,10 @@
 			updateMappedEmployee: updateMappedEmployee,
 			getMappedEmployee: getMappedEmployee,
 			setDisplayEmployeeInfoType: setDisplayEmployeeInfoType,
-			getDisplayEmployeeInfoType: getDisplayEmployeeInfoType
+			getDisplayEmployeeInfoType: getDisplayEmployeeInfoType,
+			getSelectedEmployeeAdded: getSelectedEmployeeAdded,
+			setProfilePageNumber: setProfilePageNumber,
+			getProfilePageNumber: getProfilePageNumber
 		};
 		return service;
 
@@ -62,6 +67,7 @@
 				employee.selected = true;
 			});
 			selectedEmployees = employees;
+			selectedEmployeeAdded = true;
 			// Broadcast event for listeners
 			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
 			return selectedEmployees;
@@ -141,10 +147,12 @@
 				if (!employee.selected) {
 					employee.selected = true;
 					selectedEmployees.unshift(employee);
+					selectedEmployeeAdded = true;
 					// This employee was already selected, so remove them (and deselect them in the list)
 				} else {
 					employee.selected = false;
 					selectedEmployees.splice(selectedEmployees.indexOf(employee), 1);
+					selectedEmployeeAdded = false;
 				}
 				// NOT allowed to have multiple employees selected
 			} else {
@@ -158,10 +166,12 @@
 					employee.selected = true;
 					// replace the array of selected employees with just this one employee
 					selectedEmployees = [employee];
+					selectedEmployeeAdded = true;
 					// This employee was already selected, so remove them
 				} else {
 					employee.selected = false;
 					selectedEmployees = [];
+					selectedEmployeeAdded = false;
 				}
 			}
 			// Broadcast event for listeners
@@ -177,7 +187,35 @@
 				prevSelected.selected = false;
 			});
 			selectedEmployees = [];
+			selectedEmployeeAdded = false;
 			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
+		}
+
+		/**
+		 * Returns if a selected employee was added (true) or removed (false)
+		 *
+		 * @return {Boolean} selected employees added
+		 */
+		function getSelectedEmployeeAdded() {
+			return selectedEmployeeAdded;
+		}
+
+		/**
+		 * Sets the current page number of the employee profiles
+		 *
+		 * @param {Number} pageNumber current page number on employee profiles
+		 */
+		function setProfilePageNumber(pageNumber) {
+			profilePageNumber = pageNumber;
+		}
+
+		/**
+		 * Returns the employee profile page number
+		 *
+		 * @return {Number} employee profile page number
+		 */
+		function getProfilePageNumber() {
+			return profilePageNumber;
 		}
 
 		/**

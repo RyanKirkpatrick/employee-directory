@@ -27,13 +27,7 @@
 
 		function selectEmployee(employee) {
 			if (vm.displayEmployeeInfoType === 'profile') {
-				// Store the list of current selected employees to see if we added a new one
-				var oldSelectedEmloyees = angular.copy(vm.selectedEmployees);
 				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
-				// If we added to selected employees, scroll to the top
-				if (vm.selectedEmployees.length > oldSelectedEmloyees.length) {
-					$document.scrollTopAnimated(0, 300);
-				}
 			}
 			else if (vm.displayEmployeeInfoType === 'location') {
 				edEmployeeService.updateMappedEmployee(employee);

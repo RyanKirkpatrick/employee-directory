@@ -112,3 +112,6 @@
 #content {
   padding: 0;
 }
+#content .main-view .pagination {
+  margin: 0 auto 15px;
+}
