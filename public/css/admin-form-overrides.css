@@ -1,3 +1,16 @@
 .admin-form .button + .button {
   margin-left: 10px;
 }
+form .gui-input-mod {
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #626262;
+  display: inline-block;
+  height: 42px;
+  outline: none;
+  padding: 10px;
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+}

@@ -44,11 +44,10 @@ exports.uploadEmployeePhoto = function (req, res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
 		var oldPath  = files.file.path,
-        fileName = files.file.name,
+        fileName = fields.fileName,
         fileSize = files.file.size,
         fileSizeLimit = 300000,
-        newPath  = path.join(process.env.PWD, '/public/images/employee-photos/', fileName);
-
+        newPath  = path.join(path.normalize(__dirname + '/../../'), '/public/images/employee-photos/', fileName);
 		if (fileSize > fileSizeLimit) {
 			return res.send({
 				reason: 'Photo is too big.  Must be less than ' + fileSizeLimit + ' bytes.'

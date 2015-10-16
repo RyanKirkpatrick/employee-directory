@@ -37,7 +37,7 @@
             <div class="col-md-6">
               <div class="section">
                 <label class="field prepend-icon file"><span class="button btn-primary">Choose File</span>
-                  <input type="file" name="imageFile" ng-model="vm.selectedEmployee.imageFile" ngf-select="ngf-select" ngf-max-size="300000" accept="image/*" onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\fakepath\\', '')" class="gui-file"/>
+                  <input type="file" name="imageFile" ng-model="vm.selectedEmployee.imageFile" ngf-select="ngf-select" ngf-max-size="'300KB'" ngf-pattern="'image/*'" accept="image/*" onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\fakepath\\', '')" class="gui-file"/>
                   <input type="text" placeholder="Employee Photo" id="employee-photo" class="gui-input"/>
                   <label class="field-icon"><i class="fa fa-upload"></i></label>
                 </label>

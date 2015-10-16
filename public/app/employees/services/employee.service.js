@@ -296,14 +296,17 @@
 		function uploadEmployeePhoto(employeePhoto, employeeData) {
 			Upload.upload({
 				url: 'api/employees/uploadphoto',
-				file: employeePhoto,
-				fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
-			}).success(function (data) {
-				if (data.reason) {
-					edNotifierService.error(data.reason);
+				data: {
+					file: employeePhoto,
+					fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
 				}
-			}).error(function () {
-				// something went wrong
+			}).then(function (resp) {
+				console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+			}, function (resp) {
+				console.log('Error status: ' + resp.status);
+			}, function (evt) {
+				var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+				console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
 			});
 		}
 	}

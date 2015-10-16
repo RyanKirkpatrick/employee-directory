@@ -12,11 +12,11 @@
                         .col-md-6
                             .section
                                 label.field
-                                    input.gui-input(name="username", type="text", placeholder="Username", ng-model="vm.username", required)
+                                    input.gui-input-mod(name="username", type="text", placeholder="Username", ng-model="vm.username", required)
                         .col-md-6
                             .section
                                 label.field
-                                    input.gui-input(name="password", type="password", placeholder="Password", ng-model="vm.password", required)
+                                    input.gui-input-mod(name="password", type="password", placeholder="Password", ng-model="vm.password", required)
                 .panel-footer.text-right
                     button.button.btn-primary(type="submit", ng-click="vm.signin(vm.username, vm.password)", ng-disabled="loginForm.$invalid") Sign In
                     button.button.btn-default(type="reset") Cancel
