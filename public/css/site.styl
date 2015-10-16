@@ -13,17 +13,11 @@ primary-color-red = #de5858
   color primary-color-blue !important
 
 /**************************************************
-Employee Selector
+Directory Item Selector
 **************************************************/
-.employee-selector
-  position relative
-  top -274px
-  transition top 0.3s ease-in-out
+.directory-item-selector
 
-  &.open
-    top 0
-
-  .employee-filter
+  .directory-item-filter
     color text-color
     position relative
 
@@ -32,57 +26,84 @@ Employee Selector
       margin-bottom 0
 
       .panel-heading
+        border-left 0
+        border-top 0
         border-radius 0
+        border-right 0
+        height 51px
 
-    .toggle
-      background-color #fff
-      border 1px solid #e2e2e2
-      border-top none
-      border-bottom-left-radius 3px
-      border-bottom-right-radius 3px
-      bottom -33px
-      cursor pointer
-      left 0
-      padding 10px
-      position absolute
-      width 32px
-      z-index 1
+      .panel-body
+        border-left 0
+        border-top 0
+        border-right 0
 
-  .employee-item > a
+      .checkbox-custom label
+        line-height 21px
+        margin 0
+        padding 0
+        text-align center
+        width 21px
+
+        &:before
+          border-color #DDDDDD
+          border-width 1px
+          background-color transparent
+
+        &:after
+          display none !important
+
+      .checkbox-custom input[type=checkbox]:checked + label:before
+        background-color #DDDDDD
+        opacity 0.5
+
+  h5
+    background-color #ffffff
+    font-size 14px
+    margin 0
+    padding 12px 15px
+
+    .fa
+      margin-right 10px
+
+  .directory-item:last-child
+    border-bottom 1px solid #dddddd
+
+  .directory-item > a
     cursor pointer
+    padding-left 15px !important
 
-  .employee-item.ng-enter
+  .directory-item.ng-enter
     transition 0.15s linear all
-    left -250px
+    left -200px
 
-  .employee-item.ng-enter.ng-enter-active
+  .directory-item.ng-enter.ng-enter-active
     left 0
 
-  .employee-item.ng-leave
+  .directory-item.ng-leave
     transition 0.15s linear all
     left 0
 
-  .employee-item.ng-leave.ng-leave-active
-    left -250px
+  .directory-item.ng-leave.ng-leave-active
+    left -200px
 
 /**************************************************
-Employee Card
+Directory Item Card
 **************************************************/
-.employee-card .row.table-layout
+.directory-item-card .row.table-layout
   overflow hidden
 
-.employee-card .row.table-layout td
+.directory-item-card .row.table-layout td
   white-space nowrap
 
-.employee-card .employee-photo
+.directory-item-card .employee-photo
   width 100%
 
-.employee-card.ng-enter
+.directory-item-card.ng-enter
   transition 0.2s linear all
   opacity 0
   top -400px
 
-.employee-card.ng-enter.ng-enter-active
+.directory-item-card.ng-enter.ng-enter-active
   opacity 1
   top 0
 
@@ -90,18 +111,27 @@ Employee Card
 View Transitions
 **************************************************/
 .main-view
-  padding 75px 20px 50px 21px
+  padding 20px 20px 50px 21px
 
+.sidebar-view.ng-enter,
+.sidebar-view.ng-leave,
+.topbar-view.ng-enter,
+.topbar-view.ng-leave,
 .main-view.ng-enter,
 .main-view.ng-leave
   position absolute
   left 0
   right 0
 
+
+.sidebar-view.ng-enter,
+.topbar-view.ng-enter,
 .main-view.ng-enter
   animation moveFromRight .5s ease both
   animation-delay: .1s;
 
+.sidebar-view.ng-leave,
+.topbar-view.ng-leave,
 .main-view.ng-leave
   animation moveToLeft .5s ease both
 
@@ -116,3 +146,15 @@ View Transitions
     transform translateX(0)
   from
     transform translateX(100%)
+
+@keyframes moveToTop
+  to
+    transform translateY(-100%)
+  from
+    transform translateY(0)
+
+@keyframes moveFromBottom
+  to
+    transform translateY(0)
+  from
+    transform translateY(100%)

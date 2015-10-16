@@ -1,0 +1,39 @@
+aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-mouseenter="vm.showLargeSidebar()", ng-mouseleave="vm.hideLargeSidebar()", ng-class="{'sidebar-left-sm': !vm.sidebarOpen}")
+    .sidebar-left-content.nano-content(ed-nanoscroller)
+        ul.nav.sidebar-menu(ng-click="vm.hideLargeSidebar()")
+            li.sidebar-group-label
+                span.fa.fa-users
+                span.sidebar-label Employees Directory
+            li(ui-sref-active-eq="active")
+                a(ui-sref="employees")
+                    span.fa.fa-user
+                    span.sidebar-title Employee Profiles
+            li.location-item(ui-sref-active="active")
+                a(ui-sref="employees.map")
+                    span.fa.fa-map-marker
+                    span.sidebar-title Employee Location
+            li.sidebar-group-label
+                span.icon-print
+                span.sidebar-label Printers Directory
+            li(ui-sref-active-eq="active")
+                a(ui-sref="printers")
+                    span.icon-file
+                    span.sidebar-title Printer Profiles
+            li.location-item(ui-sref-active="active")
+                a(ui-sref="printers.map")
+                    span.fa.fa-map-marker
+                    span.sidebar-title Printer Location
+            li.sidebar-group-label(ng-if="vm.identity.isAuthorized('admin')")
+                span.fa.fa-pencil
+                span.sidebar-label Admin Tools
+            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+                a(ui-sref="admin.create-employee")
+                    span.fa.fa-user-plus
+                    span.sidebar-title Create Employee
+            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+                a(ui-sref="admin.update-employee")
+                    span.fa.fa-pencil-square-o
+                    span.sidebar-title Update Employee
+aside#sidebar_left_secondary.nano.nano-content.sidebar-default.affix
+    .sidebar-left-content.nano-content
+        div.sidebar-view(ui-view="sidebar")

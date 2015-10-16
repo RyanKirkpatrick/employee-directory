@@ -5,62 +5,79 @@
   color: #3498db !important;
 }
 /**************************************************
-Employee Selector
+Directory Item Selector
 **************************************************/
-.employee-selector {
-  position: relative;
-  top: -274px;
-  -webkit-transition: top 0.3s ease-in-out;
-  -moz-transition: top 0.3s ease-in-out;
-  -o-transition: top 0.3s ease-in-out;
-  -ms-transition: top 0.3s ease-in-out;
-  transition: top 0.3s ease-in-out;
-}
-.employee-selector.open {
-  top: 0;
-}
-.employee-selector .employee-filter {
+.directory-item-selector .directory-item-filter {
   color: #666;
   position: relative;
 }
-.employee-selector .employee-filter .panel {
+.directory-item-selector .directory-item-filter .panel {
   -webkit-border-radius: 0;
   border-radius: 0;
   margin-bottom: 0;
 }
-.employee-selector .employee-filter .panel .panel-heading {
+.directory-item-selector .directory-item-filter .panel .panel-heading {
+  border-left: 0;
+  border-top: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+  border-right: 0;
+  height: 51px;
 }
-.employee-selector .employee-filter .toggle {
+.directory-item-selector .directory-item-filter .panel .panel-body {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+}
+.directory-item-selector .directory-item-filter .panel .checkbox-custom label {
+  line-height: 21px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 21px;
+}
+.directory-item-selector .directory-item-filter .panel .checkbox-custom label:before {
+  border-color: #ddd;
+  border-width: 1px;
+  background-color: transparent;
+}
+.directory-item-selector .directory-item-filter .panel .checkbox-custom label:after {
+  display: none !important;
+}
+.directory-item-selector .directory-item-filter .panel .checkbox-custom input[type=checkbox]:checked + label:before {
+  background-color: #ddd;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.directory-item-selector h5 {
   background-color: #fff;
-  border: 1px solid #e2e2e2;
-  border-top: none;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  bottom: -33px;
-  cursor: pointer;
-  left: 0;
-  padding: 10px;
-  position: absolute;
-  width: 32px;
-  z-index: 1;
+  font-size: 14px;
+  margin: 0;
+  padding: 12px 15px;
 }
-.employee-selector .employee-item > a {
-  cursor: pointer;
+.directory-item-selector h5 .fa {
+  margin-right: 10px;
 }
-.employee-selector .employee-item.ng-enter {
+.directory-item-selector .directory-item:last-child {
+  border-bottom: 1px solid #ddd;
+}
+.directory-item-selector .directory-item > a {
+  cursor: pointer;
+  padding-left: 15px !important;
+}
+.directory-item-selector .directory-item.ng-enter {
   -webkit-transition: 0.15s linear all;
   -moz-transition: 0.15s linear all;
   -o-transition: 0.15s linear all;
   -ms-transition: 0.15s linear all;
   transition: 0.15s linear all;
-  left: -250px;
+  left: -200px;
 }
-.employee-selector .employee-item.ng-enter.ng-enter-active {
+.directory-item-selector .directory-item.ng-enter.ng-enter-active {
   left: 0;
 }
-.employee-selector .employee-item.ng-leave {
+.directory-item-selector .directory-item.ng-leave {
   -webkit-transition: 0.15s linear all;
   -moz-transition: 0.15s linear all;
   -o-transition: 0.15s linear all;
@@ -68,22 +85,22 @@ Employee Selector
   transition: 0.15s linear all;
   left: 0;
 }
-.employee-selector .employee-item.ng-leave.ng-leave-active {
-  left: -250px;
+.directory-item-selector .directory-item.ng-leave.ng-leave-active {
+  left: -200px;
 }
 /**************************************************
-Employee Card
+Directory Item Card
 **************************************************/
-.employee-card .row.table-layout {
+.directory-item-card .row.table-layout {
   overflow: hidden;
 }
-.employee-card .row.table-layout td {
+.directory-item-card .row.table-layout td {
   white-space: nowrap;
 }
-.employee-card .employee-photo {
+.directory-item-card .employee-photo {
   width: 100%;
 }
-.employee-card.ng-enter {
+.directory-item-card.ng-enter {
   -webkit-transition: 0.2s linear all;
   -moz-transition: 0.2s linear all;
   -o-transition: 0.2s linear all;
@@ -94,7 +111,7 @@ Employee Card
   filter: alpha(opacity=0);
   top: -400px;
 }
-.employee-card.ng-enter.ng-enter-active {
+.directory-item-card.ng-enter.ng-enter-active {
   opacity: 1;
   -ms-filter: none;
   filter: none;
@@ -104,14 +121,20 @@ Employee Card
 View Transitions
 **************************************************/
 .main-view {
-  padding: 75px 20px 50px 21px;
+  padding: 20px 20px 50px 21px;
 }
+.sidebar-view.ng-enter,
+.sidebar-view.ng-leave,
+.topbar-view.ng-enter,
+.topbar-view.ng-leave,
 .main-view.ng-enter,
 .main-view.ng-leave {
   position: absolute;
   left: 0;
   right: 0;
 }
+.sidebar-view.ng-enter,
+.topbar-view.ng-enter,
 .main-view.ng-enter {
   -webkit-animation: moveFromRight 0.5s ease both;
   -moz-animation: moveFromRight 0.5s ease both;
@@ -124,6 +147,8 @@ View Transitions
   -ms-animation-delay: 0.1s;
   animation-delay: 0.1s;
 }
+.sidebar-view.ng-leave,
+.topbar-view.ng-leave,
 .main-view.ng-leave {
   -webkit-animation: moveToLeft 0.5s ease both;
   -moz-animation: moveToLeft 0.5s ease both;
@@ -257,5 +282,133 @@ View Transitions
     -o-transform: translateX(100%);
     -ms-transform: translateX(100%);
     transform: translateX(100%);
+  }
+}
+@-moz-keyframes moveToTop {
+  to {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes moveToTop {
+  to {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-o-keyframes moveToTop {
+  to {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes moveToTop {
+  to {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes moveFromBottom {
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  from {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+@-webkit-keyframes moveFromBottom {
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  from {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+@-o-keyframes moveFromBottom {
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  from {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+@keyframes moveFromBottom {
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  from {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
   }
 }

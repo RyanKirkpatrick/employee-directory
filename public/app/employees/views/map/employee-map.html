@@ -1,0 +1,11 @@
+
+<div ng-if="!vm.mappedEmployee || vm.unknownLocationEmployee" class="center-block">
+  <div ng-if="!vm.mappedEmployee" class="text-center">
+    <div class="fa fa-map-marker fs100 mb30 location-color"></div>
+    <div class="fs20">Select a person to view their desk location</div>
+  </div>
+  <div ng-if="vm.unknownLocationEmployee" class="text-center">
+    <div class="fa fa-question fs100 mb30 location-color"></div>
+    <div class="fs20">I'm not sure where {{vm.mappedEmployee.firstName}} sits... Pick someone else!</div>
+  </div>
+</div>

@@ -15,6 +15,7 @@
 			$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
 			$stateParams.firstname = null;
 			$stateParams.lastname = null;
+			$stateParams.printer = null;
 		});
 	}
 })();

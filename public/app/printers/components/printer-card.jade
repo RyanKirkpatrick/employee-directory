@@ -1,0 +1,25 @@
+.panel
+    .panel-heading
+        span.panel-icon.mr10
+            i.fa.fa-print
+        span.panel-title Printer Profile
+        span.panel-controls
+            a.panel-control-map-marker.location-color(ng-click="vm.mapPrinter(printer)")
+            a.panel-control-remove(ng-click="vm.deselectPrinter(printer)")
+    .panel-body.pn
+        .row.table-layout
+            .col-xs-12.br-l.pn.admin-form
+                table.table.mbn
+                    tbody
+                        tr
+                            td.va-m.fw600 {{::printer.name}}
+                        tr(ng-if="printer.classification === 'mono'")
+                            td.va-m.fw600.text-muted Monochrome Printer
+                        tr(ng-if="printer.classification === 'color'")
+                            td.va-m.fw600.text-primary Color Printer
+                        tr
+                            td.va-m.fw600.text-muted {{::printer.brand}}
+                        tr
+                            td.va-m.fw600.text-danger.cursor(ng-click="vm.mapPrinter(printer)")
+                                span.fa.fa-map-marker.fs15.mr10
+                                | Floor: {{::printer.floor}}

@@ -1,0 +1,21 @@
+
+<aside id="sidebar_left" ng-mouseenter="vm.showLargeSidebar()" ng-mouseleave="vm.hideLargeSidebar()" ng-class="{'sidebar-left-sm': !vm.sidebarOpen}" class="nano nano-light sidebar-default affix">
+  <div ed-nanoscroller="ed-nanoscroller" class="sidebar-left-content nano-content">
+    <ul ng-click="vm.hideLargeSidebar()" class="nav sidebar-menu">
+      <li class="sidebar-group-label"><span class="fa fa-users"></span><span class="sidebar-label">Employees Directory</span></li>
+      <li ui-sref-active-eq="active"><a ui-sref="employees"><span class="fa fa-user"></span><span class="sidebar-title">Employee Profiles</span></a></li>
+      <li ui-sref-active="active" class="location-item"><a ui-sref="employees.map"><span class="fa fa-map-marker"></span><span class="sidebar-title">Employee Location</span></a></li>
+      <li class="sidebar-group-label"><span class="icon-print"></span><span class="sidebar-label">Printers Directory</span></li>
+      <li ui-sref-active-eq="active"><a ui-sref="printers"><span class="icon-file"></span><span class="sidebar-title">Printer Profiles</span></a></li>
+      <li ui-sref-active="active" class="location-item"><a ui-sref="printers.map"><span class="fa fa-map-marker"></span><span class="sidebar-title">Printer Location</span></a></li>
+      <li ng-if="vm.identity.isAuthorized('admin')" class="sidebar-group-label"><span class="fa fa-pencil"></span><span class="sidebar-label">Admin Tools</span></li>
+      <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.create-employee"><span class="fa fa-user-plus"></span><span class="sidebar-title">Create Employee</span></a></li>
+      <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.update-employee"><span class="fa fa-pencil-square-o"></span><span class="sidebar-title">Update Employee</span></a></li>
+    </ul>
+  </div>
+</aside>
+<aside id="sidebar_left_secondary" class="nano nano-content sidebar-default affix">
+  <div class="sidebar-left-content nano-content">
+    <div ui-view="sidebar" class="sidebar-view"></div>
+  </div>
+</aside>

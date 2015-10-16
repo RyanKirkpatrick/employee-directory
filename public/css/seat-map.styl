@@ -37,6 +37,54 @@ $office-height = 84px
 $floor6-employee-width = 55px
 $floor6-employee-height = 24px
 
+/*********************************
+ Printer
+*********************************/
+printer
+  border-radius 2px
+  box-sizing border-box
+  cursor pointer
+  display block
+  height 30px
+  position absolute
+  transition background-color 0.2s linear
+  white-space nowrap
+  width 30px
+
+  &:hover
+    background-color rgba(222, 88, 88,.5);
+
+  .printer span
+    font-size 20px
+    line-height 30px
+    padding 4px 5px
+
+  &.vert .printer
+    position absolute
+    top 50%
+    left 50%
+    transform translateX(-50%) translateY(-50%) rotate(-90deg)
+
+  &.color
+
+    &:hover
+      background-color #00B259
+
+    .printer span
+        color #005295
+
+  &.mapped
+    z-index 1
+
+    .mapped-label
+      bottom -25px
+      left -8px
+      line-height 1.2em
+      position absolute
+
+/*********************************
+ Room
+*********************************/
 room
   border 1px solid transparent
   box-sizing border-box
@@ -117,6 +165,9 @@ room
     height 197px
     width 280px
 
+/*********************************
+ Desk
+*********************************/
 desk
   background-color transparent
   border 1px solid transparent
@@ -191,13 +242,13 @@ desk
   &.mapped
     z-index 1
 
-    .mapped-employee-label
+    .mapped-label
       bottom -25px
       left -8px
       line-height 1.2em
       position absolute
 
-  &.vert .mapped-employee-label
+  &.vert .mapped-label
     bottom -10px
 
 .floor-6 desk

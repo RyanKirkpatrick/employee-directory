@@ -9,6 +9,9 @@ var employeeSchema = mongoose.Schema({
 		type: String,
 		required: '{PATH} is required!'
 	},
+	nickname: {
+		type: String
+	},
 	email: {
 		type: String
 	},

@@ -20,6 +20,63 @@ floor {
   text-align: center;
   vertical-align: middle;
 }
+/*********************************
+ Printer
+*********************************/
+printer {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  position: absolute;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  white-space: nowrap;
+  width: 30px;
+}
+printer:hover {
+  background-color: rgba(222,88,88,0.5);
+}
+printer .printer span {
+  font-size: 20px;
+  line-height: 30px;
+  padding: 4px 5px;
+}
+printer.vert .printer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -o-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+printer.color:hover {
+  background-color: #00b259;
+}
+printer.color .printer span {
+  color: #005295;
+}
+printer.mapped {
+  z-index: 1;
+}
+printer.mapped .mapped-label {
+  bottom: -25px;
+  left: -8px;
+  line-height: 1.2em;
+  position: absolute;
+}
+/*********************************
+ Room
+*********************************/
 room {
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
@@ -102,6 +159,9 @@ room.break8 {
   height: 197px;
   width: 280px;
 }
+/*********************************
+ Desk
+*********************************/
 desk {
   background-color: transparent;
   border: 1px solid transparent;
@@ -194,13 +254,13 @@ desk.office .seat span {
 desk.mapped {
   z-index: 1;
 }
-desk.mapped .mapped-employee-label {
+desk.mapped .mapped-label {
   bottom: -25px;
   left: -8px;
   line-height: 1.2em;
   position: absolute;
 }
-desk.vert .mapped-employee-label {
+desk.vert .mapped-label {
   bottom: -10px;
 }
 .floor-6 desk.employee {

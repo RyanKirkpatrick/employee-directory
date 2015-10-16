@@ -26,6 +26,15 @@ var roomSchema = mongoose.Schema({
 	ext: {
 		type: Number
 	},
+	url: {
+		type: String
+	},
+	ip: {
+		type: String
+	},
+	capacity: {
+		type: Number
+	},
 	xpos: {
 		type: Number,
 		required: '{PATH} is required!'
@@ -49,6 +58,9 @@ function createDefaultRooms() {
 				classification: 'meeting',
 				phone: '5551212',
 				ext: '123',
+				url: 'http://testing',
+				ip: '123.456.789.0',
+				capacity: '20',
 				xpos: 10,
 				ypos: 10
 			});

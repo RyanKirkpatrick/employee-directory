@@ -17,56 +17,121 @@
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
-			.state('main', {
+			.state('employees', {
 				url: '/?firstname&lastname',
 				views: {
 					'main': {
-						templateUrl: '/partials/main/main',
-						controller: 'edMainCtrl',
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/employee-selector',
+						templateUrl: '/partials/employees/components/employee-selector',
 						controller: 'edEmployeeSelectorCtrl',
 						controllerAs: 'vm'
-					}
-				}
-			})
-			.state('main.seat-map', {
-				url: 'seat-map',
-				views: {
-					'main@': {
-						templateUrl: '/partials/seat-map/seat-map',
-						controller: 'edSeatMapCtrl',
+					},
+					'topbar': {
+						templateUrl: '/partials/employees/components/employee-topbar',
+						controller: 'edEmployeeTopbarCtrl',
 						controllerAs: 'vm'
 					}
 				}
 			})
-			.state('main.seat-map.floor-6', {
+			.state('employees.map', {
+				url: 'map',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/map/employee-map',
+						controller: 'edEmployeeMapCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.map.floor-6', {
 				url: '/floor-6/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/floor',
+						templateUrl: '/partials/common/views/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}
 			})
-			.state('main.seat-map.floor-7', {
+			.state('employees.map.floor-7', {
 				url: '/floor-7/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/floor',
+						templateUrl: '/partials/common/views/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
 				}
 			})
-			.state('main.seat-map.floor-8', {
+			.state('employees.map.floor-8', {
 				url: '/floor-8/:seat',
 				views: {
 					'main@': {
-						templateUrl: '/partials/seat-map/floor',
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers', {
+				url: '/printers?printer',
+				views: {
+					'main@': {
+						templateUrl: '/partials/printers/views/profile/printer-profile',
+						controller: 'edPrinterProfileCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar@': {
+						templateUrl: '/partials/printers/components/printer-selector',
+						controller: 'edPrinterSelectorCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/printers/components/printer-topbar',
+						controller: 'edPrinterTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.map', {
+				url: '/map',
+				views: {
+					'main@': {
+						templateUrl: '/partials/printers/views/map/printer-map',
+						controller: 'edPrinterMapCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.map.floor-6', {
+				url: '/floor-6/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.map.floor-7', {
+				url: '/floor-7/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.map.floor-8', {
+				url: '/floor-8/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
 						controller: 'edFloorCtrl',
 						controllerAs: 'vm'
 					}
@@ -177,7 +242,7 @@
 						controllerAs: 'vm'
 					},
 					'sidebar': {
-						templateUrl: '/partials/components/employee-selector',
+						templateUrl: '/partials/employees/components/employee-selector',
 						controller: 'edEmployeeSelectorCtrl',
 						controllerAs: 'vm'
 					}

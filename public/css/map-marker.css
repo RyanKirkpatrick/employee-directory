@@ -84,7 +84,7 @@
   -ms-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
-.mapped-employee-label {
+.mapped-label {
   -webkit-animation: bounce-left 0.5s ease-out;
   -moz-animation: bounce-left 0.5s ease-out;
   -o-animation: bounce-left 0.5s ease-out;

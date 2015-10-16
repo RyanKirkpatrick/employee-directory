@@ -1,0 +1,29 @@
+
+<div class="panel">
+  <div class="panel-heading"><span class="panel-icon mr10"><i class="fa fa-print"></i></span><span class="panel-title">Printer Profile</span><span class="panel-controls"><a ng-click="vm.mapPrinter(printer)" class="panel-control-map-marker location-color"></a><a ng-click="vm.deselectPrinter(printer)" class="panel-control-remove"></a></span></div>
+  <div class="panel-body pn">
+    <div class="row table-layout">
+      <div class="col-xs-12 br-l pn admin-form">
+        <table class="table mbn">
+          <tbody>
+            <tr>
+              <td class="va-m fw600">{{::printer.name}}</td>
+            </tr>
+            <tr ng-if="printer.classification === 'mono'">
+              <td class="va-m fw600 text-muted">Monochrome Printer</td>
+            </tr>
+            <tr ng-if="printer.classification === 'color'">
+              <td class="va-m fw600 text-primary">Color Printer</td>
+            </tr>
+            <tr>
+              <td class="va-m fw600 text-muted">{{::printer.brand}}</td>
+            </tr>
+            <tr>
+              <td ng-click="vm.mapPrinter(printer)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span>Floor: {{::printer.floor}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
