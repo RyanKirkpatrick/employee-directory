@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeSelectorCtrl', edEmployeeSelectorCtrl);
 
-	edEmployeeSelectorCtrl.$inject = ['$scope', '$document', 'edEmployeeService', 'edNotifierService'];
+	edEmployeeSelectorCtrl.$inject = ['$scope', '$document', 'edEmployeeService', 'edNotifierService', 'edPrinterService', 'edRoomService'];
 
-	function edEmployeeSelectorCtrl($scope, $document, edEmployeeService, edNotifierService) {
+	function edEmployeeSelectorCtrl($scope, $document, edEmployeeService, edNotifierService, edPrinterService, edRoomService) {
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
@@ -12,7 +12,7 @@
 		vm.selectEmployee = selectEmployee;
 		vm.selectAll = selectAll;
 		vm.selectNone = selectNone;
-		vm.allowSelectAll = true;
+		vm.allowSelectAll = edEmployeeService.getSelectMultipleEmployees();
 		vm.filteredEmployees = edEmployeeService.getAllEmployees();
 		vm.clearFilter = clearFilter;
 		vm.floorFilter = floorFilter;
@@ -29,6 +29,9 @@
 				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
 			}
 			else if (vm.displayEmployeeInfoType === 'location') {
+				// Only allow 1 thing to be mapped at a time
+				edPrinterService.updateMappedPrinter(null);
+				edRoomService.updateMappedRoom(null);
 				edEmployeeService.updateMappedEmployee(employee);
 			}
 		}

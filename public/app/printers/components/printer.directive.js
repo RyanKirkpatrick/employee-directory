@@ -30,25 +30,23 @@
 				$timeout(function () {
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-							'<div class="mapped-label label bg-danger">' + scope.mappedPrinter.name + '</div>');
+							'<div class="mapped-label label bg-danger">' + scope.mappedPrinter.name + '</div></div>');
 					});
 				}, 800);
 			} else {
 				el.removeClass('mapped').find('.marker').remove();
-				el.find('.mapped-label').remove();
 			}
 
 			var deregister = scope.$on('mappedPrinterChange', function (event, mappedPrinter) {
 				if (mappedPrinter && mappedPrinter.name === attrs.name) {
 					$timeout(function () {
 						$document.scrollToElement(el, 300, 300).then(function () {
-							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div></div>' +
-								'<div class="mapped-label label bg-danger">' + mappedPrinter.name + '</div>');
+							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
+								'<div class="mapped-label label bg-danger">' + mappedPrinter.name + '</div></div>');
 						});
 					}, 100);
 				} else {
 					el.removeClass('mapped').find('.marker').remove();
-					el.find('.mapped-label').remove();
 				}
 			});
 
@@ -56,9 +54,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['edPrinterService', 'edNotifierService', 'edEmployeeService'];
+	ctrlFunc.$inject = ['edPrinterService', 'edNotifierService', 'edEmployeeService', 'edRoomService'];
 
-	function ctrlFunc(edPrinterService, edNotifierService, edEmployeeService) {
+	function ctrlFunc(edPrinterService, edNotifierService, edEmployeeService, edRoomService) {
 		var vm = this;
 		vm.mapPrinter = mapPrinter;
 		vm.printers = edPrinterService.getAllPrinters();
@@ -70,7 +68,9 @@
 			});
 
 			if (mappedPrinterArray.length > 0) {
+				// Only allow 1 thing to be mapped at a time
 				edEmployeeService.updateMappedEmployee(null);
+				edRoomService.updateMappedRoom(null);
 				vm.mappedPrinter = edPrinterService.updateMappedPrinter(mappedPrinterArray[0]);
 			} else {
 				edNotifierService.error('Sorry, I don\'t know this printer.');

@@ -1,0 +1,43 @@
+.mw1000.center-block
+    .admin-form.theme-primary
+        form(name="signupForm", novalidate)
+            .panel.heading-border.panel-primary
+                .panel-body.bg-light
+                    .section-divider
+                        span New User Information
+                    .row
+                        .col-md-6
+                            .section
+                                label.field.prepend-icon(for="fname")
+                                    input.gui-input(name="fname", type="text", placeholder="First Name", ng-model="vm.fname", required)
+                                    label.field-icon(for="fname")
+                                        i.fa.fa-user
+                        .col-md-6
+                            .section
+                                label.field.prepend-icon(for="fname")
+                                    input.gui-input(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
+                                    label.field-icon(for="lname")
+                                        i.fa.fa-user
+                    .row
+                        .col-md-6
+                            .section
+                                label.field.prepend-icon(for="username")
+                                    input.gui-input(name="username", type="text", placeholder="Username", ng-model="vm.username", required)
+                                    label.field-icon(for="username")
+                                        i.fa.fa-male
+                        .col-md-6
+                            .section
+                                label.field.prepend-icon(for="password")
+                                    input.gui-input(name="password", type="password", placeholder="Password", ng-model="vm.password", required)
+                                    label.field-icon(for="password")
+                                        i.fa.fa-lock
+                    .row
+                        .col-md-12
+                            .section
+                                label.field.prepend-icon(for="roles")
+                                    input.gui-input(name="roles", type="text", placeholder="Roles (comma separated)", ng-model="vm.roles", required)
+                                    label.field-icon(for="roles")
+                                        i.fa.fa-users
+                .panel-footer.text-right
+                    button.button.btn-primary(type="submit", ng-click="vm.createUser()", ng-disabled="signupForm.$invalid") Save
+                    button.button.btn-default(ui-sref="admin") Cancel

@@ -30,25 +30,23 @@
 				$timeout(function () {
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-							'<div class="mapped-label label bg-danger">' + scope.mappedEmployee.firstName + ' ' + scope.mappedEmployee.lastName + '</div>');
+							'<div class="mapped-label label bg-danger">' + scope.mappedEmployee.firstName + ' ' + scope.mappedEmployee.lastName + '</div></div>');
 					});
 				}, 800);
 			} else {
 				el.removeClass('mapped').find('.marker').remove();
-				el.find('.mapped-label').remove();
 			}
 
 			var deregister = scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 				if (mappedEmployee && mappedEmployee.seat === attrs.seat) {
 					$timeout(function () {
 						$document.scrollToElement(el, 300, 300).then(function () {
-							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div></div>' +
-								'<div class="mapped-label label bg-danger">' + mappedEmployee.firstName + ' ' + mappedEmployee.lastName + '</div>');
+							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
+								'<div class="mapped-label label bg-danger">' + mappedEmployee.firstName + ' ' + mappedEmployee.lastName + '</div></div>');
 						});
 					}, 100);
 				} else {
 					el.removeClass('mapped').find('.marker').remove();
-					el.find('.mapped-label').remove();
 				}
 			});
 
@@ -56,9 +54,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['edEmployeeService', 'edNotifierService', 'edIdentityService', 'edPrinterService'];
+	ctrlFunc.$inject = ['edEmployeeService', 'edNotifierService', 'edIdentityService', 'edPrinterService', 'edRoomService'];
 
-	function ctrlFunc(edEmployeeService, edNotifierService, edIdentityService, edPrinterService) {
+	function ctrlFunc(edEmployeeService, edNotifierService, edIdentityService, edPrinterService, edRoomService) {
 		var vm = this;
 		vm.mapEmployee = mapEmployee;
 		vm.employees = edEmployeeService.getAllEmployees();
@@ -71,7 +69,9 @@
 			});
 
 			if (mappedEmployeeArray.length > 0) {
+				// Only allow 1 thing to be mapped at a time
 				edPrinterService.updateMappedPrinter(null);
+				edRoomService.updateMappedRoom(null);
 				vm.mappedEmployee = edEmployeeService.updateMappedEmployee(mappedEmployeeArray[0]);
 			} else {
 				edNotifierService.error('Sorry, I don\'t know who sits there.');

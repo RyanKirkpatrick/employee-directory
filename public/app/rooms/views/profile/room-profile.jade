@@ -1,0 +1,8 @@
+.center-block(ng-if="vm.selectedRooms.length < 1")
+    .text-center
+        .fa.fa-building-o.fs100.mb30.profile-color
+        div.fs20 Select some rooms to view their profile
+.row(vertilize-container)
+    div.col-sm-6.col-md-4.col-xl-3.directory-item-card(dir-paginate="room in vm.selectedRooms | itemsPerPage: 12 track by room._id" current-page="vm.currentPage" vertilize)
+        ed-room-card(room="room")
+dir-pagination-controls.center-block.text-center(on-page-change="vm.changePage(newPageNumber)")

@@ -1,0 +1,46 @@
+
+<div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
+  <div class="directory-item-filter">
+    <div class="panel">
+      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Room Filter</span><span ng-if="vm.type || vm.roomName || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-body p10">
+        <form name="roomsFilter" class="form-horizontal">
+          <div class="form-group mln mrn">
+            <div class="pn">
+              <input type="text" name="roomName" placeholder="Filter by name" ng-model="vm.roomName" class="form-control input-sm"/>
+            </div>
+          </div>
+          <div class="form-group mln mrn">
+            <div class="pn">
+              <div class="bs-component">
+                <select name="type" ng-model="vm.type" ng-options="room.type as room.type for room in vm.rooms | unique: 'type' | orderBy: 'type'" class="form-control input-sm">
+                  <option value="" selected="selected">All Types</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group mln mrn"><span class="control-label pn pull-left">
+              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">Floors</label></span><span class="pn pl20 pull-left">
+              <div class="checkbox-custom checkbox-default">
+                <input type="checkbox" id="floor6" ng-model="vm.floor['6']" ng-change="vm.filterFloors(6)"/>
+                <label for="floor6">6</label>
+              </div></span><span class="pn pl20 pull-left">
+              <div class="checkbox-custom checkbox-default">
+                <input type="checkbox" id="floor7" ng-model="vm.floor['7']" ng-change="vm.filterFloors(7)"/>
+                <label for="floor7">7</label>
+              </div></span><span class="pn pl20 pull-left">
+              <div class="checkbox-custom checkbox-default">
+                <input type="checkbox" id="floor8" ng-model="vm.floor['8']" ng-change="vm.filterFloors(8)"/>
+                <label for="floor8">8</label>
+              </div></span></div>
+          <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll || vm.displayRoomInfoType !== 'profile'" class="btn btn-xs btn-success pull-right">Select All</button>
+          <button type="button" ng-click="vm.selectNone()" ng-disabled="!vm.allowSelectAll || vm.displayRoomInfoType !== 'profile'" class="btn btn-xs btn-warning pull-left">Select None</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <h5><span class="fa fa-building-o"></span><span>Select Rooms</span></h5>
+  <ul class="nav tray-nav tray-nav-border">
+    <li ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.floorFilter))" ng-class="{'active': room.selected, 'mapped': room.mapped}" class="directory-item"><a ng-click="vm.selectRoom(room)"><span>{{::room.name}}<span ng-if="room.number" class="ml10">({{::room.number}})</span></span></a></li>
+  </ul>
+</div>

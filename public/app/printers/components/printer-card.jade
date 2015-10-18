@@ -18,7 +18,7 @@
                         tr(ng-if="printer.classification === 'color'")
                             td.va-m.fw600.text-primary Color Printer
                         tr
-                            td.va-m.fw600.text-muted {{::printer.brand}}
+                            td.va-m.fw600.text-muted {{::printer.brand}} {{::printer.model}}
                         tr
                             td.va-m.fw600.text-danger.cursor(ng-click="vm.mapPrinter(printer)")
                                 span.fa.fa-map-marker.fs15.mr10

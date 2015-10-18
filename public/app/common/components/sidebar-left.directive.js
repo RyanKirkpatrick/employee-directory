@@ -14,26 +14,49 @@
 		return directive;
 	}
 
-	ctrlFunc.$inject = ['$timeout', 'edIdentityService'];
+	ctrlFunc.$inject = ['$scope', 'edSidebarService', 'edIdentityService'];
 
-	function ctrlFunc($timeout, edIdentityService) {
+	function ctrlFunc($scope, edSidebarService, edIdentityService) {
 		var vm = this;
 		vm.identity = edIdentityService;
-		vm.showLargeSidebar = showLargeSidebar;
-		vm.hideLargeSidebar = hideLargeSidebar;
 		vm.sidebarOpen = false;
+		vm.sidebarLocked = edSidebarService.getLockSidebar();
+		vm.toggleSidebar = toggleSidebar;
+		vm.closeSidebar = closeSidebar;
 
-		var timer;
+		activate();
 
-		function showLargeSidebar() {
-			timer = $timeout(function () {
+		// If the sidebar is locked open, make sure it is open
+		function activate() {
+			if (vm.sidebarLocked) {
 				vm.sidebarOpen = true;
-			}, 100);
+			}
 		}
 
-		function hideLargeSidebar() {
-			$timeout.cancel(timer);
-			vm.sidebarOpen = false;
+		// If the sidebar is not locked open, toggle it
+		function toggleSidebar() {
+			if (!vm.sidebarLocked) {
+				vm.sidebarOpen = !vm.sidebarOpen;
+			}
 		}
+
+		// If the sidebar is not locked open, close it
+		function closeSidebar() {
+			if (!vm.sidebarLocked) {
+				vm.sidebarOpen = false;
+			}
+		}
+
+		// Wacth for the sidebar locked change event
+		var deregister = $scope.$on('sidebarLockedChange', function (event, sidebarLocked) {
+			vm.sidebarLocked = sidebarLocked
+			if (vm.sidebarLocked) {
+				vm.sidebarOpen = true;
+			} else {
+				vm.sidebarOpen = false;
+			}
+		});
+
+		$scope.$on('$destroy', deregister);
 	}
 })();

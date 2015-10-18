@@ -1,0 +1,39 @@
+.panel
+    .panel-heading
+        span.panel-icon.mr10
+            i.fa.fa-building-o
+        span.panel-title Room Profile
+        span.panel-controls
+            a.panel-control-map-marker.location-color(ng-click="vm.mapRoom(room)")
+            a.panel-control-remove(ng-click="vm.deselectRoom(room)")
+    .panel-body.pn
+        .row.table-layout
+            .col-xs-12.br-l.pn.admin-form
+                table.table.mbn
+                    tbody
+                        tr
+                            td.va-m.fw600 {{::room.name}}
+                                span.ml10(ng-if="room.number") ({{::room.number}})
+                        tr
+                            td.va-m.fw600.fw600.text-muted {{::room.type}} Room
+                        tr(ng-if="room.ext")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-phone.mr10
+                                | Internal: {{::room.ext}}
+                        tr(ng-if="room.phone")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-phone.mr10
+                                | Direct: {{::room.phone | edPhoneNumberFilter}}
+                        tr(ng-if="room.url")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-tv.mr10
+                                | TV:
+                                a.ml10(ng-href="{{::room.url}}" target="_blank") {{::room.url}}
+                        tr(ng-if="room.capacity")
+                            td.va-m.fw600.text-muted
+                                span.fa.fa-users.mr10
+                                | Capacity: {{::room.capacity}}
+                        tr
+                            td.va-m.fw600.text-danger.cursor(ng-click="vm.mapRoom(room)")
+                                span.fa.fa-map-marker.fs15.mr10
+                                | Floor: {{::room.floor}}

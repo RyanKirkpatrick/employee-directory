@@ -1,9 +1,0 @@
-
-<ul class="nav sidebar-menu">
-  <li class="sidebar-label pt10 pb10">Admin Options</li>
-  <li><a ui-sref="admin.create-employee"><span class="fa fa-plus-square"></span><span>Create Employee</span></a></li>
-  <li><a ui-sref="admin.update-employee"><span class="fa fa-pencil-square"></span><span>Update Employees</span></a></li>
-  <li ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.users"><span class="fa fa-pencil"></span><span>User Admin</span></a></li>
-  <li ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.create-user"><span class="fa fa-plus-square"></span><span>Create User</span></a></li>
-  <li ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.update-user"><span class="fa fa-pencil-square"></span><span>Update User</span></a></li>
-</ul>

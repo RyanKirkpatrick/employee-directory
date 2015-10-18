@@ -1,0 +1,62 @@
+
+<div class="mw1000 center-block">
+  <div class="admin-form theme-primary">
+    <form name="signupForm" novalidate="novalidate">
+      <div class="panel heading-border panel-primary">
+        <div class="panel-body bg-light">
+          <div class="section-divider"><span>New User Information</span></div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="section">
+                <label for="fname" class="field prepend-icon">
+                  <input name="fname" type="text" placeholder="First Name" ng-model="vm.fname" required="required" class="gui-input"/>
+                  <label for="fname" class="field-icon"><i class="fa fa-user"></i></label>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="section">
+                <label for="fname" class="field prepend-icon">
+                  <input name="lname" type="text" placeholder="Last Name" ng-model="vm.lname" required="required" class="gui-input"/>
+                  <label for="lname" class="field-icon"><i class="fa fa-user"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="section">
+                <label for="username" class="field prepend-icon">
+                  <input name="username" type="text" placeholder="Username" ng-model="vm.username" required="required" class="gui-input"/>
+                  <label for="username" class="field-icon"><i class="fa fa-male"></i></label>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="section">
+                <label for="password" class="field prepend-icon">
+                  <input name="password" type="password" placeholder="Password" ng-model="vm.password" required="required" class="gui-input"/>
+                  <label for="password" class="field-icon"><i class="fa fa-lock"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section">
+                <label for="roles" class="field prepend-icon">
+                  <input name="roles" type="text" placeholder="Roles (comma separated)" ng-model="vm.roles" required="required" class="gui-input"/>
+                  <label for="roles" class="field-icon"><i class="fa fa-users"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer text-right">
+          <button type="submit" ng-click="vm.createUser()" ng-disabled="signupForm.$invalid" class="button btn-primary">Save</button>
+          <button ui-sref="admin" class="button btn-default">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

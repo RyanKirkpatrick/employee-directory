@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edPrinterSelectorCtrl', edPrinterSelectorCtrl);
 
-	edPrinterSelectorCtrl.$inject = ['$scope', '$document', 'edPrinterService'];
+	edPrinterSelectorCtrl.$inject = ['$scope', '$document', 'edPrinterService', 'edEmployeeService', 'edRoomService'];
 
-	function edPrinterSelectorCtrl($scope, $document, edPrinterService) {
+	function edPrinterSelectorCtrl($scope, $document, edPrinterService, edEmployeeService, edRoomService) {
 		var vm = this;
 		vm.printers = edPrinterService.getAllPrinters();
 		vm.selectedPrinters = edPrinterService.getSelectedPrinters();
@@ -12,7 +12,7 @@
 		vm.selectPrinter = selectPrinter;
 		vm.selectAll = selectAll;
 		vm.selectNone = selectNone;
-		vm.allowSelectAll = true;
+		vm.allowSelectAll = edPrinterService.getSelectMultiplePrinters();
 		vm.filteredEmployees = edPrinterService.getAllPrinters();
 		vm.clearFilter = clearFilter;
 		vm.floorFilter = floorFilter;
@@ -29,6 +29,9 @@
 				vm.selectedPrinters = edPrinterService.updateSelectedPrinters(printer);
 			}
 			else if (vm.displayPrinterInfoType === 'location') {
+				// Only allow 1 thing to be mapped at a time
+				edEmployeeService.updateMappedEmployee(null);
+				edRoomService.updateMappedRoom(null);
 				edPrinterService.updateMappedPrinter(printer);
 			}
 		}

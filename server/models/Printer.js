@@ -12,6 +12,9 @@ var printerSchema = mongoose.Schema({
 	brand: {
 		type: String
 	},
+	model: {
+		type: String
+	},
 	classification: {
 		type: String,
 		default: 'bw'
@@ -39,6 +42,7 @@ function createDefaultPrinters() {
 				floor: 8,
 				name: 'LZB8P1-FAKE123',
 				brand: 'Lexmark',
+				model: 'FAKE123',
 				classification: 'bw',
 				orientation: 'horz',
 				xpos: 10,

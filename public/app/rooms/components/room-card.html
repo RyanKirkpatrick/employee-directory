@@ -1,0 +1,35 @@
+
+<div class="panel">
+  <div class="panel-heading"><span class="panel-icon mr10"><i class="fa fa-building-o"></i></span><span class="panel-title">Room Profile</span><span class="panel-controls"><a ng-click="vm.mapRoom(room)" class="panel-control-map-marker location-color"></a><a ng-click="vm.deselectRoom(room)" class="panel-control-remove"></a></span></div>
+  <div class="panel-body pn">
+    <div class="row table-layout">
+      <div class="col-xs-12 br-l pn admin-form">
+        <table class="table mbn">
+          <tbody>
+            <tr>
+              <td class="va-m fw600">{{::room.name}}<span ng-if="room.number" class="ml10">({{::room.number}})</span></td>
+            </tr>
+            <tr>
+              <td class="va-m fw600 fw600 text-muted">{{::room.type}} Room</td>
+            </tr>
+            <tr ng-if="room.ext">
+              <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Internal: {{::room.ext}}</td>
+            </tr>
+            <tr ng-if="room.phone">
+              <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Direct: {{::room.phone | edPhoneNumberFilter}}</td>
+            </tr>
+            <tr ng-if="room.url">
+              <td class="va-m fw600 text-muted"><span class="fa fa-tv mr10"></span>TV:<a ng-href="{{::room.url}}" target="_blank" class="ml10">{{::room.url}}</a></td>
+            </tr>
+            <tr ng-if="room.capacity">
+              <td class="va-m fw600 text-muted"><span class="fa fa-users mr10"></span>Capacity: {{::room.capacity}}</td>
+            </tr>
+            <tr>
+              <td ng-click="vm.mapRoom(room)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span>Floor: {{::room.floor}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

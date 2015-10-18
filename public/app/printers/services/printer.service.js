@@ -12,8 +12,6 @@
 		var selectMultiplePrinters = false;
 		var displayPrinterInfoType = 'profile';
 		var service = {
-			//selectedPrinters: selectedPrinters,
-			//selectMultiplePrinters: selectMultiplePrinters,
 			getAllPrinters: getAllPrinters,
 			getSelectedPrinters: getSelectedPrinters,
 			addAllFilteredPrinters: addAllFilteredPrinters,

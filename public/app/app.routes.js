@@ -137,44 +137,87 @@
 					}
 				}
 			})
-			.state('login', {
-				url: '/login',
+			.state('rooms', {
+				url: '/rooms?room',
 				views: {
-					'main': {
-						templateUrl: '/partials/account/login',
-						controller: 'edLoginCtrl',
+					'main@': {
+						templateUrl: '/partials/rooms/views/profile/room-profile',
+						controller: 'edRoomProfileCtrl',
 						controllerAs: 'vm'
 					},
-					'sidebar': {
-						template: '<div></div>'
+					'sidebar@': {
+						templateUrl: '/partials/rooms/components/room-selector',
+						controller: 'edRoomSelectorCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/rooms/components/room-topbar',
+						controller: 'edRoomTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.map', {
+				url: '/map',
+				views: {
+					'main@': {
+						templateUrl: '/partials/rooms/views/map/room-map',
+						controller: 'edRoomMapCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.map.floor-6', {
+				url: '/floor-6/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.map.floor-7', {
+				url: '/floor-7/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.map.floor-8', {
+				url: '/floor-8/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
 					}
 				}
 			})
 			.state('admin', {
 				url: '/admin',
 				'views': {
-					'main': {
-						template: '<div ui-view="main"></div>'
+					'main@': {
+						templateUrl: '/partials/admin/views/login',
+						controller: 'edLoginCtrl',
+						controllerAs: 'vm'
 					},
-					'sidebar': {
-						template: '<div ui-view="sidebar"></div>'
+					'topbar@': {
+						templateUrl: '/partials/admin/components/admin-topbar',
+						controller: 'edAdminTopbarCtrl',
+						controllerAs: 'vm'
 					}
-				},
-				resolve: {
-					auth: routeRoleChecks.admin
 				}
 			})
 			.state('admin.users', {
 				url: '/users',
 				views: {
-					'main': {
-						templateUrl: '/partials/admin/user-list',
+					'main@': {
+						templateUrl: '/partials/admin/views/user-list',
 						controller: 'edUserListCtrl',
-						controllerAs: 'vm'
-					},
-					'sidebar': {
-						templateUrl: '/partials/components/admin-menu',
-						controller: 'edAdminMenuCtrl',
 						controllerAs: 'vm'
 					}
 				},
@@ -185,14 +228,9 @@
 			.state('admin.create-user', {
 				url: '/create-user',
 				views: {
-					'main': {
-						templateUrl: '/partials/admin/create-user',
+					'main@': {
+						templateUrl: '/partials/admin/views/create-user',
 						controller: 'edCreateUserCtrl',
-						controllerAs: 'vm'
-					},
-					'sidebar': {
-						templateUrl: '/partials/components/admin-menu',
-						controller: 'edAdminMenuCtrl',
 						controllerAs: 'vm'
 					}
 				},
@@ -203,14 +241,9 @@
 			.state('admin.update-user', {
 				url: '/update-user',
 				views: {
-					'main': {
-						templateUrl: '/partials/admin/update-user',
+					'main@': {
+						templateUrl: '/partials/admin/views/update-user',
 						controller: 'edUpdateUserCtrl',
-						controllerAs: 'vm'
-					},
-					'sidebar': {
-						templateUrl: '/partials/components/admin-menu',
-						controller: 'edAdminMenuCtrl',
 						controllerAs: 'vm'
 					}
 				},
@@ -221,30 +254,31 @@
 			.state('admin.create-employee', {
 				url: '/create-employee',
 				views: {
-					'main': {
-						templateUrl: '/partials/admin/create-employee',
+					'main@': {
+						templateUrl: '/partials/admin/views/create-employee',
 						controller: 'edCreateEmployeeCtrl',
 						controllerAs: 'vm'
-					},
-					'sidebar': {
-						templateUrl: '/partials/components/admin-menu',
-						controller: 'edAdminMenuCtrl',
-						controllerAs: 'vm'
 					}
+				},
+				resolve: {
+					auth: routeRoleChecks.admin
 				}
 			})
 			.state('admin.update-employee', {
 				url: '/update-employee',
 				views: {
-					'main': {
-						templateUrl: '/partials/admin/update-employee',
+					'main@': {
+						templateUrl: '/partials/admin/views/update-employee',
 						controller: 'edUpdateEmployeeCtrl',
 						controllerAs: 'vm'
 					},
-					'sidebar': {
+					'sidebar@': {
 						templateUrl: '/partials/employees/components/employee-selector',
 						controller: 'edEmployeeSelectorCtrl',
 						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
 					}
 				}
 			});

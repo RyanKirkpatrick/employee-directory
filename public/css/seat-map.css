@@ -159,6 +159,9 @@ room.break8 {
   height: 197px;
   width: 280px;
 }
+room.mapped .label {
+  background-color: #df5640 !important;
+}
 /*********************************
  Desk
 *********************************/
@@ -177,15 +180,22 @@ desk {
   -ms-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
   white-space: nowrap;
+/* Employee Specific */
+/* Manager Specific */
+/* Office Specific */
 }
 desk:hover {
   background-color: rgba(222,88,88,0.5);
+}
+desk.mapped {
+  z-index: 1;
 }
 desk .seat {
   display: table-cell;
   font-size: 12px;
   text-align: center;
   vertical-align: middle;
+/* seat number */
 }
 desk .seat span {
   text-align: center;
@@ -194,9 +204,26 @@ desk .seat span {
 desk .seat span.admin {
   visibility: visible;
 }
+desk .marker {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top: 0;
+  width: 100%;
+}
+desk .marker .mapped-label {
+  line-height: 1.2em;
+  position: absolute;
+}
 desk.employee {
   height: 20px;
   width: 58px;
+/* Horizontal Employee Desks are the default */
+/* Vertical Employee Desks */
+}
+desk.employee .mapped-label {
+  bottom: -25px;
+  left: -6px;
 }
 desk.employee.vert {
   height: 58px;
@@ -212,16 +239,29 @@ desk.employee.vert .seat {
   -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
   transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
+desk.employee.vert .mapped-label {
+  bottom: -10px;
+  left: -25px;
+}
 desk.manager {
   height: 55px;
   width: 64px;
+/* Horizontal Manager Desks are the default */
+/* Vertical Manager Desks */
 }
 desk.manager .seat span {
   background-color: rgba(255,255,255,0.75);
 }
+desk.manager .mapped-label {
+  bottom: -15px;
+  left: 0;
+}
 desk.manager.vert {
   height: 64px;
   width: 55px;
+}
+desk.manager.vert .mapped-label {
+  bottom: -5px;
 }
 desk.manager.it {
   width: 78px;
@@ -237,12 +277,16 @@ desk.manager.ewa {
   -ms-transform: rotate(26deg);
   transform: rotate(26deg);
 }
-desk.manager.ewa .seat {
+desk.manager.ewa .seat,
+desk.manager.ewa .marker {
   -webkit-transform: rotate(-26deg);
   -moz-transform: rotate(-26deg);
   -o-transform: rotate(-26deg);
   -ms-transform: rotate(-26deg);
   transform: rotate(-26deg);
+}
+desk.manager.ewa .mapped-label {
+  left: -10px;
 }
 desk.office {
   height: 84px;
@@ -251,17 +295,9 @@ desk.office {
 desk.office .seat span {
   background-color: rgba(255,255,255,0.75);
 }
-desk.mapped {
-  z-index: 1;
-}
-desk.mapped .mapped-label {
-  bottom: -25px;
-  left: -8px;
-  line-height: 1.2em;
-  position: absolute;
-}
-desk.vert .mapped-label {
-  bottom: -10px;
+desk.office .mapped-label {
+  bottom: 5px;
+  left: 20px;
 }
 .floor-6 desk.employee {
   height: 24px;

@@ -165,6 +165,9 @@ room
     height 197px
     width 280px
 
+  &.mapped .label
+      background-color #df5640 !important
+
 /*********************************
  Desk
 *********************************/
@@ -181,12 +184,16 @@ desk
   &:hover
     background-color rgba(222, 88, 88,.5);
 
+  &.mapped
+    z-index 1
+
   .seat
     display table-cell
     font-size 12px
     text-align center
     vertical-align middle
 
+    /* seat number */
     span
       text-align center
       visibility hidden
@@ -194,10 +201,28 @@ desk
       &.admin
         visibility visible
 
+  .marker
+    position absolute
+    left 0
+    height 100%
+    top 0
+    width 100%
+
+    .mapped-label
+      line-height 1.2em
+      position absolute
+
+  /* Employee Specific */
   &.employee
     height $employee-height
     width $employee-width
 
+    /* Horizontal Employee Desks are the default */
+    .mapped-label
+      bottom -25px
+      left -6px
+
+    /* Vertical Employee Desks */
     &.vert
       height $employee-width
       width $employee-height
@@ -208,16 +233,30 @@ desk
         left 50%
         transform translateX(-50%) translateY(-50%) rotate(90deg)
 
+      .mapped-label
+        bottom -10px
+        left -25px
+
+  /* Manager Specific */
   &.manager
     height $manager-height
     width $manager-width
 
+    /* Horizontal Manager Desks are the default */
     .seat span
       background-color rgba(255,255,255,.75);
 
+    .mapped-label
+      bottom -15px
+      left 0
+
+    /* Vertical Manager Desks */
     &.vert
       height $manager-width
       width $manager-height
+
+      .mapped-label
+        bottom -5px
 
     &.it
       width $manager-it-width
@@ -229,9 +268,14 @@ desk
     &.ewa
       transform rotate(26deg)
 
-      .seat
+      .seat,
+      .marker
         transform rotate(-26deg)
 
+      .mapped-label
+        left -10px
+
+  /* Office Specific */
   &.office
     height $office-height
     width $office-width
@@ -239,17 +283,9 @@ desk
     .seat span
       background-color rgba(255,255,255,.75);
 
-  &.mapped
-    z-index 1
-
     .mapped-label
-      bottom -25px
-      left -8px
-      line-height 1.2em
-      position absolute
-
-  &.vert .mapped-label
-    bottom -10px
+      bottom 5px
+      left 20px
 
 .floor-6 desk
 

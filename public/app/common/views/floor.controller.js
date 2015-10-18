@@ -10,6 +10,8 @@
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
 		vm.selectedPrinters = edPrinterService.setSelectMultiplePrinters(true);
 		vm.mappedPrinter = edPrinterService.getMappedPrinter();
+		vm.selectedRooms = edRoomService.setSelectMultipleRooms(true);
+		vm.mappedRoom = edRoomService.getMappedRoom();
 		vm.desks = null;
 		vm.rooms = null;
 		vm.printers = null;
@@ -17,6 +19,7 @@
 
 		edEmployeeService.setDisplayEmployeeInfoType('location');
 		edPrinterService.setDisplayPrinterInfoType('location');
+		edRoomService.setDisplayRoomInfoType('location');
 
 		activate();
 
@@ -50,6 +53,17 @@
 			} else if ($stateParams.name) {
 				edPrinterService.getAllPrinters().$promise.then(mapPrinterByName);
 			}
+
+			// If there is a mapped room and we know its floor
+			if (vm.mappedRoom && vm.mappedRoom.floor) {
+				// If the mapped room is on a different floor, un-map it
+				if (vm.floor !== vm.mappedRoom.floor) {
+					vm.mappedRoom = edRoomService.updateMappedRoom(null);
+				}
+				// Map an room based on its name
+			} else if ($stateParams.name) {
+				edRoomService.getAllRooms().$promise.then(mapRoomByName);
+			}
 		}
 
 		var deregisterEmployee = $scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
@@ -75,6 +89,18 @@
 		});
 
 		$scope.$on('$destroy', deregisterPrinter);
+
+		var deregisterRoom = $scope.$on('mappedRoomChange', function (event, mappedRoom) {
+			if (mappedRoom) {
+				if (mappedRoom.floor && mappedRoom.floor !== vm.floor) {
+					$state.go('rooms.map.floor-' + mappedRoom.floor, {'name': mappedRoom.name});
+				} else if (!mappedRoom.floor) {
+					$state.go('rooms.map');
+				}
+			}
+		});
+
+		$scope.$on('$destroy', deregisterRoom);
 
 		function deskFilter(desks) {
 			vm.desks = desks.filter(function (desk) {
@@ -113,6 +139,17 @@
 			if (mappedPrinterArray.length > 0) {
 				vm.mappedPrinter = edPrinterService.updateMappedPrinter(mappedPrinterArray[0]);
 				vm.floor = vm.mappedPrinter.floor;
+			}
+		}
+
+		function mapRoomByName(rooms) {
+			var mappedRoomArray = rooms.filter(function (room) {
+				return room.name === $stateParams.name;
+			});
+
+			if (mappedRoomArray.length > 0) {
+				vm.mappedRoom = edRoomService.updateMappedRoom(mappedRoomArray[0]);
+				vm.floor = vm.mappedRoom.floor;
 			}
 		}
 	}

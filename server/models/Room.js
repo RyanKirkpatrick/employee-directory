@@ -17,7 +17,10 @@ var roomSchema = mongoose.Schema({
 		required: '{PATH} is required!',
 	},
 	classification: {
-		type: 'String',
+		type: 'String'
+	},
+	type: {
+		type: String,
 		default: 'meeting'
 	},
 	phone: {
@@ -55,7 +58,7 @@ function createDefaultRooms() {
 				name: 'Break Room',
 				number: '123',
 				location: '071810',
-				classification: 'meeting',
+				type: 'meeting',
 				phone: '5551212',
 				ext: '123',
 				url: 'http://testing',
