@@ -21,6 +21,9 @@
             <tr ng-if="employee.team">
               <td class="va-m fw600 text-muted"><span class="fa fa-group mr10"></span>{{::employee.team}}</td>
             </tr>
+            <tr ng-if="employee.manager">
+              <td class="va-m fw600 text-muted">Manager: {{::employee.manager}}</td>
+            </tr>
             <tr ng-if="employee.email">
               <td class="va-m fw600 text-primary"><span class="fa fa-envelope mr10"></span><a href="mailto:{{::employee.email}}">{{::employee.email}}</a></td>
             </tr>

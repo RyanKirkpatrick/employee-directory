@@ -4,7 +4,7 @@ var Employee   = require('mongoose').model('Employee'),
     path       = require('path');
 
 exports.getEmployees = function (req, res) {
-	Employee.find({deleted: false}).exec(function (err, collection) {
+	Employee.find({deleted: {$ne: true}}).exec(function (err, collection) {
 		res.send(collection);
 	});
 };

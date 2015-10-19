@@ -48,6 +48,13 @@ var employeeSchema = mongoose.Schema({
 	seat: {
 		type: String
 	},
+	hasReports: {
+		type: Boolean,
+		default: false
+	},
+	manager: {
+		type: Number
+	},
 	deleted: {
 		type: Boolean,
 		default: false
@@ -71,7 +78,9 @@ function createDefaultEmployees() {
 				team: 'Prestige Worldwide',
 				location: 'Buffalo',
 				floor: 8,
-				seat: '083006'
+				seat: '083006',
+				hasReports: false,
+				manager: 1
 			});
 		}
 	});

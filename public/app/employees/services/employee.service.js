@@ -12,8 +12,6 @@
 		var selectMultipleEmployees = false;
 		var displayEmployeeInfoType = 'profile';
 		var service = {
-			//selectedEmployees: selectedEmployees,
-			//selectMultipleEmployees: selectMultipleEmployees,
 			getAllEmployees: getAllEmployees,
 			getSelectedEmployees: getSelectedEmployees,
 			addAllFilteredEmployees: addAllFilteredEmployees,
