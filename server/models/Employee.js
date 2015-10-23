@@ -52,7 +52,7 @@ var employeeSchema = mongoose.Schema({
 		type: Boolean,
 		default: false
 	},
-	manager: {
+	mid: {
 		type: Number
 	},
 	deleted: {
@@ -81,7 +81,7 @@ function createDefaultEmployees() {
 				floor: 8,
 				seat: '083006',
 				hasReports: false,
-				manager: 1
+				mid: 1
 			});
 		}
 	});

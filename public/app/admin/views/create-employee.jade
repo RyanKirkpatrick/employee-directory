@@ -6,20 +6,22 @@
                     .section-divider
                         span Create New Employee
                     .row
-                        .col-md-5
+                        .col-md-1
+                            .section
+                                label.field
+                                    input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.newEmployee.eid", required)
+                        .col-md-4
                             .section
                                 label.field
                                     input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.newEmployee.firstName", required)
-                        .col-md-5
+                        .col-md-4
                             .section
                                 label.field
                                     input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.newEmployee.lastName", required)
-                        .col-md-2
+                        .col-md-3
                             .section
-                                label.field.select
-                                    select(name="gender", ng-model="vm.newEmployee.gender", ng-options="gender.value as gender.text for gender in vm.genderOptions", require)
-                                        option(disabled, value="") Select Gender
-                                    i.arrow
+                                label.field
+                                    input.gui-input(name="nickName", type="text", placeholder="Nick Name", ng-model="vm.newEmployee.nickName")
                     .row
                         .col-md-6
                             .section
@@ -34,20 +36,26 @@
                                 label.field
                                     input.gui-input(name="email", type="text", placeholder="Email", ng-model="vm.newEmployee.email", required)
                     .row
-                        .col-md-4
+                        .col-md-3
                             .section
                                 label.field
                                     input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.newEmployee.department", required)
-                        .col-md-4
+                        .col-md-3
                             .section
                                 label.field
                                     input.gui-input(name="title", type="text", placeholder="Title", ng-model="vm.newEmployee.title", required)
-                        .col-md-4
+                        .col-md-3
                             .section
                                 label.field
                                     input.gui-input(name="team", type="text", placeholder="Team", ng-model="vm.newEmployee.team")
-                    .row
                         .col-md-3
+                            .section
+                                label.field.select
+                                    select(name="manager", ng-model="vm.newEmployee.mid", ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'firstName'")
+                                        option(disabled, value="") Manager
+                                    i.arrow
+                    .row
+                        .col-md-2
                             .section
                                 label.field
                                     input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.newEmployee.phone")
@@ -55,22 +63,30 @@
                             .section
                                 label.field
                                     input.gui-input(name="ext", type="text", placeholder="Ext", ng-model="vm.newEmployee.ext")
-                        .col-md-3
-                            .section
-                                label.field
-                                    input.gui-input(name="location", type="text", placeholder="Location", ng-model="vm.newEmployee.location")
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="floor", ng-model="vm.newEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
+                                    select(name="location", ng-model="vm.newEmployee.location", ng-options="location.value as location.text for location in vm.locationOptions", require)
+                                        option(disabled, value="") Location
+                                    i.arrow
+                        .col-md-2
+                            .section
+                                label.field.select
+                                    select(name="floor", ng-disabled="!vm.newEmployee.location", ng-model="vm.newEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | unique: 'floor' | orderBy: 'floor'")
                                         option(disabled, value="") Floor
                                     i.arrow
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="seat", ng-disabled="!vm.newEmployee.floor", ng-model="vm.newEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.newEmployee.floor | orderBy: ['section','seat']")
+                                    select(name="seat", ng-disabled="!vm.newEmployee.floor", ng-model="vm.newEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | filterBy: ['floor'] : vm.newEmployee.floor | orderBy: ['section','seat']")
                                         option(disabled, value="") Seat
                                     i.arrow
+                        .col-md-2
+                            .section
+                                label.option.option-primary.mt10
+                                    input(type="checkbox", name="hasReports", ng-model="vm.newEmployee.hasReports")
+                                    span.checkbox
+                                    | Has Reports
                 .panel-footer.text-right
                     button.button.btn-primary(type="submit", ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="createEmployeeForm.$invalid") Submit
                     button.button.btn-default(type="reset") Cancel

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', '$q', 'edCachedEmployeeResourceService', 'edEmployeeResourceService', 'Upload', 'edNotifierService'];
+	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService'];
 
-	function edEmployeeService($rootScope, $q, edCachedEmployeeResourceService, edEmployeeResourceService, Upload, edNotifierService) {
+	function edEmployeeService($rootScope, edCachedEmployeeResourceService) {
 		var selectedEmployees = [];
 		var selectedEmployeeAdded = false;
 		var profilePageNumber = 1;
@@ -12,8 +12,6 @@
 		var selectMultipleEmployees = false;
 		var displayEmployeeInfoType = 'profile';
 		var service = {
-			//selectedEmployees: selectedEmployees,
-			//selectMultipleEmployees: selectMultipleEmployees,
 			getAllEmployees: getAllEmployees,
 			getSelectedEmployees: getSelectedEmployees,
 			addAllFilteredEmployees: addAllFilteredEmployees,
@@ -21,9 +19,6 @@
 			removeAllSelectedEmployees: removeAllSelectedEmployees,
 			setSelectMultipleEmployees: setSelectMultipleEmployees,
 			getSelectMultipleEmployees: getSelectMultipleEmployees,
-			updateEmployee: updateEmployee,
-			createEmployee: createEmployee,
-			uploadEmployeePhoto: uploadEmployeePhoto,
 			updateMappedEmployee: updateMappedEmployee,
 			getMappedEmployee: getMappedEmployee,
 			setDisplayEmployeeInfoType: setDisplayEmployeeInfoType,
@@ -244,70 +239,6 @@
 		 */
 		function getSelectMultipleEmployees() {
 			return selectMultipleEmployees;
-		}
-
-		/**
-		 * Updates employee record in database
-		 * Uses the selected employee for updating
-		 *
-		 * @param {Object} newEmployeeData employee data to update
-		 * @return {Object} promise
-		 */
-		function updateEmployee(newEmployeeData) {
-			var dfd = $q.defer();
-			var clone = angular.copy(selectedEmployees[0]);
-			angular.extend(clone, newEmployeeData);
-			clone.$update().then(function (employee) {
-				removeAllSelectedEmployees();
-				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
-				dfd.resolve(employee);
-			}, function (response) {
-				dfd.reject(response.data.reason);
-			});
-			return dfd.promise;
-		}
-
-		/**
-		 * Create employee record in database
-		 *
-		 * @param {Object} newEmployeeData employee data to insert
-		 * @return {Object} promise
-		 */
-		function createEmployee(newEmployeeData) {
-			var newEmployee = new edEmployeeResourceService(newEmployeeData);
-			var dfd = $q.defer();
-
-			newEmployee.$save().then(function (employee) {
-				removeAllSelectedEmployees();
-				$rootScope.$broadcast('employeesUpdated', getAllEmployees(true));
-				dfd.resolve(employee);
-			}, function (response) {
-				dfd.reject(response.data.reason);
-			});
-			return dfd.promise;
-		}
-
-		/**
-		 * Upload employee photo to disk
-		 *
-		 * @param {Object} employeePhoto employee photo data
-		 * @param {Object} employeeData employee data
-		 */
-		function uploadEmployeePhoto(employeePhoto, employeeData) {
-			Upload.upload({
-				url: 'api/employees/uploadphoto',
-				data: {
-					file: employeePhoto,
-					fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
-				}
-			}).then(function (resp) {
-				console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-			}, function (resp) {
-				console.log('Error status: ' + resp.status);
-			}, function (evt) {
-				var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-				console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-			});
 		}
 	}
 })();

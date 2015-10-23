@@ -16,9 +16,9 @@
 			if (!employees || cacheBust) {
 				employees = edEmployeeResourceService.query();
 
-				employees.$promise.then(function (ems) {
-					angular.forEach(ems, function (employee) {
-						var manager = _.find(ems, {'eid': employee.manager});
+				employees.$promise.then(function (ees) {
+					angular.forEach(ees, function (employee) {
+						var manager = _.find(ees, {'eid': employee.mid});
 						if (manager) {
 							employee.manager = manager.firstName + ' ' + manager.lastName;
 						}

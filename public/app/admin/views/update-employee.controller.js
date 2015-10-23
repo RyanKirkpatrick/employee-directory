@@ -2,31 +2,35 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService) {
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
 		vm.cancelUpdateEmployee = cancelUpdateEmployee;
 		vm.desks = edDeskService.getAllDesks();
 		vm.selectedEmployee = null;
-		vm.genderOptions = [
+		vm.locationOptions = [
 			{
-				value: 'male',
-				text: 'Male'
+				value: 'buf',
+				text: 'Buffalo'
 			},
 			{
-				value: 'female',
-				text: 'Female'
+				value: 'nyc',
+				text: 'NYC'
+			},
+			{
+				value: 'oth',
+				text: 'Remote'
 			}
 		];
-
-		edEmployeeService.setDisplayEmployeeInfoType('profile');
 
 		activate();
 
 		function activate() {
+			edEmployeeService.setDisplayEmployeeInfoType('profile');
+			edEmployeeService.getAllEmployees().$promise.then(createManagerList);
 			var selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
@@ -35,19 +39,28 @@
 
 		function populateEmployee(selectedEmployees) {
 			vm.selectedEmployee = {
+				eid: selectedEmployees[0].eid,
 				firstName: selectedEmployees[0].firstName,
 				lastName: selectedEmployees[0].lastName,
+				nickName: selectedEmployees[0].nickName,
 				email: selectedEmployees[0].email,
 				phone: selectedEmployees[0].phone,
 				ext: selectedEmployees[0].ext,
-				gender: selectedEmployees[0].gender,
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
 				team: selectedEmployees[0].team,
 				location: selectedEmployees[0].location,
 				floor: selectedEmployees[0].floor,
-				seat: selectedEmployees[0].seat
+				seat: selectedEmployees[0].seat,
+				hasReports: selectedEmployees[0].hasReports,
+				mid: selectedEmployees[0].mid
 			};
+		}
+
+		function createManagerList(employees) {
+			vm.managers = employees.filter(function (employee) {
+				return employee.hasReports === true;
+			});
 		}
 
 		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
@@ -63,32 +76,35 @@
 		function updateEmployee() {
 			// Get the employee data from the form
 			var newEmployeeData = {
+				eid: vm.selectedEmployee.eid,
 				firstName: vm.selectedEmployee.firstName,
 				lastName: vm.selectedEmployee.lastName,
+				nickName: vm.selectedEmployee.nickName,
 				email: vm.selectedEmployee.email,
 				phone: vm.selectedEmployee.phone,
 				ext: vm.selectedEmployee.ext,
-				gender: vm.selectedEmployee.gender,
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
 				team: vm.selectedEmployee.team,
 				location: vm.selectedEmployee.location,
 				floor: vm.selectedEmployee.floor,
-				seat: vm.selectedEmployee.seat
+				seat: vm.selectedEmployee.seat,
+				hasReports: vm.selectedEmployee.hasReports,
+				mid: vm.selectedEmployee.mid
 			};
 
 			// Save the image file for uploading
 			var imageFile = vm.selectedEmployee.imageFile;
 
-			edEmployeeService.updateEmployee(newEmployeeData).then(function (employee) {
+			edEmployeeAdminService.updateEmployee(newEmployeeData).then(function (employee) {
 				edNotifierService.notify('Employee information updated!');
 				if (imageFile) {
 					// upload the file to the file system
-					edEmployeeService.uploadEmployeePhoto(imageFile, employee);
+					edEmployeeAdminService.uploadEmployeePhoto(imageFile, employee);
 					// Now update the employee record in the DB with the correct filename
 					edEmployeeService.updateSelectedEmployees(employee);
 					newEmployeeData.image = employee._id + '.' + imageFile.name.split('.').pop().toLowerCase();
-					edEmployeeService.updateEmployee(newEmployeeData).then(function (employee) {
+					edEmployeeAdminService.updateEmployee(newEmployeeData).then(function (employee) {
 						//photo upload successful
 					}, function () {
 						edNotifierService.error('Employee Photo Not Added.');
@@ -109,7 +125,7 @@
 				deleted: true
 			};
 
-			edEmployeeService.updateEmployee(newEmployeeData).then(function (employee) {
+			edEmployeeAdminService.updateEmployee(newEmployeeData).then(function (employee) {
 				edNotifierService.notify(employee.firstName + ' ' + employee.lastName + ' deleted!');
 			}, function (reason) {
 				edNotifierService.error(reason);
