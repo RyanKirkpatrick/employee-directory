@@ -47,8 +47,8 @@
 					}
 				}
 			})
-			.state('employees.map.floor-6', {
-				url: '/floor-6/:seat',
+			.state('employees.map.buf-6', {
+				url: '/buf-6/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -57,8 +57,8 @@
 					}
 				}
 			})
-			.state('employees.map.floor-7', {
-				url: '/floor-7/:seat',
+			.state('employees.map.buf-7', {
+				url: '/buf-7/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -67,8 +67,18 @@
 					}
 				}
 			})
-			.state('employees.map.floor-8', {
-				url: '/floor-8/:seat',
+			.state('employees.map.buf-8', {
+				url: '/buf-8/:seat',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.map.nyc-6', {
+				url: '/nyc-6/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -107,8 +117,8 @@
 					}
 				}
 			})
-			.state('printers.map.floor-6', {
-				url: '/floor-6/:name',
+			.state('printers.map.buf-6', {
+				url: '/buf-6/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -117,8 +127,8 @@
 					}
 				}
 			})
-			.state('printers.map.floor-7', {
-				url: '/floor-7/:name',
+			.state('printers.map.buf-7', {
+				url: '/buf-7/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -127,8 +137,19 @@
 					}
 				}
 			})
-			.state('printers.map.floor-8', {
-				url: '/floor-8/:name',
+			.state('printers.map.buf-8', {
+				url: '/buf-8/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+
+			.state('printers.map.nyc-6', {
+				url: '/nyc-6/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -167,8 +188,8 @@
 					}
 				}
 			})
-			.state('rooms.map.floor-6', {
-				url: '/floor-6/:name',
+			.state('rooms.map.buf-6', {
+				url: '/buf-6/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -177,8 +198,8 @@
 					}
 				}
 			})
-			.state('rooms.map.floor-7', {
-				url: '/floor-7/:name',
+			.state('rooms.map.buf-7', {
+				url: '/buf-7/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -187,8 +208,19 @@
 					}
 				}
 			})
-			.state('rooms.map.floor-8', {
-				url: '/floor-8/:name',
+			.state('rooms.map.buf-8', {
+				url: '/buf-8/:name',
+				views: {
+					'main@': {
+						templateUrl: '/partials/common/views/floor',
+						controller: 'edFloorCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+
+			.state('rooms.map.nyc-6', {
+				url: '/nyc-6/:name',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',

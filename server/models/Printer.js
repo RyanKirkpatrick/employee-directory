@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var printerSchema = mongoose.Schema({
+	location: {
+		type: String,
+		required: '{PATH} is required!'
+	},
 	floor: {
 		type: Number,
 		required: '{PATH} is required!'
@@ -39,6 +43,7 @@ function createDefaultPrinters() {
 	Printer.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
 			Printer.create({
+				location: 'buf',
 				floor: 8,
 				name: 'LZB8P1-FAKE123',
 				brand: 'Lexmark',

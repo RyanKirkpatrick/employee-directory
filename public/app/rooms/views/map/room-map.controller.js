@@ -25,7 +25,7 @@
 
 		function locateRoom(room) {
 			if (room) {
-				$state.go('rooms.map.floor-' + room.floor, {'name': room.name});
+				$state.go('rooms.map.' + room.location + '-' + room.floor, {'name': room.name});
 			}
 		}
 	}

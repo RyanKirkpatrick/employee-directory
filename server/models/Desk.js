@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var deskSchema = mongoose.Schema({
+	location: {
+		type: String,
+		required: '{PATH} is required!'
+	},
 	floor: {
 		type: Number,
 		required: '{PATH} is required!'
@@ -34,6 +38,7 @@ function createDefaultDesks() {
 	Desk.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
 			Desk.create({
+				location: 'buf',
 				floor: 6,
 				seat: '1-1',
 				orientation: 'horz',

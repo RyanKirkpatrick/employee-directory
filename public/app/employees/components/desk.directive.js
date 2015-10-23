@@ -30,7 +30,7 @@
 				$timeout(function () {
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-							'<div class="mapped-label label bg-danger">' + scope.mappedEmployee.firstName + ' ' + scope.mappedEmployee.lastName + '</div></div>');
+							'<div class="mapped-label label bg-danger">' + getDisplayName(scope.mappedEmployee) + ' ' + scope.mappedEmployee.lastName + '</div></div>');
 					});
 				}, 800);
 			} else {
@@ -42,7 +42,7 @@
 					$timeout(function () {
 						$document.scrollToElement(el, 300, 300).then(function () {
 							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-								'<div class="mapped-label label bg-danger">' + mappedEmployee.firstName + ' ' + mappedEmployee.lastName + '</div></div>');
+								'<div class="mapped-label label bg-danger">' + getDisplayName(mappedEmployee) + ' ' + mappedEmployee.lastName + '</div></div>');
 						});
 					}, 100);
 				} else {
@@ -51,6 +51,14 @@
 			});
 
 			scope.$on('$destroy', deregister);
+		}
+
+		function getDisplayName(employee) {
+			if (employee.nickName) {
+				return employee.nickName;
+			} else {
+				return employee.firstName;
+			}
 		}
 	}
 

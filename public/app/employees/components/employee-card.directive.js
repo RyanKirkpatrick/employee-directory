@@ -31,7 +31,7 @@
 
 		function mapEmployee(employee) {
 			edEmployeeService.updateMappedEmployee(employee);
-			$state.go('employees.map.floor-' + employee.floor, {'seat': employee.seat});
+			$state.go('employees.map.' + employee.location + '-' + employee.floor, {'seat': employee.seat});
 		}
 
 		function deselectEmployee(employee) {

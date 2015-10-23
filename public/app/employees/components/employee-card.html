@@ -3,14 +3,12 @@
   <div class="panel-heading"><span class="panel-icon mr10"><i class="icon icon-Leslie"></i></span><span class="panel-title">Employee Profile</span><span class="panel-controls"><a ng-if="employee.seat" ng-click="vm.mapEmployee(employee)" class="panel-control-map-marker location-color"></a><a ng-click="vm.editEmployee(employee)" ng-if="vm.identity.isAuthorized('admin')" class="panel-control-title"></a><a ng-click="vm.deselectEmployee(employee)" class="panel-control-remove"></a></span></div>
   <div class="panel-body pn">
     <div class="row table-layout">
-      <div class="col-xs-4 text-center va-t of-h"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="employee-photo mt10 mb10"/><span ng-if="!employee.image" class="fa fa-{{::employee.gender}} fs100 mt20"></span>
-        <h5 ng-if="employee.nickname" class="text-primary">"{{::employee.nickname}}"</h5>
-      </div>
+      <div class="col-xs-4 text-center va-t of-h"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="employee-photo mt10 mb10"/><span ng-if="!employee.image" class="fa fa-user fs100 mt20"></span></div>
       <div class="col-xs-8 br-l pn admin-form">
         <table class="table mbn">
           <tbody>
             <tr>
-              <td class="va-m fw600">{{::employee.firstName}} {{::employee.lastName}}</td>
+              <td class="va-m fw600"><span ng-if="employee.nickName">{{::employee.nickName}}</span><span ng-if="!employee.nickName">{{::employee.firstName}}</span><span>&nbsp;{{::employee.lastName}}</span></td>
             </tr>
             <tr>
               <td class="va-m fw600 text-muted">{{::employee.title}}</td>
@@ -34,8 +32,8 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Desk: {{::employee.phone | edPhoneNumberFilter}}</td>
             </tr>
             <tr ng-if="employee.location">
-              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.seat" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span>{{::employee.location}} / Floor: {{::employee.floor}} / Seat: {{::employee.seat}}</td>
-              <td ng-if="!employee.seat" class="va-m fw600 text-muted"><span class="fa fa-map-marker fs15 mr10"></span>{{::employee.location}}</td>
+              <td ng-click="vm.mapEmployee(employee)" ng-if="employee.seat" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span><span class="text-uppercase">{{::employee.location}}</span>&nbsp;/ Floor: {{::employee.floor}} / Seat: {{::employee.seat}}</td>
+              <td ng-if="!employee.seat" class="va-m fw600 text-muted"><span class="fa fa-map-marker fs15 mr10"></span><span ng-if="employee.location === 'buf'">Buffalo</span><span ng-if="employee.location === 'nyc'">NYC</span><span ng-if="employee.location === 'oth'">Remote</span></td>
             </tr>
           </tbody>
         </table>

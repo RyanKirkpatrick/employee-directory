@@ -41,14 +41,27 @@ Directory Item Selector
   border-width: 1px;
   background-color: transparent;
 }
+.directory-item-selector .directory-item-filter .panel .checkbox-custom label.location {
+  width: 32px;
+}
+.directory-item-selector .directory-item-filter .panel .checkbox-custom label.location:before {
+  width: 34px;
+}
 .directory-item-selector .directory-item-filter .panel .checkbox-custom label:after {
   display: none !important;
 }
-.directory-item-selector .directory-item-filter .panel .checkbox-custom input[type=checkbox]:checked + label:before {
-  background-color: #ddd;
-  opacity: 0.5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
+.directory-item-selector .directory-item-filter .panel .checkbox-custom input[type=checkbox]:checked + label {
+  color: #3498db;
+}
+.directory-item-selector .floors-disabled {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+  -webkit-transition: opacity 300ms ease;
+  -moz-transition: opacity 300ms ease;
+  -o-transition: opacity 300ms ease;
+  -ms-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 .directory-item-selector h5 {
   background-color: #fff;

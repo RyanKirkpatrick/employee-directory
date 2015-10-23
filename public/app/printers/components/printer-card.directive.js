@@ -29,7 +29,7 @@
 
 		function mapPrinter(printer) {
 			edPrinterService.updateMappedPrinter(printer);
-			$state.go('printers.map.floor-' + printer.floor, {'name': printer.name});
+			$state.go('printers.map.' + printer.location + '-' + printer.floor, {'name': printer.name});
 		}
 
 		function deselectPrinter(printer) {

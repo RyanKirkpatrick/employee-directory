@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var roomSchema = mongoose.Schema({
+	location: {
+		type: String,
+		required: '{PATH} is required!'
+	},
 	floor: {
 		type: Number,
 		required: '{PATH} is required!'
@@ -12,7 +16,7 @@ var roomSchema = mongoose.Schema({
 	number: {
 		type: String
 	},
-	location: {
+	seat: {
 		type: String,
 		required: '{PATH} is required!',
 	},
@@ -54,10 +58,11 @@ function createDefaultRooms() {
 	Room.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
 			Room.create({
+				location: 'buf',
 				floor: 7,
 				name: 'Break Room',
 				number: '123',
-				location: '071810',
+				seat: '071810',
 				type: 'meeting',
 				phone: '5551212',
 				ext: '123',

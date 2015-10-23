@@ -45,19 +45,28 @@ Directory Item Selector
         width 21px
 
         &:before
-          border-color #DDDDDD
+          border-color #ddd
           border-width 1px
           background-color transparent
+
+        &.location
+          width 32px
+
+          &:before
+            width 34px
 
         &:after
           display none !important
 
-      .checkbox-custom input[type=checkbox]:checked + label:before
-        background-color #DDDDDD
-        opacity 0.5
+      .checkbox-custom input[type=checkbox]:checked + label
+        color primary-color-blue
+
+  .floors-disabled
+    opacity .3
+    transition opacity 300ms ease
 
   h5
-    background-color #ffffff
+    background-color #fff
     font-size 14px
     margin 0
     padding 12px 15px

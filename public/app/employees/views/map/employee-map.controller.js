@@ -27,7 +27,7 @@
 		function locateEmployee(employee) {
 			if (employee) {
 				if (employee.seat) {
-					$state.go('employees.map.floor-' + employee.floor, {'seat': employee.seat});
+					$state.go('employees.map.' + employee.location + '-' + employee.floor, {'seat': employee.seat});
 				} else {
 					vm.unknownLocationEmployee = true;
 					vm.mappedEmployee = employee;

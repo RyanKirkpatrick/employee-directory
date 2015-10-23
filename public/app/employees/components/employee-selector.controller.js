@@ -15,6 +15,14 @@
 		vm.allowSelectAll = edEmployeeService.getSelectMultipleEmployees();
 		vm.filteredEmployees = edEmployeeService.getAllEmployees();
 		vm.clearFilter = clearFilter;
+		vm.locationFilter = locationFilter;
+		vm.filterLocations = filterLocations;
+		vm.location = {
+			'buf': false,
+			'nyc': false
+		};
+		vm.locations = [];
+		vm.nycOnly = nycOnly;
 		vm.floorFilter = floorFilter;
 		vm.filterFloors = filterFloors;
 		vm.floor = {
@@ -36,6 +44,28 @@
 			}
 		}
 
+		function filterLocations(location) {
+			if (vm.location[location]) {
+				vm.locations.push(location);
+			} else {
+				vm.locations.splice(vm.locations.indexOf(location), 1);
+			}
+		}
+
+		function locationFilter(employee) {
+			if (vm.locations.length > 0) {
+				if (employee.location) {
+					return vm.locations.indexOf(employee.location) > -1;
+				}
+			} else {
+				return true;
+			}
+		}
+
+		function nycOnly() {
+			return vm.locations.length === 1 && vm.locations[0] === 'nyc';
+		}
+
 		function filterFloors(floor) {
 			if (vm.floor[floor]) {
 				vm.floors.push(floor);
@@ -45,9 +75,13 @@
 		}
 
 		function floorFilter(employee) {
-			if (vm.floors.length > 0) {
-				if (employee.floor) {
-					return vm.floors.indexOf(employee.floor) > -1;
+			if (!nycOnly()) {
+				if (vm.floors.length > 0) {
+					if (employee.floor) {
+						return vm.floors.indexOf(employee.floor) > -1 && employee.location === 'buf';
+					}
+				} else {
+					return true;
 				}
 			} else {
 				return true;
@@ -73,6 +107,11 @@
 				'6': false,
 				'7': false,
 				'8': false
+			};
+			vm.locations = [];
+			vm.location = {
+				'buf': false,
+				'nyc': false
 			};
 			vm.department = '';
 			vm.team = '';

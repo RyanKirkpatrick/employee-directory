@@ -11,13 +11,15 @@
         .row.table-layout
             .col-xs-4.text-center.va-t.of-h
                 img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
-                span(class="fa fa-{{::employee.gender}} fs100 mt20", ng-if="!employee.image")
-                h5.text-primary(ng-if="employee.nickname") "{{::employee.nickname}}"
+                span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody
                         tr
-                            td.va-m.fw600 {{::employee.firstName}} {{::employee.lastName}}
+                            td.va-m.fw600
+                                span(ng-if="employee.nickName") {{::employee.nickName}}
+                                span(ng-if="!employee.nickName") {{::employee.firstName}}
+                                span &nbsp;{{::employee.lastName}}
                         tr
                             td.va-m.fw600.text-muted {{::employee.title}}
                         tr
@@ -43,7 +45,10 @@
                         tr(ng-if="employee.location")
                             td.va-m.fw600.text-danger.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
-                                | {{::employee.location}} / Floor: {{::employee.floor}} / Seat: {{::employee.seat}}
+                                span.text-uppercase {{::employee.location}}
+                                | &nbsp;/ Floor: {{::employee.floor}} / Seat: {{::employee.seat}}
                             td.va-m.fw600.text-muted(ng-if="!employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
-                                | {{::employee.location}}
+                                span(ng-if="employee.location === 'buf'") Buffalo
+                                span(ng-if="employee.location === 'nyc'") NYC
+                                span(ng-if="employee.location === 'oth'") Remote

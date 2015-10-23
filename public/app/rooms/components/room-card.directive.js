@@ -29,7 +29,7 @@
 
 		function mapRoom(room) {
 			edRoomService.updateMappedRoom(room);
-			$state.go('rooms.map.floor-' + room.floor, {'name': room.name});
+			$state.go('rooms.map.' + room.location + '-' + room.floor, {'name': room.name});
 		}
 
 		function deselectRoom(room) {

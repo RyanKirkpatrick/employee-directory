@@ -18,7 +18,7 @@
 
 				employees.$promise.then(function (ems) {
 					angular.forEach(ems, function (employee) {
-						var manager = _.find(ems, {'ext': employee.manager});
+						var manager = _.find(ems, {'eid': employee.manager});
 						if (manager) {
 							employee.manager = manager.firstName + ' ' + manager.lastName;
 						}

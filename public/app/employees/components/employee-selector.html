@@ -2,7 +2,7 @@
 <div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
   <div class="directory-item-filter">
     <div class="panel">
-      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Employees Filter</span><span ng-if="vm.team || vm.department || vm.employeeName || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Employees Filter</span><span ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
       <div class="panel-body p10">
         <form name="employeesFilter" class="form-horizontal">
           <div class="form-group mln mrn">
@@ -29,17 +29,27 @@
             </div>
           </div>
           <div class="form-group mln mrn"><span class="control-label pn pull-left">
-              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">Floors</label></span><span class="pn pl20 pull-left">
+              <label ng-class="{'text-primary' : vm.locations.length &gt; 0}">Locations</label></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
-                <input type="checkbox" id="floor6" ng-model="vm.floor['6']" ng-change="vm.filterFloors(6)"/>
+                <input type="checkbox" id="buf" ng-model="vm.location['buf']" ng-change="vm.filterLocations('buf')"/>
+                <label for="buf" class="location">BUF</label>
+              </div></span><span class="pn pl20 pull-left">
+              <div class="checkbox-custom checkbox-default">
+                <input type="checkbox" id="nyc" ng-model="vm.location['nyc']" ng-change="vm.filterLocations('nyc')"/>
+                <label for="nyc" class="location">NYC</label>
+              </div></span></div>
+          <div ng-class="{'floors-disabled' : vm.nycOnly()}" class="form-group mln mrn"><span class="control-label pn pull-left">
+              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">BUF Floor</label></span><span class="pn pl15 pull-left">
+              <div class="checkbox-custom checkbox-default">
+                <input type="checkbox" id="floor6" ng-model="vm.floor['6']" ng-change="vm.filterFloors(6)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor6">6</label>
-              </div></span><span class="pn pl20 pull-left">
+              </div></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
-                <input type="checkbox" id="floor7" ng-model="vm.floor['7']" ng-change="vm.filterFloors(7)"/>
+                <input type="checkbox" id="floor7" ng-model="vm.floor['7']" ng-change="vm.filterFloors(7)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor7">7</label>
-              </div></span><span class="pn pl20 pull-left">
+              </div></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
-                <input type="checkbox" id="floor8" ng-model="vm.floor['8']" ng-change="vm.filterFloors(8)"/>
+                <input type="checkbox" id="floor8" ng-model="vm.floor['8']" ng-change="vm.filterFloors(8)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor8">8</label>
               </div></span></div>
           <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'" class="btn btn-xs btn-success pull-right">Select All</button>
@@ -50,6 +60,6 @@
   </div>
   <h5><span class="fa fa-users"></span><span>Select Employees</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filterBy: ['firstName','lastName'] : vm.employeeName | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}}, {{::employee.firstName}}</span></a></li>
+    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filterBy: ['firstName','lastName', 'nickName'] : vm.employeeName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickName">{{::employee.nickName}}</span><span ng-if="!employee.nickName">{{::employee.firstName}}</span></a></li>
   </ul>
 </div>

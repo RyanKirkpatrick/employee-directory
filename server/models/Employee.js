@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var employeeSchema = mongoose.Schema({
+	eid: {
+		type: Number,
+		required: '{PATH} is required!'
+	},
 	firstName: {
 		type: String,
 		required: '{PATH} is required!'
@@ -21,18 +25,11 @@ var employeeSchema = mongoose.Schema({
 	ext: {
 		type: Number
 	},
-	image: {
-		type: String
-	},
-	gender: {
+	department: {
 		type: String,
 		required: '{PATH} is required!'
 	},
 	title: {
-		type: String,
-		required: '{PATH} is required!'
-	},
-	department: {
 		type: String,
 		required: '{PATH} is required!'
 	},
@@ -46,6 +43,9 @@ var employeeSchema = mongoose.Schema({
 		type: Number
 	},
 	seat: {
+		type: String
+	},
+	image: {
 		type: String
 	},
 	hasReports: {
@@ -67,12 +67,13 @@ function createDefaultEmployees() {
 	Employee.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
 			Employee.create({
+				eid: 1,
 				firstName: 'John',
 				lastName: 'Doe',
+				nickname: 'Jack',
 				email: 'john.doe@liazon.com',
 				phone: '(212) 123-4567',
 				ext: '123',
-				gender: 'male',
 				department: 'Software Engineering',
 				title: 'Software Engineer',
 				team: 'Prestige Worldwide',

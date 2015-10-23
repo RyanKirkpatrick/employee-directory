@@ -6,14 +6,19 @@ floor {
   position: relative;
   width: 1256px;
 }
-.floor-6 {
-  background-image: url("/images/floor-6.png");
+.buf-6 {
+  background-image: url("/images/buf-6.png");
 }
-.floor-7 {
-  background-image: url("/images/floor-7.png");
+.buf-7 {
+  background-image: url("/images/buf-7.png");
 }
-.floor-8 {
-  background-image: url("/images/floor-8.png");
+.buf-8 {
+  background-image: url("/images/buf-8.png");
+}
+.nyc-6 {
+  background-image: url("/images/nyc-6.png");
+  height: 646px;
+  width: 640px;
 }
 .floor-label {
   display: table-cell;
@@ -241,7 +246,7 @@ desk.employee.vert .seat {
 }
 desk.employee.vert .mapped-label {
   bottom: -10px;
-  left: -25px;
+  left: -10px;
 }
 desk.manager {
   height: 55px;
