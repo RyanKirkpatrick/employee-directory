@@ -2,14 +2,17 @@
 	'use strict';
 	angular.module('app').config(configure);
 
-	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$compileProvider'];
 
-	function configure($stateProvider, $urlRouterProvider, $locationProvider) {
+	function configure($stateProvider, $urlRouterProvider, $locationProvider, $compileProvider) {
 		var routeRoleChecks = {
 			superAdmin: requireSuperAdmin,
 			admin: requireAdmin,
 			user: requireAuth
 		};
+
+		// Allow some extra protocols
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|im):/);
 
 		$locationProvider.html5Mode(true);
 

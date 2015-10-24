@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-  <h5><span class="fa fa-print"></span><span>Select Printers</span></h5>
+  <h5><span class="ico icon-print"></span><span>Select Printers</span></h5>
   <ul class="nav tray-nav tray-nav-border">
     <li ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': printer.selected, 'mapped': printer.mapped}" class="directory-item"><a ng-click="vm.selectPrinter(printer)"><span>{{::printer.name}}</span></a></li>
   </ul>

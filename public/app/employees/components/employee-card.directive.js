@@ -17,6 +17,7 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs) {
+			scope.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
 		}
 	}
 

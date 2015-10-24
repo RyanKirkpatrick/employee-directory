@@ -4,7 +4,8 @@
             i.icon.icon-Leslie
         span.panel-title Employee Profile
         span.panel-controls
-            a.panel-control-map-marker.location-color(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
+            a.panel-control-chat(href="im:<sip:{{twEmail}}>")
+            a.panel-control-map-marker(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
             a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
     .panel-body.pn
@@ -29,7 +30,9 @@
                                 span.fa.fa-group.mr10
                                 | {{::employee.team}}
                         tr(ng-if="employee.manager")
-                            td.va-m.fw600.text-muted Manager: {{::employee.manager}}
+                            td.va-m.fw600.text-muted
+                                span.icon-user-4.mr10
+                                span {{::employee.manager}}
                         tr(ng-if="employee.email")
                             td.va-m.fw600.text-primary
                                 span.fa.fa-envelope.mr10
@@ -46,7 +49,7 @@
                             td.va-m.fw600.text-danger.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
                                 span.text-uppercase {{::employee.location}}
-                                | &nbsp;/ Floor: {{::employee.floor}} / Seat: {{::employee.seat}}
+                                | &nbsp;/ Floor: {{::employee.floor}} / View Seat
                             td.va-m.fw600.text-muted(ng-if="!employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
                                 span(ng-if="employee.location === 'buf'") Buffalo

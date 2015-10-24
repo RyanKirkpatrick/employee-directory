@@ -46,7 +46,7 @@
                     button.btn.btn-xs.btn-success.pull-right(type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll || vm.displayPrinterInfoType !== 'profile'") Select All
                     button.btn.btn-xs.btn-warning.pull-left(type="button", ng-click="vm.selectNone()", ng-disabled="!vm.allowSelectAll || vm.displayPrinterInfoType !== 'profile'") Select None
     h5
-        span.fa.fa-print
+        span.ico.icon-print
         span Select Printers
     ul.nav.tray-nav.tray-nav-border
         li.directory-item(ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': printer.selected, 'mapped': printer.mapped}")

@@ -14,3 +14,24 @@ form .gui-input-mod {
   vertical-align: top;
   width: 100%;
 }
+.admin-form .section.test {
+  position: relative;
+}
+.admin-form .section.test label,
+.admin-form .section.test input.ng-dirty.ng-invalid-required + label {
+  color: #aaa;
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  left: 11px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.admin-form .section.test input.ng-dirty + label,
+.admin-form .section.test input:focus + label {
+  font-size: 13px;
+  top: -15px;
+}

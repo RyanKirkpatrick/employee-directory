@@ -53,7 +53,8 @@ Sidebar
 #sidebar_left .sidebar-left-toggle {
   background: rgba(0,0,0,0.15);
   cursor: pointer;
-  padding: 4px 16px 3px;
+  margin-bottom: 20px;
+  padding: 4px 14px 3px;
   text-align: right;
 }
 #sidebar_left .sidebar-left-toggle.sidebar-locked {
@@ -61,7 +62,7 @@ Sidebar
 }
 #sidebar_left .sidebar-left-toggle span {
   color: #999;
-  font-size: 16px;
+  font-size: 25px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
@@ -216,6 +217,9 @@ Sidebar
 }
 .panel-control-map-marker:after {
   content: "\f041";
+}
+.panel-control-chat:after {
+  content: "\f0e5";
 }
 @media (max-width: 1100px) {
   #content_wrapper {

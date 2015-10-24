@@ -1,6 +1,6 @@
 .center-block(ng-if="vm.selectedPrinters.length < 1")
     .text-center
-        .fa.fa-print.fs100.mb30.profile-color
+        .icon-print.fs100.mb30.profile-color
         div.fs20 Select some printers to view their profile
 .row(vertilize-container)
     div.col-sm-6.col-md-4.col-xl-3.directory-item-card(dir-paginate="printer in vm.selectedPrinters | itemsPerPage: 12 track by printer._id" current-page="vm.currentPage" vertilize)

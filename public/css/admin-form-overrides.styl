@@ -14,3 +14,20 @@ form .gui-input-mod
   position relative
   vertical-align top
   width 100%
+
+.admin-form .section.test
+  position relative
+
+  label
+  input.ng-dirty.ng-invalid-required + label
+    color #aaa
+    position absolute
+    z-index 1
+    top 12px
+    left 11px
+    transition all 0.3s ease
+
+  input.ng-dirty + label
+  input:focus + label
+    font-size 13px
+    top -15px

@@ -1,44 +1,35 @@
 aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-left-sm': !vm.sidebarOpen}")
     .sidebar-left-content.nano-content(ed-nanoscroller)
         .sidebar-left-toggle(ng-click="vm.toggleSidebar()", ng-class="{'sidebar-locked' : vm.sidebarLocked}")
-            span.fa.fa-sign-out
+            span.fa.fa-bars
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li.sidebar-group-label
-                span.fa.fa-users
-                span.sidebar-label Employees Directory
             li(ui-sref-active-eq="active")
                 a(ui-sref="employees")
-                    span.icon-profile
+                    span.fa.fa-users
                     span.sidebar-title Employee Profiles
             li.location-item(ui-sref-active="active")
                 a(ui-sref="employees.map")
                     span.fa.fa-map-marker
                     span.sidebar-title Employee Location
-            li.sidebar-group-label
-                span.fa.fa-building-o
-                span.sidebar-label Rooms Directory
+        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active-eq="active")
                 a(ui-sref="rooms")
-                    span.icon-file
+                    span.fa.fa-building-o
                     span.sidebar-title Room Profiles
             li.location-item(ui-sref-active="active")
                 a(ui-sref="rooms.map")
                     span.fa.fa-map-marker
                     span.sidebar-title Room Location
-            li.sidebar-group-label
-                span.fa.fa-print
-                span.sidebar-label Printers Directory
+        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active-eq="active")
                 a(ui-sref="printers")
-                    span.icon-file
+                    span.icon-print
                     span.sidebar-title Printer Profiles
             li.location-item(ui-sref-active="active")
                 a(ui-sref="printers.map")
                     span.fa.fa-map-marker
                     span.sidebar-title Printer Location
-            li.sidebar-group-label(ng-if="vm.identity.isAuthorized('admin')")
-                span.fa.fa-pencil
-                span.sidebar-label Admin Tools
+        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
                 a(ui-sref="admin.create-employee")
                     span.fa.fa-user-plus
