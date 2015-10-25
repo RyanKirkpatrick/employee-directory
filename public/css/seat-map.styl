@@ -122,7 +122,7 @@ room
     height 145px
     width 216px
 
-  &.break7
+  &.break-buf7
     height 197px
     width 280px
 
@@ -166,9 +166,25 @@ room
     height 79px
     width 102px
 
-  &.break8
+  &.break-buf8
     height 197px
     width 280px
+
+  &.room1
+    height 146px
+    width 120px
+
+  &.room2
+    height 79px
+    width 205px
+
+  &.room3
+    height 121px
+    width 78px
+
+  &.break-nyc6
+    height 58px
+    width 86px
 
   &.mapped .label
       background-color #df5640 !important
@@ -292,7 +308,7 @@ desk
       bottom 5px
       left 20px
 
-.floor-6 desk
+.buf-6 desk
 
   &.employee
     height $floor6-employee-height
@@ -301,3 +317,64 @@ desk
   &.vert
     height $floor6-employee-width
     width $floor6-employee-height
+
+/*********************************
+NYC
+*********************************/
+$nyc-employee-width = 58px
+$nyc-employee-height = 20px
+$nyc-cube-width = 62px
+$nyc-cube-height = 46px
+
+.nyc-6 desk
+
+  &.employee
+    height $nyc-employee-height
+    width $nyc-employee-width
+
+    &.vert
+      height $nyc-employee-width
+      width $nyc-employee-height
+
+  &.cube
+    height $nyc-cube-height
+    width $nyc-cube-width
+
+    .mapped-label
+      bottom -15px
+      left 0
+
+  &.manager .seat span
+      background-color transparent
+
+  &#desk-060203
+    height 80px
+    width 111px
+
+  &#desk-060206
+    height 80px
+    width 119px
+
+  &#desk-060209
+    height 80px
+    width 84px
+
+  &#desk-060212
+    height 80px
+    width 77px
+
+  &#desk-060215
+    height 80px
+    width 124px
+
+  &#desk-060219
+    height 80px
+    width 108px
+
+  &#desk-061302
+    height 46px
+    width 46px
+
+  &#desk-061602
+    height 76px
+    width 78px

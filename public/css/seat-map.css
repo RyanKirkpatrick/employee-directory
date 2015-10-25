@@ -116,7 +116,7 @@ room.canalside {
   height: 145px;
   width: 216px;
 }
-room.break7 {
+room.break-buf7 {
   height: 197px;
   width: 280px;
 }
@@ -160,9 +160,25 @@ room.ontario {
   height: 79px;
   width: 102px;
 }
-room.break8 {
+room.break-buf8 {
   height: 197px;
   width: 280px;
+}
+room.room1 {
+  height: 146px;
+  width: 120px;
+}
+room.room2 {
+  height: 79px;
+  width: 205px;
+}
+room.room3 {
+  height: 121px;
+  width: 78px;
+}
+room.break-nyc6 {
+  height: 58px;
+  width: 86px;
 }
 room.mapped .label {
   background-color: #df5640 !important;
@@ -304,11 +320,65 @@ desk.office .mapped-label {
   bottom: 5px;
   left: 20px;
 }
-.floor-6 desk.employee {
+.buf-6 desk.employee {
   height: 24px;
   width: 55px;
 }
-.floor-6 desk.vert {
+.buf-6 desk.vert {
   height: 55px;
   width: 24px;
+}
+/*********************************
+NYC
+*********************************/
+.nyc-6 desk.employee {
+  height: 20px;
+  width: 58px;
+}
+.nyc-6 desk.employee.vert {
+  height: 58px;
+  width: 20px;
+}
+.nyc-6 desk.cube {
+  height: 46px;
+  width: 62px;
+}
+.nyc-6 desk.cube .mapped-label {
+  bottom: -15px;
+  left: 0;
+}
+.nyc-6 desk.manager .seat span {
+  background-color: transparent;
+}
+.nyc-6 desk#desk-060203 {
+  height: 80px;
+  width: 111px;
+}
+.nyc-6 desk#desk-060206 {
+  height: 80px;
+  width: 119px;
+}
+.nyc-6 desk#desk-060209 {
+  height: 80px;
+  width: 84px;
+}
+.nyc-6 desk#desk-060212 {
+  height: 80px;
+  width: 77px;
+}
+.nyc-6 desk#desk-060215 {
+  height: 80px;
+  width: 124px;
+}
+.nyc-6 desk#desk-060219 {
+  height: 80px;
+  width: 108px;
+}
+.nyc-6 desk#desk-061302 {
+  height: 46px;
+  width: 46px;
+}
+.nyc-6 desk#desk-061602 {
+  height: 76px;
+  width: 78px;
 }

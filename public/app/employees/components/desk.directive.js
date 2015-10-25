@@ -31,6 +31,10 @@
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
 							'<div class="mapped-label label bg-danger">' + getDisplayName(scope.mappedEmployee) + ' ' + scope.mappedEmployee.lastName + '</div></div>');
+						// Do some math to figure out how to center the label
+						var markerLabel = $('.mapped-label');
+						var leftPos = (el.outerWidth() / 2) - (markerLabel.outerWidth() / 2);
+						markerLabel.css('left', leftPos);
 					});
 				}, 800);
 			} else {
@@ -43,6 +47,10 @@
 						$document.scrollToElement(el, 300, 300).then(function () {
 							el.addClass('mapped').append('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
 								'<div class="mapped-label label bg-danger">' + getDisplayName(mappedEmployee) + ' ' + mappedEmployee.lastName + '</div></div>');
+							// Do some math to figure out how to center the label
+							var markerLabel = $('.mapped-label');
+							var leftPos = (el.outerWidth() / 2) - (markerLabel.outerWidth() / 2);
+							markerLabel.css('left', leftPos);
 						});
 					}, 100);
 				} else {
