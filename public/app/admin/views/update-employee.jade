@@ -76,7 +76,7 @@
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="floor", ng-disabled="vm.selectedEmployee.location || vm.selectedEmployee.location === 'oth'", ng-model="vm.selectedEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location | unique: 'floor' | orderBy: 'floor'")
+                                    select(name="floor", ng-disabled="!vm.selectedEmployee.location || vm.selectedEmployee.location === 'oth'", ng-model="vm.selectedEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location | unique: 'floor' | orderBy: 'floor'")
                                         option(disabled, value="") Floor
                                     i.arrow
                         .col-md-2

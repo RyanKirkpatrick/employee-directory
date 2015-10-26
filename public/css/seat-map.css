@@ -164,15 +164,15 @@ room.break-buf8 {
   height: 197px;
   width: 280px;
 }
-room.room1 {
+room.room1-nyc6 {
   height: 146px;
   width: 120px;
 }
-room.room2 {
+room.room2-nyc6 {
   height: 79px;
   width: 205px;
 }
-room.room3 {
+room.room3-nyc6 {
   height: 121px;
   width: 78px;
 }
@@ -180,19 +180,19 @@ room.break-nyc6 {
   height: 58px;
   width: 86px;
 }
-room.rooma {
+room.rooma-buf6 {
   height: 110px;
   width: 127px;
 }
-room.roomb {
+room.roomb-buf6 {
   height: 110px;
   width: 127px;
 }
-room.roomc {
+room.roomc-buf6 {
   height: 127px;
   width: 85px;
 }
-room.roomd {
+room.roomd-buf6 {
   height: 109px;
   width: 190px;
 }
@@ -355,11 +355,12 @@ BUF 6th Floor overrides
 NYC
 *********************************/
 .nyc-6 desk.employee {
+  border: 1px solid #808080;
   height: 20px;
-  width: 58px;
+  width: 54px;
 }
 .nyc-6 desk.employee.vert {
-  height: 58px;
+  height: 54px;
   width: 20px;
 }
 .nyc-6 desk.cube {
@@ -396,10 +397,6 @@ NYC
 .nyc-6 desk#desk-060219 {
   height: 80px;
   width: 108px;
-}
-.nyc-6 desk#desk-061302 {
-  height: 46px;
-  width: 46px;
 }
 .nyc-6 desk#desk-061602 {
   height: 76px;
