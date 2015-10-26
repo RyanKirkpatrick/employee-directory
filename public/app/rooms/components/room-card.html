@@ -25,7 +25,7 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-users mr10"></span>Capacity: {{::room.capacity}}</td>
             </tr>
             <tr>
-              <td ng-click="vm.mapRoom(room)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span>Floor: {{::room.floor}}</td>
+              <td ng-click="vm.mapRoom(room)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span><span class="text-uppercase">{{::room.location}}</span>&nbsp;/ Floor: {{::room.floor}}</td>
             </tr>
           </tbody>
         </table>

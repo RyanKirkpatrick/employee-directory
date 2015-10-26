@@ -62,8 +62,8 @@
 		}
 
 		function getDisplayName(employee) {
-			if (employee.nickName) {
-				return employee.nickName;
+			if (employee.nickname) {
+				return employee.nickname;
 			} else {
 				return employee.firstName;
 			}

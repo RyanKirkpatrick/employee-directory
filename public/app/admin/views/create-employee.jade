@@ -8,20 +8,20 @@
                     .row
                         .col-md-1
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.eid.$invalid && !createEmployeeForm.eid.$pristine}")
                                     input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.newEmployee.eid", required)
                         .col-md-4
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.firstName.$invalid && !createEmployeeForm.firstName.$pristine}")
                                     input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.newEmployee.firstName", required)
                         .col-md-4
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.lastName.$invalid && !createEmployeeForm.lastName.$pristine}")
                                     input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.newEmployee.lastName", required)
                         .col-md-3
                             .section
                                 label.field
-                                    input.gui-input(name="nickName", type="text", placeholder="Nick Name", ng-model="vm.newEmployee.nickName")
+                                    input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.newEmployee.nickname")
                     .row
                         .col-md-6
                             .section
@@ -33,16 +33,16 @@
                                         i.fa.fa-upload
                         .col-md-6
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.email.$invalid && !createEmployeeForm.email.$pristine}")
                                     input.gui-input(name="email", type="text", placeholder="Email", ng-model="vm.newEmployee.email", required)
                     .row
                         .col-md-3
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.department.$invalid && !createEmployeeForm.department.$pristine}")
                                     input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.newEmployee.department", required)
                         .col-md-3
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': createEmployeeForm.title.$invalid && !createEmployeeForm.title.$pristine}")
                                     input.gui-input(name="title", type="text", placeholder="Title", ng-model="vm.newEmployee.title", required)
                         .col-md-3
                             .section
@@ -51,28 +51,28 @@
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="manager", ng-model="vm.newEmployee.mid", ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'firstName'")
+                                    select(name="manager", ng-model="vm.newEmployee.mid", ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'lastName'")
                                         option(disabled, value="") Manager
                                     i.arrow
                     .row
                         .col-md-2
                             .section
-                                label.field
-                                    input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.newEmployee.phone")
+                                label.field(ng-class="{'state-error': createEmployeeForm.phone.$invalid && !createEmployeeForm.phone.$pristine}")
+                                    input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.newEmployee.phone", ng-pattern="/^[0-9]{10}$/")
                         .col-md-2
                             .section
                                 label.field
                                     input.gui-input(name="ext", type="text", placeholder="Ext", ng-model="vm.newEmployee.ext")
                         .col-md-2
                             .section
-                                label.field.select
+                                label.field.select(ng-class="{'state-error': createEmployeeForm.location.$invalid && !createEmployeeForm.location.$pristine}")
                                     select(name="location", ng-model="vm.newEmployee.location", ng-options="location.value as location.text for location in vm.locationOptions", require)
                                         option(disabled, value="") Location
                                     i.arrow
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="floor", ng-disabled="!vm.newEmployee.location", ng-model="vm.newEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | unique: 'floor' | orderBy: 'floor'")
+                                    select(name="floor", ng-disabled="!vm.newEmployee.location || vm.newEmployee.location === 'oth'", ng-model="vm.newEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | unique: 'floor' | orderBy: 'floor'")
                                         option(disabled, value="") Floor
                                     i.arrow
                         .col-md-2
@@ -90,3 +90,4 @@
                 .panel-footer.text-right
                     button.button.btn-primary(type="submit", ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="createEmployeeForm.$invalid") Submit
                     button.button.btn-default(type="reset") Cancel
+                    div {{createEmployeeForm.$pristine}}

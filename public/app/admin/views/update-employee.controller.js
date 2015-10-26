@@ -42,7 +42,7 @@
 				eid: selectedEmployees[0].eid,
 				firstName: selectedEmployees[0].firstName,
 				lastName: selectedEmployees[0].lastName,
-				nickName: selectedEmployees[0].nickName,
+				nickname: selectedEmployees[0].nickname,
 				email: selectedEmployees[0].email,
 				phone: selectedEmployees[0].phone,
 				ext: selectedEmployees[0].ext,
@@ -63,7 +63,7 @@
 			});
 		}
 
-		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var selectedEmployeeChangeEvent = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
 			} else {
@@ -71,7 +71,13 @@
 			}
 		});
 
-		$scope.$on('$destroy', deregister);
+		$scope.$on('$destroy', selectedEmployeeChangeEvent);
+
+		var employeesUpdatedEvent = $scope.$on('employeesUpdated', function () {
+			edEmployeeService.getAllEmployees().$promise.then(createManagerList);
+		});
+
+		$scope.$on('$destroy', employeesUpdatedEvent);
 
 		function updateEmployee() {
 			// Get the employee data from the form
@@ -79,7 +85,7 @@
 				eid: vm.selectedEmployee.eid,
 				firstName: vm.selectedEmployee.firstName,
 				lastName: vm.selectedEmployee.lastName,
-				nickName: vm.selectedEmployee.nickName,
+				nickname: vm.selectedEmployee.nickname,
 				email: vm.selectedEmployee.email,
 				phone: vm.selectedEmployee.phone,
 				ext: vm.selectedEmployee.ext,

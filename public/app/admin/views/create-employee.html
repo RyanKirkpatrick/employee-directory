@@ -8,21 +8,21 @@
           <div class="row">
             <div class="col-md-1">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.eid.$invalid &amp;&amp; !createEmployeeForm.eid.$pristine}" class="field">
                   <input name="eid" type="text" placeholder="ID" ng-model="vm.newEmployee.eid" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.firstName.$invalid &amp;&amp; !createEmployeeForm.firstName.$pristine}" class="field">
                   <input name="firstName" type="text" placeholder="First Name" ng-model="vm.newEmployee.firstName" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.lastName.$invalid &amp;&amp; !createEmployeeForm.lastName.$pristine}" class="field">
                   <input name="lastName" type="text" placeholder="Last Name" ng-model="vm.newEmployee.lastName" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -30,7 +30,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field">
-                  <input name="nickName" type="text" placeholder="Nick Name" ng-model="vm.newEmployee.nickName" class="gui-input"/>
+                  <input name="nickname" type="text" placeholder="Nickname" ng-model="vm.newEmployee.nickname" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-6">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.email.$invalid &amp;&amp; !createEmployeeForm.email.$pristine}" class="field">
                   <input name="email" type="text" placeholder="Email" ng-model="vm.newEmployee.email" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -56,14 +56,14 @@
           <div class="row">
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.department.$invalid &amp;&amp; !createEmployeeForm.department.$pristine}" class="field">
                   <input name="department" type="text" placeholder="Department" ng-model="vm.newEmployee.department" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': createEmployeeForm.title.$invalid &amp;&amp; !createEmployeeForm.title.$pristine}" class="field">
                   <input name="title" type="text" placeholder="Title" ng-model="vm.newEmployee.title" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -78,7 +78,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="manager" ng-model="vm.newEmployee.mid" ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'firstName'">
+                  <select name="manager" ng-model="vm.newEmployee.mid" ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'lastName'">
                     <option disabled="disabled" value="">Manager</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -88,8 +88,8 @@
           <div class="row">
             <div class="col-md-2">
               <div class="section">
-                <label class="field">
-                  <input name="phone" type="text" placeholder="Phone" ng-model="vm.newEmployee.phone" class="gui-input"/>
+                <label ng-class="{'state-error': createEmployeeForm.phone.$invalid &amp;&amp; !createEmployeeForm.phone.$pristine}" class="field">
+                  <input name="phone" type="text" placeholder="Phone" ng-model="vm.newEmployee.phone" ng-pattern="/^[0-9]{10}$/" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -102,7 +102,7 @@
             </div>
             <div class="col-md-2">
               <div class="section">
-                <label class="field select">
+                <label ng-class="{'state-error': createEmployeeForm.location.$invalid &amp;&amp; !createEmployeeForm.location.$pristine}" class="field select">
                   <select name="location" ng-model="vm.newEmployee.location" ng-options="location.value as location.text for location in vm.locationOptions" require="require">
                     <option disabled="disabled" value="">Location</option>
                   </select><i class="arrow"></i>
@@ -112,7 +112,7 @@
             <div class="col-md-2">
               <div class="section">
                 <label class="field select">
-                  <select name="floor" ng-disabled="!vm.newEmployee.location" ng-model="vm.newEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | unique: 'floor' | orderBy: 'floor'">
+                  <select name="floor" ng-disabled="!vm.newEmployee.location || vm.newEmployee.location === 'oth'" ng-model="vm.newEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.newEmployee.location | unique: 'floor' | orderBy: 'floor'">
                     <option disabled="disabled" value="">Floor</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -139,6 +139,7 @@
         <div class="panel-footer text-right">
           <button type="submit" ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''" ng-disabled="createEmployeeForm.$invalid" class="button btn-primary">Submit</button>
           <button type="reset" class="button btn-default">Cancel</button>
+          <div>{{createEmployeeForm.$pristine}}</div>
         </div>
       </div>
     </form>

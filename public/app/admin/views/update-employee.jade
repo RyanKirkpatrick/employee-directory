@@ -12,20 +12,20 @@
                     .row
                         .col-md-1
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.eid.$invalid}")
                                     input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.selectedEmployee.eid", required)
                         .col-md-4
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.firstName.$invalid}")
                                     input.gui-input(name="firstName", type="text", placeholder="First Name", ng-model="vm.selectedEmployee.firstName", required)
                         .col-md-4
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.lastName.$invalid}")
                                     input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.selectedEmployee.lastName", required)
                         .col-md-3
                             .section
                                 label.field
-                                    input.gui-input(name="nickName", type="text", placeholder="Nick Name", ng-model="vm.selectedEmployee.nickName")
+                                    input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.selectedEmployee.nickname")
                     .row
                         .col-md-6
                             .section
@@ -37,16 +37,16 @@
                                         i.fa.fa-upload
                         .col-md-6
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.email.$invalid}")
                                     input.gui-input(name="email", type="text", placeholder="Email", ng-model="vm.selectedEmployee.email", required)
                     .row
                         .col-md-3
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.department.$invalid}")
                                     input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.selectedEmployee.department", required)
                         .col-md-3
                             .section
-                                label.field
+                                label.field(ng-class="{'state-error': updateEmployeeForm.title.$invalid}")
                                     input.gui-input(name="title", type="text", placeholder="Title", ng-model="vm.selectedEmployee.title", required)
                         .col-md-3
                             .section
@@ -61,28 +61,28 @@
                     .row
                         .col-md-2
                             .section
-                                label.field
-                                    input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.selectedEmployee.phone")
+                                label.field(ng-class="{'state-error': updateEmployeeForm.phone.$invalid}")
+                                    input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.selectedEmployee.phone", ng-pattern="/^[0-9]{10}$/")
                         .col-md-2
                             .section
                                 label.field
                                     input.gui-input(name="ext", type="text", placeholder="Ext", ng-model="vm.selectedEmployee.ext")
                         .col-md-2
                             .section
-                                label.field.select
+                                label.field.select(ng-class="{'state-error': updateEmployeeForm.location.$invalid}")
                                     select(name="location", ng-model="vm.selectedEmployee.location", ng-options="location.value as location.text for location in vm.locationOptions", require)
                                         option(disabled, value="") Location
                                     i.arrow
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="floor", ng-model="vm.selectedEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'")
+                                    select(name="floor", ng-disabled="vm.selectedEmployee.location || vm.selectedEmployee.location === 'oth'", ng-model="vm.selectedEmployee.floor", ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location | unique: 'floor' | orderBy: 'floor'")
                                         option(disabled, value="") Floor
                                     i.arrow
                         .col-md-2
                             .section
                                 label.field.select
-                                    select(name="seat", ng-model="vm.selectedEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']")
+                                    select(name="seat", ng-disabled="!vm.selectedEmployee.floor", ng-model="vm.selectedEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location  | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']")
                                         option(disabled, value="") Seat
                                     i.arrow
                         .col-md-2

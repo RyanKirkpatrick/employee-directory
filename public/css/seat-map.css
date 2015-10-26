@@ -180,6 +180,22 @@ room.break-nyc6 {
   height: 58px;
   width: 86px;
 }
+room.rooma {
+  height: 110px;
+  width: 127px;
+}
+room.roomb {
+  height: 110px;
+  width: 127px;
+}
+room.roomc {
+  height: 127px;
+  width: 85px;
+}
+room.roomd {
+  height: 109px;
+  width: 190px;
+}
 room.mapped .label {
   background-color: #df5640 !important;
 }
@@ -320,6 +336,9 @@ desk.office .mapped-label {
   bottom: 5px;
   left: 20px;
 }
+/*********************************
+BUF 6th Floor overrides
+*********************************/
 .buf-6 desk.employee {
   height: 24px;
   width: 55px;
@@ -327,6 +346,10 @@ desk.office .mapped-label {
 .buf-6 desk.vert {
   height: 55px;
   width: 24px;
+}
+.buf-6 desk.manager {
+  height: 69px;
+  width: 73px;
 }
 /*********************************
 NYC

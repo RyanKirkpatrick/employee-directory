@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var employeeSchema = mongoose.Schema({
 	eid: {
 		type: Number,
-		required: '{PATH} is required!'
+		required: '{PATH} is required!',
+		unique: true
 	},
 	firstName: {
 		type: String,
@@ -17,7 +18,8 @@ var employeeSchema = mongoose.Schema({
 		type: String
 	},
 	email: {
-		type: String
+		type: String,
+		unique: true
 	},
 	phone: {
 		type: Number

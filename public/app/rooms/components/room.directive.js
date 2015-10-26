@@ -11,6 +11,7 @@
 			replace: true,
 			scope: {
 				name: '@',
+				seat: '@',
 				number: '@',
 				classification: '@',
 				xpos: '@',

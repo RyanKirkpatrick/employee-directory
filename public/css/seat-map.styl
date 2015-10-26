@@ -39,9 +39,6 @@ $manager-it-width = 78px
 $office-width = 114px
 $office-height = 84px
 
-$floor6-employee-width = 55px
-$floor6-employee-height = 24px
-
 /*********************************
  Printer
 *********************************/
@@ -186,6 +183,22 @@ room
     height 58px
     width 86px
 
+  &.rooma
+    height 110px
+    width 127px
+
+  &.roomb
+    height 110px
+    width 127px
+
+  &.roomc
+    height 127px
+    width 85px
+
+  &.roomd
+    height 109px
+    width 190px
+
   &.mapped .label
       background-color #df5640 !important
 
@@ -308,6 +321,15 @@ desk
       bottom 5px
       left 20px
 
+/*********************************
+BUF 6th Floor overrides
+*********************************/
+$floor6-employee-width = 55px
+$floor6-employee-height = 24px
+
+$floor6-manager-width = 73px
+$floor6-manager-height = 69px
+
 .buf-6 desk
 
   &.employee
@@ -317,6 +339,11 @@ desk
   &.vert
     height $floor6-employee-width
     width $floor6-employee-height
+
+  &.manager
+    height $floor6-manager-height
+    width $floor6-manager-width
+
 
 /*********************************
 NYC

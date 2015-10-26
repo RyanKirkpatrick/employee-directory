@@ -22,4 +22,5 @@
                         tr
                             td.va-m.fw600.text-danger.cursor(ng-click="vm.mapPrinter(printer)")
                                 span.fa.fa-map-marker.fs15.mr10
-                                | Floor: {{::printer.floor}}
+                                span.text-uppercase {{::printer.location}}
+                                | &nbsp;/ Floor: {{::printer.floor}}

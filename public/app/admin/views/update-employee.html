@@ -14,21 +14,21 @@
           <div class="row">
             <div class="col-md-1">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.eid.$invalid}" class="field">
                   <input name="eid" type="text" placeholder="ID" ng-model="vm.selectedEmployee.eid" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.firstName.$invalid}" class="field">
                   <input name="firstName" type="text" placeholder="First Name" ng-model="vm.selectedEmployee.firstName" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.lastName.$invalid}" class="field">
                   <input name="lastName" type="text" placeholder="Last Name" ng-model="vm.selectedEmployee.lastName" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -36,7 +36,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field">
-                  <input name="nickName" type="text" placeholder="Nick Name" ng-model="vm.selectedEmployee.nickName" class="gui-input"/>
+                  <input name="nickname" type="text" placeholder="Nickname" ng-model="vm.selectedEmployee.nickname" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-6">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.email.$invalid}" class="field">
                   <input name="email" type="text" placeholder="Email" ng-model="vm.selectedEmployee.email" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -62,14 +62,14 @@
           <div class="row">
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.department.$invalid}" class="field">
                   <input name="department" type="text" placeholder="Department" ng-model="vm.selectedEmployee.department" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
             <div class="col-md-3">
               <div class="section">
-                <label class="field">
+                <label ng-class="{'state-error': updateEmployeeForm.title.$invalid}" class="field">
                   <input name="title" type="text" placeholder="Title" ng-model="vm.selectedEmployee.title" required="required" class="gui-input"/>
                 </label>
               </div>
@@ -94,8 +94,8 @@
           <div class="row">
             <div class="col-md-2">
               <div class="section">
-                <label class="field">
-                  <input name="phone" type="text" placeholder="Phone" ng-model="vm.selectedEmployee.phone" class="gui-input"/>
+                <label ng-class="{'state-error': updateEmployeeForm.phone.$invalid}" class="field">
+                  <input name="phone" type="text" placeholder="Phone" ng-model="vm.selectedEmployee.phone" ng-pattern="/^[0-9]{10}$/" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-md-2">
               <div class="section">
-                <label class="field select">
+                <label ng-class="{'state-error': updateEmployeeForm.location.$invalid}" class="field select">
                   <select name="location" ng-model="vm.selectedEmployee.location" ng-options="location.value as location.text for location in vm.locationOptions" require="require">
                     <option disabled="disabled" value="">Location</option>
                   </select><i class="arrow"></i>
@@ -118,7 +118,7 @@
             <div class="col-md-2">
               <div class="section">
                 <label class="field select">
-                  <select name="floor" ng-model="vm.selectedEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | unique: 'floor' | orderBy: 'floor'">
+                  <select name="floor" ng-disabled="vm.selectedEmployee.location || vm.selectedEmployee.location === 'oth'" ng-model="vm.selectedEmployee.floor" ng-options="desk.floor as desk.floor for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location | unique: 'floor' | orderBy: 'floor'">
                     <option disabled="disabled" value="">Floor</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -127,7 +127,7 @@
             <div class="col-md-2">
               <div class="section">
                 <label class="field select">
-                  <select name="seat" ng-model="vm.selectedEmployee.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']">
+                  <select name="seat" ng-disabled="!vm.selectedEmployee.floor" ng-model="vm.selectedEmployee.seat" ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location  | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']">
                     <option disabled="disabled" value="">Seat</option>
                   </select><i class="arrow"></i>
                 </label>

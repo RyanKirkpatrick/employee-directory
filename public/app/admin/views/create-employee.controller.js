@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edCreateEmployeeCtrl', edCreateEmployeeCtrl);
 
-	edCreateEmployeeCtrl.$inject = ['edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService'];
+	edCreateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService'];
 
-	function edCreateEmployeeCtrl(edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService) {
+	function edCreateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService) {
 		var vm = this;
 		vm.createEmployee = createEmployee;
 		vm.desks = edDeskService.getAllDesks();
@@ -38,7 +38,7 @@
 				eid: '',
 				firstName: '',
 				lastName: '',
-				nickName: '',
+				nickname: '',
 				email: '',
 				phone: '',
 				ext: '',
@@ -59,12 +59,18 @@
 			});
 		}
 
+		var employeesUpdatedEvent = $scope.$on('employeesUpdated', function () {
+			edEmployeeService.getAllEmployees().$promise.then(createManagerList);
+		});
+
+		$scope.$on('$destroy', employeesUpdatedEvent);
+
 		function createEmployee() {
 			var newEmployeeData = {
 				eid: vm.newEmployee.eid,
 				firstName: vm.newEmployee.firstName,
 				lastName: vm.newEmployee.lastName,
-				nickName: vm.newEmployee.nickName,
+				nickname: vm.newEmployee.nickname,
 				email: vm.newEmployee.email,
 				phone: vm.newEmployee.phone,
 				ext: vm.newEmployee.ext,
@@ -94,6 +100,7 @@
 					});
 				}
 				resetForm();
+				$scope.createEmployeeForm.$setPristine();
 			}, function (reason) {
 				edNotifierService.error(reason);
 			});
