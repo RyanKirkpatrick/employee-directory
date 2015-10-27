@@ -100,6 +100,9 @@ room .room span {
   text-align: center;
   text-transform: capitalize;
 }
+room .room span .label {
+  cursor: pointer;
+}
 room.allentown {
   height: 122px;
   width: 123px;
