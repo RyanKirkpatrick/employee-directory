@@ -75,14 +75,23 @@
 		}
 
 		function floorFilter(employee) {
+			// Only use the floor filter if NYC is not the only location selected
 			if (!nycOnly()) {
+				// If a floor(s) has been selected
 				if (vm.floors.length > 0) {
-					if (employee.floor) {
-						return vm.floors.indexOf(employee.floor) > -1 && employee.location === 'buf';
+					// If the employee is on a floor in BUF
+					if (employee.floor && employee.location == 'buf') {
+						// Include this employee if they are on the selected floor (in BUF)
+						return vm.floors.indexOf(employee.floor) > -1;
+					// Include this employee if NYC is also a selected location
+					} else if (vm.locations.indexOf('nyc') > -1) {
+						return true;
 					}
+				// Include all filtered employees if no floor is selected
 				} else {
 					return true;
 				}
+			// Include all filtered employees if NYC is the only location selected
 			} else {
 				return true;
 			}
