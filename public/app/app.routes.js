@@ -12,7 +12,7 @@
 		};
 
 		// Allow some extra protocols
-		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|im):/);
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|im|sip):/);
 
 		$locationProvider.html5Mode(true);
 

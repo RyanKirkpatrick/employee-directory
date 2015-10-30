@@ -55,7 +55,7 @@
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="manager", ng-model="vm.selectedEmployee.mid", ng-options="manager.eid as manager.lastName + ', ' + manager.firstName for manager in vm.managers | orderBy: 'lastName'")
+                                    select(name="manager", ng-model="vm.selectedEmployee.mid", ng-options="manager.eid as manager.lastName + ', ' + manager.firstName for manager in vm.filteredManagers | orderBy: 'lastName'")
                                         option(disabled, value="") Manager
                                     i.arrow
                     .row

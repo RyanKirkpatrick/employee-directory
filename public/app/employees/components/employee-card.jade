@@ -4,7 +4,7 @@
             i.icon.icon-Leslie
         span.panel-title Employee Profile
         span.panel-controls
-            a.panel-control-chat(href="im:<sip:{{twEmail}}>")
+            a.panel-control-chat(href="sip:{{twEmail}}")
             a.panel-control-map-marker(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
             a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
             a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")

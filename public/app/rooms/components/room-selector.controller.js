@@ -75,14 +75,23 @@
 		}
 
 		function floorFilter(room) {
+			// Only use the floor filter if NYC is not the only location selected
 			if (!nycOnly()) {
+				// If a floor(s) has been selected
 				if (vm.floors.length > 0) {
-					if (room.floor) {
-						return vm.floors.indexOf(room.floor) > -1 && room.location === 'buf';
+					// If the room is on a floor in BUF
+					if (room.floor && room.location == 'buf') {
+						// Include this room if they are on the selected floor (in BUF)
+						return vm.floors.indexOf(room.floor) > -1;
+						// Include this room if NYC is also a selected location
+					} else if (vm.locations.indexOf('nyc') > -1) {
+						return true;
 					}
+					// Include all filtered room if no floor is selected
 				} else {
 					return true;
 				}
+				// Include all filtered room if NYC is the only location selected
 			} else {
 				return true;
 			}

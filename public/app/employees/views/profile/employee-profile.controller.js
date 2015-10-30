@@ -26,8 +26,9 @@
 					var firstnames = $stateParams.firstname.split(',');
 					// Loop over each first name
 					angular.forEach(firstnames, function (firstname) {
-						// If the employee's first name is part of the query check the last names
-						if (employee.firstName.toLocaleLowerCase() === firstname.toLowerCase()) {
+						// If the employee's first name (or nickname) is part of the query check the last names
+						if (employee.firstName.toLowerCase() === firstname.toLowerCase() ||
+							(employee.hasOwnProperty('nickname') && employee.nickname.toLowerCase() === firstname.toLowerCase())) {
 							// If last names are on the query string
 							if ($stateParams.lastname) {
 								// Split last name query on comma
@@ -35,7 +36,7 @@
 								// Loop over all the last names
 								angular.forEach(lastnames, function (lastname) {
 									// If the employee's last name is part of the query string we have match
-									if (employee.lastName.toLocaleLowerCase() === lastname.toLowerCase()) {
+									if (employee.lastName.toLowerCase() === lastname.toLowerCase()) {
 										match = true;
 									} else {
 										return false;
@@ -56,7 +57,7 @@
 					// Loop over all the last names
 					angular.forEach(lastnames, function (lastname) {
 						// If the employee's last name is part of the query string we have match
-						if (employee.lastName.toLocaleLowerCase() === lastname.toLowerCase()) {
+						if (employee.lastName.toLowerCase() === lastname.toLowerCase()) {
 							match = true;
 							// This employee's last name is not a match
 						} else {

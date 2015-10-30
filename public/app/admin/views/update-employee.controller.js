@@ -11,6 +11,8 @@
 		vm.cancelUpdateEmployee = cancelUpdateEmployee;
 		vm.desks = edDeskService.getAllDesks();
 		vm.selectedEmployee = null;
+		vm.managers = null;
+		vm.filteredManagers = [];
 		vm.locationOptions = [
 			{
 				value: 'buf',
@@ -55,12 +57,29 @@
 				hasReports: selectedEmployees[0].hasReports,
 				mid: selectedEmployees[0].mid
 			};
+			filterManagers(selectedEmployees[0]);
+		}
+
+		/**
+		 * Filter out the selected employee and their direct reports from the managers list
+		 *
+		 * @param {Object} selectedEmployee employee data for selected employee
+		 * @return {Boolean} to include this manager in the list
+		 */
+		function filterManagers(selectedEmployee) {
+			if (vm.managers) {
+				vm.filteredManagers = vm.managers.filter(function (manager) {
+					// TODO: Recursively filter out direct reports of direct reports
+					return (selectedEmployee.eid !== manager.eid) && (selectedEmployee.eid !== manager.mid);
+				});
+			}
 		}
 
 		function createManagerList(employees) {
 			vm.managers = employees.filter(function (employee) {
 				return employee.hasReports === true;
 			});
+			filterManagers(vm.selectedEmployee);
 		}
 
 		var selectedEmployeeChangeEvent = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {

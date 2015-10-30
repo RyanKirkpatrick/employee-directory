@@ -84,7 +84,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="manager" ng-model="vm.selectedEmployee.mid" ng-options="manager.eid as manager.lastName + ', ' + manager.firstName for manager in vm.managers | orderBy: 'lastName'">
+                  <select name="manager" ng-model="vm.selectedEmployee.mid" ng-options="manager.eid as manager.lastName + ', ' + manager.firstName for manager in vm.filteredManagers | orderBy: 'lastName'">
                     <option disabled="disabled" value="">Manager</option>
                   </select><i class="arrow"></i>
                 </label>
