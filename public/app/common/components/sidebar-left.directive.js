@@ -23,6 +23,7 @@
 		vm.sidebarLocked = edSidebarService.getLockSidebar();
 		vm.toggleSidebar = toggleSidebar;
 		vm.closeSidebar = closeSidebar;
+		vm.scrollSidebarTop = scrollSidebarTop;
 
 		activate();
 
@@ -47,16 +48,16 @@
 			}
 		}
 
-		// Wacth for the sidebar locked change event
+		// Watch for the sidebar locked change event
 		var deregister = $scope.$on('sidebarLockedChange', function (event, sidebarLocked) {
-			vm.sidebarLocked = sidebarLocked
-			if (vm.sidebarLocked) {
-				vm.sidebarOpen = true;
-			} else {
-				vm.sidebarOpen = false;
-			}
+			vm.sidebarLocked = sidebarLocked;
+			vm.sidebarOpen = vm.sidebarLocked ? true : false;
 		});
 
 		$scope.$on('$destroy', deregister);
+
+		function scrollSidebarTop() {
+			$('.nano').nanoScroller({scrollTop: 0});
+		}
 	}
 })();

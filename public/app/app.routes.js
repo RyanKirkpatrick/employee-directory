@@ -41,7 +41,7 @@
 				}
 			})
 			.state('employees.map', {
-				url: 'map',
+				url: 'map?employeeid',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/map/employee-map',

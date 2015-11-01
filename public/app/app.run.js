@@ -17,6 +17,7 @@
 			$stateParams.firstname = null;
 			$stateParams.lastname = null;
 			$stateParams.printer = null;
+			$stateParams.employeeid = null;
 		});
 
 		// Unlock the sidebar on route changes

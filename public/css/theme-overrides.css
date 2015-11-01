@@ -210,6 +210,41 @@ Sidebar
 #sidebar_left_secondary ul.tray-nav.tray-nav-border li.mapped:hover:after {
   background-color: #de5858;
 }
+#sidebar_left_secondary .sidebar-return-top {
+  background-color: #eaeaea;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  bottom: 49px;
+  height: 25px;
+  right: 9px;
+  position: absolute;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 25px;
+  z-index: 1;
+}
+#sidebar_left_secondary .sidebar-return-top:hover {
+  cursor: pointer;
+  background-color: #e2e2e2;
+}
+#sidebar_left_secondary .sidebar-return-top span {
+  color: #aaa;
+  font-size: 12px;
+  position: relative;
+  top: 3px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#sidebar_left_secondary .sidebar-return-top span:hover {
+  color: #666;
+}
 .nano.affix > .nano-pane {
   left: 0;
   right: auto;

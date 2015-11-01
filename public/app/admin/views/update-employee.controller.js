@@ -67,7 +67,7 @@
 		 * @return {Boolean} to include this manager in the list
 		 */
 		function filterManagers(selectedEmployee) {
-			if (vm.managers) {
+			if (vm.managers && selectedEmployee) {
 				vm.filteredManagers = vm.managers.filter(function (manager) {
 					// TODO: Recursively filter out direct reports of direct reports
 					return (selectedEmployee.eid !== manager.eid) && (selectedEmployee.eid !== manager.mid);

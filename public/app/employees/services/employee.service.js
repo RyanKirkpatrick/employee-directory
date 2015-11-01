@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService'];
+	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService', 'edNotifierService'];
 
-	function edEmployeeService($rootScope, edCachedEmployeeResourceService) {
+	function edEmployeeService($rootScope, edCachedEmployeeResourceService, edNotifierService) {
 		var selectedEmployees = [];
 		var selectedEmployeeAdded = false;
 		var profilePageNumber = 1;
@@ -20,6 +20,7 @@
 			setSelectMultipleEmployees: setSelectMultipleEmployees,
 			getSelectMultipleEmployees: getSelectMultipleEmployees,
 			updateMappedEmployee: updateMappedEmployee,
+			updateMappedEmployeeById: updateMappedEmployeeById,
 			getMappedEmployee: getMappedEmployee,
 			setDisplayEmployeeInfoType: setDisplayEmployeeInfoType,
 			getDisplayEmployeeInfoType: getDisplayEmployeeInfoType,
@@ -97,6 +98,22 @@
 			}
 			$rootScope.$broadcast('mappedEmployeeChange', mappedEmployee);
 			return mappedEmployee;
+		}
+
+		/**
+		 * Updates the mapped employee using an employee ID
+		 */
+		function updateMappedEmployeeById(id) {
+			getAllEmployees().$promise.then(function (employees) {
+				var employee = employees.filter(function (employee) {
+					return employee.eid === parseInt(id);
+				});
+				if (employee.length > 0) {
+					updateMappedEmployee(employee[0]);
+				} else {
+					edNotifierService.error('I\'m not sure who you\'re looking for.');
+				}
+			});
 		}
 
 		/**
@@ -233,7 +250,7 @@
 		}
 
 		/**
-		 * Gets wether or not we should allow multiple employees to be selected
+		 * Gets whether or not we should allow multiple employees to be selected
 		 *
 		 * @return {Boolean} allow selecting multiple employee
 		 */
