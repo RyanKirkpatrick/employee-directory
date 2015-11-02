@@ -56,6 +56,6 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.sidebar-title Update User
 aside#sidebar_left_secondary.nano.nano-content.sidebar-default.affix
     .sidebar-left-content.nano-content
-        span.sidebar-return-top
-            span.fa.fa-arrow-up(ng-click="vm.scrollSidebarTop()")
+        span.sidebar-return-top(ng-click="vm.scrollSidebarTop()")
+            span.fa.fa-arrow-up
         div.sidebar-view(ui-view="sidebar")
