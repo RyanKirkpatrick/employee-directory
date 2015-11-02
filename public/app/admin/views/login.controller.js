@@ -16,7 +16,7 @@
 				if (success) {
 					edNotifierService.notify('You have successfully signed in!');
 				} else {
-					edNotifierService.notify('Username / Password combination incorrect');
+					edNotifierService.error('Username / Password combination incorrect');
 				}
 			});
 		}
