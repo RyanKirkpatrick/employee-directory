@@ -206,6 +206,9 @@ Sidebar
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+#sidebar_left_secondary ul.tray-nav.tray-nav-border li.active:hover:after {
+  background-color: #3498db;
+}
 #sidebar_left_secondary ul.tray-nav.tray-nav-border li.mapped:after,
 #sidebar_left_secondary ul.tray-nav.tray-nav-border li.mapped:hover:after {
   background-color: #de5858;

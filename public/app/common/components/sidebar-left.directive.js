@@ -57,7 +57,7 @@
 		$scope.$on('$destroy', deregister);
 
 		function scrollSidebarTop() {
-			$('.nano').nanoScroller({scrollTop: 0});
+			$('.nano').nanoScroller({scroll: 'top'});
 		}
 	}
 })();

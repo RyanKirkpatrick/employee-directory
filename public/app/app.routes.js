@@ -316,6 +316,81 @@
 						auth: routeRoleChecks.admin
 					}
 				}
+			})
+			.state('admin.seat-picker', {
+				url: '/seat-picker',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/seat-picker',
+						controller: 'edSeatPickerCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar@': {
+						templateUrl: '/partials/employees/components/employee-selector',
+						controller: 'edEmployeeSelectorCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/admin/components/seat-picker-topbar',
+						controller: 'edSeatPickerTopbarCtrl',
+						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
+					}
+				}
+			})
+			.state('admin.seat-picker.buf-6', {
+				url: '/buf-6',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/seat-picker-floor',
+						controller: 'edSeatPickerFloorCtrl',
+						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
+					}
+				}
+			})
+			.state('admin.seat-picker.buf-7', {
+				url: '/buf-7',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/seat-picker-floor',
+						controller: 'edSeatPickerFloorCtrl',
+						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
+					}
+				}
+			})
+			.state('admin.seat-picker.buf-8', {
+				url: '/buf-8',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/seat-picker-floor',
+						controller: 'edSeatPickerFloorCtrl',
+						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
+					}
+				}
+			})
+			.state('admin.seat-picker.nyc-6', {
+				url: '/nyc-6',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/seat-picker-floor',
+						controller: 'edSeatPickerFloorCtrl',
+						controllerAs: 'vm'
+					},
+					resolve: {
+						auth: routeRoleChecks.admin
+					}
+				}
 			});
 	}
 

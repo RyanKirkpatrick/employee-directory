@@ -1,0 +1,4 @@
+floor(class="{{vm.location}}-{{vm.floor}}", ng-if="vm.floor")
+    span.floor-label
+        span.label.bg-primary.fs20 {{vm.locationName}} Floor {{vm.floor}}
+    ed-seat-picker-desk(ng-repeat="desk in vm.desks" location="{{vm.location}}" floor="{{vm.floor}}" seat="{{desk.seat}}" orientation="{{desk.orientation}}" classification="{{desk.classification}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}")

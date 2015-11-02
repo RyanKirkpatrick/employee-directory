@@ -38,6 +38,10 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="admin.update-employee")
                     span.fa.fa-pencil-square-o
                     span.sidebar-title Update Employee
+            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+                a(ui-sref="admin.seat-picker")
+                    span.fa.fa-map-marker
+                    span.sidebar-title Seat Assignment
             li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
                 a(ui-sref="admin.users")
                     span.fa.fa-user
