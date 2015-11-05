@@ -17,7 +17,10 @@
 			$stateParams.firstname = null;
 			$stateParams.lastname = null;
 			$stateParams.printer = null;
+			$stateParams.room = null;
 			$stateParams.employeeid = null;
+			$stateParams.team = null;
+			$stateParams.department = null;
 		});
 
 		// Unlock the sidebar on route changes

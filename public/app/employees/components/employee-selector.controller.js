@@ -80,7 +80,7 @@
 				// If a floor(s) has been selected
 				if (vm.floors.length > 0) {
 					// If the employee is on a floor in BUF
-					if (employee.floor && employee.location == 'buf') {
+					if (employee.floor && employee.location === 'buf') {
 						// Include this employee if they are on the selected floor (in BUF)
 						return vm.floors.indexOf(employee.floor) > -1;
 					// Include this employee if NYC is also a selected location

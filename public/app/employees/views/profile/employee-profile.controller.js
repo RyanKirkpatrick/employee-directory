@@ -10,15 +10,94 @@
 		vm.changePage = changePage;
 		vm.currentPage = edEmployeeService.getProfilePageNumber();
 
-		edEmployeeService.setDisplayEmployeeInfoType('profile');
-		edEmployeeService.setSelectMultipleEmployees(true);
-		edEmployeeService.updateMappedEmployee(null);
+		activate();
 
-		if ($stateParams.firstname || $stateParams.lastname) {
-			edEmployeeService.getAllEmployees().$promise.then(selectEmployee);
+		function activate() {
+			edEmployeeService.setDisplayEmployeeInfoType('profile');
+			edEmployeeService.setSelectMultipleEmployees(true);
+			edEmployeeService.updateMappedEmployee(null);
+
+			if ($stateParams.employeeid) {
+				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeById);
+			} else if ($stateParams.team) {
+				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByTeam);
+			} else if ($stateParams.department) {
+				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByDepartment);
+			} else if ($stateParams.firstname || $stateParams.lastname) {
+				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByName);
+			}
 		}
 
-		function selectEmployee(employees) {
+		function selectEmployeeById(employees) {
+			var selectedEmployees = employees.filter(function (employee) {
+				var match = false;
+				if ($stateParams.employeeid) {
+					// Split eid query on comma
+					var employeeids = $stateParams.employeeid.split(',');
+					angular.forEach(employeeids, function (eid) {
+						// If the employee's id is part of the query
+						if (employee.hasOwnProperty('eid') && employee.eid === parseInt(eid)) {
+							match = true;
+						} else {
+							return false;
+						}
+					});
+					return match;
+				}
+			});
+
+			angular.forEach(selectedEmployees, function (employee) {
+				edEmployeeService.updateSelectedEmployees(employee);
+			});
+		}
+
+		function selectEmployeeByTeam(employees) {
+			var selectedEmployees = employees.filter(function (employee) {
+				var match = false;
+				if ($stateParams.team) {
+					// Split teams query on comma
+					var teams = $stateParams.team.split(',');
+					angular.forEach(teams, function (team) {
+						// If the employee's team is part of the query
+						if (employee.hasOwnProperty('team') && employee.team.toLowerCase() === team.toLowerCase()) {
+							match = true;
+						} else {
+							return false;
+						}
+					});
+					return match;
+				}
+			});
+
+			angular.forEach(selectedEmployees, function (employee) {
+				edEmployeeService.updateSelectedEmployees(employee);
+			});
+		}
+
+		function selectEmployeeByDepartment(employees) {
+			var selectedEmployees = employees.filter(function (employee) {
+				var match = false;
+				if ($stateParams.department) {
+					// Split departments query on comma
+					var departments = $stateParams.department.split(',');
+					angular.forEach(departments, function (department) {
+						// If the employee's team is part of the query
+						if (employee.hasOwnProperty('department') && employee.department.toLowerCase() === department.toLowerCase()) {
+							match = true;
+						} else {
+							return false;
+						}
+					});
+					return match;
+				}
+			});
+
+			angular.forEach(selectedEmployees, function (employee) {
+				edEmployeeService.updateSelectedEmployees(employee);
+			});
+		}
+
+		function selectEmployeeByName(employees) {
 			var selectedEmployees = employees.filter(function (employee) {
 				var match = false;
 				if ($stateParams.firstname) {

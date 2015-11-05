@@ -21,7 +21,7 @@
 
 		$stateProvider
 			.state('employees', {
-				url: '/?firstname&lastname',
+				url: '/?firstname&lastname&team&department&employeeid',
 				views: {
 					'main': {
 						templateUrl: '/partials/employees/views/profile/employee-profile',
