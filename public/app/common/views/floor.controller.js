@@ -51,7 +51,7 @@
 
 		var deregisterEmployee = $scope.$on('mappedEmployeeChange', function (event, mappedEmployee) {
 			if (mappedEmployee) {
-				if (mappedEmployee.floor && mappedEmployee.floor !== vm.floor) {
+				if (mappedEmployee.floor && (mappedEmployee.location !== vm.location || mappedEmployee.floor !== vm.floor)) {
 					$state.go('employees.map.' + mappedEmployee.location + '-' + mappedEmployee.floor, {'seat': mappedEmployee.seat});
 				} else if (!mappedEmployee.floor) {
 					$state.go('employees.map');
@@ -63,7 +63,7 @@
 
 		var deregisterPrinter = $scope.$on('mappedPrinterChange', function (event, mappedPrinter) {
 			if (mappedPrinter) {
-				if (mappedPrinter.floor && mappedPrinter.floor !== vm.floor) {
+				if (mappedPrinter.floor && (mappedPrinter.location !== vm.location || mappedPrinter.floor !== vm.floor)) {
 					$state.go('printers.map.' + mappedPrinter.location + '-' + mappedPrinter.floor, {'name': mappedPrinter.name});
 				} else if (!mappedPrinter.floor) {
 					$state.go('printers.map');
@@ -75,7 +75,7 @@
 
 		var deregisterRoom = $scope.$on('mappedRoomChange', function (event, mappedRoom) {
 			if (mappedRoom) {
-				if (mappedRoom.floor && mappedRoom.floor !== vm.floor) {
+				if (mappedRoom.floor && (mappedRoom.location !== vm.location || mappedRoom.floor !== vm.floor)) {
 					$state.go('rooms.map.' + mappedRoom.location + '-' + mappedRoom.floor, {'name': mappedRoom.name});
 				} else if (!mappedRoom.floor) {
 					$state.go('rooms.map');
