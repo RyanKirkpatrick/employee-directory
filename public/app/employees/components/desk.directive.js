@@ -10,6 +10,7 @@
 			templateUrl: '/partials/employees/components/desk',
 			replace: true,
 			scope: {
+				location: '@',
 				seat: '@',
 				orientation: '@',
 				classification: '@',
@@ -83,11 +84,11 @@
 
 		var viewingProfile = false;
 
-		function mapEmployee(seat) {
+		function mapEmployee(seat, location) {
 			// Don't map employee if the user wants to view the profile
 			if (!viewingProfile) {
 				var mappedEmployeeArray = vm.employees.filter(function (employee) {
-					return employee.seat === seat;
+					return employee.seat === seat && employee.location === location;
 				});
 
 				if (mappedEmployeeArray.length > 0) {
