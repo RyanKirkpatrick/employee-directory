@@ -40,6 +40,16 @@
 					}
 				}
 			})
+			.state('employees.org-chart', {
+				url: 'org-chart/:employee',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/org-chart/org-chart',
+						controller: 'edOrgChartCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('employees.map', {
 				url: 'map?employeeid',
 				views: {

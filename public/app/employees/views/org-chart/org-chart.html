@@ -1,0 +1,29 @@
+
+<div ng-if="!vm.selectedEmployee" class="center-block mt70">
+  <div class="text-center">
+    <div class="fa fa-sitemap fs100 mb30 profile-color"></div>
+    <div class="fs20">Select an employee to view the organization chart</div>
+  </div>
+</div>
+<div ng-if="vm.selectedEmployee" class="center-block text-center org-chart">
+  <ul ng-if="vm.manager" class="manager">
+    <li ng-click="vm.selectEmployee(vm.manager)"><img ng-src="/images/employee-photos/{{vm.manager.image}}" ng-show="vm.manager.image"/><span ng-hide="vm.manager.image" class="fa fa-user fs70"></span>
+      <h5>{{vm.manager.displayName}}</h5>
+      <h6>{{vm.manager.title}}</h6>
+    </li>
+  </ul>
+  <p ng-if="vm.manager" class="mt10 mb10 fs20">Reports to &nbsp;<span class="fa fa-level-up"></span></p>
+  <ul class="employee">
+    <li ng-click="vm.profileEmployee()"><img ng-src="/images/employee-photos/{{vm.selectedEmployee.image}}" ng-show="vm.selectedEmployee.image"/><span ng-hide="vm.selectedEmployee.image" class="fa fa-user fs100"></span>
+      <h4>{{vm.selectedEmployee.displayName}}</h4>
+      <p>{{vm.selectedEmployee.title}}</p>
+    </li>
+  </ul>
+  <p ng-if="vm.directReports.length &gt; 0" class="mt10 mb10 fs20">Direct Reports &nbsp;<span class="fa fa-level-down"></span></p>
+  <ul ng-if="vm.directReports.length &gt; 0" vertilize-container="vertilize-container" class="direct-reports">
+    <li ng-repeat="directReport in vm.directReports" ng-click="vm.selectEmployee(directReport)" vertilize="vertilize" page="org-chart"><img ng-src="/images/employee-photos/{{directReport.image}}" ng-show="directReport.image"/><span ng-hide="directReport.image" class="fa fa-user fs70"></span>
+      <h5>{{directReport.displayName}}</h5>
+      <h6>{{directReport.title}}</h6>
+    </li>
+  </ul>
+</div>

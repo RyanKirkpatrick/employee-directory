@@ -11,6 +11,10 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="employees.map")
                     span.fa.fa-map-marker
                     span.sidebar-title Employee Location
+            li(ui-sref-active="active")
+                a(ui-sref="employees.org-chart")
+                    span.fa.fa-sitemap
+                    span.sidebar-title Organization Chart
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active-eq="active")
                 a(ui-sref="rooms")

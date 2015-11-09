@@ -1,0 +1,27 @@
+.center-block.mt70(ng-if="!vm.selectedEmployee")
+    .text-center
+        .fa.fa-sitemap.fs100.mb30.profile-color
+        div.fs20 Select an employee to view the organization chart
+.center-block.text-center.org-chart(ng-if="vm.selectedEmployee")
+    ul.manager(ng-if="vm.manager")
+        li(ng-click="vm.selectEmployee(vm.manager)")
+            img(ng-src="/images/employee-photos/{{vm.manager.image}}", ng-show="vm.manager.image")
+            span.fa.fa-user.fs70(ng-hide="vm.manager.image")
+            h5 {{vm.manager.displayName}}
+            h6 {{vm.manager.title}}
+    p.mt10.mb10.fs20(ng-if="vm.manager") Reports to &nbsp;
+        span.fa.fa-level-up
+    ul.employee
+        li(ng-click="vm.profileEmployee()")
+            img(ng-src="/images/employee-photos/{{vm.selectedEmployee.image}}", ng-show="vm.selectedEmployee.image")
+            span.fa.fa-user.fs100(ng-hide="vm.selectedEmployee.image")
+            h4 {{vm.selectedEmployee.displayName}}
+            p {{vm.selectedEmployee.title}}
+    p.mt10.mb10.fs20(ng-if="vm.directReports.length > 0") Direct Reports &nbsp;
+        span.fa.fa-level-down
+    ul.direct-reports(ng-if="vm.directReports.length > 0", vertilize-container)
+        li(ng-repeat="directReport in vm.directReports", ng-click="vm.selectEmployee(directReport)", vertilize, page="org-chart")
+            img(ng-src="/images/employee-photos/{{directReport.image}}", ng-show="directReport.image")
+            span.fa.fa-user.fs70(ng-hide="directReport.image")
+            h5 {{directReport.displayName}}
+            h6 {{directReport.title}}
