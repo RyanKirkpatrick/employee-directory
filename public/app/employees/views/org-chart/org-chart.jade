@@ -19,8 +19,8 @@
             p {{vm.selectedEmployee.title}}
     p.mt10.mb10.fs20(ng-if="vm.directReports.length > 0") Direct Reports &nbsp;
         span.fa.fa-level-down
-    ul.direct-reports(ng-if="vm.directReports.length > 0", vertilize-container)
-        li(ng-repeat="directReport in vm.directReports", ng-click="vm.selectEmployee(directReport)", vertilize, page="org-chart")
+    ul.direct-reports(ng-if="vm.directReports.length > 0")
+        li(ng-repeat="directReport in vm.directReports", ng-click="vm.selectEmployee(directReport)")
             img(ng-src="/images/employee-photos/{{directReport.image}}", ng-show="directReport.image")
             span.fa.fa-user.fs70(ng-hide="directReport.image")
             h5 {{directReport.displayName}}
