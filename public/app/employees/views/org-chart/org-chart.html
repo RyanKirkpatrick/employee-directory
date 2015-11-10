@@ -20,8 +20,8 @@
     </li>
   </ul>
   <p ng-if="vm.directReports.length &gt; 0" class="mt10 mb10 fs20">Direct Reports &nbsp;<span class="fa fa-level-down"></span></p>
-  <ul ng-if="vm.directReports.length &gt; 0" class="direct-reports">
-    <li ng-repeat="directReport in vm.directReports" ng-click="vm.selectEmployee(directReport)"><img ng-src="/images/employee-photos/{{directReport.image}}" ng-show="directReport.image"/><span ng-hide="directReport.image" class="fa fa-user fs70"></span>
+  <ul ng-if="vm.directReports.length &gt; 0" vertilize-container="vertilize-container" class="direct-reports">
+    <li ng-repeat="directReport in vm.directReports" ng-click="vm.selectEmployee(directReport)" vertilize="vertilize" page="org-chart"><img ng-src="/images/employee-photos/{{directReport.image}}" ng-show="directReport.image"/><span ng-hide="directReport.image" class="fa fa-user fs70"></span>
       <h5>{{directReport.displayName}}</h5>
       <h6>{{directReport.title}}</h6>
     </li>
