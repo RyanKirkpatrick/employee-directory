@@ -60,6 +60,6 @@
   </div>
   <h5><span class="fa fa-users"></span><span>Select Employees</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filter: (vm.department || undefined) | filter: (vm.team || undefined) | filterBy: ['firstName','lastName', 'nickname'] : vm.employeeName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
+    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: vm.department | filterBy: ['team']: vm.team | filterBy: ['firstName','lastName', 'nickname'] : vm.employeeName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
   </ul>
 </div>
