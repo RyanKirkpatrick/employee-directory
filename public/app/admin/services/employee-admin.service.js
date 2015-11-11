@@ -65,7 +65,7 @@
 				url: 'api/employees/uploadphoto',
 				data: {
 					file: employeePhoto,
-					fileName: employeeData._id + '.' + employeePhoto.name.split('.').pop()
+					fileName: employeeData.eid + '.' + employeePhoto.name.split('.').pop()
 				}
 			}).then(function (resp) {
 				console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);

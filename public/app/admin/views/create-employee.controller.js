@@ -92,7 +92,7 @@
 					// Now update the employee record in the DB with the correct filename
 					// update the selected employee to add so we can update them
 					edEmployeeService.updateSelectedEmployees(employee);
-					newEmployeeData.image = employee._id + '.' + vm.newEmployee.image.name.split('.').pop().toLowerCase();
+					newEmployeeData.image = employee.eid + '.' + vm.newEmployee.image.name.split('.').pop().toLowerCase();
 					edEmployeeAdminService.updateEmployee(newEmployeeData).then(function (employee) {
 						//photo upload successful
 					}, function () {
