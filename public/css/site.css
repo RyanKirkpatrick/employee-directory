@@ -68,11 +68,18 @@ Directory Item Selector
   background-color: #fff;
   font-size: 14px;
   margin: 0;
-  padding: 12px 15px;
+  padding: 12px 12px;
 }
 .directory-item-selector h5 .fa,
 .directory-item-selector h5 .ico {
   margin-right: 10px;
+}
+.directory-item-selector h5 .label {
+  display: inline-block;
+  float: right;
+  padding: 0 3px;
+  line-height: 16px;
+  font-size: 11px;
 }
 .directory-item-selector .directory-item:last-child {
   border-bottom: 1px solid #ddd;

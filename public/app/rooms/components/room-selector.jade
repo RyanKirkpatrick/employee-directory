@@ -48,6 +48,7 @@
     h5
         span.fa.fa-building-o
         span Select Rooms
+        span.label.label-xs.bg-primary {{vm.filteredRooms.length}}
     ul.nav.tray-nav.tray-nav-border
         li.directory-item(ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': room.selected, 'mapped': room.mapped}")
             a(ng-click="vm.selectRoom(room)")

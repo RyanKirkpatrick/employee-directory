@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-  <h5><span class="fa fa-building-o"></span><span>Select Rooms</span></h5>
+  <h5><span class="fa fa-building-o"></span><span>Select Rooms</span><span class="label label-xs bg-primary">{{vm.filteredRooms.length}}</span></h5>
   <ul class="nav tray-nav tray-nav-border">
     <li ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': room.selected, 'mapped': room.mapped}" class="directory-item"><a ng-click="vm.selectRoom(room)"><span>{{::room.name}}<span ng-if="room.number" class="ml10">({{::room.number}})</span></span></a></li>
   </ul>
