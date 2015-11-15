@@ -120,6 +120,8 @@ Directory Item Card
   white-space: nowrap;
 }
 .directory-item-card .employee-photo {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   width: 100%;
 }
 .directory-item-card.ng-enter {
