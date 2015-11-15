@@ -306,3 +306,12 @@ Sidebar
 .footer-help-links li a {
   color: #aaa;
 }
+.fa-icon-list {
+  margin-left: -10px;
+}
+.fa-icon-list li > i {
+  float: left;
+  line-height: 20px;
+  text-align: center;
+  width: 35px;
+}

@@ -17,7 +17,9 @@
 			$stateParams.firstname = null;
 			$stateParams.lastname = null;
 			$stateParams.printer = null;
+			$stateParams.printerbrand = null;
 			$stateParams.room = null;
+			$stateParams.roomtyper = null;
 			$stateParams.employeeid = null;
 			$stateParams.team = null;
 			$stateParams.department = null;

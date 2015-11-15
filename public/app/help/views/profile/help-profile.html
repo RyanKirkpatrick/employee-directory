@@ -1,0 +1,179 @@
+
+<div class="mw1000 center-block">
+  <div class="panel br-t bw5 br-grey">
+    <div class="panel-body pn">
+      <div class="p25 br-b">
+        <h2 class="fw200 mb20 mt10">Profiles</h2>
+      </div>
+      <div class="p25 bg-light">
+        <p>The directory allows you to view profiles of employees, rooms and printers.  Profile filters allow you to focus on a particular individual or group to select from.</p>
+        <hr class="short alt"/>
+        <h3><i class="fa fa-users text-primary fa-lg pr10"></i>Employee Profiles</h3>
+        <p>Employee profiles display information about individual employees and allow you to find out more information or communicate easily with an employee.</p>
+        <h4>The header of the employee profile card has the following options:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
+            <li><i class="fa fa-comment"></i><span>Opens a Lync chat session with the employee</span></li>
+            <li><i class="fa fa-sitemap"></i><span>Displays the employee in the Organization Chart</span></li>
+            <li><i class="fa fa-map-marker"></i><span>Displays the employee's desk location on a map of the office</span></li>
+            <li><i class="fa fa-times"></i><span>Removes the employee's profile card from display</span></li>
+          </ul>
+        </div>
+        <h4>The employee profile card displays specific information about the employee including:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 mbn">
+            <li>Name</li>
+            <li>Job Title</li>
+            <li>Department</li>
+            <li>Team</li>
+            <li>Manager</li>
+            <li>Email - clicking the email address will begin to compose an email message to the employee</li>
+            <li>Internal Extension</li>
+            <li>Direct Dial Phone Number</li>
+            <li>Location - clicking the location will display the employee's desk location on a map of the office</li>
+          </ul>
+        </div>
+        <h4>You can direct link to a particular individual or group using one of the following query strings:</h4>
+        <ul class="fs14 list-spacing-10 mbn">
+          <li>
+            <h4>First Name</h4><span>Passing in "firstname", you will get all employees with the specified first name.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?firstname=matt">http://directory.liazon.corp/?firstname=matt</a></li>
+            </ul><span>You can specify multiple first names by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?firstname=matt,eric">http://directory.liazon.corp/?firstname=matt,eric</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Last Name</h4><span>Passing in "lastname", you will get all employees with the specified last name.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?lastname=laderer">http://directory.liazon.corp/?lastname=laderer</a></li>
+            </ul><span>You can specify multiple last names by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?lastname=land,laderer">http://directory.liazon.corp/?firstname=land,laderer</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>First & Last Name</h4><span>Passing in "firstname" & "lastname", you will get all employees with the specified first & last name.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?firstname=chad&amp;lastname=laderer">http://directory.liazon.corp/?firstname=chad&lastname=laderer</a></li>
+            </ul><span>You can specify multiple first & last names by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?firstname=chad,connor,natalia&amp;lastname=land,laderer">http://directory.liazon.corp/?firstname=chad,connor,natalia&lastname=land,laderer</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Department</h4><span>Passing in "department", you will get all employees in the specified department.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?department=marketing">http://directory.liazon.corp/?department=marketing</a></li>
+            </ul><span>You can specify multiple departments by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?department=finance,hr">http://directory.liazon.corp/?department=finance,hr</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Team</h4><span>Passing in "team", you will get all employees on the specified team.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?team=prestige+worldwide">http://directory.liazon.corp/?team=prestige+worldwide</a></li>
+            </ul><span>You can specify multiple teams by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?team=prestige+worldwide,00+Agents">http://directory.liazon.corp/?team=prestige+worldwide,00+Agents</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Employee ID</h4><span>Passing in "employeeid" with the employee's ID number, you will get a specific employee.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?employeeid=2">http://directory.liazon.corp/?employeeid=2</a></li>
+            </ul><span>You can specify multiple employees by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/?employeeid=2,3,4">http://directory.liazon.corp/?employeeid=2,3,4</a></li>
+            </ul>
+          </li>
+        </ul>
+        <hr class="short alt"/>
+        <h3><i class="fa fa-building-o text-primary fa-lg pr10"></i>Room Profiles</h3>
+        <p>Room profiles display information about individual rooms and allow you to find out more information about a room.</p>
+        <h4>The header of the room profile card has the following options:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
+            <li><i class="fa fa-map-marker"></i><span>Displays the room's location on a map of the office</span></li>
+            <li><i class="fa fa-times"></i><span>Removes the room's profile card from display</span></li>
+          </ul>
+        </div>
+        <h4>The room profile card displays specific information about the room including:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 mbn">
+            <li>Name (number)</li>
+            <li>Room Type</li>
+            <li>Internal Extension</li>
+            <li>Direct Dial Phone Number</li>
+            <li>URL for Display</li>
+            <li>Capacity</li>
+            <li>Location - clicking the location will display the room's location on a map of the office</li>
+          </ul>
+        </div>
+        <h4>You can direct link to a particular room or group of rooms using one of the following query strings:</h4>
+        <ul class="fs14 list-spacing-10 mbn">
+          <li>
+            <h4>Room Name</h4><span>Passing in "room", you will get the room with the specified name.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/rooms?room=big+ditch">http://directory.liazon.corp/rooms/?room=allentown</a></li>
+            </ul><span>You can specify multiple rooms by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/rooms?room=allentown,main">http://directory.liazon.corp/rooms?room=allentown,main</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Room Type</h4><span>Passing in "roomtype", you will get all rooms with the specified type.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/rooms?roomtype=training">http://directory.liazon.corp/rooms/?roomtype=training</a></li>
+            </ul><span>You can specify multiple room types by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/rooms?roomtype=training,break">http://directory.liazon.corp/rooms?roomtype=training,break</a></li>
+            </ul>
+          </li>
+        </ul>
+        <hr class="short alt"/>
+        <h3><i class="icon-print text-primary fa-lg pr10"></i>Printer Profiles</h3>
+        <p>Printer profiles display information about individual printers and allow you to find out more information about a printer.</p>
+        <h4>The header of the printer profile card has the following options:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
+            <li><i class="fa fa-map-marker"></i><span>Displays the printer's location on a map of the office</span></li>
+            <li><i class="fa fa-times"></i><span>Removes the printer's profile card from display</span></li>
+          </ul>
+        </div>
+        <h4>The printer profile card displays specific information about the printer including:</h4>
+        <div class="well">
+          <ul class="fs14 list-unstyled list-spacing-10 mbn">
+            <li>Network Name</li>
+            <li>Color Type</li>
+            <li>Manufacturer and Model</li>
+            <li>Location - clicking the location will display the printer's location on a map of the office</li>
+          </ul>
+        </div>
+        <h4>You can direct link to a particular printer or group of printers using one of the following query strings:</h4>
+        <ul class="fs14 list-spacing-10 mbn">
+          <li>
+            <h4>Printer Name</h4><span>Passing in "printer", you will get the printer with the specified name.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/printers?printer=LZB7P1-LEX510">http://directory.liazon.corp/printers/?printer=LZB7P1-LEX510</a></li>
+            </ul><span>You can specify multiple printers by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280">http://directory.liazon.corp/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280</a></li>
+            </ul>
+          </li>
+          <li>
+            <h4>Printer Brand</h4><span>Passing in "printerbrand", you will get all printers of the specified brand.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/printers?printerbrand=lexmark">http://directory.liazon.corp/printers/?printerbrand=lexmark</a></li>
+            </ul><span>You can specify multiple printer brands by separating them with commas (,) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a href="/printers?printerbrand=lexmark,Hewlett+Packard">http://directory.liazon.corp/printers/?printerbrand=lexmark,Hewlett+Packard</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

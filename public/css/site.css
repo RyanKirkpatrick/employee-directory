@@ -140,6 +140,21 @@ Directory Item Card
   top: 0;
 }
 /**************************************************
+Help styles
+**************************************************/
+.printer-color-color {
+  background-color: #005295;
+  color: #fff;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+.printer-mono-color {
+  background-color: #666;
+  color: #fff;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+/**************************************************
 View Transitions
 **************************************************/
 .main-view {

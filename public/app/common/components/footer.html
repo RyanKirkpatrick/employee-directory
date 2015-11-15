@@ -4,6 +4,7 @@
     <div class="col-xs-6">
       <ul class="footer-help-links">
         <li><span class="footer-legal">&copy; 2015 The Maestro</span></li>
+        <li><a ui-sref="help">Help</a></li>
         <li ng-if="!vm.identity.isAuthenticated()"><a ui-sref="admin">Login</a></li>
         <li ng-if="vm.identity.isAuthenticated()"><a ui-sref="admin" ng-click="vm.signout()">Logout</a></li>
       </ul>

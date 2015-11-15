@@ -17,14 +17,17 @@
 			edEmployeeService.setSelectMultipleEmployees(true);
 			edEmployeeService.updateMappedEmployee(null);
 
-			if ($stateParams.employeeid) {
-				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeById);
-			} else if ($stateParams.team) {
-				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByTeam);
-			} else if ($stateParams.department) {
-				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByDepartment);
-			} else if ($stateParams.firstname || $stateParams.lastname) {
-				edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByName);
+			if ($stateParams.employeeid || $stateParams.team  || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
+				edEmployeeService.removeAllSelectedEmployees();
+				if ($stateParams.employeeid) {
+					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeById);
+				} else if ($stateParams.team) {
+					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByTeam);
+				} else if ($stateParams.department) {
+					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByDepartment);
+				} else if ($stateParams.firstname || $stateParams.lastname) {
+					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByName);
+				}
 			}
 		}
 

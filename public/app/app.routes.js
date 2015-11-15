@@ -101,7 +101,7 @@
 				}
 			})
 			.state('printers', {
-				url: '/printers?printer',
+				url: '/printers?printer&printerbrand',
 				views: {
 					'main@': {
 						templateUrl: '/partials/printers/views/profile/printer-profile',
@@ -172,7 +172,7 @@
 				}
 			})
 			.state('rooms', {
-				url: '/rooms?room',
+				url: '/rooms?room&roomtype',
 				views: {
 					'main@': {
 						templateUrl: '/partials/rooms/views/profile/room-profile',
@@ -399,6 +399,61 @@
 					},
 					resolve: {
 						auth: routeRoleChecks.admin
+					}
+				}
+			})
+			.state('help', {
+				url: '/help',
+				views: {
+					'main@': {
+						templateUrl: '/partials/help/views/help',
+						controller: 'edHelpCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/help/components/help-topbar',
+						controller: 'edHelpTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('help.navigation', {
+				url: '/navigation',
+				views: {
+					'main@': {
+						templateUrl: '/partials/help/views/navigation/help-navigation',
+						controller: 'edHelpNavigationCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('help.profile', {
+				url: '/profile',
+				views: {
+					'main@': {
+						templateUrl: '/partials/help/views/profile/help-profile',
+						controller: 'edHelpProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('help.location', {
+				url: '/location',
+				views: {
+					'main@': {
+						templateUrl: '/partials/help/views/location/help-location',
+						controller: 'edHelpLocationCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('help.org-chart', {
+				url: '/org-chart',
+				views: {
+					'main@': {
+						templateUrl: '/partials/help/views/org-chart/help-org-chart',
+						controller: 'edHelpOrgChartCtrl',
+						controllerAs: 'vm'
 					}
 				}
 			});

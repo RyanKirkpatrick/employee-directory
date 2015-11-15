@@ -14,20 +14,49 @@
 		edPrinterService.setSelectMultiplePrinters(true);
 		edPrinterService.updateMappedPrinter(null);
 
-		if ($stateParams.printer) {
-			edPrinterService.getAllPrinters().$promise.then(selectPrinter);
+		if ($stateParams.printer || $stateParams.printerbrand) {
+			edPrinterService.removeAllSelectedPrinters();
+			if ($stateParams.printer) {
+				edPrinterService.getAllPrinters().$promise.then(selectPrinterByName);
+			} else if ($stateParams.printerbrand) {
+				edPrinterService.getAllPrinters().$promise.then(selectPrinterByBrand);
+			}
 		}
 
-		function selectPrinter(printers) {
+		function selectPrinterByName(printers) {
 			var selectedPrinters = printers.filter(function (printer) {
 				var match = false;
 				if ($stateParams.printer) {
 					// Split name query on comma
-					var names = $stateParams.printer.split(',');
-					// Loop over each first name
-					angular.forEach(names, function (name) {
-						// If the printer's name is part of the query check the last names
+					var printers = $stateParams.printer.split(',');
+					// Loop over each printer name
+					angular.forEach(printers, function (name) {
+						// If the printer's name is part of the query select it
 						if (printer.name.toLocaleLowerCase() === name.toLowerCase()) {
+							match = true;
+						} else {
+							return false;
+						}
+					});
+				}
+				return match;
+			});
+
+			angular.forEach(selectedPrinters, function (printer) {
+				edPrinterService.updateSelectedPrinters(printer);
+			});
+		}
+
+		function selectPrinterByBrand(printers) {
+			var selectedPrinters = printers.filter(function (printer) {
+				var match = false;
+				if ($stateParams.printerbrand) {
+					// Split printerbrand query on comma
+					var printerbrands = $stateParams.printerbrand.split(',');
+					// Loop over each printerbrand
+					angular.forEach(printerbrands, function (brand) {
+						// If the printer's branc is part of the query select it
+						if (printer.brand.toLocaleLowerCase() === brand.toLowerCase()) {
 							match = true;
 						} else {
 							return false;
