@@ -6,35 +6,17 @@
 
 	function edSeatPickerCtrl($scope, edEmployeeService, edEmployeeAdminService, edNotifierService) {
 		var vm = this;
-		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
+		vm.selectedEmployee = edEmployeeService.setSelectMultipleEmployees(false)[0];
 		vm.setRemoteEmployee = setRemoteEmployee;
 
 		edEmployeeService.setDisplayEmployeeInfoType('profile');
 		edEmployeeService.updateMappedEmployee(null);
 
-		activate();
-
-		function activate() {
-			generateDisplayName();
-		}
-
 		var deregisterEmployee = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
-			vm.selectedEmployees = selectedEmployees;
-			generateDisplayName();
+			vm.selectedEmployee = selectedEmployees[0];
 		});
 
 		$scope.$on('$destroy', deregisterEmployee);
-
-		function generateDisplayName() {
-			if (vm.selectedEmployees.length > 0) {
-				if (vm.selectedEmployees[0].nickname) {
-					vm.displayName = vm.selectedEmployees[0].nickname;
-				} else {
-					vm.displayName = vm.selectedEmployees[0].firstName;
-				}
-				vm.displayName += ' ' + vm.selectedEmployees[0].lastName;
-			}
-		}
 
 		function setRemoteEmployee() {
 			var newEmployeeData = {

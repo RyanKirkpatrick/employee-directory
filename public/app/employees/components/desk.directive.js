@@ -32,7 +32,7 @@
 				$timeout(function () {
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append($compile('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-							'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + getDisplayName(scope.mappedEmployee) + ' ' + scope.mappedEmployee.lastName + '</div></div>')(scope));
+							'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + scope.mappedEmployee.displayName + '</div></div>')(scope));
 						// Do some math to figure out how to center the label
 						var markerLabel = $('.mapped-label');
 						var leftPos = (el.outerWidth() / 2) - (markerLabel.outerWidth() / 2);
@@ -48,7 +48,7 @@
 					$timeout(function () {
 						$document.scrollToElement(el, 300, 300).then(function () {
 							el.addClass('mapped').append($compile('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-								'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + getDisplayName(mappedEmployee) + ' ' + mappedEmployee.lastName + '</div></div>')(scope));
+								'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + mappedEmployee.displayName + '</div></div>')(scope));
 							// Do some math to figure out how to center the label
 							var markerLabel = $('.mapped-label');
 							var leftPos = (el.outerWidth() / 2) - (markerLabel.outerWidth() / 2);
@@ -61,14 +61,6 @@
 			});
 
 			scope.$on('$destroy', deregister);
-		}
-
-		function getDisplayName(employee) {
-			if (employee.nickname) {
-				return employee.nickname;
-			} else {
-				return employee.firstName;
-			}
 		}
 	}
 

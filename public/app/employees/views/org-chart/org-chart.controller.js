@@ -22,7 +22,6 @@
 			if ($stateParams.employee) {
 				edEmployeeService.getAllEmployees().$promise.then(getEmployeeById);
 			} else if (vm.selectedEmployee) {
-				setDisplayName(vm.selectedEmployee);
 				getManager();
 				getDirectReports();
 			}
@@ -34,7 +33,6 @@
 				if (employee !== vm.selectedEmployee) {
 					selectEmployee(employee);
 				}
-				setDisplayName(vm.selectedEmployee);
 				getManager();
 				getDirectReports();
 			}
@@ -42,29 +40,14 @@
 
 		function getManager() {
 			vm.manager = _.findWhere(employees, {'eid': vm.selectedEmployee.mid});
-			if (vm.manager) {
-				setDisplayName(vm.manager);
-			}
 		}
 
 		function getDirectReports() {
 			vm.directReports = _.filter(employees, {'mid': vm.selectedEmployee.eid});
-			_.forEach(vm.directReports, function (directReport) {
-				setDisplayName(directReport);
-			});
-		}
-
-		function setDisplayName(employee) {
-			if (employee.nickname) {
-				employee.displayName = employee.nickname + ' ' + employee.lastName;
-			} else {
-				employee.displayName = employee.firstName + ' ' + employee.lastName;
-			}
 		}
 
 		function selectEmployee(employee) {
 			edEmployeeService.updateSelectedEmployees(employee);
-			setDisplayName(employee);
 		}
 
 		function profileEmployee() {

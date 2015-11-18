@@ -16,9 +16,20 @@
 			if (!employees || cacheBust) {
 				employees = edEmployeeResourceService.query(function(ees) {
 					angular.forEach(ees, function (employee) {
+						// Create a manager property for each employee
 						var manager = _.find(ees, {'eid': employee.mid});
 						if (manager) {
-							employee.manager = manager.firstName + ' ' + manager.lastName;
+							if (manager.nickname) {
+								employee.manager = manager.nickname + ' ' + manager.lastName;
+							} else {
+								employee.manager = manager.firstName + ' ' + manager.lastName;
+							}
+						}
+						// Create a displayName property for each employee
+						if (employee.nickname) {
+							employee.displayName = employee.nickname + ' ' + employee.lastName;
+						} else {
+							employee.displayName = employee.firstName + ' ' + employee.lastName;
 						}
 					});
 				});

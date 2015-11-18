@@ -18,10 +18,7 @@
                 table.table.mbn
                     tbody
                         tr
-                            td.va-m.fw600
-                                span(ng-if="employee.nickname") {{::employee.nickname}}
-                                span(ng-if="!employee.nickname") {{::employee.firstName}}
-                                span &nbsp;{{::employee.lastName}}
+                            td.va-m.fw600 {{::employee.displayName}}
                         tr
                             td.va-m.fw600.text-muted {{::employee.title}}
                         tr
