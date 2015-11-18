@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', '_'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, _) {
 		var vm = this;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
@@ -144,13 +144,30 @@
 
 		/**
 		 * Marks employee as deleted
+		 * Makes all direct reports of the deleted employee direct reports of the employee's manager
 		 */
 		function deleteEmployee() {
-			var newEmployeeData = {
-				deleted: true
-			};
+			// Save employee to delete for later
+			var deletedEmployee = edEmployeeService.getSelectedEmployees()[0];
+			// Find all employees that report to this employee and make them report to the next level up
+			edEmployeeService.getAllEmployees().$promise.then(
+				function (employees) {
+					var eid = deletedEmployee.eid;
+					var mid = deletedEmployee.mid;
+					var directReports = _.filter(employees, {'mid': eid});
+					_.forEach(directReports, function (directReport) {
+						edEmployeeService.removeAllSelectedEmployees();
+						vm.selectedEmployee = edEmployeeService.updateSelectedEmployees(directReport);
+						edEmployeeAdminService.updateEmployee({mid: mid});
+					});
+				}
+			);
 
-			edEmployeeAdminService.updateEmployee(newEmployeeData).then(function (employee) {
+			// Now delete the employee that was requested to be deleted
+			edEmployeeService.removeAllSelectedEmployees();
+			edEmployeeService.updateSelectedEmployees(deletedEmployee);
+
+			edEmployeeAdminService.updateEmployee({deleted: true}).then(function (employee) {
 				edNotifierService.notify(employee.firstName + ' ' + employee.lastName + ' deleted!');
 			}, function (reason) {
 				edNotifierService.error(reason);
