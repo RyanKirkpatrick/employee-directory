@@ -192,13 +192,21 @@ room.chippewa {
   height: 110px;
   width: 127px;
 }
-room.flying-bison {
+room.black-rock {
   height: 127px;
   width: 85px;
 }
 room.big-ditch {
   height: 109px;
   width: 190px;
+}
+room.town-hall {
+  height: 370px;
+  width: 288px;
+}
+room.town-hall .pulse,
+room.town-hall .pin {
+  top: 40%;
 }
 room.mapped .label {
   background-color: #df5640 !important;
@@ -325,9 +333,6 @@ desk.manager.ewa .marker {
   -o-transform: rotate(-26deg);
   -ms-transform: rotate(-26deg);
   transform: rotate(-26deg);
-}
-desk.manager.ewa .mapped-label {
-  left: -10px;
 }
 desk.office {
   height: 84px;
