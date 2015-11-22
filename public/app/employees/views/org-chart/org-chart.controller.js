@@ -43,7 +43,7 @@
 		}
 
 		function getDirectReports() {
-			vm.directReports = _.filter(employees, {'mid': vm.selectedEmployee.eid});
+			vm.directReports = _.sortBy(_.filter(employees, {'mid': vm.selectedEmployee.eid}), 'lastName');
 		}
 
 		function selectEmployee(employee) {

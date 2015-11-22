@@ -25,3 +25,7 @@
 .icon-Leslie:before {
     content: "\a001";
 }
+
+.icon-guild-front-end:before {
+    content: "\e900";
+}

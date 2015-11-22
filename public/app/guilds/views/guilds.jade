@@ -1,0 +1,18 @@
+.center-block.mw500(ng-if="!vm.guild")
+    .text-center.mb30
+        .fa.fa-shield.fs100.mb30.profile-color
+        div.fs20 Developer Guilds
+    p Developer Guilds are made up of subject matter experts from different development teams.  The members of each guild are responsible for defining standards, disseminating information and maintaining consistency and quality with regard to the subject matter of their guild.
+
+.center-block.guild(ng-if="vm.guild")
+    .text-center.guild-header.mb30
+        svg.svg(path="/images/guild-icons/" filename="{{vm.guild}}")
+        div.fs20
+            span {{vm.guild}}
+            | &nbsp;Developer Guild
+    ul.text-center.guild-members(vertilize-container)
+        li(ng-repeat="member in vm.guildMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
+            img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
+            span.fa.fa-user.fs70(ng-hide="member.image")
+            h5 {{member.displayName}}
+            h6 {{member.title}}

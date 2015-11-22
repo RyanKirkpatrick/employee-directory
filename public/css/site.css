@@ -124,6 +124,19 @@ Directory Item Card
   border-radius: 3px;
   width: 100%;
 }
+.directory-item-card .guilds li {
+  cursor: pointer;
+}
+.directory-item-card .guilds li svg {
+  height: 32px;
+  width: 32px;
+}
+.directory-item-card .guilds li svg path {
+  fill: #666;
+}
+.directory-item-card .guilds li:hover path {
+  fill: #3498db;
+}
 .directory-item-card.ng-enter {
   -webkit-transition: 0.2s linear all;
   -moz-transition: 0.2s linear all;

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/admin-form-overrides.css">
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/org-chart.css">
+    <link rel="stylesheet" href="/css/guilds.css">
     <link rel="stylesheet" href="/css/seat-map.css">
     <link rel="stylesheet" href="/css/map-marker.css">
     <link rel="stylesheet" href="/css/fonts.css">
@@ -21,7 +22,7 @@
   <body ng-app="app">
     <div id="main">
       <header class="navbar navbar-fixed-top navbar-shadow">
-        <div class="navbar-branding"><a ui-sref="employees" class="navbar-brand"><img src="/images/liazon_directory.svg"></a></div>
+        <div class="navbar-branding"><a ui-sref="employees" class="navbar-brand"><img src="/images/liazon-directory.svg"></a></div>
       </header>
       <ed-sidebar-left></ed-sidebar-left>
       <section id="content_wrapper">
@@ -57,7 +58,8 @@
     <script type="text/javascript" src="/app/common/views/floor.controller.js"></script>
     <script type="text/javascript" src="/app/common/components/sidebar-left.directive.js"></script>
     <script type="text/javascript" src="/app/common/components/footer.directive.js"></script>
-    <script type="text/javascript" src="/app/common/components/nanoscroller.directive.js"></script>
+    <script type="text/javascript" src="/app/common/utilities/nanoscroller.directive.js"></script>
+    <script type="text/javascript" src="/app/common/utilities/svg.directive.js"></script>
     <script type="text/javascript" src="/app/employees/services/employee.service.js"></script>
     <script type="text/javascript" src="/app/employees/services/employee-resource.service.js"></script>
     <script type="text/javascript" src="/app/employees/services/cached-employee-resource.service.js"></script>
@@ -103,6 +105,8 @@
     <script type="text/javascript" src="/app/admin/components/admin-topbar.controller.js"></script>
     <script type="text/javascript" src="/app/admin/components/seat-picker-topbar.controller.js"></script>
     <script type="text/javascript" src="/app/admin/components/seat-picker-desk.directive.js"></script>
+    <script type="text/javascript" src="/app/guilds/views/guilds.controller.js"></script>
+    <script type="text/javascript" src="/app/guilds/components/guilds-topbar.controller.js"></script>
     <script type="text/javascript" src="/app/help/views/help.controller.js"></script>
     <script type="text/javascript" src="/app/help/views/navigation/help-navigation.controller.js"></script>
     <script type="text/javascript" src="/app/help/views/profile/help-profile.controller.js"></script>

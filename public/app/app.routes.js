@@ -402,6 +402,31 @@
 					}
 				}
 			})
+			.state('guilds', {
+				url: '/guilds',
+				views: {
+					'main@': {
+						templateUrl: '/partials/guilds/views/guilds',
+						controller: 'edGuildsCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/guilds/components/guilds-topbar',
+						controller: 'edGuildsTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('guilds.front-end', {
+				url: '/front-end',
+				views: {
+					'main@': {
+						templateUrl: '/partials/guilds/views/guilds',
+						controller: 'edGuildsCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('help', {
 				url: '/help',
 				views: {
