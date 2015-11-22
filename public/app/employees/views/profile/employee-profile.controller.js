@@ -10,24 +10,26 @@
 		vm.changePage = changePage;
 		vm.currentPage = edEmployeeService.getProfilePageNumber();
 
+		edEmployeeService.setDisplayEmployeeInfoType('profile');
+		edEmployeeService.setSelectMultipleEmployees(true);
+		edEmployeeService.updateMappedEmployee(null);
+
 		activate();
 
 		function activate() {
-			edEmployeeService.setDisplayEmployeeInfoType('profile');
-			edEmployeeService.setSelectMultipleEmployees(true);
-			edEmployeeService.updateMappedEmployee(null);
-
-			if ($stateParams.employeeid || $stateParams.team  || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
+			if ($stateParams.employeeid || $stateParams.team || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
 				edEmployeeService.removeAllSelectedEmployees();
-				if ($stateParams.employeeid) {
-					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeById);
-				} else if ($stateParams.team) {
-					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByTeam);
-				} else if ($stateParams.department) {
-					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByDepartment);
-				} else if ($stateParams.firstname || $stateParams.lastname) {
-					edEmployeeService.getAllEmployees().$promise.then(selectEmployeeByName);
-				}
+				edEmployeeService.getAllEmployees().$promise.then(function (employees) {
+					if ($stateParams.employeeid) {
+						selectEmployeeById(employees);
+					} else if ($stateParams.team) {
+						selectEmployeeByTeam(employees);
+					} else if ($stateParams.department) {
+						selectEmployeeByDepartment(employees);
+					} else if ($stateParams.firstname || $stateParams.lastname) {
+						selectEmployeeByName(employees);
+					}
+				});
 			}
 		}
 

@@ -80,7 +80,7 @@
 				// If a floor(s) has been selected
 				if (vm.floors.length > 0) {
 					// If the room is on a floor in BUF
-					if (room.floor && room.location == 'buf') {
+					if (room.floor && room.location === 'buf') {
 						// Include this room if they are on the selected floor (in BUF)
 						return vm.floors.indexOf(room.floor) > -1;
 						// Include this room if NYC is also a selected location

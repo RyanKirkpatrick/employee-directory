@@ -80,7 +80,7 @@
 				// If a floor(s) has been selected
 				if (vm.floors.length > 0) {
 					// If the printer is on a floor in BUF
-					if (printer.floor && printer.location == 'buf') {
+					if (printer.floor && printer.location === 'buf') {
 						// Include this printer if they are on the selected floor (in BUF)
 						return vm.floors.indexOf(printer.floor) > -1;
 						// Include this printer if NYC is also a selected location
