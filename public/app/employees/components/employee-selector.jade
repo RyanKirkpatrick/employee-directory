@@ -20,7 +20,7 @@
                     .form-group.mln.mrn
                         .pn
                             div.bs-component
-                                select.form-control.input-sm(name="team", ng-model="vm.team", ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department || undefined} | filter: {team : '!!'} | unique: 'team' | orderBy: 'team'")
+                                select.form-control.input-sm(name="team", ng-model="vm.team", ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department || undefined} | omit: '!team' | unique: 'team' | orderBy: 'team'")
                                     option(value="", selected) All Teams
                     .form-group.mln.mrn
                         span.control-label.pn.pull-left

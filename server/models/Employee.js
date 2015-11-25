@@ -38,6 +38,9 @@ var employeeSchema = mongoose.Schema({
 	team: {
 		type: String
 	},
+	guilds: {
+		type: [String]
+	},
 	location: {
 		type: String
 	},

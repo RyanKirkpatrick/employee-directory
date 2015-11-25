@@ -18,7 +18,7 @@
 		function linkFunc(scope, el, attrs) {
 			$timeout(function () {
 				angular.element('.nano').nanoScroller({preventPageScrolling: true});
-			}, 1000);
+			}, 3000);
 		}
 	}
 })();

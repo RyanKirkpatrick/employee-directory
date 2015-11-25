@@ -16,8 +16,8 @@
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
                 ul.list-inline.guilds
                     li(ng-repeat="guild in employee.guilds" class="{{guild}}-guild")
-                        a(ui-sref="guilds.{{guild}}")
-                            svg.svg(path="/images/guild-icons/" filename="{{guild}}")
+                        a.link-unstyled(ui-sref="guilds.{{guild}}")
+                            span.icon.icon-guild-front-end.fs26
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody
