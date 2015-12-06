@@ -53,4 +53,3 @@
         li.directory-item(ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': room.selected, 'mapped': room.mapped}")
             a(ng-click="vm.selectRoom(room)")
                 span {{::room.name}}
-                    span.ml10(ng-if="room.number") ({{::room.number}})
