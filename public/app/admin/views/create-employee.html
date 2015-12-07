@@ -9,7 +9,7 @@
             <div class="col-md-1">
               <div class="section">
                 <label ng-class="{'state-error': createEmployeeForm.eid.$invalid &amp;&amp; !createEmployeeForm.eid.$pristine}" class="field">
-                  <input name="eid" type="text" placeholder="ID" ng-model="vm.newEmployee.eid" required="required" class="gui-input"/>
+                  <input name="eid" type="text" placeholder="ID" ng-model="vm.newEmployee.eid" focus-if="true" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
