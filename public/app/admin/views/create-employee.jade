@@ -9,7 +9,7 @@
                         .col-md-1
                             .section
                                 label.field(ng-class="{'state-error': createEmployeeForm.eid.$invalid && !createEmployeeForm.eid.$pristine}")
-                                    input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.newEmployee.eid", focus-if="true", required)
+                                    input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.newEmployee.eid", focus-if="true", focus-delay="1000", required)
                         .col-md-4
                             .section
                                 label.field(ng-class="{'state-error': createEmployeeForm.firstName.$invalid && !createEmployeeForm.firstName.$pristine}")
