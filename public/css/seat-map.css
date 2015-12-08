@@ -55,6 +55,15 @@ printer .printer span {
   line-height: 30px;
   padding: 4px 5px;
 }
+printer.sm {
+  height: 20px;
+  width: 20px;
+}
+printer.sm .printer span {
+  font-size: 12px;
+  line-height: 14px;
+  padding: 2px 3px;
+}
 printer.vert .printer {
   position: absolute;
   top: 50%;
