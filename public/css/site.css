@@ -141,25 +141,6 @@ Directory Item Card
   filter: none;
   top: 0;
 }
-.directory-item-card.ng-leave {
-  overflow: hidden;
-  -webkit-transition: 0.2s linear all;
-  -moz-transition: 0.2s linear all;
-  -o-transition: 0.2s linear all;
-  -ms-transition: 0.2s linear all;
-  transition: 0.2s linear all;
-}
-.directory-item-card.ng-leave .panel-heading,
-.directory-item-card.ng-leave .panel-body {
-  visibility: hidden;
-}
-.directory-item-card.ng-leave.ng-leave-active {
-  height: 0 !important;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  width: 0;
-}
 /**************************************************
 Help styles
 **************************************************/
@@ -213,6 +194,29 @@ View Transitions
   -o-animation: moveToLeft 0.5s ease both;
   -ms-animation: moveToLeft 0.5s ease both;
   animation: moveToLeft 0.5s ease both;
+}
+/**************************************************
+Misc Transitions
+**************************************************/
+.shrink-left {
+  width: 0;
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+}
+.scale-down {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  transition: 0.2s linear all;
 }
 @-moz-keyframes moveToLeft {
   to {

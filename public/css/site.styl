@@ -127,19 +127,6 @@ Directory Item Card
     opacity 1
     top 0
 
-  &.ng-leave
-    overflow hidden
-    transition 0.2s linear all
-
-    .panel-heading,
-    .panel-body
-      visibility hidden
-
-  &.ng-leave.ng-leave-active
-    height 0 !important
-    opacity 0
-    width 0
-
 /**************************************************
 Help styles
 **************************************************/
@@ -205,3 +192,14 @@ View Transitions
     transform translateY(0)
   from
     transform translateY(100%)
+
+/**************************************************
+Misc Transitions
+**************************************************/
+.shrink-left
+  width 0
+  transition 0.2s linear all
+
+.scale-down
+  transform scale(0)
+  transition 0.2s linear all

@@ -8,7 +8,7 @@
             a.panel-control-org(ui-sref="employees.org-chart({employee: employee.eid})")
             a.panel-control-map-marker(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
             a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
-            a.panel-control-remove(ng-click="vm.deselectEmployee(employee)")
+            a.panel-control-remove(ng-click="deselectEmployee(employee)")
     .panel-body.pn
         .row.table-layout
             .col-xs-4.text-center.va-t.of-h

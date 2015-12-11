@@ -2,7 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edRoomCard', edRoomCard);
 
-	function edRoomCard() {
+	edRoomCard.$inject = ['$timeout', 'edRoomService'];
+
+	function edRoomCard($timeout, edRoomService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/rooms/components/room-card',
@@ -17,6 +19,15 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs) {
+			scope.deselectRoom = function (room) {
+				var parent = el.parent();
+				var child = el.children().first();
+				child.addClass('scale-down');
+				$timeout(function () {
+					parent.addClass('shrink-left');
+					edRoomService.updateSelectedRooms(room);
+				}, 200);
+			};
 		}
 	}
 
@@ -25,15 +36,10 @@
 	function ctrlFunc($state, edRoomService) {
 		var vm = this;
 		vm.mapRoom = mapRoom;
-		vm.deselectRoom = deselectRoom;
 
 		function mapRoom(room) {
 			edRoomService.updateMappedRoom(room);
 			$state.go('rooms.map.' + room.location + '-' + room.floor, {'name': room.name});
-		}
-
-		function deselectRoom(room) {
-			edRoomService.updateSelectedRooms(room);
 		}
 	}
 })();
