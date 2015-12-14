@@ -419,3 +419,58 @@ $nyc-cube-height = 46px
   &#desk-061602
     height 76px
     width 78px
+
+/*********************************
+Artifacts
+*********************************/
+artifact
+  border 1px solid transparent
+  box-sizing border-box
+  display table
+  position absolute
+  white-space nowrap
+
+  .artifact
+    display table-cell
+    text-align center
+    vertical-align middle
+
+    span
+      text-align center
+      text-transform capitalize
+
+  &.no-label .artifact
+    display none
+
+  &.vert .artifact
+    position absolute
+    top 50%
+    left 50%
+    transform translateX(-50%) translateY(-50%) rotate(90deg)
+
+  &.liazon-cafe
+    //background-image url('/images/liazon-directory.svg')
+    height 91px
+    width 216px
+
+  &.server-room-7
+    height 118px
+    width 103px
+
+  &.mens-room-7,
+  &.womens-room-7
+    height 91px
+    width 287px
+
+  &.lobby-7
+    height 187px
+    width 136px
+
+  &.stairs-7,
+  &.stairs-8
+    height 59px
+    width 59px
+
+  &.lobby-8
+    height 298px
+    width 131px

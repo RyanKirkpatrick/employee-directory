@@ -207,6 +207,9 @@ Misc Transitions
   transition: 0.2s linear all;
 }
 .scale-down {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -o-transform: scale(0);

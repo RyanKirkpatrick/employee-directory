@@ -4,6 +4,7 @@ var auth      = require('./auth'),
     desks     = require('../controllers/desks'),
     rooms     = require('../controllers/rooms'),
     printers  = require('../controllers/printers'),
+    artifacts = require('../controllers/artifacts'),
     mongoose  = require('mongoose');
 
 module.exports = function (app) {
@@ -19,6 +20,7 @@ module.exports = function (app) {
 	app.get('/api/desks', desks.getDesks);
 	app.get('/api/rooms', rooms.getRooms);
 	app.get('/api/printers', printers.getPrinters);
+	app.get('/api/artifacts', artifacts.getArtifacts);
 
 	app.get('/partials/*', function (req, res) {
 		res.render('../../public/app/' + req.params[0]);

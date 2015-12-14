@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edFloorCtrl', edFloorCtrl);
 
-	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService'];
+	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService', 'edArtifactService'];
 
-	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService) {
+	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService, edArtifactService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -43,6 +43,7 @@
 			edDeskService.getAllDesks().$promise.then(deskFilter);
 			edRoomService.getAllRooms().$promise.then(roomFilter);
 			edPrinterService.getAllPrinters().$promise.then(printerFilter);
+			edArtifactService.getAllArtifacts().$promise.then(artifactFilter);
 
 			mapEmployee();
 			mapRoom();
@@ -100,6 +101,12 @@
 		function printerFilter(printers) {
 			vm.printers = printers.filter(function (printer) {
 				return printer.floor === vm.floor && printer.location === vm.location;
+			});
+		}
+
+		function artifactFilter(artifacts) {
+			vm.artifacts = artifacts.filter(function (artifact) {
+				return artifact.floor === vm.floor && artifact.location === vm.location;
 			});
 		}
 

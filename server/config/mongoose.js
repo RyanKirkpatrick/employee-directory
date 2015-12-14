@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 	employeeModel = require('../models/Employee'),
 	deskModel = require('../models/Desk'),
 	roomModel = require('../models/Room'),
-	printerModel = require('../models/Printer');
+	printerModel = require('../models/Printer'),
+  artifactModel = require('../models/Artifact');
 
 module.exports = function (config) {
 	mongoose.connect(config.db);
@@ -18,4 +19,5 @@ module.exports = function (config) {
 	deskModel.createDefaultDesks();
 	roomModel.createDefaultRooms();
 	printerModel.createDefaultPrinters();
+	artifactModel.createDefaultArtifacts();
 };

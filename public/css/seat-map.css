@@ -420,3 +420,63 @@ NYC
   height: 76px;
   width: 78px;
 }
+/*********************************
+Artifacts
+*********************************/
+artifact {
+  border: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table;
+  position: absolute;
+  white-space: nowrap;
+}
+artifact .artifact {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+artifact .artifact span {
+  text-align: center;
+  text-transform: capitalize;
+}
+artifact.no-label .artifact {
+  display: none;
+}
+artifact.vert .artifact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -o-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+artifact.liazon-cafe {
+  height: 91px;
+  width: 216px;
+}
+artifact.server-room-7 {
+  height: 118px;
+  width: 103px;
+}
+artifact.mens-room-7,
+artifact.womens-room-7 {
+  height: 91px;
+  width: 287px;
+}
+artifact.lobby-7 {
+  height: 187px;
+  width: 136px;
+}
+artifact.stairs-7,
+artifact.stairs-8 {
+  height: 59px;
+  width: 59px;
+}
+artifact.lobby-8 {
+  height: 298px;
+  width: 131px;
+}
