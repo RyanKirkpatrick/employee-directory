@@ -258,7 +258,6 @@ Sidebar
   width: 12px;
 }
 .nano.affix > .nano-pane > .nano-slider {
-  background: rgba(33,33,33,0.65);
   -webkit-border-radius: 5px;
   border-radius: 5px;
   margin-left: 2px;
