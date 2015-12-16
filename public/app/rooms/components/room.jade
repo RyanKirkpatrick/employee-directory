@@ -2,5 +2,3 @@ room(id="room-{{seat}}" ng-class="classification" ng-style="{'left': xpos + 'px'
     .room
         span
             span.label.bg-primary(ng-click="vm.viewProfile(seat)") {{name}}
-            br(ng-if="number")
-            span.badge(ng-if="number") {{number}}
