@@ -183,9 +183,8 @@ Sidebar
   left: 0;
   margin-left: 50px;
   min-height: 100%;
-  padding-bottom: 44px;
-  padding-top: 60px;
-  top: 0;
+  padding-bottom: 104px;
+  top: 60px;
   -webkit-transition: margin-left 0.5s ease;
   -moz-transition: margin-left 0.5s ease;
   -o-transition: margin-left 0.5s ease;
@@ -220,7 +219,7 @@ Sidebar
   background-color: #eaeaea;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  bottom: 49px;
+  bottom: 113px;
   height: 25px;
   right: 9px;
   position: absolute;
@@ -252,9 +251,18 @@ Sidebar
   color: #666;
 }
 .nano.affix > .nano-pane {
+  background: rgba(0,0,0,0.05);
+  bottom: 104px;
   left: 0;
   right: auto;
-  width: 4px;
+  width: 12px;
+}
+.nano.affix > .nano-pane > .nano-slider {
+  background: rgba(33,33,33,0.65);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-left: 2px;
+  width: 7px;
 }
 .panel-control-map-marker:after {
   content: "\f041";
