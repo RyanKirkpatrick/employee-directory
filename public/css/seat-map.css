@@ -454,6 +454,39 @@ artifact.vert .artifact {
   -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
   transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
+artifact.north-stair-6,
+artifact.north-stair-7,
+artifact.north-stair-8 {
+  height: 176px;
+  width: 77px;
+}
+artifact.south-stair-6,
+artifact.south-stair-7,
+artifact.south-stair-8 {
+  height: 71px;
+  width: 170px;
+}
+artifact.lobby-6 {
+  height: 192px;
+  width: 89px;
+}
+artifact.kitchen-6 {
+  height: 182px;
+  width: 73px;
+}
+artifact.storage-6-1 {
+  height: 82px;
+  width: 73px;
+}
+artifact.storage-6-2 {
+  height: 108px;
+  width: 56px;
+}
+artifact.mens-room-6,
+artifact.womens-room-6 {
+  height: 263px;
+  width: 90px;
+}
 artifact.liazon-cafe {
   height: 91px;
   width: 216px;
@@ -462,8 +495,22 @@ artifact.server-room-7 {
   height: 118px;
   width: 103px;
 }
+artifact.storage-7-1 {
+  height: 84px;
+  width: 49px;
+}
+artifact.storage-7-2 {
+  height: 36px;
+  width: 82px;
+}
+artifact.office-supplies-7 {
+  height: 32px;
+  width: 117px;
+}
 artifact.mens-room-7,
-artifact.womens-room-7 {
+artifact.womens-room-7,
+artifact.mens-room-8,
+artifact.womens-room-8 {
   height: 91px;
   width: 287px;
 }
@@ -479,4 +526,16 @@ artifact.stairs-8 {
 artifact.lobby-8 {
   height: 298px;
   width: 131px;
+}
+artifact.storage-8-1 {
+  height: 59px;
+  width: 91px;
+}
+artifact.storage-8-2 {
+  height: 29px;
+  width: 214px;
+}
+artifact.storage-8-3 {
+  height: 73px;
+  width: 94px;
 }
