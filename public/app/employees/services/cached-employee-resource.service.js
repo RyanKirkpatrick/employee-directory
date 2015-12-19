@@ -14,7 +14,7 @@
 
 		function query(cacheBust) {
 			if (!employees || cacheBust) {
-				employees = edEmployeeResourceService.query(function(ees) {
+				employees = edEmployeeResourceService.query({cacheKill: new Date().getTime()}, function(ees) {
 					angular.forEach(ees, function (employee) {
 						// Create a manager property for each employee
 						var manager = _.find(ees, {'eid': employee.mid});
