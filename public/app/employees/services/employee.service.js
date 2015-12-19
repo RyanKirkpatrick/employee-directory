@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService', 'edNotifierService'];
+	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService', 'edNotifierService', '_'];
 
-	function edEmployeeService($rootScope, edCachedEmployeeResourceService, edNotifierService) {
+	function edEmployeeService($rootScope, edCachedEmployeeResourceService, edNotifierService, _) {
 		var selectedEmployees = [];
 		var selectedEmployeeAdded = false;
 		var profilePageNumber = 1;
@@ -105,7 +105,7 @@
 		 */
 		function updateMappedEmployeeById(id) {
 			getAllEmployees().$promise.then(function (employees) {
-				var employee = employees.filter(function (employee) {
+				var employee = _.filter(employees, function (employee) {
 					return employee.eid === parseInt(id);
 				});
 				if (employee.length > 0) {

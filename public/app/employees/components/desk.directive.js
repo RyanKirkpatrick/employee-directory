@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edDesk', edDesk);
 
-	edDesk.$inject = ['$stateParams', '$document', '$timeout', '$compile', 'edEmployeeService'];
+	edDesk.$inject = ['$stateParams', '$document', '$timeout', '$compile', 'edEmployeeService', '_'];
 
-	function edDesk($stateParams, $document, $timeout, $compile, edEmployeeService) {
+	function edDesk($stateParams, $document, $timeout, $compile, edEmployeeService, _) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/employees/components/desk',
@@ -79,7 +79,7 @@
 		function mapEmployee(seat, location) {
 			// Don't map employee if the user wants to view the profile
 			if (!viewingProfile) {
-				var mappedEmployeeArray = vm.employees.filter(function (employee) {
+				var mappedEmployeeArray = _.filter(vm.employees, function (employee) {
 					return employee.seat === seat && employee.location === location;
 				});
 

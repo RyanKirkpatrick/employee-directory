@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edPrinterProfileCtrl', edPrinterProfileCtrl);
 
-	edPrinterProfileCtrl.$inject = ['$scope', '$document', 'edPrinterService', '$stateParams'];
+	edPrinterProfileCtrl.$inject = ['$scope', '$document', 'edPrinterService', '$stateParams', '_'];
 
-	function edPrinterProfileCtrl($scope, $document, edPrinterService, $stateParams) {
+	function edPrinterProfileCtrl($scope, $document, edPrinterService, $stateParams, _) {
 		var vm = this;
 		vm.selectedPrinters = edPrinterService.getSelectedPrinters();
 		vm.changePage = changePage;
@@ -24,7 +24,7 @@
 		}
 
 		function selectPrinterByName(printers) {
-			var selectedPrinters = printers.filter(function (printer) {
+			var selectedPrinters = _.filter(printers, function (printer) {
 				var match = false;
 				if ($stateParams.printer) {
 					// Split name query on comma
@@ -48,7 +48,7 @@
 		}
 
 		function selectPrinterByBrand(printers) {
-			var selectedPrinters = printers.filter(function (printer) {
+			var selectedPrinters = _.filter(printers, function (printer) {
 				var match = false;
 				if ($stateParams.printerbrand) {
 					// Split printerbrand query on comma

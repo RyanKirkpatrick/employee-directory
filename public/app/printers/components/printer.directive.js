@@ -63,9 +63,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['$state', 'edPrinterService', 'edNotifierService', 'edEmployeeService', 'edRoomService'];
+	ctrlFunc.$inject = ['$state', 'edPrinterService', 'edNotifierService', 'edEmployeeService', 'edRoomService', '_'];
 
-	function ctrlFunc($state, edPrinterService, edNotifierService, edEmployeeService, edRoomService) {
+	function ctrlFunc($state, edPrinterService, edNotifierService, edEmployeeService, edRoomService, _) {
 		var vm = this;
 		vm.mapPrinter = mapPrinter;
 		vm.viewProfile = viewProfile;
@@ -77,7 +77,7 @@
 		function mapPrinter(name) {
 			// Don't map printer if the user wants to view the profile
 			if (!viewingProfile) {
-				var mappedPrinterArray = vm.printers.filter(function (printer) {
+				var mappedPrinterArray = _.filter(vm.printers, function (printer) {
 					return printer.name === name;
 				});
 

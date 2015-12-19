@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edRoomProfileCtrl', edRoomProfileCtrl);
 
-	edRoomProfileCtrl.$inject = ['$scope', '$document', 'edRoomService', '$stateParams'];
+	edRoomProfileCtrl.$inject = ['$scope', '$document', 'edRoomService', '$stateParams', '_'];
 
-	function edRoomProfileCtrl($scope, $document, edRoomService, $stateParams) {
+	function edRoomProfileCtrl($scope, $document, edRoomService, $stateParams, _) {
 		var vm = this;
 		vm.selectedRooms = edRoomService.getSelectedRooms();
 		vm.changePage = changePage;
@@ -25,7 +25,7 @@
 		}
 
 		function selectRoomByName(rooms) {
-			var selectedRooms = rooms.filter(function (room) {
+			var selectedRooms = _.filter(rooms, function (room) {
 				var match = false;
 				if ($stateParams.room) {
 					// Split name query on comma
@@ -49,7 +49,7 @@
 		}
 
 		function selectRoomByType(rooms) {
-			var selectedRooms = rooms.filter(function (room) {
+			var selectedRooms = _.filter(rooms, function (room) {
 				var match = false;
 				if ($stateParams.roomtype) {
 					// Split roomtype query on comma

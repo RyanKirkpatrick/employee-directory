@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeProfileCtrl', edEmployeeProfileCtrl);
 
-	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams'];
+	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams', '_'];
 
-	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams) {
+	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 		vm.changePage = changePage;
@@ -34,7 +34,7 @@
 		}
 
 		function selectEmployeeById(employees) {
-			var selectedEmployees = employees.filter(function (employee) {
+			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.employeeid) {
 					// Split eid query on comma
@@ -57,7 +57,7 @@
 		}
 
 		function selectEmployeeByTeam(employees) {
-			var selectedEmployees = employees.filter(function (employee) {
+			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.team) {
 					// Split teams query on comma
@@ -80,7 +80,7 @@
 		}
 
 		function selectEmployeeByDepartment(employees) {
-			var selectedEmployees = employees.filter(function (employee) {
+			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.department) {
 					// Split departments query on comma
@@ -103,7 +103,7 @@
 		}
 
 		function selectEmployeeByName(employees) {
-			var selectedEmployees = employees.filter(function (employee) {
+			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.firstname) {
 					// Split first name query on comma

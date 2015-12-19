@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edCreateEmployeeCtrl', edCreateEmployeeCtrl);
 
-	edCreateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService'];
+	edCreateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService', '_'];
 
-	function edCreateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService) {
+	function edCreateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService, _) {
 		var vm = this;
 		vm.createEmployee = createEmployee;
 		vm.desks = edDeskService.getAllDesks();
@@ -54,7 +54,7 @@
 		}
 
 		function createManagerList(employees) {
-			vm.managers = employees.filter(function (employee) {
+			vm.managers = _.filter(employees, function (employee) {
 				return employee.hasReports === true;
 			});
 		}

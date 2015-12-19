@@ -68,7 +68,7 @@
 		 */
 		function filterManagers(selectedEmployee) {
 			if (vm.managers && selectedEmployee) {
-				vm.filteredManagers = vm.managers.filter(function (manager) {
+				vm.filteredManagers = _.filter(vm.managers, function (manager) {
 					// TODO: Recursively filter out direct reports of direct reports
 					return (selectedEmployee.eid !== manager.eid) && (selectedEmployee.eid !== manager.mid);
 				});
@@ -76,7 +76,7 @@
 		}
 
 		function createManagerList(employees) {
-			vm.managers = employees.filter(function (employee) {
+			vm.managers = _.filter(employees, function (employee) {
 				return employee.hasReports === true;
 			});
 			filterManagers(vm.selectedEmployee);

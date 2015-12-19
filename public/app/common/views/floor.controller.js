@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edFloorCtrl', edFloorCtrl);
 
-	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService', 'edArtifactService'];
+	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService', 'edArtifactService', '_'];
 
-	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService, edArtifactService) {
+	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService, edArtifactService, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -87,25 +87,25 @@
 		$scope.$on('$destroy', deregisterRoom);
 
 		function deskFilter(desks) {
-			vm.desks = desks.filter(function (desk) {
+			vm.desks = _.filter(desks, function (desk) {
 				return desk.floor === vm.floor && desk.location === vm.location;
 			});
 		}
 
 		function roomFilter(rooms) {
-			vm.rooms = rooms.filter(function (room) {
+			vm.rooms = _.filter(rooms, function (room) {
 				return room.floor === vm.floor && room.location === vm.location;
 			});
 		}
 
 		function printerFilter(printers) {
-			vm.printers = printers.filter(function (printer) {
+			vm.printers = _.filter(printers, function (printer) {
 				return printer.floor === vm.floor && printer.location === vm.location;
 			});
 		}
 
 		function artifactFilter(artifacts) {
-			vm.artifacts = artifacts.filter(function (artifact) {
+			vm.artifacts = _.filter(artifacts, function (artifact) {
 				return artifact.floor === vm.floor && artifact.location === vm.location;
 			});
 		}
@@ -124,7 +124,7 @@
 		}
 
 		function mapEmployeeBySeat(employees) {
-			var mappedEmployeeArray = employees.filter(function (employee) {
+			var mappedEmployeeArray = _.filter(employees, function (employee) {
 				return employee.seat === $stateParams.seat;
 			});
 
@@ -149,7 +149,7 @@
 		}
 
 		function mapRoomByName(rooms) {
-			var mappedRoomArray = rooms.filter(function (room) {
+			var mappedRoomArray = _.filter(rooms, function (room) {
 				return room.name === $stateParams.name;
 			});
 
@@ -173,7 +173,7 @@
 		}
 
 		function mapPrinterByName(printers) {
-			var mappedPrinterArray = printers.filter(function (printer) {
+			var mappedPrinterArray = _.filter(printers, function (printer) {
 				return printer.name === $stateParams.name;
 			});
 

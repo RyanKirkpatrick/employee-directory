@@ -53,9 +53,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['$state', 'edRoomService', 'edNotifierService', 'edEmployeeService', 'edPrinterService'];
+	ctrlFunc.$inject = ['$state', 'edRoomService', 'edNotifierService', 'edEmployeeService', 'edPrinterService', '_'];
 
-	function ctrlFunc($state, edRoomService, edNotifierService, edEmployeeService, edPrinterService) {
+	function ctrlFunc($state, edRoomService, edNotifierService, edEmployeeService, edPrinterService, _) {
 		var vm = this;
 		vm.mapRoom = mapRoom;
 		vm.viewProfile = viewProfile;
@@ -63,7 +63,7 @@
 		vm.mappedRoom = null;
 
 		function viewProfile(seat) {
-			var selectedRoom = vm.rooms.filter(function (room) {
+			var selectedRoom = _.filter(vm.rooms, function (room) {
 				return room.seat === seat;
 			});
 			edRoomService.removeAllSelectedRooms();
@@ -72,7 +72,7 @@
 		}
 
 		function mapRoom(name) {
-			var mappedRoomArray = vm.rooms.filter(function (room) {
+			var mappedRoomArray = _.filter(vm.rooms, function (room) {
 				return room.name === name;
 			});
 

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edSeatPickerFloorCtrl', edSeatPickerFloorCtrl);
 
-	edSeatPickerFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope'];
+	edSeatPickerFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope', '_'];
 
-	function edSeatPickerFloorCtrl(edEmployeeService, edDeskService, $state, $scope) {
+	function edSeatPickerFloorCtrl(edEmployeeService, edDeskService, $state, $scope, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 		vm.desks = null;
@@ -42,7 +42,7 @@
 		$scope.$on('$destroy', deregisterEmployee);
 
 		function deskFilter(desks) {
-			vm.desks = desks.filter(function (desk) {
+			vm.desks = _.filter(desks, function (desk) {
 				return desk.floor === vm.floor && desk.location === vm.location;
 			});
 		}
