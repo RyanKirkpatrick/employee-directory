@@ -28,7 +28,7 @@
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edEmployeeService.updateSelectedEmployees(employee);
-				}, 200);
+				}, 250);
 			};
 		}
 	}

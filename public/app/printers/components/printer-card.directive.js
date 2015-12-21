@@ -26,7 +26,7 @@
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edPrinterService.updateSelectedPrinters(printer);
-				}, 200);
+				}, 250);
 			};
 		}
 	}

@@ -26,7 +26,7 @@
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edRoomService.updateSelectedRooms(room);
-				}, 200);
+				}, 250);
 			};
 		}
 	}
