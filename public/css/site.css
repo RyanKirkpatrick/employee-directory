@@ -199,6 +199,7 @@ View Transitions
 Misc Transitions
 **************************************************/
 .shrink-left {
+  height: 0 !important;
   width: 0;
   -webkit-transition: 0.2s linear all;
   -moz-transition: 0.2s linear all;
