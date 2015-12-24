@@ -40,6 +40,16 @@
 					}
 				}
 			})
+			.state('employees.department', {
+				url: 'department/:dept',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('employees.org-chart', {
 				url: 'org-chart/:employee',
 				views: {

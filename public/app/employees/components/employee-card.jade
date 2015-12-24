@@ -27,7 +27,6 @@
                             td.va-m.fw600.text-muted {{::employee.title}}
                         tr
                             td.va-m.fw600.text-muted
-                                //a(ng-click="vm.department(employee.department)") click here
                                 a.text-muted(ui-sref="employees({department: employee.department})") {{::employee.department}}
                         tr(ng-if="employee.team")
                             td.va-m.fw600.text-muted

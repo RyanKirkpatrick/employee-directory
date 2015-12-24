@@ -18,9 +18,7 @@
               <td class="va-m fw600 text-muted">{{::employee.title}}</td>
             </tr>
             <tr>
-              <td class="va-m fw600 text-muted">
-                <!--a(ng-click="vm.department(employee.department)") click here--><a ui-sref="employees({department: employee.department})" class="text-muted">{{::employee.department}}</a>
-              </td>
+              <td class="va-m fw600 text-muted"><a ui-sref="employees({department: employee.department})" class="text-muted">{{::employee.department}}</a></td>
             </tr>
             <tr ng-if="employee.team">
               <td class="va-m fw600 text-muted"><span class="fa fa-group mr10"></span><a ui-sref="employees({team: employee.team})" class="text-muted">{{::employee.team}}</a></td>

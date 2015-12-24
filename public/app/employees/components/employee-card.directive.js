@@ -40,7 +40,6 @@
 		vm.identity = edIdentityService;
 		vm.mapEmployee = mapEmployee;
 		vm.editEmployee = editEmployee;
-		vm.department = department;
 
 		function mapEmployee(employee) {
 			edEmployeeService.updateMappedEmployee(employee);
@@ -51,10 +50,6 @@
 			edEmployeeService.removeAllSelectedEmployees();
 			edEmployeeService.updateSelectedEmployees(employee);
 			$state.go('admin.update-employee');
-		}
-
-		function department(department) {
-			$state.transitionTo('employees', {department: department}, {location: false});
 		}
 	}
 })();
