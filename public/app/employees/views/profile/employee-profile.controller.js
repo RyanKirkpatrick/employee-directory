@@ -57,7 +57,7 @@
 		}
 
 		function selectEmployeeByTeam(employees) {
-			var selectedEmployees = _.filter(employees, function (employee) {
+			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.team) {
 					// Split teams query on comma
@@ -72,7 +72,7 @@
 					});
 					return match;
 				}
-			});
+			}), 'lastName').reverse();
 
 			angular.forEach(selectedEmployees, function (employee) {
 				edEmployeeService.updateSelectedEmployees(employee);
@@ -80,7 +80,7 @@
 		}
 
 		function selectEmployeeByDepartment(employees) {
-			var selectedEmployees = _.filter(employees, function (employee) {
+			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.department) {
 					// Split departments query on comma
@@ -95,7 +95,7 @@
 					});
 					return match;
 				}
-			});
+			}), 'lastName').reverse();
 
 			angular.forEach(selectedEmployees, function (employee) {
 				edEmployeeService.updateSelectedEmployees(employee);

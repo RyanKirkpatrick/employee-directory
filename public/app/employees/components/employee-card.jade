@@ -4,7 +4,7 @@
             i.icon.icon-Leslie
         span.panel-title Employee Profile
         span.panel-controls
-            a.panel-control-chat(href="sip:{{twEmail}}")
+            a.panel-control-chat(href="sip:{{::twEmail}}")
             a.panel-control-org(ui-sref="employees.org-chart({employee: employee.eid})")
             a.panel-control-map-marker(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)")
             a.panel-control-title(ng-click="vm.editEmployee(employee)", ng-if="vm.identity.isAuthorized('admin')")
@@ -15,8 +15,8 @@
                 img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
                 ul.list-inline.guilds
-                    li(ng-repeat="guild in employee.guilds" class="{{guild}}-guild")
-                        a.link-unstyled(ui-sref="guilds.{{guild}}")
+                    li(ng-repeat="guild in employee.guilds" class="{{::guild}}-guild")
+                        a.link-unstyled(ui-sref="guilds.{{::guild}}")
                             span.icon.icon-guild-front-end.fs26
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
@@ -26,19 +26,21 @@
                         tr
                             td.va-m.fw600.text-muted {{::employee.title}}
                         tr
-                            td.va-m.fw600.text-muted {{::employee.department}}
+                            td.va-m.fw600.text-muted
+                                //a(ng-click="vm.department(employee.department)") click here
+                                a.text-muted(ui-sref="employees({department: employee.department})") {{::employee.department}}
                         tr(ng-if="employee.team")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-group.mr10
-                                | {{::employee.team}}
+                                a.text-muted(ui-sref="employees({team: employee.team})") {{::employee.team}}
                         tr(ng-if="employee.manager")
                             td.va-m.fw600.text-muted
                                 span.icon-user-4.mr10
-                                span {{::employee.manager}}
+                                a.text-muted(ui-sref="employees({employeeid: employee.mid})") {{::employee.manager}}
                         tr(ng-if="employee.email")
-                            td.va-m.fw600.text-primary
+                            td.va-m.fw600.text-muted
                                 span.fa.fa-envelope.mr10
-                                a(href="mailto:{{::employee.email}}") {{::employee.email}}
+                                a.text-muted(href="mailto:{{::employee.email}}") {{::employee.email}}
                         tr(ng-if="employee.ext")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-phone.mr10
@@ -48,10 +50,11 @@
                                 span.fa.fa-phone.mr10
                                 | Desk: {{::employee.phone | edPhoneNumberFilter}}
                         tr(ng-if="employee.location")
-                            td.va-m.fw600.text-danger.cursor(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
+                            td.va-m.fw600.cursor.text-muted(ng-click="vm.mapEmployee(employee)", ng-if="employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
-                                span.text-uppercase {{::employee.location}}
-                                | &nbsp;/ Floor: {{::employee.floor}} / View Seat
+                                a.text-muted
+                                    span.text-uppercase {{::employee.location}}
+                                    | &nbsp;/ Floor: {{::employee.floor}} / View Seat
                             td.va-m.fw600.text-muted(ng-if="!employee.seat")
                                 span.fa.fa-map-marker.fs15.mr10
                                 span(ng-if="employee.location === 'buf'") Buffalo
