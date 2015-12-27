@@ -18,13 +18,13 @@
               <td class="va-m fw600 text-muted">{{::employee.title}}</td>
             </tr>
             <tr>
-              <td class="va-m fw600 text-muted"><a ui-sref="employees({department: employee.department})" class="text-muted">{{::employee.department}}</a></td>
+              <td class="va-m fw600 text-muted"><a ui-sref="employees.profile.department({department: employee.department})" class="text-muted">{{::employee.department}}</a></td>
             </tr>
             <tr ng-if="employee.team">
-              <td class="va-m fw600 text-muted"><span class="fa fa-group mr10"></span><a ui-sref="employees({team: employee.team})" class="text-muted">{{::employee.team}}</a></td>
+              <td class="va-m fw600 text-muted"><span class="fa fa-group mr10"></span><a ui-sref="employees.profile.team({team: employee.team})" class="text-muted">{{::employee.team}}</a></td>
             </tr>
             <tr ng-if="employee.manager">
-              <td class="va-m fw600 text-muted"><span class="icon-user-4 mr10"></span><a ui-sref="employees({employeeid: employee.mid})" class="text-muted">{{::employee.manager}}</a></td>
+              <td class="va-m fw600 text-muted"><span class="icon-user-4 mr10"></span><a ui-sref="employees.profile.employee({employee: employee.mid})" class="text-muted">{{::employee.manager}}</a></td>
             </tr>
             <tr ng-if="employee.email">
               <td class="va-m fw600 text-muted"><span class="fa fa-envelope mr10"></span><a href="mailto:{{::employee.email}}" class="text-muted">{{::employee.email}}</a></td>

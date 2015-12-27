@@ -49,7 +49,7 @@
 		}
 
 		function selectRoomByType(rooms) {
-			var selectedRooms = _.filter(rooms, function (room) {
+			var selectedRooms = _.sortBy(_.filter(rooms, function (room) {
 				var match = false;
 				if ($stateParams.roomtype) {
 					// Split roomtype query on comma
@@ -65,7 +65,7 @@
 					});
 				}
 				return match;
-			});
+			}), 'name').reverse();
 
 			angular.forEach(selectedRooms, function (room) {
 				edRoomService.updateSelectedRooms(room);

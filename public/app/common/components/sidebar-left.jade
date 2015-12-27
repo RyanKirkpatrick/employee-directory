@@ -3,8 +3,8 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
         .sidebar-left-toggle(ng-click="vm.toggleSidebar()", ng-class="{'sidebar-locked' : vm.sidebarLocked}")
             span.fa.fa-bars
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li(ui-sref-active-eq="active")
-                a(ui-sref="employees")
+            li(ui-sref-active="active")
+                a(ui-sref="employees.profile")
                     span.fa.fa-users
                     span.sidebar-title Employee Profiles
             li.location-item(ui-sref-active="active")
@@ -16,8 +16,8 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.fa.fa-sitemap
                     span.sidebar-title Organization Chart
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li(ui-sref-active-eq="active")
-                a(ui-sref="rooms")
+            li(ui-sref-active="active")
+                a(ui-sref="rooms.profile")
                     span.fa.fa-building-o
                     span.sidebar-title Room Profiles
             li.location-item(ui-sref-active="active")
@@ -25,8 +25,8 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.fa.fa-map-marker
                     span.sidebar-title Room Location
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li(ui-sref-active-eq="active")
-                a(ui-sref="printers")
+            li(ui-sref-active="active")
+                a(ui-sref="printers.profile")
                     span.icon-print
                     span.sidebar-title Printer Profiles
             li.location-item(ui-sref-active="active")
@@ -42,7 +42,7 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="admin.update-employee")
                     span.fa.fa-pencil-square-o
                     span.sidebar-title Update Employee
-            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
+            li.location-item(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
                 a(ui-sref="admin.seat-picker")
                     span.fa.fa-map-marker
                     span.sidebar-title Seat Assignment

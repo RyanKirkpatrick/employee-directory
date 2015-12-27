@@ -17,10 +17,10 @@
 		activate();
 
 		function activate() {
-			if ($stateParams.employeeid || $stateParams.team || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
+			if ($stateParams.employee || $stateParams.team || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
 				edEmployeeService.removeAllSelectedEmployees();
 				edEmployeeService.getAllEmployees().$promise.then(function (employees) {
-					if ($stateParams.employeeid) {
+					if ($stateParams.employee) {
 						selectEmployeeById(employees);
 					} else if ($stateParams.team) {
 						selectEmployeeByTeam(employees);
@@ -36,9 +36,9 @@
 		function selectEmployeeById(employees) {
 			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.employeeid) {
+				if ($stateParams.employee) {
 					// Split eid query on comma
-					var employeeids = $stateParams.employeeid.split(',');
+					var employeeids = $stateParams.employee.split(',');
 					angular.forEach(employeeids, function (eid) {
 						// If the employee's id is part of the query
 						if (employee.hasOwnProperty('eid') && employee.eid === parseInt(eid)) {

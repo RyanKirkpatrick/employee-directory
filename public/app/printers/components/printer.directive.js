@@ -95,8 +95,8 @@
 		function viewProfile() {
 			viewingProfile = true;
 			edPrinterService.removeAllSelectedPrinters();
-			edPrinterService.updateSelectedPrinters(edPrinterService.getMappedPrinter());
-			$state.go('printers');
+			var selectedPrinter = edPrinterService.updateSelectedPrinters(edPrinterService.getMappedPrinter())[0];
+			$state.go('printers.profile.name', {'printer': selectedPrinter.name});
 		}
 	}
 })();

@@ -27,15 +27,15 @@
                             td.va-m.fw600.text-muted {{::employee.title}}
                         tr
                             td.va-m.fw600.text-muted
-                                a.text-muted(ui-sref="employees({department: employee.department})") {{::employee.department}}
+                                a.text-muted(ui-sref="employees.profile.department({department: employee.department})") {{::employee.department}}
                         tr(ng-if="employee.team")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-group.mr10
-                                a.text-muted(ui-sref="employees({team: employee.team})") {{::employee.team}}
+                                a.text-muted(ui-sref="employees.profile.team({team: employee.team})") {{::employee.team}}
                         tr(ng-if="employee.manager")
                             td.va-m.fw600.text-muted
                                 span.icon-user-4.mr10
-                                a.text-muted(ui-sref="employees({employeeid: employee.mid})") {{::employee.manager}}
+                                a.text-muted(ui-sref="employees.profile.employee({employee: employee.mid})") {{::employee.manager}}
                         tr(ng-if="employee.email")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-envelope.mr10

@@ -19,7 +19,7 @@
               <td class="va-m fw600 text-muted">{{::printer.brand}} {{::printer.model}}</td>
             </tr>
             <tr>
-              <td ng-click="vm.mapPrinter(printer)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span><span class="text-uppercase">{{::printer.location}}</span>&nbsp;/ Floor: {{::printer.floor}}</td>
+              <td ng-click="vm.mapPrinter(printer)" class="va-m fw600 cursor text-muted"><span class="fa fa-map-marker fs15 mr10"></span><a class="text-muted"><span class="text-uppercase">{{::printer.location}}</span>&nbsp;/ Floor: {{::printer.floor}}</a></td>
             </tr>
           </tbody>
         </table>

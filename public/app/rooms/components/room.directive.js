@@ -62,15 +62,6 @@
 		vm.rooms = edRoomService.getAllRooms();
 		vm.mappedRoom = null;
 
-		function viewProfile(seat) {
-			var selectedRoom = _.filter(vm.rooms, function (room) {
-				return room.seat === seat;
-			});
-			edRoomService.removeAllSelectedRooms();
-			edRoomService.updateSelectedRooms(selectedRoom[0]);
-			$state.go('rooms');
-		}
-
 		function mapRoom(name) {
 			var mappedRoomArray = _.filter(vm.rooms, function (room) {
 				return room.name === name;
@@ -84,6 +75,15 @@
 			} else {
 				edNotifierService.error('Sorry, I don\'t know this room.');
 			}
+		}
+
+		function viewProfile(seat) {
+			var selectedRoom = _.filter(vm.rooms, function (room) {
+				return room.seat === seat;
+			});
+			edRoomService.removeAllSelectedRooms();
+			edRoomService.updateSelectedRooms(selectedRoom[0]);
+			$state.go('rooms.profile.name', {'room': selectedRoom[0].name});
 		}
 	}
 })();

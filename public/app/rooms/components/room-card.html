@@ -10,7 +10,7 @@
               <td class="va-m fw600">{{::room.name}}</td>
             </tr>
             <tr>
-              <td class="va-m fw600 fw600 text-muted">{{::room.type}} Room</td>
+              <td class="va-m fw600"><a ui-sref="rooms.profile.type({roomtype: room.type})" class="text-muted">{{::room.type}} Room</a></td>
             </tr>
             <tr ng-if="room.ext">
               <td class="va-m fw600 text-muted"><span class="fa fa-phone mr10"></span>Internal: {{::room.ext}}</td>
@@ -25,7 +25,7 @@
               <td class="va-m fw600 text-muted"><span class="fa fa-users mr10"></span>Capacity: {{::room.capacity}}</td>
             </tr>
             <tr>
-              <td ng-click="vm.mapRoom(room)" class="va-m fw600 text-danger cursor"><span class="fa fa-map-marker fs15 mr10"></span><span class="text-uppercase">{{::room.location}}</span>&nbsp;/ Floor: {{::room.floor}}</td>
+              <td ng-click="vm.mapRoom(room)" class="va-m fw600 cursor text-muted"><span class="fa fa-map-marker fs15 mr10"></span><a class="text-muted"><span class="text-uppercase">{{::room.location}}</span>&nbsp;/ Floor: {{::room.floor}}</a></td>
             </tr>
           </tbody>
         </table>

@@ -97,8 +97,8 @@
 		function viewProfile() {
 			viewingProfile = true;
 			edEmployeeService.removeAllSelectedEmployees();
-			edEmployeeService.updateSelectedEmployees(edEmployeeService.getMappedEmployee());
-			$state.go('employees');
+			var selectedEmployee = edEmployeeService.updateSelectedEmployees(edEmployeeService.getMappedEmployee())[0];
+			$state.go('employees.profile.employee', {'employee': selectedEmployee.eid});
 		}
 	}
 })();

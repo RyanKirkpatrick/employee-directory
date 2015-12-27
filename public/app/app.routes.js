@@ -19,9 +19,20 @@
 		// for any unmatched url
 		$urlRouterProvider.otherwise('/');
 
+		$urlRouterProvider.when('/', '/employees/profile/');
+		$urlRouterProvider.when('/employees', '/employees/profile');
+		$urlRouterProvider.when('/employees/', '/employees/profile');
+		$urlRouterProvider.when('/printers', '/printers/profile');
+		$urlRouterProvider.when('/printers/', '/printers/profile');
+		$urlRouterProvider.when('/rooms', '/rooms/profile');
+		$urlRouterProvider.when('/rooms/', '/rooms/profile');
+
 		$stateProvider
+			.state('home', {
+				url: ''
+			})
 			.state('employees', {
-				url: '/?firstname&lastname&team&department&employeeid',
+				url: '/employees',
 				views: {
 					'main': {
 						templateUrl: '/partials/employees/views/profile/employee-profile',
@@ -40,8 +51,38 @@
 					}
 				}
 			})
-			.state('employees.department', {
-				url: 'department/:dept',
+			.state('employees.profile', {
+				url: '/profile/?firstname&lastname',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.profile.department', {
+				url: 'department/:department',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.profile.team', {
+				url: 'team/:team',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.profile.employee', {
+				url: 'employee/:employee',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/profile/employee-profile',
@@ -51,7 +92,7 @@
 				}
 			})
 			.state('employees.org-chart', {
-				url: 'org-chart/:employee',
+				url: '/org-chart/:employee',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/org-chart/org-chart',
@@ -61,7 +102,7 @@
 				}
 			})
 			.state('employees.map', {
-				url: 'map?employeeid',
+				url: '/map?employeeid',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/map/employee-map',
@@ -111,7 +152,7 @@
 				}
 			})
 			.state('printers', {
-				url: '/printers?printer&printerbrand',
+				url: '/printers',
 				views: {
 					'main@': {
 						templateUrl: '/partials/printers/views/profile/printer-profile',
@@ -126,6 +167,36 @@
 					'topbar@': {
 						templateUrl: '/partials/printers/components/printer-topbar',
 						controller: 'edPrinterTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.profile', {
+				url: '/profile',
+				views: {
+					'main@': {
+						templateUrl: '/partials/printers/views/profile/printer-profile',
+						controller: 'edPrinterProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.profile.name', {
+				url: '/name/:printer',
+				views: {
+					'main@': {
+						templateUrl: '/partials/printers/views/profile/printer-profile',
+						controller: 'edPrinterProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('printers.profile.brand', {
+				url: '/brand/:printerbrand',
+				views: {
+					'main@': {
+						templateUrl: '/partials/printers/views/profile/printer-profile',
+						controller: 'edPrinterProfileCtrl',
 						controllerAs: 'vm'
 					}
 				}
@@ -170,7 +241,6 @@
 					}
 				}
 			})
-
 			.state('printers.map.nyc-6', {
 				url: '/nyc-6/:name',
 				views: {
@@ -182,7 +252,7 @@
 				}
 			})
 			.state('rooms', {
-				url: '/rooms?room&roomtype',
+				url: '/rooms',
 				views: {
 					'main@': {
 						templateUrl: '/partials/rooms/views/profile/room-profile',
@@ -197,6 +267,36 @@
 					'topbar@': {
 						templateUrl: '/partials/rooms/components/room-topbar',
 						controller: 'edRoomTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.profile', {
+				url: '/profile',
+				views: {
+					'main@': {
+						templateUrl: '/partials/rooms/views/profile/room-profile',
+						controller: 'edRoomProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.profile.name', {
+				url: '/name/:room',
+				views: {
+					'main@': {
+						templateUrl: '/partials/rooms/views/profile/room-profile',
+						controller: 'edRoomProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('rooms.profile.type', {
+				url: '/type/:roomtype',
+				views: {
+					'main@': {
+						templateUrl: '/partials/rooms/views/profile/room-profile',
+						controller: 'edRoomProfileCtrl',
 						controllerAs: 'vm'
 					}
 				}
@@ -241,7 +341,6 @@
 					}
 				}
 			})
-
 			.state('rooms.map.nyc-6', {
 				url: '/nyc-6/:name',
 				views: {

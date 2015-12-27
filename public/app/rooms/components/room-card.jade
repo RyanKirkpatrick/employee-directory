@@ -14,7 +14,8 @@
                         tr
                             td.va-m.fw600 {{::room.name}}
                         tr
-                            td.va-m.fw600.fw600.text-muted {{::room.type}} Room
+                            td.va-m.fw600
+                                a.text-muted(ui-sref="rooms.profile.type({roomtype: room.type})") {{::room.type}} Room
                         tr(ng-if="room.ext")
                             td.va-m.fw600.text-muted
                                 span.fa.fa-phone.mr10
@@ -33,7 +34,8 @@
                                 span.fa.fa-users.mr10
                                 | Capacity: {{::room.capacity}}
                         tr
-                            td.va-m.fw600.text-danger.cursor(ng-click="vm.mapRoom(room)")
+                            td.va-m.fw600.cursor.text-muted(ng-click="vm.mapRoom(room)")
                                 span.fa.fa-map-marker.fs15.mr10
-                                span.text-uppercase {{::room.location}}
-                                | &nbsp;/ Floor: {{::room.floor}}
+                                a.text-muted
+                                    span.text-uppercase {{::room.location}}
+                                    | &nbsp;/ Floor: {{::room.floor}}

@@ -47,11 +47,11 @@
 		}
 
 		function selectEmployee(employee) {
-			edEmployeeService.updateSelectedEmployees(employee);
+			vm.selectedEmployee = edEmployeeService.updateSelectedEmployees(employee)[0];
 		}
 
 		function profileEmployee() {
-			$state.go('employees');
+			$state.go('employees.profile.employee', {'employee': vm.selectedEmployee.eid});
 		}
 
 		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {

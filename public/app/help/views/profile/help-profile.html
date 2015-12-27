@@ -38,55 +38,55 @@
           <li>
             <h4>First Name</h4><span>Passing in "firstname", you will get all employees with the specified first name.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?firstname=matt">http://directory.liazon.corp/?firstname=matt</a></li>
+              <li><a ui-sref="employees.profile({'firstname': 'matt'})">http://directory.liazon.corp/employees/profile/?firstname=matt</a></li>
             </ul><span>You can specify multiple first names by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?firstname=matt,eric">http://directory.liazon.corp/?firstname=matt,eric</a></li>
+              <li><a ui-sref="employees.profile({'firstname': 'matt,eric'})">http://directory.liazon.corp/employees/profile/?firstname=matt,eric</a></li>
             </ul>
           </li>
           <li>
             <h4>Last Name</h4><span>Passing in "lastname", you will get all employees with the specified last name.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?lastname=laderer">http://directory.liazon.corp/?lastname=laderer</a></li>
+              <li><a ui-sref="employees.profile({'lastname': 'laderer'})">http://directory.liazon.corp/employees/profile/?lastname=laderer</a></li>
             </ul><span>You can specify multiple last names by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?lastname=land,laderer">http://directory.liazon.corp/?firstname=land,laderer</a></li>
+              <li><a ui-sref="employees.profile({'lastname': 'land,laderer'})">http://directory.liazon.corp/employees/profile/?lastname=land,laderer</a></li>
             </ul>
           </li>
           <li>
             <h4>First & Last Name</h4><span>Passing in "firstname" & "lastname", you will get all employees with the specified first & last name.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?firstname=chad&amp;lastname=laderer">http://directory.liazon.corp/?firstname=chad&lastname=laderer</a></li>
+              <li><a ui-sref="employees.profile({'firstname': 'chad',lastname: 'laderer'})">http://directory.liazon.corp/employees/profile/?firstname=chad&lastname=laderer</a></li>
             </ul><span>You can specify multiple first & last names by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?firstname=chad,connor,natalia&amp;lastname=land,laderer">http://directory.liazon.corp/?firstname=chad,connor,natalia&lastname=land,laderer</a></li>
+              <li><a ui-sref="employees.profile({'firstname': 'chad,connor,natalia','lastname': 'land,laderer'})">http://directory.liazon.corp/employees/profile/?firstname=chad,connor,natalia&lastname=land,laderer</a></li>
             </ul>
           </li>
           <li>
-            <h4>Department</h4><span>Passing in "department", you will get all employees in the specified department.</span>
+            <h4>Department</h4><span>Specifying a "department", you will get all employees in the specified department.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?department=marketing">http://directory.liazon.corp/?department=marketing</a></li>
+              <li><a ui-sref="employees.profile.department({'department': 'marketing'})">http://directory.liazon.corp/employees/profile/department/marketing</a></li>
             </ul><span>You can specify multiple departments by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?department=finance,hr">http://directory.liazon.corp/?department=finance,hr</a></li>
+              <li><a ui-sref="employees.profile.department({'department': 'finance,hr'})">http://directory.liazon.corp/employees/profile/department/finance,hr</a></li>
             </ul>
           </li>
           <li>
-            <h4>Team</h4><span>Passing in "team", you will get all employees on the specified team.</span>
+            <h4>Team</h4><span>Specifying a "team", you will get all employees on the specified team.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?team=prestige+worldwide">http://directory.liazon.corp/?team=prestige+worldwide</a></li>
+              <li><a ui-sref="employees.profile.team({'team': 'prestige worldwide'})">http://directory.liazon.corp/employees/profile/team/prestige worldwide</a></li>
             </ul><span>You can specify multiple teams by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?team=prestige+worldwide,00+Agents">http://directory.liazon.corp/?team=prestige+worldwide,00+Agents</a></li>
+              <li><a ui-sref="employees.profile.team({'team': 'prestige worldwide,00 Agents'})">http://directory.liazon.corp/employees/profile/team/prestige worldwide,00 Agents</a></li>
             </ul>
           </li>
           <li>
-            <h4>Employee ID</h4><span>Passing in "employeeid" with the employee's ID number, you will get a specific employee.</span>
+            <h4>Employee ID</h4><span>Specifying an "employee" with the employee's ID number, you will get a specific employee.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?employeeid=2">http://directory.liazon.corp/?employeeid=2</a></li>
+              <li><a ui-sref="employees.profile.employee({'employee': '2'})">http://directory.liazon.corp/employees/profile/employee/2</a></li>
             </ul><span>You can specify multiple employees by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/?employeeid=2,3,4">http://directory.liazon.corp/?employeeid=2,3,4</a></li>
+              <li><a ui-sref="employees.profile.employee({'employee': '2,3,4'})">http://directory.liazon.corp/employees/profile/employee/2,3,4</a></li>
             </ul>
           </li>
         </ul>
@@ -115,21 +115,21 @@
         <h4>You can direct link to a particular room or group of rooms using one of the following query strings:</h4>
         <ul class="fs14 list-spacing-10 mbn">
           <li>
-            <h4>Room Name</h4><span>Passing in "room", you will get the room with the specified name.</span>
+            <h4>Room Name</h4><span>Specifying a "name", you will get the room with the specified name.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/rooms?room=big+ditch">http://directory.liazon.corp/rooms/?room=allentown</a></li>
+              <li><a ui-sref="rooms.profile.name({'room': 'big ditch'})">http://directory.liazon.corp/rooms/profile/name/big ditch</a></li>
             </ul><span>You can specify multiple rooms by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/rooms?room=allentown,main">http://directory.liazon.corp/rooms?room=allentown,main</a></li>
+              <li><a ui-sref="rooms.profile.name({'room': 'big ditch,main'})">http://directory.liazon.corp/rooms/profile/name/big ditch,main</a></li>
             </ul>
           </li>
           <li>
-            <h4>Room Type</h4><span>Passing in "roomtype", you will get all rooms with the specified type.</span>
+            <h4>Room Type</h4><span>Specifying a "type", you will get all rooms with the specified type.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/rooms?roomtype=training">http://directory.liazon.corp/rooms/?roomtype=training</a></li>
+              <li><a ui-sref="rooms.profile.type({'roomtype' :'training'})">http://directory.liazon.corp/rooms/profile/type/training</a></li>
             </ul><span>You can specify multiple room types by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/rooms?roomtype=training,break">http://directory.liazon.corp/rooms?roomtype=training,break</a></li>
+              <li><a ui-sref="rooms.profile.type({'roomtype' :'training,break'})">http://directory.liazon.corp/rooms/profile/roomtype/training,break</a></li>
             </ul>
           </li>
         </ul>
@@ -155,21 +155,21 @@
         <h4>You can direct link to a particular printer or group of printers using one of the following query strings:</h4>
         <ul class="fs14 list-spacing-10 mbn">
           <li>
-            <h4>Printer Name</h4><span>Passing in "printer", you will get the printer with the specified name.</span>
+            <h4>Printer Name</h4><span>Specifying a "name", you will get the printer with the specified name.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/printers?printer=LZB7P1-LEX510">http://directory.liazon.corp/printers/?printer=LZB7P1-LEX510</a></li>
+              <li><a ui-sref="printers.profile.name({'printer': 'LZB7P1-LEX510'})">http://directory.liazon.corp/printers/profile/name/LZB7P1-LEX510</a></li>
             </ul><span>You can specify multiple printers by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280">http://directory.liazon.corp/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280</a></li>
+              <li><a ui-sref="printers.profile.name({'printer': 'LZB7P1-LEX510,LZB8P2-BIZ280'})">http://directory.liazon.corp/printers/profile/name/LZB7P1-LEX510,LZB8P2-BIZ280</a></li>
             </ul>
           </li>
           <li>
-            <h4>Printer Brand</h4><span>Passing in "printerbrand", you will get all printers of the specified brand.</span>
+            <h4>Printer Brand</h4><span>Specifying a "brand", you will get all printers of the specified brand.</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/printers?printerbrand=lexmark">http://directory.liazon.corp/printers/?printerbrand=lexmark</a></li>
+              <li><a ui-sref="printers.profile.brand({printerbrand: 'lexmark'})">http://directory.liazon.corp/printers/profile/brand/lexmark</a></li>
             </ul><span>You can specify multiple printer brands by separating them with commas (,) in the query string</span>
             <ul class="fs14 list-spacing-10 mbn">
-              <li><a href="/printers?printerbrand=lexmark,Hewlett+Packard">http://directory.liazon.corp/printers/?printerbrand=lexmark,Hewlett+Packard</a></li>
+              <li><a ui-sref="printers.profile.brand({printerbrand: 'lexmark,Hewlett Packard'})">http://directory.liazon.corp/printers/profile/brand/lexmark,Hewlett Packard</a></li>
             </ul>
           </li>
         </ul>

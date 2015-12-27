@@ -44,61 +44,61 @@ div.mw1000.center-block
                         span Passing in "firstname", you will get all employees with the specified first name.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?firstname=matt") http://directory.liazon.corp/?firstname=matt
+                                a(ui-sref="employees.profile({'firstname': 'matt'})") http://directory.liazon.corp/employees/profile/?firstname=matt
                         span You can specify multiple first names by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?firstname=matt,eric") http://directory.liazon.corp/?firstname=matt,eric
+                                a(ui-sref="employees.profile({'firstname': 'matt,eric'})") http://directory.liazon.corp/employees/profile/?firstname=matt,eric
                     li
                         h4 Last Name
                         span Passing in "lastname", you will get all employees with the specified last name.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?lastname=laderer") http://directory.liazon.corp/?lastname=laderer
+                                a(ui-sref="employees.profile({'lastname': 'laderer'})") http://directory.liazon.corp/employees/profile/?lastname=laderer
                         span You can specify multiple last names by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?lastname=land,laderer") http://directory.liazon.corp/?firstname=land,laderer
+                                a(ui-sref="employees.profile({'lastname': 'land,laderer'})") http://directory.liazon.corp/employees/profile/?lastname=land,laderer
                     li
                         h4 First & Last Name
                         span Passing in "firstname" & "lastname", you will get all employees with the specified first & last name.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?firstname=chad&lastname=laderer") http://directory.liazon.corp/?firstname=chad&lastname=laderer
+                                a(ui-sref="employees.profile({'firstname': 'chad',lastname: 'laderer'})") http://directory.liazon.corp/employees/profile/?firstname=chad&lastname=laderer
                         span You can specify multiple first & last names by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?firstname=chad,connor,natalia&lastname=land,laderer") http://directory.liazon.corp/?firstname=chad,connor,natalia&lastname=land,laderer
+                                a(ui-sref="employees.profile({'firstname': 'chad,connor,natalia','lastname': 'land,laderer'})") http://directory.liazon.corp/employees/profile/?firstname=chad,connor,natalia&lastname=land,laderer
                     li
                         h4 Department
-                        span Passing in "department", you will get all employees in the specified department.
+                        span Specifying a "department", you will get all employees in the specified department.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?department=marketing") http://directory.liazon.corp/?department=marketing
+                                a(ui-sref="employees.profile.department({'department': 'marketing'})") http://directory.liazon.corp/employees/profile/department/marketing
                         span You can specify multiple departments by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?department=finance,hr") http://directory.liazon.corp/?department=finance,hr
+                                a(ui-sref="employees.profile.department({'department': 'finance,hr'})") http://directory.liazon.corp/employees/profile/department/finance,hr
                     li
                         h4 Team
-                        span Passing in "team", you will get all employees on the specified team.
+                        span Specifying a "team", you will get all employees on the specified team.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?team=prestige+worldwide") http://directory.liazon.corp/?team=prestige+worldwide
+                                a(ui-sref="employees.profile.team({'team': 'prestige worldwide'})") http://directory.liazon.corp/employees/profile/team/prestige worldwide
                         span You can specify multiple teams by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?team=prestige+worldwide,00+Agents") http://directory.liazon.corp/?team=prestige+worldwide,00+Agents
+                                a(ui-sref="employees.profile.team({'team': 'prestige worldwide,00 Agents'})") http://directory.liazon.corp/employees/profile/team/prestige worldwide,00 Agents
                     li
                         h4 Employee ID
-                        span Passing in "employeeid" with the employee's ID number, you will get a specific employee.
+                        span Specifying an "employee" with the employee's ID number, you will get a specific employee.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?employeeid=2") http://directory.liazon.corp/?employeeid=2
+                                a(ui-sref="employees.profile.employee({'employee': '2'})") http://directory.liazon.corp/employees/profile/employee/2
                         span You can specify multiple employees by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/?employeeid=2,3,4") http://directory.liazon.corp/?employeeid=2,3,4
+                                a(ui-sref="employees.profile.employee({'employee': '2,3,4'})") http://directory.liazon.corp/employees/profile/employee/2,3,4
                 hr.short.alt
                 h3
                     i.fa.fa-building-o.text-primary.fa-lg.pr10
@@ -127,24 +127,24 @@ div.mw1000.center-block
                 ul.fs14.list-spacing-10.mbn
                     li
                         h4 Room Name
-                        span Passing in "room", you will get the room with the specified name.
+                        span Specifying a "name", you will get the room with the specified name.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/rooms?room=big+ditch") http://directory.liazon.corp/rooms/?room=allentown
+                                a(ui-sref="rooms.profile.name({'room': 'big ditch'})") http://directory.liazon.corp/rooms/profile/name/big ditch
                         span You can specify multiple rooms by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/rooms?room=allentown,main") http://directory.liazon.corp/rooms?room=allentown,main
+                                a(ui-sref="rooms.profile.name({'room': 'big ditch,main'})") http://directory.liazon.corp/rooms/profile/name/big ditch,main
                     li
                         h4 Room Type
-                        span Passing in "roomtype", you will get all rooms with the specified type.
+                        span Specifying a "type", you will get all rooms with the specified type.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/rooms?roomtype=training") http://directory.liazon.corp/rooms/?roomtype=training
+                                a(ui-sref="rooms.profile.type({'roomtype' :'training'})") http://directory.liazon.corp/rooms/profile/type/training
                         span You can specify multiple room types by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/rooms?roomtype=training,break") http://directory.liazon.corp/rooms?roomtype=training,break
+                                a(ui-sref="rooms.profile.type({'roomtype' :'training,break'})") http://directory.liazon.corp/rooms/profile/roomtype/training,break
                 hr.short.alt
                 h3
                     i.icon-print.text-primary.fa-lg.pr10
@@ -170,21 +170,21 @@ div.mw1000.center-block
                 ul.fs14.list-spacing-10.mbn
                     li
                         h4 Printer Name
-                        span Passing in "printer", you will get the printer with the specified name.
+                        span Specifying a "name", you will get the printer with the specified name.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/printers?printer=LZB7P1-LEX510") http://directory.liazon.corp/printers/?printer=LZB7P1-LEX510
+                                a(ui-sref="printers.profile.name({'printer': 'LZB7P1-LEX510'})") http://directory.liazon.corp/printers/profile/name/LZB7P1-LEX510
                         span You can specify multiple printers by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280") http://directory.liazon.corp/printers?printer=LZB7P1-LEX510,LZB8P2-BIZ280
+                                a(ui-sref="printers.profile.name({'printer': 'LZB7P1-LEX510,LZB8P2-BIZ280'})") http://directory.liazon.corp/printers/profile/name/LZB7P1-LEX510,LZB8P2-BIZ280
                     li
                         h4 Printer Brand
-                        span Passing in "printerbrand", you will get all printers of the specified brand.
+                        span Specifying a "brand", you will get all printers of the specified brand.
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/printers?printerbrand=lexmark") http://directory.liazon.corp/printers/?printerbrand=lexmark
+                                a(ui-sref="printers.profile.brand({printerbrand: 'lexmark'})") http://directory.liazon.corp/printers/profile/brand/lexmark
                         span You can specify multiple printer brands by separating them with commas (,) in the query string
                         ul.fs14.list-spacing-10.mbn
                             li
-                                a(href="/printers?printerbrand=lexmark,Hewlett+Packard") http://directory.liazon.corp/printers/?printerbrand=lexmark,Hewlett+Packard
+                                a(ui-sref="printers.profile.brand({printerbrand: 'lexmark,Hewlett Packard'})") http://directory.liazon.corp/printers/profile/brand/lexmark,Hewlett Packard
