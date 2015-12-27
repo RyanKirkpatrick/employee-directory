@@ -19,24 +19,32 @@
 		// for any unmatched url
 		$urlRouterProvider.otherwise('/');
 
-		$urlRouterProvider.when('/', '/employees/profile/');
-		$urlRouterProvider.when('/employees', '/employees/profile');
-		$urlRouterProvider.when('/employees/', '/employees/profile');
-		$urlRouterProvider.when('/printers', '/printers/profile');
-		$urlRouterProvider.when('/printers/', '/printers/profile');
-		$urlRouterProvider.when('/rooms', '/rooms/profile');
-		$urlRouterProvider.when('/rooms/', '/rooms/profile');
+		$urlRouterProvider.when('/employees/', '/employees');
+		$urlRouterProvider.when('/printers/', '/printers');
+		$urlRouterProvider.when('/rooms/', '/rooms');
 
 		$stateProvider
 			.state('home', {
-				url: ''
+				url: '/',
+				views: {
+					'main': {
+						templateUrl: '/partials/common/views/index',
+						controller: 'edIndexCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar': {
+						templateUrl: '/partials/common/components/index-topbar',
+						controller: 'edIndexTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
 			})
 			.state('employees', {
 				url: '/employees',
 				views: {
 					'main': {
-						templateUrl: '/partials/employees/views/profile/employee-profile',
-						controller: 'edEmployeeProfileCtrl',
+						templateUrl: '/partials/employees/views/employee',
+						controller: 'edEmployeeCtrl',
 						controllerAs: 'vm'
 					},
 					'sidebar': {
@@ -102,7 +110,7 @@
 				}
 			})
 			.state('employees.map', {
-				url: '/map?employeeid',
+				url: '/map/?employee',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/map/employee-map',
@@ -112,7 +120,7 @@
 				}
 			})
 			.state('employees.map.buf-6', {
-				url: '/buf-6/:seat',
+				url: 'buf-6/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -122,7 +130,7 @@
 				}
 			})
 			.state('employees.map.buf-7', {
-				url: '/buf-7/:seat',
+				url: 'buf-7/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -132,7 +140,7 @@
 				}
 			})
 			.state('employees.map.buf-8', {
-				url: '/buf-8/:seat',
+				url: 'buf-8/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -142,7 +150,7 @@
 				}
 			})
 			.state('employees.map.nyc-6', {
-				url: '/nyc-6/:seat',
+				url: 'nyc-6/:seat',
 				views: {
 					'main@': {
 						templateUrl: '/partials/common/views/floor',
@@ -155,8 +163,8 @@
 				url: '/printers',
 				views: {
 					'main@': {
-						templateUrl: '/partials/printers/views/profile/printer-profile',
-						controller: 'edPrinterProfileCtrl',
+						templateUrl: '/partials/printers/views/printer',
+						controller: 'edPrinterCtrl',
 						controllerAs: 'vm'
 					},
 					'sidebar@': {
@@ -255,8 +263,8 @@
 				url: '/rooms',
 				views: {
 					'main@': {
-						templateUrl: '/partials/rooms/views/profile/room-profile',
-						controller: 'edRoomProfileCtrl',
+						templateUrl: '/partials/rooms/views/room',
+						controller: 'edRoomCtrl',
 						controllerAs: 'vm'
 					},
 					'sidebar@': {

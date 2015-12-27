@@ -22,7 +22,7 @@
   <body ng-app="app">
     <div id="main">
       <header class="navbar navbar-fixed-top navbar-shadow">
-        <div class="navbar-branding"><a ui-sref="employees.profile" class="navbar-brand"><img src="/images/liazon-directory.svg"></a></div>
+        <div class="navbar-branding"><a ui-sref="home" class="navbar-brand"><img src="/images/liazon-directory.svg"></a></div>
       </header>
       <ed-sidebar-left></ed-sidebar-left>
       <section id="content_wrapper">
@@ -59,7 +59,9 @@
     <script type="text/javascript" src="/app/common/services/artifact-resource.service.js"></script>
     <script type="text/javascript" src="/app/common/services/cached-artifact-resource.service.js"></script>
     <script type="text/javascript" src="/app/common/filters/custom-filters.js"></script>
+    <script type="text/javascript" src="/app/common/views/index.controller.js"></script>
     <script type="text/javascript" src="/app/common/views/floor.controller.js"></script>
+    <script type="text/javascript" src="/app/common/components/index-topbar.controller.js"></script>
     <script type="text/javascript" src="/app/common/components/sidebar-left.directive.js"></script>
     <script type="text/javascript" src="/app/common/components/footer.directive.js"></script>
     <script type="text/javascript" src="/app/common/components/artifact.directive.js"></script>
@@ -70,6 +72,7 @@
     <script type="text/javascript" src="/app/employees/services/desk.service.js"></script>
     <script type="text/javascript" src="/app/employees/services/desk-resource.service.js"></script>
     <script type="text/javascript" src="/app/employees/services/cached-desk-resource.service.js"></script>
+    <script type="text/javascript" src="/app/employees/views/employee.controller.js"></script>
     <script type="text/javascript" src="/app/employees/views/profile/employee-profile.controller.js"></script>
     <script type="text/javascript" src="/app/employees/views/map/employee-map.controller.js"></script>
     <script type="text/javascript" src="/app/employees/views/org-chart/org-chart.controller.js"></script>
@@ -80,6 +83,7 @@
     <script type="text/javascript" src="/app/rooms/services/room.service.js"></script>
     <script type="text/javascript" src="/app/rooms/services/room-resource.service.js"></script>
     <script type="text/javascript" src="/app/rooms/services/cached-room-resource.service.js"></script>
+    <script type="text/javascript" src="/app/rooms/views/room.controller.js"></script>
     <script type="text/javascript" src="/app/rooms/views/profile/room-profile.controller.js"></script>
     <script type="text/javascript" src="/app/rooms/views/map/room-map.controller.js"></script>
     <script type="text/javascript" src="/app/rooms/components/room-selector.controller.js"></script>
@@ -89,6 +93,7 @@
     <script type="text/javascript" src="/app/printers/services/printer.service.js"></script>
     <script type="text/javascript" src="/app/printers/services/printer-resource.service.js"></script>
     <script type="text/javascript" src="/app/printers/services/cached-printer-resource.service.js"></script>
+    <script type="text/javascript" src="/app/printers/views/printer.controller.js"></script>
     <script type="text/javascript" src="/app/printers/views/profile/printer-profile.controller.js"></script>
     <script type="text/javascript" src="/app/printers/views/map/printer-map.controller.js"></script>
     <script type="text/javascript" src="/app/printers/components/printer-selector.controller.js"></script>

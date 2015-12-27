@@ -15,8 +15,8 @@
 		activate();
 
 		function activate() {
-			if ($stateParams.employeeid) {
-				edEmployeeService.updateMappedEmployeeById($stateParams.employeeid);
+			if ($stateParams.employee) {
+				edEmployeeService.updateMappedEmployeeById($stateParams.employee);
 			} else if (vm.mappedEmployee) {
 				locateEmployee(vm.mappedEmployee);
 			}

@@ -322,3 +322,26 @@ Sidebar
   text-align: center;
   width: 35px;
 }
+.boxed-link {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: block;
+  height: 197px;
+  margin-bottom: 27px;
+  padding: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.boxed-link:hover {
+  -webkit-box-shadow: 1px 1px 7px 1px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 7px 1px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+.boxed-link h4 {
+  color: #666;
+}
