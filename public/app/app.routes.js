@@ -22,6 +22,7 @@
 		$urlRouterProvider.when('/employees/', '/employees');
 		$urlRouterProvider.when('/printers/', '/printers');
 		$urlRouterProvider.when('/rooms/', '/rooms');
+		$urlRouterProvider.when('/guilds/', '/guilds');
 
 		$stateProvider
 			.state('home', {

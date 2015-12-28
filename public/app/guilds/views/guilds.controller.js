@@ -33,8 +33,7 @@
 
 		function profileEmployee(employee) {
 			edEmployeeService.removeAllSelectedEmployees();
-			edEmployeeService.updateSelectedEmployees(employee);
-			$state.go('employees');
+			$state.go('employees.profile.employee', {'employee': employee.eid});
 		}
 	}
 })();
