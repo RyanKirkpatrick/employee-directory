@@ -24,7 +24,8 @@
                         tr
                             td.va-m.fw600 {{::employee.displayName}}
                         tr
-                            td.va-m.fw600.text-muted {{::employee.title}}
+                            td.va-m.fw600.text-muted
+                                a.text-muted(ui-sref="employees.profile.title({title: employee.title})") {{::employee.title}}
                         tr
                             td.va-m.fw600.text-muted
                                 a.text-muted(ui-sref="employees.profile.department({department: employee.department})") {{::employee.department}}

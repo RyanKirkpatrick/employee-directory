@@ -23,14 +23,38 @@
         <div class="well">
           <ul class="fs14 list-unstyled list-spacing-10 mbn">
             <li>Name</li>
-            <li>Job Title</li>
-            <li>Department</li>
-            <li>Team</li>
-            <li>Manager</li>
-            <li>Email - clicking the email address will begin to compose an email message to the employee</li>
+            <li>Job Title
+              <ul>
+                <li>clicking the Job Title will display all employees with the same job title</li>
+              </ul>
+            </li>
+            <li>Department
+              <ul>
+                <li>clicking the Department will display all employees in that department</li>
+              </ul>
+            </li>
+            <li>Team
+              <ul>
+                <li>clicking the Team will display all employees on that team</li>
+              </ul>
+            </li>
+            <li>Manager
+              <ul>
+                <li>clicking the Manager will display the manager's profile</li>
+              </ul>
+            </li>
+            <li>Email
+              <ul>
+                <li>clicking the Email Address will begin to compose an email message to the employee</li>
+              </ul>
+            </li>
             <li>Internal Extension</li>
             <li>Direct Dial Phone Number</li>
-            <li>Location - clicking the location will display the employee's desk location on a map of the office</li>
+            <li>Location
+              <ul>
+                <li>clicking the Location will display the employee's desk location on a map of the office</li>
+              </ul>
+            </li>
           </ul>
         </div>
         <h4>You can direct link to a particular individual or group using one of the following query strings:</h4>
@@ -65,6 +89,15 @@
         </ul>
         <h4>You can direct link to a particular individual or group using one of the following url patterns:</h4>
         <ul class="fs14 list-spacing-10 mbn">
+          <li>
+            <h4>Job Title</h4><span>Specifying a "title", you will get all employees with the specified title.</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a ui-sref="employees.profile.title({'title': 'Sr. Engineer, Software'})">http://directory.liazon.corp/employees/profile/title/sr. engineer, software</a></li>
+            </ul><span>You can specify multiple departments by separating them with pipe (|) in the query string</span>
+            <ul class="fs14 list-spacing-10 mbn">
+              <li><a ui-sref="employees.profile.title({'title': 'account executive|sr. engineer, software'})">http://directory.liazon.corp/employees/profile/department/account executive|sr. engineer, software</a></li>
+            </ul>
+          </li>
           <li>
             <h4>Department</h4><span>Specifying a "department", you will get all employees in the specified department.</span>
             <ul class="fs14 list-spacing-10 mbn">

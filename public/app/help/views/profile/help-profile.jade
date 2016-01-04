@@ -30,13 +30,25 @@ div.mw1000.center-block
                     ul.fs14.list-unstyled.list-spacing-10.mbn
                         li Name
                         li Job Title
+                            ul
+                                li clicking the Job Title will display all employees with the same job title
                         li Department
+                            ul
+                                li clicking the Department will display all employees in that department
                         li Team
+                            ul
+                                li clicking the Team will display all employees on that team
                         li Manager
-                        li Email - clicking the email address will begin to compose an email message to the employee
+                            ul
+                                li clicking the Manager will display the manager's profile
+                        li Email
+                            ul
+                                li clicking the Email Address will begin to compose an email message to the employee
                         li Internal Extension
                         li Direct Dial Phone Number
-                        li Location - clicking the location will display the employee's desk location on a map of the office
+                        li Location
+                            ul
+                                li clicking the Location will display the employee's desk location on a map of the office
                 h4 You can direct link to a particular individual or group using one of the following query strings:
                 ul.fs14.list-spacing-10.mb30
                     li
@@ -71,6 +83,16 @@ div.mw1000.center-block
                                 a(ui-sref="employees.profile({'firstname': 'chad,connor,natalia','lastname': 'land,laderer'})") http://directory.liazon.corp/employees/profile/?firstname=chad,connor,natalia&lastname=land,laderer
                 h4 You can direct link to a particular individual or group using one of the following url patterns:
                 ul.fs14.list-spacing-10.mbn
+                    li
+                        h4 Job Title
+                        span Specifying a "title", you will get all employees with the specified title.
+                        ul.fs14.list-spacing-10.mbn
+                            li
+                                a(ui-sref="employees.profile.title({'title': 'Sr. Engineer, Software'})") http://directory.liazon.corp/employees/profile/title/sr. engineer, software
+                        span You can specify multiple departments by separating them with pipe (|) in the query string
+                        ul.fs14.list-spacing-10.mbn
+                            li
+                                a(ui-sref="employees.profile.title({'title': 'account executive|sr. engineer, software'})") http://directory.liazon.corp/employees/profile/department/account executive|sr. engineer, software
                     li
                         h4 Department
                         span Specifying a "department", you will get all employees in the specified department.

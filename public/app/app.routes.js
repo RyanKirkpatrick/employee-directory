@@ -80,6 +80,16 @@
 					}
 				}
 			})
+			.state('employees.profile.title', {
+				url: 'title/:title',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('employees.profile.team', {
 				url: 'team/:team',
 				views: {

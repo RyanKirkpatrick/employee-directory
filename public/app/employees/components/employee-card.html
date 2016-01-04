@@ -15,7 +15,7 @@
               <td class="va-m fw600">{{::employee.displayName}}</td>
             </tr>
             <tr>
-              <td class="va-m fw600 text-muted">{{::employee.title}}</td>
+              <td class="va-m fw600 text-muted"><a ui-sref="employees.profile.title({title: employee.title})" class="text-muted">{{::employee.title}}</a></td>
             </tr>
             <tr>
               <td class="va-m fw600 text-muted"><a ui-sref="employees.profile.department({department: employee.department})" class="text-muted">{{::employee.department}}</a></td>
