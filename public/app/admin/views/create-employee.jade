@@ -6,7 +6,7 @@
                     .section-divider
                         span Create New Employee
                     .row
-                        .col-md-1
+                        .col-md-2
                             .section
                                 label.field(ng-class="{'state-error': createEmployeeForm.eid.$invalid && !createEmployeeForm.eid.$pristine}")
                                     input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.newEmployee.eid", focus-if="true", focus-delay="1000", required)
@@ -18,7 +18,7 @@
                             .section
                                 label.field(ng-class="{'state-error': createEmployeeForm.lastName.$invalid && !createEmployeeForm.lastName.$pristine}")
                                     input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.newEmployee.lastName", required)
-                        .col-md-3
+                        .col-md-2
                             .section
                                 label.field
                                     input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.newEmployee.nickname")

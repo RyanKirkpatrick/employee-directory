@@ -10,7 +10,7 @@
                     .section-divider
                         span Update Employee Profile
                     .row
-                        .col-md-1
+                        .col-md-2
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.eid.$invalid}")
                                     input.gui-input(name="eid", type="text", placeholder="ID", ng-model="vm.selectedEmployee.eid", required)
@@ -22,7 +22,7 @@
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.lastName.$invalid}")
                                     input.gui-input(name="lastName", type="text", placeholder="Last Name", ng-model="vm.selectedEmployee.lastName", required)
-                        .col-md-3
+                        .col-md-2
                             .section
                                 label.field
                                     input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.selectedEmployee.nickname")
