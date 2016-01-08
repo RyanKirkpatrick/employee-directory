@@ -87,6 +87,16 @@
                                     input(type="checkbox", name="hasReports", ng-model="vm.newEmployee.hasReports")
                                     span.checkbox
                                     | Has Reports
+                    div(ng-if="vm.identity.isAuthorized('super-admin')")
+                        .section-divider
+                            span Guilds
+                        .row
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="guild-font-end", ng-model="vm.newEmployee.guilds['front-end']")
+                                        span.checkbox
+                                        | Front-End
                 .panel-footer.text-right
                     button.button.btn-primary(type="submit", ng-click="vm.createEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="createEmployeeForm.$invalid") Submit
                     button.button.btn-default(type="reset") Cancel

@@ -91,6 +91,16 @@
                                     input(type="checkbox", name="hasReports", ng-model="vm.selectedEmployee.hasReports")
                                     span.checkbox
                                     | Has Reports
+                    div(ng-if="vm.identity.isAuthorized('super-admin')")
+                        .section-divider
+                            span Guilds
+                        .row
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="guild-font-end", ng-model="vm.selectedEmployee.guilds['front-end']")
+                                        span.checkbox
+                                        | Front-End
                 .panel-footer.text-right
                     button.button.btn-danger.pull-left(type="button", ng-click="vm.deleteEmployee()") Delete Employee
                     button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit

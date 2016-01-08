@@ -141,6 +141,18 @@
               </div>
             </div>
           </div>
+          <div ng-if="vm.identity.isAuthorized('super-admin')">
+            <div class="section-divider"><span>Guilds</span></div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="guild-font-end" ng-model="vm.selectedEmployee.guilds['front-end']"/><span class="checkbox"></span>Front-End
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="panel-footer text-right">
           <button type="button" ng-click="vm.deleteEmployee()" class="button btn-danger pull-left">Delete Employee</button>

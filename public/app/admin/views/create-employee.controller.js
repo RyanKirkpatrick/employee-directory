@@ -2,10 +2,11 @@
 	'use strict';
 	angular.module('app').controller('edCreateEmployeeCtrl', edCreateEmployeeCtrl);
 
-	edCreateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService', '_'];
+	edCreateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edSidebarService', 'edEmployeeAdminService', 'edIdentityService', '_'];
 
-	function edCreateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService, _) {
+	function edCreateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edSidebarService, edEmployeeAdminService, edIdentityService, _) {
 		var vm = this;
+		vm.identity = edIdentityService;
 		vm.createEmployee = createEmployee;
 		vm.desks = edDeskService.getAllDesks();
 		vm.managers = null;
@@ -45,6 +46,7 @@
 				department: '',
 				title: '',
 				team: '',
+				guilds:{},
 				location: '',
 				floor: '',
 				seat: '',
@@ -77,12 +79,20 @@
 				department: vm.newEmployee.department,
 				title: vm.newEmployee.title,
 				team: vm.newEmployee.team,
+				guilds: [],
 				location: vm.newEmployee.location,
 				floor: vm.newEmployee.floor,
 				seat: vm.newEmployee.seat,
 				hasReports: vm.newEmployee.hasReports,
 				mid: vm.newEmployee.mid
 			};
+
+			// Add all the selected guilds
+			_.forEach(vm.newEmployee.guilds, function (include, guild) {
+				if (include) {
+					newEmployeeData.guilds.push(guild);
+				}
+			});
 
 			edEmployeeAdminService.createEmployee(newEmployeeData).then(function (employee) {
 				edNotifierService.notify('New Employee Added!');

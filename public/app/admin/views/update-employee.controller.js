@@ -2,10 +2,11 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', '_'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', '_'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, _) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, _) {
 		var vm = this;
+		vm.identity = edIdentityService;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
 		vm.cancelUpdateEmployee = cancelUpdateEmployee;
@@ -51,12 +52,18 @@
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
 				team: selectedEmployees[0].team,
+				guilds: {},
 				location: selectedEmployees[0].location,
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
 				mid: selectedEmployees[0].mid
 			};
+
+			_.forEach(selectedEmployees[0].guilds, function (guild) {
+				vm.selectedEmployee.guilds[guild] = true;
+			});
+
 			filterManagers(selectedEmployees[0]);
 		}
 
@@ -111,12 +118,20 @@
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
 				team: vm.selectedEmployee.team,
+				guilds: [],
 				location: vm.selectedEmployee.location,
 				floor: vm.selectedEmployee.floor,
 				seat: vm.selectedEmployee.seat,
 				hasReports: vm.selectedEmployee.hasReports,
 				mid: vm.selectedEmployee.mid
 			};
+
+			// Add all the selected guilds
+			_.forEach(vm.selectedEmployee.guilds, function (include, guild) {
+				if (include) {
+					newEmployeeData.guilds.push(guild);
+				}
+			});
 
 			// Save the image file for uploading
 			var imageFile = vm.selectedEmployee.imageFile;
