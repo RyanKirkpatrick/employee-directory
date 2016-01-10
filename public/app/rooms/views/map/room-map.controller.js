@@ -10,6 +10,7 @@
 		vm.mappedRoom = edRoomService.getMappedRoom();
 
 		edRoomService.setDisplayRoomInfoType('location');
+		edRoomService.setSelectMultipleRooms(false);
 
 		activate();
 

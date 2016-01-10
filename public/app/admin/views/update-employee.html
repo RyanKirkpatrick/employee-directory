@@ -54,7 +54,7 @@
             <div class="col-md-6">
               <div class="section">
                 <label ng-class="{'state-error': updateEmployeeForm.email.$invalid}" class="field">
-                  <input name="email" type="text" placeholder="Email" ng-model="vm.selectedEmployee.email" required="required" class="gui-input"/>
+                  <input name="email" type="email" placeholder="Email" ng-model="vm.selectedEmployee.email" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -62,8 +62,10 @@
           <div class="row">
             <div class="col-md-3">
               <div class="section">
-                <label ng-class="{'state-error': updateEmployeeForm.department.$invalid}" class="field">
-                  <input name="department" type="text" placeholder="Department" ng-model="vm.selectedEmployee.department" required="required" class="gui-input"/>
+                <label class="field select">
+                  <select name="department" ng-model="vm.selectedEmployee.department" ng-options="department for department in vm.departments | orderBy: 'department'" required="required">
+                    <option disabled="disabled" value="">Department</option>
+                  </select><i class="arrow"></i>
                 </label>
               </div>
             </div>
@@ -148,6 +150,39 @@
                 <div class="section">
                   <label class="option option-primary mt10">
                     <input type="checkbox" name="guild-font-end" ng-model="vm.selectedEmployee.guilds['front-end']"/><span class="checkbox"></span>Front-End
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-if="vm.identity.isAuthorized('super-admin')">
+            <div class="section-divider"><span>Committees</span></div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-fun-games" ng-model="vm.selectedEmployee.committees['fun-games']"/><span class="checkbox"></span>Fun &amp; Games
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-wellness" ng-model="vm.selectedEmployee.committees['wellness']"/><span class="checkbox"></span>Wellness
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-diversity" ng-model="vm.selectedEmployee.committees['diversity']"/><span class="checkbox"></span>Diversity
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-beautification" ng-model="vm.selectedEmployee.committees['beautification']"/><span class="checkbox"></span>Beautification
                   </label>
                 </div>
               </div>

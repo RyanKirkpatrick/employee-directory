@@ -21,6 +21,9 @@
 		edEmployeeService.setDisplayEmployeeInfoType('location');
 		edPrinterService.setDisplayPrinterInfoType('location');
 		edRoomService.setDisplayRoomInfoType('location');
+		edEmployeeService.setSelectMultipleEmployees(false);
+		edRoomService.setSelectMultipleRooms(false);
+		edPrinterService.setSelectMultiplePrinters(false);
 
 		activate();
 

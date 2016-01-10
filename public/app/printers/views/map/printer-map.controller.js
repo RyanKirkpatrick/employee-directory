@@ -10,6 +10,7 @@
 		vm.mappedPrinter = edPrinterService.getMappedPrinter();
 
 		edPrinterService.setDisplayPrinterInfoType('location');
+		edPrinterService.setSelectMultiplePrinters(false);
 
 		activate();
 

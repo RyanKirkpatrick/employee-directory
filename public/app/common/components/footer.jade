@@ -3,7 +3,8 @@ footer#content-footer.affix
         .col-xs-6
             ul.footer-help-links
                 li
-                    span.footer-legal &copy; 2015 The Maestro
+                    span.footer-legal &copy; 2016 &nbsp;
+                        a(ui-sref="employees.profile.employee({employee: 1209624})") The Maestro
                 li
                     a(ui-sref="help") Help
                 li(ng-if="!vm.identity.isAuthenticated()")

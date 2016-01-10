@@ -38,12 +38,14 @@
                         .col-md-6
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.email.$invalid}")
-                                    input.gui-input(name="email", type="text", placeholder="Email", ng-model="vm.selectedEmployee.email", required)
+                                    input.gui-input(name="email", type="email", placeholder="Email", ng-model="vm.selectedEmployee.email", required)
                     .row
                         .col-md-3
                             .section
-                                label.field(ng-class="{'state-error': updateEmployeeForm.department.$invalid}")
-                                    input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.selectedEmployee.department", required)
+                                label.field.select
+                                    select(name="department", ng-model="vm.selectedEmployee.department", ng-options="department for department in vm.departments | orderBy: 'department'", required)
+                                        option(disabled, value="") Department
+                                    i.arrow
                         .col-md-3
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.title.$invalid}")
@@ -101,6 +103,34 @@
                                         input(type="checkbox", name="guild-font-end", ng-model="vm.selectedEmployee.guilds['front-end']")
                                         span.checkbox
                                         | Front-End
+                    div(ng-if="vm.identity.isAuthorized('super-admin')")
+                        .section-divider
+                            span Committees
+                        .row
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="committee-fun-games", ng-model="vm.selectedEmployee.committees['fun-games']")
+                                        span.checkbox
+                                        | Fun &amp; Games
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="committee-wellness", ng-model="vm.selectedEmployee.committees['wellness']")
+                                        span.checkbox
+                                        | Wellness
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="committee-diversity", ng-model="vm.selectedEmployee.committees['diversity']")
+                                        span.checkbox
+                                        | Diversity
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="committee-beautification", ng-model="vm.selectedEmployee.committees['beautification']")
+                                        span.checkbox
+                                        | Beautification
                 .panel-footer.text-right
                     button.button.btn-danger.pull-left(type="button", ng-click="vm.deleteEmployee()") Delete Employee
                     button.button.btn-primary(type="submit", ng-click="vm.updateEmployee();" onclick="document.getElementById('employee-photo').value = ''", ng-disabled="updateEmployeeForm.$invalid") Submit

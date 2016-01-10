@@ -25,6 +25,23 @@
 				text: 'Remote'
 			}
 		];
+		vm.departments = [
+			'Carrier Relations',
+			'Client Service',
+			'Client Service Management',
+			'Configuration',
+			'Corporate',
+			'Development',
+			'Employee Services',
+			'Field Sales',
+			'Finance',
+			'HR',
+			'Implementation',
+			'Infrastructure / Tech Ops',
+			'Marketing',
+			'Product Strategy',
+			'QA / Reporting / Billing'
+		];
 
 		activate();
 
@@ -46,7 +63,8 @@
 				department: '',
 				title: '',
 				team: '',
-				guilds:{},
+				guilds: {},
+				committees: {},
 				location: '',
 				floor: '',
 				seat: '',
@@ -80,6 +98,7 @@
 				title: vm.newEmployee.title,
 				team: vm.newEmployee.team,
 				guilds: [],
+				committees: [],
 				location: vm.newEmployee.location,
 				floor: vm.newEmployee.floor,
 				seat: vm.newEmployee.seat,
@@ -91,6 +110,13 @@
 			_.forEach(vm.newEmployee.guilds, function (include, guild) {
 				if (include) {
 					newEmployeeData.guilds.push(guild);
+				}
+			});
+
+			// Add all the selected committees
+			_.forEach(vm.newEmployee.committees, function (include, committee) {
+				if (include) {
+					newEmployeeData.committees.push(committee);
 				}
 			});
 

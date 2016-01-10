@@ -28,6 +28,23 @@
 				text: 'Remote'
 			}
 		];
+		vm.departments = [
+			'Carrier Relations',
+			'Client Service',
+			'Client Service Management',
+			'Configuration',
+			'Corporate',
+			'Development',
+			'Employee Services',
+			'Field Sales',
+			'Finance',
+			'HR',
+			'Implementation',
+			'Infrastructure / Tech Ops',
+			'Marketing',
+			'Product Strategy',
+			'QA / Reporting / Billing'
+		];
 
 		activate();
 
@@ -53,6 +70,7 @@
 				department: selectedEmployees[0].department,
 				team: selectedEmployees[0].team,
 				guilds: {},
+				committees: {},
 				location: selectedEmployees[0].location,
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
@@ -62,6 +80,10 @@
 
 			_.forEach(selectedEmployees[0].guilds, function (guild) {
 				vm.selectedEmployee.guilds[guild] = true;
+			});
+
+			_.forEach(selectedEmployees[0].committees, function (committee) {
+				vm.selectedEmployee.committees[committee] = true;
 			});
 
 			filterManagers(selectedEmployees[0]);
@@ -119,6 +141,7 @@
 				department: vm.selectedEmployee.department,
 				team: vm.selectedEmployee.team,
 				guilds: [],
+				committees: [],
 				location: vm.selectedEmployee.location,
 				floor: vm.selectedEmployee.floor,
 				seat: vm.selectedEmployee.seat,
@@ -130,6 +153,13 @@
 			_.forEach(vm.selectedEmployee.guilds, function (include, guild) {
 				if (include) {
 					newEmployeeData.guilds.push(guild);
+				}
+			});
+
+			// Add all the selected committees
+			_.forEach(vm.selectedEmployee.committees, function (include, committee) {
+				if (include) {
+					newEmployeeData.committees.push(committee);
 				}
 			});
 

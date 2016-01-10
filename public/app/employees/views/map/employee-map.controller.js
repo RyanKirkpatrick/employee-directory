@@ -11,6 +11,7 @@
 		vm.unknownLocationEmployee = false;
 
 		edEmployeeService.setDisplayEmployeeInfoType('location');
+		edEmployeeService.setSelectMultipleEmployees(false);
 
 		activate();
 

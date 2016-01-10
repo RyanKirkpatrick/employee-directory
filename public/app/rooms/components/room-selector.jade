@@ -43,7 +43,8 @@
                             .checkbox-custom.checkbox-default
                                 input(type="checkbox", id="floor8", ng-model="vm.floor['8']", ng-change="vm.filterFloors(8)", ng-disabled="vm.nycOnly()")
                                 label(for="floor8") 8
-                    button.btn.btn-xs.btn-success.pull-right(type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll || vm.displayRoomInfoType !== 'profile'") Select All
+                    button.btn.btn-xs.btn-success.pull-right(ng-if="!vm.allowSelectAll", type="submit", ng-click="vm.selectRoom(vm.filteredRooms[0])", ng-disabled="vm.filteredRooms.length !== 1") Select All
+                    button.btn.btn-xs.btn-success.pull-right(ng-if="vm.allowSelectAll", type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll || vm.displayRoomInfoType !== 'profile'") Select All
                     button.btn.btn-xs.btn-warning.pull-left(type="button", ng-click="vm.selectNone()", ng-disabled="!vm.allowSelectAll || vm.displayRoomInfoType !== 'profile'") Select None
     h5
         span.fa.fa-building-o

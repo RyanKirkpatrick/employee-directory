@@ -43,7 +43,8 @@
                 <input type="checkbox" id="floor8" ng-model="vm.floor['8']" ng-change="vm.filterFloors(8)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor8">8</label>
               </div></span></div>
-          <button type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll || vm.displayPrinterInfoType !== 'profile'" class="btn btn-xs btn-success pull-right">Select All</button>
+          <button ng-if="!vm.allowSelectAll" type="submit" ng-click="vm.selectPrinter(vm.filteredPrinters[0])" ng-disabled="vm.filteredPrinters.length !== 1" class="btn btn-xs btn-success pull-right">Select All</button>
+          <button ng-if="vm.allowSelectAll" type="submit" ng-click="vm.selectAll()" ng-disabled="!vm.allowSelectAll || vm.displayPrinterInfoType !== 'profile'" class="btn btn-xs btn-success pull-right">Select All</button>
           <button type="button" ng-click="vm.selectNone()" ng-disabled="!vm.allowSelectAll || vm.displayPrinterInfoType !== 'profile'" class="btn btn-xs btn-warning pull-left">Select None</button>
         </form>
       </div>
