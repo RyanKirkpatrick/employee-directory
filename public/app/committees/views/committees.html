@@ -1,0 +1,22 @@
+
+<div ng-if="!vm.committee.name" class="center-block mw500">
+  <div class="text-center mb30"><img src="/images/committee-icons/committees.png" class="mb20"/>
+    <div class="fs20">Liazon Committees</div>
+  </div>
+  <p>Committees are fantastic!!!  Get on one!</p>
+</div>
+<div ng-if="vm.committee.name" class="center-block committee">
+  <div class="text-center committee-header mb30"><img ng-src="/images/committee-icons/{{::vm.committee.name}}-lg.png" class="mb20"/>
+    <div class="fs20"><span>{{::vm.committee.text}} Committee</span></div>
+  </div>
+  <ul vertilize-container="vertilize-container" class="text-center committee-members">
+    <li ng-repeat="member in vm.committeeMembers" ng-click="vm.profileEmployee(member)" vertilize="vertilize" page="org-chart"><img ng-src="/images/employee-photos/{{member.image}}" ng-show="member.image"/><span ng-hide="member.image" class="fa fa-user fs70"></span>
+      <h5>{{member.displayName}}</h5>
+      <h6>{{member.title}}</h6>
+    </li>
+  </ul>
+  <p ng-if="vm.committee.name === 'fun-games'">Fun &amp; Games committee copy here....</p>
+  <p ng-if="vm.committee.name === 'diversity'">Diversity committee copy here....</p>
+  <p ng-if="vm.committee.name === 'wellness'">Wellness committee copy here....</p>
+  <p ng-if="vm.committee.name === 'beautification'">Beautification committee copy here....</p>
+</div>

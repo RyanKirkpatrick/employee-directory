@@ -1,0 +1,21 @@
+.center-block.mw500(ng-if="!vm.committee.name")
+    .text-center.mb30
+        img.mb20(src="/images/committee-icons/committees.png")
+        div.fs20 Liazon Committees
+    p Committees are fantastic!!!  Get on one!
+
+.center-block.committee(ng-if="vm.committee.name")
+    .text-center.committee-header.mb30
+        img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}-lg.png")
+        div.fs20
+            span {{::vm.committee.text}} Committee
+    ul.text-center.committee-members(vertilize-container)
+        li(ng-repeat="member in vm.committeeMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
+            img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
+            span.fa.fa-user.fs70(ng-hide="member.image")
+            h5 {{member.displayName}}
+            h6 {{member.title}}
+    p(ng-if="vm.committee.name === 'fun-games'") Fun &amp; Games committee copy here....
+    p(ng-if="vm.committee.name === 'diversity'") Diversity committee copy here....
+    p(ng-if="vm.committee.name === 'wellness'") Wellness committee copy here....
+    p(ng-if="vm.committee.name === 'beautification'") Beautification committee copy here....

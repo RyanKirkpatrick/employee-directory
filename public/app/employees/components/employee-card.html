@@ -4,8 +4,9 @@
   <div class="panel-body pn">
     <div class="row table-layout">
       <div class="col-xs-4 text-center va-t of-h"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="employee-photo mt10 mb10"/><span ng-if="!employee.image" class="fa fa-user fs100 mt20"></span>
-        <ul class="list-inline guilds">
-          <li ng-repeat="guild in employee.guilds" class="{{::guild}}-guild"><a ui-sref="guilds.{{::guild}}" class="link-unstyled"><span class="icon icon-guild-front-end fs26"></span></a></li>
+        <ul class="list-inline memberships">
+          <li ng-repeat="guild in employee.guilds"><a ui-sref="guilds.{{::guild}}" class="link-unstyled"><img ng-src="/images/guild-icons/{{::guild}}.svg"/></a></li>
+          <li ng-repeat="committee in employee.committees"><a ui-sref="committees.{{::committee}}" class="link-unstyled"><img ng-src="/images/committee-icons/{{::committee}}.png"/></a></li>
         </ul>
       </div>
       <div class="col-xs-8 br-l pn admin-form">

@@ -141,6 +141,17 @@ Directory Item Card
   filter: none;
   top: 0;
 }
+.directory-item-card .memberships li {
+  background-color: #f3f3f3;
+  border: 1px solid #e2e2e2;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: 4px;
+  padding: 5px;
+}
+.directory-item-card .memberships li:hover {
+  background-color: #ccc;
+}
 /**************************************************
 Help styles
 **************************************************/

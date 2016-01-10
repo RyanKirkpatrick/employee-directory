@@ -14,10 +14,13 @@
             .col-xs-4.text-center.va-t.of-h
                 img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
-                ul.list-inline.guilds
-                    li(ng-repeat="guild in employee.guilds" class="{{::guild}}-guild")
+                ul.list-inline.memberships
+                    li(ng-repeat="guild in employee.guilds")
                         a.link-unstyled(ui-sref="guilds.{{::guild}}")
-                            span.icon.icon-guild-front-end.fs26
+                            img(ng-src="/images/guild-icons/{{::guild}}.svg")
+                    li(ng-repeat="committee in employee.committees")
+                        a.link-unstyled(ui-sref="committees.{{::committee}}")
+                            img(ng-src="/images/committee-icons/{{::committee}}.png")
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody

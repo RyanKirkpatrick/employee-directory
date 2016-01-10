@@ -555,6 +555,61 @@
 					}
 				}
 			})
+			.state('committees', {
+				url: '/committees',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/committees/components/committees-topbar',
+						controller: 'edCommitteesTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.fun-games', {
+				url: '/fun-games',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.diversity', {
+				url: '/diversity',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.wellness', {
+				url: '/wellness',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.beautification', {
+				url: '/beautification',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('help', {
 				url: '/help',
 				views: {
