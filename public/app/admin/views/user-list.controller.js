@@ -8,6 +8,10 @@
 		var vm = this;
 		vm.users = edUserResourceService.query();
 
-		edSidebarService.setLockSidebar(true);
+		activate();
+
+		function activate() {
+			edSidebarService.setLockSidebar(true);
+		}
 	}
 })();

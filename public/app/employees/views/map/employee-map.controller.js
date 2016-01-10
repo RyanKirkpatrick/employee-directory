@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeMapCtrl', edEmployeeMapCtrl);
 
-	edEmployeeMapCtrl.$inject = ['$state', '$stateParams', '$scope', 'edEmployeeService'];
+	edEmployeeMapCtrl.$inject = ['$state', '$stateParams', '$scope', 'edEmployeeService', 'edSidebarService'];
 
-	function edEmployeeMapCtrl($state, $stateParams, $scope, edEmployeeService) {
+	function edEmployeeMapCtrl($state, $stateParams, $scope, edEmployeeService, edSidebarService) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -16,6 +16,7 @@
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			if ($stateParams.employee) {
 				edEmployeeService.updateMappedEmployeeById($stateParams.employee);
 			} else if (vm.mappedEmployee) {

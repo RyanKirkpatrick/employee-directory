@@ -8,7 +8,11 @@
 		var vm = this;
 		vm.createUser = createUser;
 
-		edSidebarService.setLockSidebar(true);
+		activate();
+
+		function activate() {
+			edSidebarService.setLockSidebar(true);
+		}
 
 		function createUser() {
 			var newUserData = {

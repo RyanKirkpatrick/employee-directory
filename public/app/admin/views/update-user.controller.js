@@ -11,7 +11,11 @@
 		vm.fname = edIdentityService.currentUser.firstName;
 		vm.lname = edIdentityService.currentUser.lastName;
 
-		edSidebarService.setLockSidebar(true);
+		activate();
+
+		function activate() {
+			edSidebarService.setLockSidebar(true);
+		}
 
 		function updateUser() {
 			var newUserData = {

@@ -9,7 +9,11 @@
 		vm.identity = edIdentityService;
 		vm.signin = signin;
 
-		edSidebarService.setLockSidebar(true);
+		activate();
+
+		function activate() {
+			edSidebarService.setLockSidebar(true);
+		}
 
 		function signin(username, password) {
 			edAuthService.authenticateUser(username, password).then(function (success) {

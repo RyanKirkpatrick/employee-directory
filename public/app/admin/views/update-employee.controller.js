@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', '_'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', 'edSidebarService', '_'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, _) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, edSidebarService, _) {
 		var vm = this;
 		vm.identity = edIdentityService;
 		vm.updateEmployee = updateEmployee;
@@ -49,6 +49,7 @@
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			edEmployeeService.setDisplayEmployeeInfoType('profile');
 			edEmployeeService.getAllEmployees().$promise.then(createManagerList);
 			var selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);

@@ -2,21 +2,22 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeProfileCtrl', edEmployeeProfileCtrl);
 
-	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams', '_'];
+	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams', 'edSidebarService', '_'];
 
-	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams, _) {
+	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams, edSidebarService, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 		vm.changePage = changePage;
 		vm.currentPage = edEmployeeService.getProfilePageNumber();
 
-		edEmployeeService.setDisplayEmployeeInfoType('profile');
-		edEmployeeService.setSelectMultipleEmployees(true);
-		edEmployeeService.updateMappedEmployee(null);
-
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
+			edEmployeeService.setDisplayEmployeeInfoType('profile');
+			edEmployeeService.setSelectMultipleEmployees(true);
+			edEmployeeService.updateMappedEmployee(null);
+
 			if ($stateParams.employee || $stateParams.team || $stateParams.department || $stateParams.title || $stateParams.firstname || $stateParams.lastname) {
 				edEmployeeService.removeAllSelectedEmployees();
 				edEmployeeService.getAllEmployees().$promise.then(function (employees) {

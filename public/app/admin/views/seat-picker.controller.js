@@ -2,15 +2,20 @@
 	'use strict';
 	angular.module('app').controller('edSeatPickerCtrl', edSeatPickerCtrl);
 
-	edSeatPickerCtrl.$inject = ['$scope', 'edEmployeeService', 'edEmployeeAdminService', 'edNotifierService'];
+	edSeatPickerCtrl.$inject = ['$scope', 'edEmployeeService', 'edEmployeeAdminService', 'edNotifierService', 'edSidebarService'];
 
-	function edSeatPickerCtrl($scope, edEmployeeService, edEmployeeAdminService, edNotifierService) {
+	function edSeatPickerCtrl($scope, edEmployeeService, edEmployeeAdminService, edNotifierService, edSidebarService) {
 		var vm = this;
 		vm.selectedEmployee = edEmployeeService.setSelectMultipleEmployees(false)[0];
 		vm.setRemoteEmployee = setRemoteEmployee;
 
-		edEmployeeService.setDisplayEmployeeInfoType('profile');
-		edEmployeeService.updateMappedEmployee(null);
+		activate();
+
+		function activate() {
+			edSidebarService.setLockSidebar(false);
+			edEmployeeService.setDisplayEmployeeInfoType('profile');
+			edEmployeeService.updateMappedEmployee(null);
+		}
 
 		var deregisterEmployee = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
 			vm.selectedEmployee = selectedEmployees[0];
