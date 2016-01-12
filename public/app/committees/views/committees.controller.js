@@ -27,6 +27,10 @@
 					vm.committee.text = 'Fun & Games';
 				}
 
+				if (vm.committee.name === 'diversity') {
+					vm.committee.text = 'Cultural Diversity & Community Outreach';
+				}
+
 				edEmployeeService.getAllEmployees().$promise.then(filterEmployeesByCommittee);
 			}
 		}

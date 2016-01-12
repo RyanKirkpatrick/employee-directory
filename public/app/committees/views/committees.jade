@@ -9,13 +9,14 @@
         img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}-lg.png")
         div.fs20
             span {{::vm.committee.text}} Committee
+    p(ng-if="vm.committee.name === 'fun-games'") The Fun &amp; Games committee is dedicated to creating fun and interesting activities and events for everyone in the office to participate in. Examples: bubble hockey tournament, summer picnic, fantasy sports leagues, discount programs at local businesses etc.
+    p(ng-if="vm.committee.name === 'diversity'") The Cultural Diversity and Community Outreach committee is dedicated to working on engaging the workforce in cultural diversity awareness. Identifying Cultural community events, working on ethnic heritage months etc.
+    p(ng-if="vm.committee.name === 'wellness'") The Wellness committee is dedicated to creating programs that will make healthy choices easier. Examples: bike sharing program, biggest loser contest, destination walking program, healthy cookbook.
+    p(ng-if="vm.committee.name === 'beautification'") The Beautification committee is dedicated to working on the beautification of the inside and the outside of the new office! Examples: naming of the conference rooms, plants, flowers, artwork throughout the office etc.
+    h4.text-center Members
     ul.text-center.committee-members(vertilize-container)
         li(ng-repeat="member in vm.committeeMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
             img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
             span.fa.fa-user.fs70(ng-hide="member.image")
             h5 {{member.displayName}}
             h6 {{member.title}}
-    p(ng-if="vm.committee.name === 'fun-games'") Fun &amp; Games committee copy here....
-    p(ng-if="vm.committee.name === 'diversity'") Diversity committee copy here....
-    p(ng-if="vm.committee.name === 'wellness'") Wellness committee copy here....
-    p(ng-if="vm.committee.name === 'beautification'") Beautification committee copy here....
