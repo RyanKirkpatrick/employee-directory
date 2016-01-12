@@ -108,6 +108,13 @@ Directory Item Card
 **************************************************/
 .directory-item-card
 
+  ed-employee-card .panel
+    min-width 310px
+
+  ed-room-card .panel,
+  ed-printer-card .panel
+    min-width 230px
+
   .row.table-layout
     overflow hidden
 
@@ -132,7 +139,11 @@ Directory Item Card
     border 1px solid #e2e2e2
     border-radius 3px
     margin 4px
-    padding 5px
+    padding 4px
+
+    img
+      height 32px
+      width 32px
 
     &:hover
       background-color #ccc

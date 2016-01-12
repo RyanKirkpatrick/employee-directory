@@ -6,7 +6,7 @@
 
 .center-block.committee(ng-if="vm.committee.name")
     .text-center.committee-header.mb30
-        img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}-lg.png")
+        img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}.svg")
         div.fs20
             span {{::vm.committee.text}} Committee
     p(ng-if="vm.committee.name === 'fun-games'") The Fun &amp; Games committee is dedicated to creating fun and interesting activities and events for everyone in the office to participate in. Examples: bubble hockey tournament, summer picnic, fantasy sports leagues, discount programs at local businesses etc.

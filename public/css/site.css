@@ -113,6 +113,13 @@ Directory Item Selector
 /**************************************************
 Directory Item Card
 **************************************************/
+.directory-item-card ed-employee-card .panel {
+  min-width: 310px;
+}
+.directory-item-card ed-room-card .panel,
+.directory-item-card ed-printer-card .panel {
+  min-width: 230px;
+}
 .directory-item-card .row.table-layout {
   overflow: hidden;
 }
@@ -147,7 +154,11 @@ Directory Item Card
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: 4px;
-  padding: 5px;
+  padding: 4px;
+}
+.directory-item-card .memberships li img {
+  height: 32px;
+  width: 32px;
 }
 .directory-item-card .memberships li:hover {
   background-color: #ccc;
