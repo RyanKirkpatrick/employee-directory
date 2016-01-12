@@ -113,6 +113,13 @@ Directory Item Selector
 /**************************************************
 Directory Item Card
 **************************************************/
+.directory-item-card ed-employee-card .panel {
+  min-width: 310px;
+}
+.directory-item-card ed-room-card .panel,
+.directory-item-card ed-printer-card .panel {
+  min-width: 230px;
+}
 .directory-item-card .row.table-layout {
   overflow: hidden;
 }
