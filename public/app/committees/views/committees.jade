@@ -6,7 +6,7 @@
 
 .center-block.committee(ng-if="vm.committee.name")
     .text-center.committee-header.mb30
-        img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}-lg.png")
+        img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}.svg")
         div.fs20
             span {{::vm.committee.text}} Committee
     ul.text-center.committee-members(vertilize-container)

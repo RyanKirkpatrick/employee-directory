@@ -147,7 +147,11 @@ Directory Item Card
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: 4px;
-  padding: 5px;
+  padding: 4px;
+}
+.directory-item-card .memberships li img {
+  height: 32px;
+  width: 32px;
 }
 .directory-item-card .memberships li:hover {
   background-color: #ccc;
