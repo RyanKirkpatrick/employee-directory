@@ -1,0 +1,29 @@
+.mw1000.center-block
+    .admin-form.theme-primary
+        form(name="userProfileForm", novalidate)
+            .panel.heading-border.panel-primary
+                .panel-body.bg-light
+                    .section-divider
+                        span User Profile
+                    .row
+                        .col-md-4
+                            .section
+                                label.field.prepend-icon(for="fname")
+                                    input.gui-input(name="fname", type="text", placeholder="First Name", ng-model="vm.fname", required)
+                                    label.field-icon(for="fname")
+                                        i.fa.fa-user
+                        .col-md-4
+                            .section
+                                label.field.prepend-icon(for="lname")
+                                    input.gui-input(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
+                                    label.field-icon(for="lname")
+                                        i.fa.fa-user
+                        .col-md-4
+                            .section
+                                label.field.prepend-icon(for="password")
+                                    input.gui-input(name="password", type="password", placeholder="Change Password", ng-model="vm.password")
+                                    label.field-icon(for="password")
+                                        i.fa.fa-lock
+                .panel-footer.text-right
+                    button.button.btn-primary(type="submit", ng-click="vm.updateUser()", ng-disabled="userProfileForm.$invalid") Save
+                    button.button.btn-default(ui-sref="admin") Cancel

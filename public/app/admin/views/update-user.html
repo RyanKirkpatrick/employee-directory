@@ -1,5 +1,11 @@
 
-<div class="mw1000 center-block">
+<div ng-if="!vm.selectedUser" class="center-block">
+  <div class="text-center">
+    <div class="icon icon-Leslie fs100 mb30 profile-color"></div>
+    <div class="fs20">Please select a user to update</div>
+  </div>
+</div>
+<div ng-if="vm.selectedUser" class="center-block mw1000">
   <div class="admin-form theme-primary">
     <form name="userProfileForm" novalidate="novalidate">
       <div class="panel heading-border panel-primary">
@@ -9,7 +15,7 @@
             <div class="col-md-4">
               <div class="section">
                 <label for="fname" class="field prepend-icon">
-                  <input name="fname" type="text" placeholder="First Name" ng-model="vm.fname" required="required" class="gui-input"/>
+                  <input name="fname" type="text" placeholder="First Name" ng-model="vm.selectedUser.firstName" required="required" class="gui-input"/>
                   <label for="fname" class="field-icon"><i class="fa fa-user"></i></label>
                 </label>
               </div>
@@ -17,7 +23,7 @@
             <div class="col-md-4">
               <div class="section">
                 <label for="lname" class="field prepend-icon">
-                  <input name="lname" type="text" placeholder="Last Name" ng-model="vm.lname" required="required" class="gui-input"/>
+                  <input name="lname" type="text" placeholder="Last Name" ng-model="vm.selectedUser.lastName" required="required" class="gui-input"/>
                   <label for="lname" class="field-icon"><i class="fa fa-user"></i></label>
                 </label>
               </div>
@@ -25,8 +31,32 @@
             <div class="col-md-4">
               <div class="section">
                 <label for="password" class="field prepend-icon">
-                  <input name="password" type="password" placeholder="Change Password" ng-model="vm.password" class="gui-input"/>
+                  <input name="password" type="password" placeholder="Change Password" ng-model="vm.selectedUser.password" class="gui-input"/>
                   <label for="password" class="field-icon"><i class="fa fa-lock"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="section-divider"><span>Roles</span></div>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="section">
+                <label class="option option-primary mt10">
+                  <input type="checkbox" name="roles-user" ng-model="vm.selectedUser.roles['user']"/><span class="checkbox"></span>User
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="section">
+                <label class="option option-primary mt10">
+                  <input type="checkbox" name="roles-admin" ng-model="vm.selectedUser.roles['admin']"/><span class="checkbox"></span>Admin
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="section">
+                <label class="option option-primary mt10">
+                  <input type="checkbox" name="roles-super-admin" ng-model="vm.selectedUser.roles['super-admin']"/><span class="checkbox"></span>Super Admin
                 </label>
               </div>
             </div>

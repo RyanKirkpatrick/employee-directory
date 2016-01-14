@@ -1,0 +1,7 @@
+
+<div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
+  <h5><span class="fa fa-users"></span><span>Select User</span><span class="label label-xs bg-primary">{{vm.users.length}}</span></h5>
+  <ul class="nav tray-nav tray-nav-border">
+    <li ng-repeat="user in vm.users" ng-class="{'active': user.selected}" class="directory-item"><a ng-click="vm.selectUser(user)"><span>{{::user.lastName}}, {{::user.firstName}}</span></a></li>
+  </ul>
+</div>

@@ -399,6 +399,19 @@
 					auth: routeRoleChecks.superAdmin
 				}
 			})
+			.state('admin.user-profile', {
+				url: '/user-profile',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/user-profile',
+						controller: 'edUserProfileCtrl',
+						controllerAs: 'vm'
+					}
+				},
+				resolve: {
+					auth: routeRoleChecks.user
+				}
+			})
 			.state('admin.create-user', {
 				url: '/create-user',
 				views: {
@@ -419,10 +432,15 @@
 						templateUrl: '/partials/admin/views/update-user',
 						controller: 'edUpdateUserCtrl',
 						controllerAs: 'vm'
+					},
+					'sidebar@': {
+						templateUrl: '/partials/admin/components/user-selector',
+						controller: 'edUserSelectorCtrl',
+						controllerAs: 'vm'
 					}
 				},
 				resolve: {
-					auth: routeRoleChecks.user
+					auth: routeRoleChecks.superAdmin
 				}
 			})
 			.state('admin.create-employee', {

@@ -19,9 +19,9 @@
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.create-employee"><span class="fa fa-user-plus"></span><span class="sidebar-title">Create Employee</span></a></li>
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.update-employee"><span class="fa fa-pencil-square-o"></span><span class="sidebar-title">Update Employee</span></a></li>
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')" class="location-item"><a ui-sref="admin.seat-picker"><span class="fa fa-map-marker"></span><span class="sidebar-title">Seat Assignment</span></a></li>
-      <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.users"><span class="fa fa-user"></span><span class="sidebar-title">User List</span></a></li>
+      <li ui-sref-active="active" ng-if="vm.identity.isAuthenticated()"><a ui-sref="admin.user-profile"><span class="fa fa-user"></span><span class="sidebar-title">User Profile</span></a></li>
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.create-user"><span class="fa fa-plus-square"></span><span class="sidebar-title">Create User</span></a></li>
-      <li ui-sref-active="active" ng-if="vm.identity.isAuthenticated()"><a ui-sref="admin.update-user"><span class="fa fa-pencil-square"></span><span class="sidebar-title">Update User</span></a></li>
+      <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.update-user"><span class="fa fa-pencil-square"></span><span class="sidebar-title">Update User</span></a></li>
     </ul>
   </div>
 </aside>
