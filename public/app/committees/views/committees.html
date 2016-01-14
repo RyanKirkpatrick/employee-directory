@@ -1,9 +1,27 @@
 
-<div ng-if="!vm.committee.name" class="center-block mw500">
+<div ng-if="!vm.committee.name" class="center-block mw600">
   <div class="text-center mb30"><img src="/images/committee-icons/committees.png" class="mb20"/>
     <div class="fs20">Liazon Committees</div>
   </div>
-  <p>Committees are fantastic!!!  Get on one!</p>
+  <p>The Liazon Celebration &amp; Service Committee's mission is focused around three core components:</p>
+  <ul>
+    <li>Employee Recognition and Engagement</li>
+    <li>Community Outreach and Volunteerism</li>
+    <li>Team Building</li>
+  </ul>
+  <p>The Celebration &amp; Service Committee is comprised of the following 4 sub-committees:</p>
+  <div class="row">
+    <div class="col-md-6"><a ui-sref="committees.fun-games" class="boxed-link text-center"><img ng-src="/images/committee-icons/fun-games.svg"/>
+        <h4>Fun &amp Games Committee</h4></a></div>
+    <div class="col-md-6"><a ui-sref="committees.diversity" class="boxed-link text-center"><img ng-src="/images/committee-icons/diversity.svg"/>
+        <h4>Cultural Diversity &amp; Community Outreach Committee</h4></a></div>
+  </div>
+  <div class="row">
+    <div class="col-md-6"><a ui-sref="committees.wellness" class="boxed-link text-center"><img ng-src="/images/committee-icons/wellness.svg"/>
+        <h4>Wellness Committee</h4></a></div>
+    <div class="col-md-6"><a ui-sref="committees.beautification" class="boxed-link text-center"><img ng-src="/images/committee-icons/beautification.svg"/>
+        <h4>Beautification Committee</h4></a></div>
+  </div>
 </div>
 <div ng-if="vm.committee.name" class="center-block committee">
   <div class="text-center committee-header mb30"><img ng-src="/images/committee-icons/{{::vm.committee.name}}.svg" class="mb20"/>
@@ -13,7 +31,7 @@
   <p ng-if="vm.committee.name === 'diversity'">The Cultural Diversity and Community Outreach committee is dedicated to working on engaging the workforce in cultural diversity awareness. Identifying Cultural community events, working on ethnic heritage months etc.</p>
   <p ng-if="vm.committee.name === 'wellness'">The Wellness committee is dedicated to creating programs that will make healthy choices easier. Examples: bike sharing program, biggest loser contest, destination walking program, healthy cookbook.</p>
   <p ng-if="vm.committee.name === 'beautification'">The Beautification committee is dedicated to working on the beautification of the inside and the outside of the new office! Examples: naming of the conference rooms, plants, flowers, artwork throughout the office etc.</p>
-  <h4 class="text-center">Members</h4>
+  <h3 class="mv30 fw400 text-center">Members</h3>
   <ul vertilize-container="vertilize-container" class="text-center committee-members">
     <li ng-repeat="member in vm.committeeMembers" ng-click="vm.profileEmployee(member)" vertilize="vertilize" page="org-chart"><img ng-src="/images/employee-photos/{{member.image}}" ng-show="member.image"/><span ng-hide="member.image" class="fa fa-user fs70"></span>
       <h5>{{member.displayName}}</h5>

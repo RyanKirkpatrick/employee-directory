@@ -337,6 +337,10 @@ Sidebar
   -ms-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
+.boxed-link img {
+  height: 128px;
+  width: 128px;
+}
 .boxed-link:hover {
   border-color: rgba(150,150,150,0.75);
   -webkit-box-shadow: 1px 1px 7px 1px rgba(0,0,0,0.1);
