@@ -39,6 +39,7 @@
 			var dfd = $q.defer();
 
 			newUser.$save().then(function () {
+				$rootScope.$broadcast('userUpdated', edUserService.getAllUsers(true));
 				dfd.resolve();
 			}, function (response) {
 				dfd.reject(response.data.reason);
@@ -71,6 +72,11 @@
 			var selectedUser = edUserService.getSelectedUser();
 			var clone = angular.copy(selectedUser);
 			angular.extend(clone, newUserData);
+			var currentUserClone = angular.copy(edIdentityService.currentUser);
+			angular.extend(currentUserClone, newUserData);
+			if (edIdentityService.currentUser.username === clone.username) {
+				edIdentityService.currentUser = currentUserClone;
+			}
 			clone.$update().then(function (user) {
 				edUserService.setSelectedUser(null);
 				$rootScope.$broadcast('userUpdated', edUserService.getAllUsers(true));
