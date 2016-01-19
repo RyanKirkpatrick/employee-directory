@@ -1,0 +1,7 @@
+
+<header class="navbar navbar-fixed-top navbar-shadow">
+  <div class="navbar-branding"><a ui-sref="home" class="navbar-brand"><img src="/images/liazon-directory.svg"/></a></div>
+  <ul ng-if="vm.identity.isAuthenticated()" class="nav navbar-nav navbar-right">
+    <li class="user-profile"><a ui-sref="admin.user-profile" class="p15"><span ng-if="!vm.identity.currentUser.image" class="icon-user fs20 profile-color mr5"></span><img ng-src="/images/user-photos/{{vm.identity.currentUser.image}}" ng-if="vm.identity.currentUser.image" class="mw30 br64 mr5"/><span>{{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}}</span></a></li>
+  </ul>
+</header>

@@ -74,7 +74,7 @@
 			angular.extend(clone, newUserData);
 			var currentUserClone = angular.copy(edIdentityService.currentUser);
 			angular.extend(currentUserClone, newUserData);
-			if (edIdentityService.currentUser.username === clone.username) {
+			if (edIdentityService.currentUser._id === clone._id) {
 				edIdentityService.currentUser = currentUserClone;
 			}
 			clone.$update().then(function (user) {

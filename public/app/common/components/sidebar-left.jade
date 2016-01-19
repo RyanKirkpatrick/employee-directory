@@ -46,10 +46,6 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="admin.seat-picker")
                     span.fa.fa-map-marker
                     span.sidebar-title Seat Assignment
-            li(ui-sref-active="active", ng-if="vm.identity.isAuthenticated()")
-                a(ui-sref="admin.user-profile")
-                    span.fa.fa-user
-                    span.sidebar-title User Profile
             li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
                 a(ui-sref="admin.create-user")
                     span.fa.fa-plus-square

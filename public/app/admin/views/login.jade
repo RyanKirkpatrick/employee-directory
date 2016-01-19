@@ -1,6 +1,7 @@
 .center-block(ng-if="vm.identity.isAuthenticated()")
     .text-center
-        .icon-user.fs100.mb30.profile-color
+        img.mb30.profile-photo(ng-src="/images/user-photos/{{vm.identity.currentUser.image}}", ng-if="vm.identity.currentUser.image")
+        .icon-user.fs100.mb30.profile-color(ng-if="!vm.identity.currentUser.image")
         div.fs20 Welcome, {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}}
 .mw1000.center-block(ng-if="!vm.identity.isAuthenticated()")
     .admin-form.theme-primary

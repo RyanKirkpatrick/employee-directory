@@ -1,0 +1,10 @@
+header.navbar.navbar-fixed-top.navbar-shadow
+    .navbar-branding
+        a.navbar-brand(ui-sref="home")
+            img(src="/images/liazon-directory.svg")
+    ul.nav.navbar-nav.navbar-right(ng-if="vm.identity.isAuthenticated()")
+        li.user-profile
+            a.p15(ui-sref="admin.user-profile")
+                span.icon-user.fs20.profile-color.mr5(ng-if="!vm.identity.currentUser.image")
+                img.mw30.br64.mr5(ng-src="/images/user-photos/{{vm.identity.currentUser.image}}", ng-if="vm.identity.currentUser.image")
+                span {{vm.identity.currentUser.firstName + " " + vm.identity.currentUser.lastName}}

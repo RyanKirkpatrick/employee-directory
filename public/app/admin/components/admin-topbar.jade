@@ -6,8 +6,6 @@
             a(ui-sref="admin.update-employee") Update Employee
         li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
             a(ui-sref="admin.seat-picker") Seat Assignment
-        li(ui-sref-active="active", ng-if="vm.identity.isAuthenticated()")
-            a(ui-sref="admin.user-profile") User Profile
         li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
             a(ui-sref="admin.create-user") Create User
         li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")

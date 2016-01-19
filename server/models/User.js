@@ -15,6 +15,9 @@ var userSchema = mongoose.Schema({
 		required: '{PATH} is required!',
 		unique: true
 	},
+	image: {
+		type: String
+	},
 	salt: {
 		type: String,
 		required: '{PATH} is required!'
