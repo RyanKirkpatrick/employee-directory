@@ -21,6 +21,7 @@ build
 # Ignore Directories
 ###################
 **/employee-photos
+**/user-photos
 
 # Ignore Test reporters
 ###################

@@ -2,12 +2,13 @@
 	'use strict';
 	angular.module('app').factory('edAuthService', edAuthService);
 
-	edAuthService.$inject = ['$http', '$q', 'edIdentityService', 'edUserResourceService'];
+	edAuthService.$inject = ['$http', '$rootScope', '$q', 'edIdentityService', 'edUserResourceService', 'edUserService'];
 
-	function edAuthService($http, $q, edIdentityService, edUserResourceService) {
+	function edAuthService($http, $rootScope, $q, edIdentityService, edUserResourceService, edUserService) {
 		var service = {
 			authenticateUser: authenticateUser,
 			createUser: createUser,
+			updateUser: updateUser,
 			updateCurrentUser: updateCurrentUser,
 			logoutUser: logoutUser,
 			authorizeCurrentUserForRoute: authorizeCurrentUserForRoute,
@@ -38,6 +39,7 @@
 			var dfd = $q.defer();
 
 			newUser.$save().then(function () {
+				$rootScope.$broadcast('userUpdated', edUserService.getAllUsers(true));
 				dfd.resolve();
 			}, function (response) {
 				dfd.reject(response.data.reason);
@@ -52,6 +54,33 @@
 			clone.$update().then(function () {
 				edIdentityService.currentUser = clone;
 				dfd.resolve();
+			}, function (response) {
+				dfd.reject(response.data.reason);
+			});
+			return dfd.promise;
+		}
+
+		/**
+		 * Updates user record in database
+		 * Uses the selected user for updating
+		 *
+		 * @param {Object} newUserData user data to update
+		 * @return {Object} promise
+		 */
+		function updateUser(newUserData) {
+			var dfd = $q.defer();
+			var selectedUser = edUserService.getSelectedUser();
+			var clone = angular.copy(selectedUser);
+			angular.extend(clone, newUserData);
+			var currentUserClone = angular.copy(edIdentityService.currentUser);
+			angular.extend(currentUserClone, newUserData);
+			if (edIdentityService.currentUser._id === clone._id) {
+				edIdentityService.currentUser = currentUserClone;
+			}
+			clone.$update().then(function (user) {
+				edUserService.setSelectedUser(null);
+				$rootScope.$broadcast('userUpdated', edUserService.getAllUsers(true));
+				dfd.resolve(user);
 			}, function (response) {
 				dfd.reject(response.data.reason);
 			});

@@ -10,10 +10,11 @@
         div.fs20
             span {{vm.guild}}
             | &nbsp;Developer Guild
+    p The Global Front-End Guild (the GFG) was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace and Global Access Products. Each Global Feature Team has one embedded Guild Member who works towards keeping the global employee portals solid, inventive and easy to use.
+    h3.mv30.fw400.text-center Members
     ul.text-center.guild-members(vertilize-container)
         li(ng-repeat="member in vm.guildMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
             img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
             span.fa.fa-user.fs70(ng-hide="member.image")
             h5 {{member.displayName}}
             h6 {{member.title}}
-    p The Global Front-End Guild (the GFG) was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace and Global Access Products. Each Global Feature Team has one embedded Guild Member who works towards keeping the global employee portals solid, inventive and easy to use.

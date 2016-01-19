@@ -2,24 +2,29 @@
 	'use strict';
 	angular.module('app').controller('edPrinterProfileCtrl', edPrinterProfileCtrl);
 
-	edPrinterProfileCtrl.$inject = ['$scope', '$document', 'edPrinterService', '$stateParams', '_'];
+	edPrinterProfileCtrl.$inject = ['$scope', '$document', 'edPrinterService', '$stateParams', 'edSidebarService', '_'];
 
-	function edPrinterProfileCtrl($scope, $document, edPrinterService, $stateParams, _) {
+	function edPrinterProfileCtrl($scope, $document, edPrinterService, $stateParams, edSidebarService, _) {
 		var vm = this;
 		vm.selectedPrinters = edPrinterService.getSelectedPrinters();
 		vm.changePage = changePage;
 		vm.currentPage = edPrinterService.getProfilePageNumber();
 
-		edPrinterService.setDisplayPrinterInfoType('profile');
-		edPrinterService.setSelectMultiplePrinters(true);
-		edPrinterService.updateMappedPrinter(null);
+		activate();
 
-		if ($stateParams.printer || $stateParams.printerbrand) {
-			edPrinterService.removeAllSelectedPrinters();
-			if ($stateParams.printer) {
-				edPrinterService.getAllPrinters().$promise.then(selectPrinterByName);
-			} else if ($stateParams.printerbrand) {
-				edPrinterService.getAllPrinters().$promise.then(selectPrinterByBrand);
+		function activate() {
+			edSidebarService.setLockSidebar(false);
+			edPrinterService.setDisplayPrinterInfoType('profile');
+			edPrinterService.setSelectMultiplePrinters(true);
+			edPrinterService.updateMappedPrinter(null);
+
+			if ($stateParams.printer || $stateParams.printerbrand) {
+				edPrinterService.removeAllSelectedPrinters();
+				if ($stateParams.printer) {
+					edPrinterService.getAllPrinters().$promise.then(selectPrinterByName);
+				} else if ($stateParams.printerbrand) {
+					edPrinterService.getAllPrinters().$promise.then(selectPrinterByBrand);
+				}
 			}
 		}
 

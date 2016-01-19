@@ -24,6 +24,8 @@
     "stylus": "^0.51.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-bundle-assets": "^2.23.0",
     "jscs": "^1.13.1",
     "nodemon": "^1.3.7"
   }

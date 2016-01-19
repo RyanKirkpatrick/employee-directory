@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edOrgChartCtrl', edOrgChartCtrl);
 
-	edOrgChartCtrl.$inject = ['$scope', '$state', '$stateParams', 'edEmployeeService', '_'];
+	edOrgChartCtrl.$inject = ['$scope', '$state', '$stateParams', 'edEmployeeService', 'edSidebarService', '_'];
 
-	function edOrgChartCtrl($scope, $state, $stateParams, edEmployeeService, _) {
+	function edOrgChartCtrl($scope, $state, $stateParams, edEmployeeService, edSidebarService, _) {
 		var employees = edEmployeeService.getAllEmployees();
 		var vm = this;
 		vm.selectedEmployee = edEmployeeService.getSelectedEmployees()[0];
@@ -16,6 +16,7 @@
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			edEmployeeService.setDisplayEmployeeInfoType('profile');
 			edEmployeeService.setSelectMultipleEmployees(false);
 			edEmployeeService.updateMappedEmployee(null);

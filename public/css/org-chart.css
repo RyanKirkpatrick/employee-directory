@@ -33,8 +33,14 @@
 }
 .org-chart ul li:hover {
   background-color: #f5f5f5;
+  border-color: rgba(150,150,150,0.75);
   -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+}
+.org-chart ul.employee {
+  -webkit-background-size: 460px 460px;
+  -moz-background-size: 460px 460px;
+  background-size: 460px 460px;
 }
 .org-chart ul.manager li,
 .org-chart ul.direct-reports li {

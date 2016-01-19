@@ -4,8 +4,7 @@
     <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.create-employee">Create Employee</a></li>
     <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.update-employee">Update Employee</a></li>
     <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')"><a ui-sref="admin.seat-picker">Seat Assignment</a></li>
-    <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.users">User List</a></li>
     <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.create-user">Create User</a></li>
-    <li ui-sref-active="active" ng-if="vm.identity.isAuthenticated()"><a ui-sref="admin.update-user">Update User</a></li>
+    <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.update-user">Update User</a></li>
   </ul>
 </div>

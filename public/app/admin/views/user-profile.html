@@ -1,0 +1,42 @@
+
+<div class="mw1000 center-block">
+  <div class="admin-form theme-primary">
+    <form name="userProfileForm" novalidate="novalidate">
+      <div class="panel heading-border panel-primary">
+        <div class="panel-body bg-light">
+          <div class="section-divider"><span>User Profile</span></div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="section">
+                <label for="fname" class="field prepend-icon">
+                  <input name="fname" type="text" placeholder="First Name" ng-model="vm.fname" required="required" class="gui-input"/>
+                  <label for="fname" class="field-icon"><i class="fa fa-user"></i></label>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="section">
+                <label for="lname" class="field prepend-icon">
+                  <input name="lname" type="text" placeholder="Last Name" ng-model="vm.lname" required="required" class="gui-input"/>
+                  <label for="lname" class="field-icon"><i class="fa fa-user"></i></label>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="section">
+                <label for="password" class="field prepend-icon">
+                  <input name="password" type="password" placeholder="Change Password" ng-model="vm.password" class="gui-input"/>
+                  <label for="password" class="field-icon"><i class="fa fa-lock"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer text-right">
+          <button type="submit" ng-click="vm.updateUser()" ng-disabled="userProfileForm.$invalid" class="button btn-primary">Save</button>
+          <button ui-sref="admin" class="button btn-default">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -487,6 +487,18 @@ artifact.womens-room-6 {
   height: 263px;
   width: 90px;
 }
+artifact.mens-room-6 {
+  background: transparent url("/images/mens-room.svg") left top no-repeat;
+  -webkit-background-size: 32px 32px;
+  -moz-background-size: 32px 32px;
+  background-size: 32px 32px;
+}
+artifact.womens-room-6 {
+  background: transparent url("/images/womens-room.svg") right top no-repeat;
+  -webkit-background-size: 32px 32px;
+  -moz-background-size: 32px 32px;
+  background-size: 32px 32px;
+}
 artifact.liazon-cafe {
   height: 91px;
   width: 216px;
@@ -513,6 +525,20 @@ artifact.mens-room-8,
 artifact.womens-room-8 {
   height: 91px;
   width: 287px;
+}
+artifact.mens-room-7,
+artifact.mens-room-8 {
+  background: transparent url("/images/mens-room.svg") left bottom no-repeat;
+  -webkit-background-size: 32px 32px;
+  -moz-background-size: 32px 32px;
+  background-size: 32px 32px;
+}
+artifact.womens-room-7,
+artifact.womens-room-8 {
+  background: transparent url("/images/womens-room.svg") left top no-repeat;
+  -webkit-background-size: 32px 32px;
+  -moz-background-size: 32px 32px;
+  background-size: 32px 32px;
 }
 artifact.lobby-7 {
   height: 187px;

@@ -2,18 +2,20 @@
 	'use strict';
 	angular.module('app').controller('edRoomMapCtrl', edRoomMapCtrl);
 
-	edRoomMapCtrl.$inject = ['$state', '$scope', 'edRoomService'];
+	edRoomMapCtrl.$inject = ['$state', '$scope', 'edRoomService', 'edSidebarService'];
 
-	function edRoomMapCtrl($state, $scope, edRoomService) {
+	function edRoomMapCtrl($state, $scope, edRoomService, edSidebarService) {
 		var vm = this;
 		vm.selectedRooms = edRoomService.setSelectMultipleRooms(true);
 		vm.mappedRoom = edRoomService.getMappedRoom();
 
 		edRoomService.setDisplayRoomInfoType('location');
+		edRoomService.setSelectMultipleRooms(false);
 
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			locateRoom(vm.mappedRoom);
 		}
 

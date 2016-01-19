@@ -6,7 +6,7 @@
         <div class="panel-body bg-light">
           <div class="section-divider"><span>Create New Employee</span></div>
           <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
               <div class="section">
                 <label ng-class="{'state-error': createEmployeeForm.eid.$invalid &amp;&amp; !createEmployeeForm.eid.$pristine}" class="field">
                   <input name="eid" type="text" placeholder="ID" ng-model="vm.newEmployee.eid" focus-if="true" focus-delay="1000" required="required" class="gui-input"/>
@@ -27,7 +27,7 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="section">
                 <label class="field">
                   <input name="nickname" type="text" placeholder="Nickname" ng-model="vm.newEmployee.nickname" class="gui-input"/>
@@ -48,7 +48,7 @@
             <div class="col-md-6">
               <div class="section">
                 <label ng-class="{'state-error': createEmployeeForm.email.$invalid &amp;&amp; !createEmployeeForm.email.$pristine}" class="field">
-                  <input name="email" type="text" placeholder="Email" ng-model="vm.newEmployee.email" required="required" class="gui-input"/>
+                  <input name="email" type="email" placeholder="Email" ng-model="vm.newEmployee.email" required="required" class="gui-input"/>
                 </label>
               </div>
             </div>
@@ -56,8 +56,14 @@
           <div class="row">
             <div class="col-md-3">
               <div class="section">
-                <label ng-class="{'state-error': createEmployeeForm.department.$invalid &amp;&amp; !createEmployeeForm.department.$pristine}" class="field">
-                  <input name="department" type="text" placeholder="Department" ng-model="vm.newEmployee.department" required="required" class="gui-input"/>
+                <!--label.field(ng-class="{'state-error': createEmployeeForm.department.$invalid && !createEmployeeForm.department.$pristine}")
+                input.gui-input(name="department", type="text", placeholder="Department", ng-model="vm.newEmployee.department", required)
+                
+                -->
+                <label class="field select">
+                  <select name="department" ng-model="vm.newEmployee.department" ng-options="department for department in vm.departments | orderBy: 'department'" required="required">
+                    <option disabled="disabled" value="">Department</option>
+                  </select><i class="arrow"></i>
                 </label>
               </div>
             </div>
@@ -78,7 +84,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="manager" ng-model="vm.newEmployee.mid" ng-options="manager.eid as manager.firstName + ' ' + manager.lastName for manager in vm.managers | orderBy: 'lastName'">
+                  <select name="manager" ng-model="vm.newEmployee.mid" ng-options="manager.eid as manager.lastName + ', ' + manager.firstName for manager in vm.managers | orderBy: 'lastName'">
                     <option disabled="disabled" value="">Manager</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -132,6 +138,51 @@
                 <label class="option option-primary mt10">
                   <input type="checkbox" name="hasReports" ng-model="vm.newEmployee.hasReports"/><span class="checkbox"></span>Has Reports
                 </label>
+              </div>
+            </div>
+          </div>
+          <div ng-if="vm.identity.isAuthorized('super-admin')">
+            <div class="section-divider"><span>Guilds</span></div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="guild-font-end" ng-model="vm.newEmployee.guilds['front-end']"/><span class="checkbox"></span>Front-End
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-if="vm.identity.isAuthorized('super-admin')">
+            <div class="section-divider"><span>Committees</span></div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-fun-games" ng-model="vm.newEmployee.committees['fun-games']"/><span class="checkbox"></span>Fun &amp; Games
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-wellness" ng-model="vm.newEmployee.committees['wellness']"/><span class="checkbox"></span>Wellness
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-diversity" ng-model="vm.newEmployee.committees['diversity']"/><span class="checkbox"></span>Diversity
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="section">
+                  <label class="option option-primary mt10">
+                    <input type="checkbox" name="committee-beautification" ng-model="vm.newEmployee.committees['beautification']"/><span class="checkbox"></span>Beautification
+                  </label>
+                </div>
               </div>
             </div>
           </div>

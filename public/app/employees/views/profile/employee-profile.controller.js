@@ -2,22 +2,23 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeProfileCtrl', edEmployeeProfileCtrl);
 
-	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams', '_'];
+	edEmployeeProfileCtrl.$inject = ['$scope', '$document', 'edEmployeeService', '$stateParams', 'edSidebarService', '_'];
 
-	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams, _) {
+	function edEmployeeProfileCtrl($scope, $document, edEmployeeService, $stateParams, edSidebarService, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
 		vm.changePage = changePage;
 		vm.currentPage = edEmployeeService.getProfilePageNumber();
 
-		edEmployeeService.setDisplayEmployeeInfoType('profile');
-		edEmployeeService.setSelectMultipleEmployees(true);
-		edEmployeeService.updateMappedEmployee(null);
-
 		activate();
 
 		function activate() {
-			if ($stateParams.employee || $stateParams.team || $stateParams.department || $stateParams.firstname || $stateParams.lastname) {
+			edSidebarService.setLockSidebar(false);
+			edEmployeeService.setDisplayEmployeeInfoType('profile');
+			edEmployeeService.setSelectMultipleEmployees(true);
+			edEmployeeService.updateMappedEmployee(null);
+
+			if ($stateParams.employee || $stateParams.team || $stateParams.department || $stateParams.title || $stateParams.firstname || $stateParams.lastname) {
 				edEmployeeService.removeAllSelectedEmployees();
 				edEmployeeService.getAllEmployees().$promise.then(function (employees) {
 					if ($stateParams.employee) {
@@ -26,6 +27,8 @@
 						selectEmployeeByTeam(employees);
 					} else if ($stateParams.department) {
 						selectEmployeeByDepartment(employees);
+					} else if ($stateParams.title) {
+						selectEmployeeByTitle(employees);
 					} else if ($stateParams.firstname || $stateParams.lastname) {
 						selectEmployeeByName(employees);
 					}
@@ -86,8 +89,31 @@
 					// Split departments query on comma
 					var departments = $stateParams.department.split(',');
 					angular.forEach(departments, function (department) {
-						// If the employee's team is part of the query
+						// If the employee's department is part of the query
 						if (employee.hasOwnProperty('department') && employee.department.toLowerCase() === department.toLowerCase()) {
+							match = true;
+						} else {
+							return false;
+						}
+					});
+					return match;
+				}
+			}), 'lastName').reverse();
+
+			angular.forEach(selectedEmployees, function (employee) {
+				edEmployeeService.updateSelectedEmployees(employee);
+			});
+		}
+
+		function selectEmployeeByTitle(employees) {
+			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
+				var match = false;
+				if ($stateParams.title) {
+					// Split titles query on pipe
+					var titles = $stateParams.title.split('|');
+					angular.forEach(titles, function (title) {
+						// If the employee's title is part of the query
+						if (employee.hasOwnProperty('title') && employee.title.toLowerCase() === title.toLowerCase()) {
 							match = true;
 						} else {
 							return false;

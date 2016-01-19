@@ -2,6 +2,7 @@ doctype
 html
     head
         title Liazon Directory
+        meta(name="viewport", content="width=device-width,user-scalable=no")
         link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
         link(rel="stylesheet", href="/bower_components/toastr/toastr.css")
         link(rel="stylesheet", href="/bower_components/fontawesome/css/font-awesome.min.css")
@@ -13,6 +14,7 @@ html
         link(rel="stylesheet", href="/css/site.css")
         link(rel="stylesheet", href="/css/org-chart.css")
         link(rel="stylesheet", href="/css/guilds.css")
+        link(rel="stylesheet", href="/css/committees.css")
         link(rel="stylesheet", href="/css/seat-map.css")
         link(rel="stylesheet", href="/css/map-marker.css")
         link(rel="stylesheet", href="/css/fonts.css")
@@ -22,4 +24,4 @@ html
     body(ng-app="app")
         include currentUser
         block main-content
-        include scripts
+        include scriptsMin

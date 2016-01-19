@@ -2,18 +2,20 @@
 	'use strict';
 	angular.module('app').controller('edPrinterMapCtrl', edPrinterMapCtrl);
 
-	edPrinterMapCtrl.$inject = ['$state', '$scope', 'edPrinterService'];
+	edPrinterMapCtrl.$inject = ['$state', '$scope', 'edPrinterService', 'edSidebarService'];
 
-	function edPrinterMapCtrl($state, $scope, edPrinterService) {
+	function edPrinterMapCtrl($state, $scope, edPrinterService, edSidebarService) {
 		var vm = this;
 		vm.selectedPrinters = edPrinterService.setSelectMultiplePrinters(true);
 		vm.mappedPrinter = edPrinterService.getMappedPrinter();
 
 		edPrinterService.setDisplayPrinterInfoType('location');
+		edPrinterService.setSelectMultiplePrinters(false);
 
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			locatePrinter(vm.mappedPrinter);
 		}
 

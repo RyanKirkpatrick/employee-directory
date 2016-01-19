@@ -2,10 +2,11 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', '_'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', 'edSidebarService', '_'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, _) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, edSidebarService, _) {
 		var vm = this;
+		vm.identity = edIdentityService;
 		vm.updateEmployee = updateEmployee;
 		vm.deleteEmployee = deleteEmployee;
 		vm.cancelUpdateEmployee = cancelUpdateEmployee;
@@ -27,10 +28,28 @@
 				text: 'Remote'
 			}
 		];
+		vm.departments = [
+			'Carrier Relations',
+			'Client Service',
+			'Client Service Management',
+			'Configuration',
+			'Corporate',
+			'Development',
+			'Employee Services',
+			'Field Sales',
+			'Finance',
+			'HR',
+			'Implementation',
+			'Infrastructure / Tech Ops',
+			'Marketing',
+			'Product Strategy',
+			'QA / Reporting / Billing'
+		];
 
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			edEmployeeService.setDisplayEmployeeInfoType('profile');
 			edEmployeeService.getAllEmployees().$promise.then(createManagerList);
 			var selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
@@ -51,12 +70,23 @@
 				title: selectedEmployees[0].title,
 				department: selectedEmployees[0].department,
 				team: selectedEmployees[0].team,
+				guilds: {},
+				committees: {},
 				location: selectedEmployees[0].location,
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
 				mid: selectedEmployees[0].mid
 			};
+
+			_.forEach(selectedEmployees[0].guilds, function (guild) {
+				vm.selectedEmployee.guilds[guild] = true;
+			});
+
+			_.forEach(selectedEmployees[0].committees, function (committee) {
+				vm.selectedEmployee.committees[committee] = true;
+			});
+
 			filterManagers(selectedEmployees[0]);
 		}
 
@@ -111,12 +141,28 @@
 				title: vm.selectedEmployee.title,
 				department: vm.selectedEmployee.department,
 				team: vm.selectedEmployee.team,
+				guilds: [],
+				committees: [],
 				location: vm.selectedEmployee.location,
 				floor: vm.selectedEmployee.floor,
 				seat: vm.selectedEmployee.seat,
 				hasReports: vm.selectedEmployee.hasReports,
 				mid: vm.selectedEmployee.mid
 			};
+
+			// Add all the selected guilds
+			_.forEach(vm.selectedEmployee.guilds, function (include, guild) {
+				if (include) {
+					newEmployeeData.guilds.push(guild);
+				}
+			});
+
+			// Add all the selected committees
+			_.forEach(vm.selectedEmployee.committees, function (include, committee) {
+				if (include) {
+					newEmployeeData.committees.push(committee);
+				}
+			});
 
 			// Save the image file for uploading
 			var imageFile = vm.selectedEmployee.imageFile;

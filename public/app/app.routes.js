@@ -23,6 +23,7 @@
 		$urlRouterProvider.when('/printers/', '/printers');
 		$urlRouterProvider.when('/rooms/', '/rooms');
 		$urlRouterProvider.when('/guilds/', '/guilds');
+		$urlRouterProvider.when('/committees/', '/committees');
 
 		$stateProvider
 			.state('home', {
@@ -72,6 +73,16 @@
 			})
 			.state('employees.profile.department', {
 				url: 'department/:department',
+				views: {
+					'main@': {
+						templateUrl: '/partials/employees/views/profile/employee-profile',
+						controller: 'edEmployeeProfileCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('employees.profile.title', {
+				url: 'title/:title',
 				views: {
 					'main@': {
 						templateUrl: '/partials/employees/views/profile/employee-profile',
@@ -388,6 +399,19 @@
 					auth: routeRoleChecks.superAdmin
 				}
 			})
+			.state('admin.user-profile', {
+				url: '/user-profile',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/user-profile',
+						controller: 'edUserProfileCtrl',
+						controllerAs: 'vm'
+					}
+				},
+				resolve: {
+					auth: routeRoleChecks.user
+				}
+			})
 			.state('admin.create-user', {
 				url: '/create-user',
 				views: {
@@ -408,10 +432,15 @@
 						templateUrl: '/partials/admin/views/update-user',
 						controller: 'edUpdateUserCtrl',
 						controllerAs: 'vm'
+					},
+					'sidebar@': {
+						templateUrl: '/partials/admin/components/user-selector',
+						controller: 'edUserSelectorCtrl',
+						controllerAs: 'vm'
 					}
 				},
 				resolve: {
-					auth: routeRoleChecks.user
+					auth: routeRoleChecks.superAdmin
 				}
 			})
 			.state('admin.create-employee', {
@@ -541,6 +570,61 @@
 					'main@': {
 						templateUrl: '/partials/guilds/views/guilds',
 						controller: 'edGuildsCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees', {
+				url: '/committees',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/committees/components/committees-topbar',
+						controller: 'edCommitteesTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.fun-games', {
+				url: '/fun-games',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.diversity', {
+				url: '/diversity',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.wellness', {
+				url: '/wellness',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('committees.beautification', {
+				url: '/beautification',
+				views: {
+					'main@': {
+						templateUrl: '/partials/committees/views/committees',
+						controller: 'edCommitteesCtrl',
 						controllerAs: 'vm'
 					}
 				}

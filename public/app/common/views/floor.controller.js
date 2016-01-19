@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edFloorCtrl', edFloorCtrl);
 
-	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService', 'edArtifactService', '_'];
+	edFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$stateParams', '$scope', 'edRoomService', 'edPrinterService', 'edArtifactService', 'edSidebarService', '_'];
 
-	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService, edArtifactService, _) {
+	function edFloorCtrl(edEmployeeService, edDeskService, $state, $stateParams, $scope, edRoomService, edPrinterService, edArtifactService, edSidebarService, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(true);
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
@@ -21,10 +21,14 @@
 		edEmployeeService.setDisplayEmployeeInfoType('location');
 		edPrinterService.setDisplayPrinterInfoType('location');
 		edRoomService.setDisplayRoomInfoType('location');
+		edEmployeeService.setSelectMultipleEmployees(false);
+		edRoomService.setSelectMultipleRooms(false);
+		edPrinterService.setSelectMultiplePrinters(false);
 
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			// Get the floor based on the current state
 			var currentState = $state.current.name;
 			var locationAndFloor = currentState.split('.')[2].split('-');

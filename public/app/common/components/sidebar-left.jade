@@ -47,14 +47,10 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.fa.fa-map-marker
                     span.sidebar-title Seat Assignment
             li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
-                a(ui-sref="admin.users")
-                    span.fa.fa-user
-                    span.sidebar-title User List
-            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
                 a(ui-sref="admin.create-user")
                     span.fa.fa-plus-square
                     span.sidebar-title Create User
-            li(ui-sref-active="active", ng-if="vm.identity.isAuthenticated()")
+            li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
                 a(ui-sref="admin.update-user")
                     span.fa.fa-pencil-square
                     span.sidebar-title Update User

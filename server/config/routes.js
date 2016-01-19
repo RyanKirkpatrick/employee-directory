@@ -8,9 +8,10 @@ var auth      = require('./auth'),
     mongoose  = require('mongoose');
 
 module.exports = function (app) {
-	app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
+	app.get('/api/users', auth.requiresRole('user'), users.getUsers);
 	app.post('/api/users', auth.requiresRole('admin'), users.createUser);
-	app.put('/api/users', auth.requiresRole('admin'), users.updateUser);
+	//app.put('/api/users', auth.requiresRole('admin'), users.updateCurrentUser);
+	app.put('/api/users', auth.requiresRole('user'), users.updateUser);
 
 	app.get('/api/employees', employees.getEmployees);
 	app.post('/api/employees', auth.requiresRole('admin'), employees.createEmployee);

@@ -33,6 +33,7 @@
 		/**
 		 * Gets all employees from the database (or memory)
 		 *
+		 * @param {Boolean} cacheBust to get data from server or memory
 		 * @return {Array} employees
 		 */
 		function getAllEmployees(cacheBust) {

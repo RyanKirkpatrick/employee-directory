@@ -2,25 +2,30 @@
 	'use strict';
 	angular.module('app').controller('edRoomProfileCtrl', edRoomProfileCtrl);
 
-	edRoomProfileCtrl.$inject = ['$scope', '$document', 'edRoomService', '$stateParams', '_'];
+	edRoomProfileCtrl.$inject = ['$scope', '$document', 'edRoomService', '$stateParams', 'edSidebarService', '_'];
 
-	function edRoomProfileCtrl($scope, $document, edRoomService, $stateParams, _) {
+	function edRoomProfileCtrl($scope, $document, edRoomService, $stateParams, edSidebarService, _) {
 		var vm = this;
 		vm.selectedRooms = edRoomService.getSelectedRooms();
 		vm.changePage = changePage;
 		vm.currentPage = edRoomService.getProfilePageNumber();
 
-		edRoomService.setDisplayRoomInfoType('profile');
-		edRoomService.setSelectMultipleRooms(true);
-		edRoomService.updateMappedRoom(null);
+		activate();
 
-		if ($stateParams.room || $stateParams.roomtype) {
-			edRoomService.removeAllSelectedRooms();
-			if ($stateParams.room) {
-				edRoomService.getAllRooms().$promise.then(selectRoomByName);
-			} else if ($stateParams.roomtype) {
+		function activate() {
+			edSidebarService.setLockSidebar(false);
+			edRoomService.setDisplayRoomInfoType('profile');
+			edRoomService.setSelectMultipleRooms(true);
+			edRoomService.updateMappedRoom(null);
+
+			if ($stateParams.room || $stateParams.roomtype) {
 				edRoomService.removeAllSelectedRooms();
-				edRoomService.getAllRooms().$promise.then(selectRoomByType);
+				if ($stateParams.room) {
+					edRoomService.getAllRooms().$promise.then(selectRoomByName);
+				} else if ($stateParams.roomtype) {
+					edRoomService.removeAllSelectedRooms();
+					edRoomService.getAllRooms().$promise.then(selectRoomByType);
+				}
 			}
 		}
 

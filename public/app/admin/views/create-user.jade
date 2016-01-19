@@ -9,35 +9,49 @@
                         .col-md-6
                             .section
                                 label.field.prepend-icon(for="fname")
-                                    input.gui-input(name="fname", type="text", placeholder="First Name", ng-model="vm.fname", focus-if="true", focus-delay="1000", required)
+                                    input.gui-input(name="fname", type="text", placeholder="First Name", ng-model="vm.newUser.firstName", focus-if="true", focus-delay="1000", required)
                                     label.field-icon(for="fname")
                                         i.fa.fa-user
                         .col-md-6
                             .section
-                                label.field.prepend-icon(for="fname")
-                                    input.gui-input(name="lname", type="text", placeholder="Last Name", ng-model="vm.lname", required)
+                                label.field.prepend-icon(for="lname")
+                                    input.gui-input(name="lname", type="text", placeholder="Last Name", ng-model="vm.newUser.lastName", required)
                                     label.field-icon(for="lname")
                                         i.fa.fa-user
                     .row
                         .col-md-6
                             .section
                                 label.field.prepend-icon(for="username")
-                                    input.gui-input(name="username", type="text", placeholder="Username", ng-model="vm.username", required)
+                                    input.gui-input(name="username", type="text", placeholder="Username", ng-model="vm.newUser.username", required)
                                     label.field-icon(for="username")
                                         i.fa.fa-male
                         .col-md-6
                             .section
                                 label.field.prepend-icon(for="password")
-                                    input.gui-input(name="password", type="password", placeholder="Password", ng-model="vm.password", required)
+                                    input.gui-input(name="password", type="password", placeholder="Password", ng-model="vm.newUser.password", required)
                                     label.field-icon(for="password")
                                         i.fa.fa-lock
+                    .section-divider
+                        span Roles
                     .row
-                        .col-md-12
+                        .col-md-2
                             .section
-                                label.field.prepend-icon(for="roles")
-                                    input.gui-input(name="roles", type="text", placeholder="Roles (comma separated)", ng-model="vm.roles", required)
-                                    label.field-icon(for="roles")
-                                        i.fa.fa-users
+                                label.option.option-primary.mt10
+                                    input(type="checkbox", name="roles-user", ng-model="vm.newUser.roles['user']")
+                                    span.checkbox
+                                    | User
+                        .col-md-2
+                            .section
+                                label.option.option-primary.mt10
+                                    input(type="checkbox", name="roles-admin", ng-model="vm.newUser.roles['admin']")
+                                    span.checkbox
+                                    | Admin
+                        .col-md-2
+                            .section
+                                label.option.option-primary.mt10
+                                    input(type="checkbox", name="roles-super-admin", ng-model="vm.newUser.roles['super-admin']")
+                                    span.checkbox
+                                    | Super Admin
                 .panel-footer.text-right
                     button.button.btn-primary(type="submit", ng-click="vm.createUser()", ng-disabled="signupForm.$invalid") Save
                     button.button.btn-default(ui-sref="admin") Cancel

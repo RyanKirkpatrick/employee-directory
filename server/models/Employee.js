@@ -41,6 +41,9 @@ var employeeSchema = mongoose.Schema({
 	guilds: {
 		type: [String]
 	},
+	committees: {
+		type: [String]
+	},
 	location: {
 		type: String
 	},
@@ -77,7 +80,7 @@ function createDefaultEmployees() {
 				lastName: 'Doe',
 				nickname: 'Jack',
 				email: 'john.doe@liazon.com',
-				phone: '(212) 123-4567',
+				phone: '2121234567',
 				ext: '123',
 				department: 'Software Engineering',
 				title: 'Software Engineer',

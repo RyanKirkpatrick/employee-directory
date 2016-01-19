@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edSeatPickerFloorCtrl', edSeatPickerFloorCtrl);
 
-	edSeatPickerFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope', '_'];
+	edSeatPickerFloorCtrl.$inject = ['edEmployeeService', 'edDeskService', '$state', '$scope', 'edSidebarService', '_'];
 
-	function edSeatPickerFloorCtrl(edEmployeeService, edDeskService, $state, $scope, _) {
+	function edSeatPickerFloorCtrl(edEmployeeService, edDeskService, $state, $scope, edSidebarService, _) {
 		var vm = this;
 		vm.selectedEmployees = edEmployeeService.setSelectMultipleEmployees(false);
 		vm.desks = null;
@@ -16,6 +16,7 @@
 		activate();
 
 		function activate() {
+			edSidebarService.setLockSidebar(false);
 			checkForSelectedEmployee(vm.selectedEmployees);
 			// Get the floor based on the current state
 			var currentState = $state.current.name;
