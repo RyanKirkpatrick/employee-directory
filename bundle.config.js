@@ -3,6 +3,18 @@ module.exports = {
 		main: {
 			scripts: [
 				'./public/app/**/*.js'
+			],
+			styles: [
+				'./public/css/theme-overrides.css',
+				'./public/css/admin-form.css',
+				'./public/css/admin-form-overrides.css',
+				'./public/css/site.css',
+				'./public/css/org-chart.css',
+				'./public/css/guilds.css',
+				'./public/css/committees.css',
+				'./public/css/seat-map.css',
+				'./public/css/map-marker.css',
+				'./public/css/fonts.css'
 			]
 		},
 		vendor: {

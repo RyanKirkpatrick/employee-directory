@@ -1,6 +1,6 @@
-.center-block.mw600(ng-if="!vm.committee.name")
-    .text-center.mb30
-        img.mb20(src="/images/committee-icons/committees.png")
+.center-block.committee.mw600(ng-if="!vm.committee.name")
+    .text-center.committee-header.mb30
+        img.mb20(src="/images/committee-icons/committees.svg")
         div.fs20 Liazon Committees
     p The Liazon Celebration &amp; Service Committee's mission is focused around three core components:
     ul
@@ -12,7 +12,7 @@
         .col-md-6
             a.boxed-link.text-center(ui-sref="committees.fun-games")
                 img(ng-src="/images/committee-icons/fun-games.svg")
-                h4 Fun &amp Games Committee
+                h4 Fun &amp; Games Committee
         .col-md-6
             a.boxed-link.text-center(ui-sref="committees.diversity")
                 img(ng-src="/images/committee-icons/diversity.svg")

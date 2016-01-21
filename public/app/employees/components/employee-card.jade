@@ -12,7 +12,7 @@
     .panel-body.pn
         .row.table-layout
             .col-xs-4.text-center.va-t.of-h
-                img.employee-photo.mt10.mb10(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
+                img.employee-photo.mt10.mb5(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
                 ul.list-inline.memberships
                     li(ng-repeat="guild in employee.guilds")

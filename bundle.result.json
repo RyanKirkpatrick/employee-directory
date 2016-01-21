@@ -1,8 +1,9 @@
 {
+  "main": {
+    "styles": "<link href='main-043caaf457.css' media='all' rel='stylesheet' type='text/css'/>",
+    "scripts": "<script src='main-5da975e35c.js' type='text/javascript'></script>"
+  },
   "vendor": {
     "scripts": "<script src='vendor-463aa4fc9f.js' type='text/javascript'></script>"
-  },
-  "main": {
-    "scripts": "<script src='main-9e0fc8769d.js' type='text/javascript'></script>"
   }
 }

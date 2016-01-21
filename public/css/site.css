@@ -151,8 +151,8 @@ Directory Item Card
 .directory-item-card .memberships li {
   background-color: #f3f3f3;
   border: 1px solid #e2e2e2;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
   margin: 4px;
   padding: 4px;
 }
