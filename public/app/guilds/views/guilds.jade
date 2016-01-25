@@ -1,8 +1,13 @@
-.center-block.mw500(ng-if="!vm.guild")
-    .text-center.mb30
-        .fa.fa-shield.fs100.mb30.profile-color
+.center-block.guild.mw600(ng-if="!vm.guild")
+    .text-center.guild-header.mb30
+        img.mb20(src="/images/guild-icons/guilds.svg")
         div.fs20 Developer Guilds
     p Developer Guilds are made up of subject matter experts from different development teams.  The members of each guild are responsible for defining standards, disseminating information and maintaining consistency and quality with regard to the subject matter of their guild.
+    .row
+        .col-md-6
+            a.boxed-link.text-center(ui-sref="guilds.front-end")
+                .icon.icon-guild-front-end.fs120.guild-front-end-color.mb30
+                h4 Front-End Developers
 
 .center-block.guild(ng-if="vm.guild")
     .text-center.guild-header.mb30

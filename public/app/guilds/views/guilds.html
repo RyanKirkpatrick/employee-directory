@@ -1,10 +1,14 @@
 
-<div ng-if="!vm.guild" class="center-block mw500">
-  <div class="text-center mb30">
-    <div class="fa fa-shield fs100 mb30 profile-color"></div>
+<div ng-if="!vm.guild" class="center-block guild mw600">
+  <div class="text-center guild-header mb30"><img src="/images/guild-icons/guilds.svg" class="mb20"/>
     <div class="fs20">Developer Guilds</div>
   </div>
   <p>Developer Guilds are made up of subject matter experts from different development teams.  The members of each guild are responsible for defining standards, disseminating information and maintaining consistency and quality with regard to the subject matter of their guild.</p>
+  <div class="row">
+    <div class="col-md-6"><a ui-sref="guilds.front-end" class="boxed-link text-center">
+        <div class="icon icon-guild-front-end fs120 guild-front-end-color mb30"></div>
+        <h4>Front-End Developers</h4></a></div>
+  </div>
 </div>
 <div ng-if="vm.guild" class="center-block guild">
   <div class="text-center guild-header mb30"><span class="icon icon-guild-front-end fs100 guild-front-end-color"></span>

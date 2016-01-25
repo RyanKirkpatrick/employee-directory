@@ -11,6 +11,9 @@
 .guild .guild-header span {
   text-transform: capitalize;
 }
+.guild .guild-header img {
+  height: 128px;
+}
 .guild ul.guild-members {
   list-style: none;
   margin: 0;
@@ -19,17 +22,12 @@
 .guild ul.guild-members li {
   background-color: #fff;
   border: 1px solid #fff;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   cursor: pointer;
   display: inline-block;
   margin: 0 10px 20px;
   padding: 0 6px;
   text-align: center;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
   transition: all 0.1s linear;
   vertical-align: top;
   width: 150px;
@@ -48,6 +46,5 @@
 }
 .guild ul.guild-members li:hover {
   background-color: #f5f5f5;
-  -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
 }
