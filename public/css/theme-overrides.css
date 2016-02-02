@@ -340,6 +340,9 @@ Sidebar
   -ms-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
+.boxed-link > div {
+  height: 128px;
+}
 .boxed-link img {
   height: 128px;
   width: 128px;
