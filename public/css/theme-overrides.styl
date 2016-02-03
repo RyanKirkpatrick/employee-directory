@@ -15,32 +15,36 @@ liazon-green = #00B259
 #topbar
   position fixed
   top 60px
+  padding 0
 
-  .nav.nav-list-topbar li a
-    border none
-    padding-bottom 15px
-    position relative
+  .nav.nav-list-topbar
+    margin 0 15px
 
-    &:before
-      background-color primary-color-blue
-      bottom 0
-      content: ""
-      height 3px
-      right 0
-      position absolute
-      transition width 0.5s ease
-      width 0
+    li a
+      border none
+      padding-bottom 15px
+      position relative
 
-  .nav.nav-list-topbar li.active a
-    border none
+      &:before
+        background-color primary-color-blue
+        bottom 0
+        content: ""
+        height 3px
+        right 0
+        position absolute
+        transition width 0.5s ease
+        width 0
 
-    &:before
-      width 100%
+    li.active a
+      border none
 
-  .nav.nav-list-topbar li.location-tab a:before,
-  .nav.nav-list-topbar li.active.location-tab a:before
-    background-color primary-color-red
-    //left 0
+      &:before
+        width 100%
+
+    li.location-tab a:before,
+    li.active.location-tab a:before
+      background-color primary-color-red
+      //left 0
 
 /**************************************************
 Sidebar

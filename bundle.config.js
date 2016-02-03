@@ -20,7 +20,8 @@ module.exports = {
 				'./bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js',
 				'./bower_components/angularUtils-pagination/dirPagination.js',
 				'./bower_components/lodash/lodash.min.js',
-				'./bower_components/ng-focus-if/focusIf.min.js'
+				'./bower_components/ng-focus-if/focusIf.min.js',
+				'./public/analytics/google-analytics.js'
 			]
 		}
 	}

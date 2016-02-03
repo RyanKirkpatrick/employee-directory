@@ -8,6 +8,10 @@
 #topbar {
   position: fixed;
   top: 60px;
+  padding: 0;
+}
+#topbar .nav.nav-list-topbar {
+  margin: 0 15px;
 }
 #topbar .nav.nav-list-topbar li a {
   border: none;
