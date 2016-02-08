@@ -9,13 +9,11 @@
 		vm.selectedPrinters = edPrinterService.setSelectMultiplePrinters(true);
 		vm.mappedPrinter = edPrinterService.getMappedPrinter();
 
-		edPrinterService.setDisplayPrinterInfoType('location');
-		edPrinterService.setSelectMultiplePrinters(false);
-
 		activate();
 
 		function activate() {
 			edSidebarService.setLockSidebar(false);
+			edPrinterService.setDisplayPrinterInfoType('location');
 			locatePrinter(vm.mappedPrinter);
 		}
 

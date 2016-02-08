@@ -18,17 +18,13 @@
 		vm.location = null;
 		vm.floor = null;
 
-		edEmployeeService.setDisplayEmployeeInfoType('location');
-		edPrinterService.setDisplayPrinterInfoType('location');
-		edRoomService.setDisplayRoomInfoType('location');
-		edEmployeeService.setSelectMultipleEmployees(false);
-		edRoomService.setSelectMultipleRooms(false);
-		edPrinterService.setSelectMultiplePrinters(false);
-
 		activate();
 
 		function activate() {
 			edSidebarService.setLockSidebar(false);
+			edEmployeeService.setDisplayEmployeeInfoType('location');
+			edPrinterService.setDisplayPrinterInfoType('location');
+			edRoomService.setDisplayRoomInfoType('location');
 			// Get the floor based on the current state
 			var currentState = $state.current.name;
 			var locationAndFloor = currentState.split('.')[2].split('-');

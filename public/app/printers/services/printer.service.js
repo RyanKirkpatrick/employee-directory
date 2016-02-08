@@ -233,7 +233,7 @@
 		}
 
 		/**
-		 * Gets wether or not we should allow multiple printers to be selected
+		 * Gets whether or not we should allow multiple printers to be selected
 		 *
 		 * @return {Boolean} allow selecting multiple printer
 		 */

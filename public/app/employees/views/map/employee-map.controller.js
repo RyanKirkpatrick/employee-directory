@@ -10,13 +10,11 @@
 		vm.mappedEmployee = edEmployeeService.getMappedEmployee();
 		vm.unknownLocationEmployee = false;
 
-		edEmployeeService.setDisplayEmployeeInfoType('location');
-		edEmployeeService.setSelectMultipleEmployees(false);
-
 		activate();
 
 		function activate() {
 			edSidebarService.setLockSidebar(false);
+			edEmployeeService.setDisplayEmployeeInfoType('location');
 			if ($stateParams.employee) {
 				edEmployeeService.updateMappedEmployeeById($stateParams.employee);
 			} else if (vm.mappedEmployee) {

@@ -9,13 +9,11 @@
 		vm.selectedRooms = edRoomService.setSelectMultipleRooms(true);
 		vm.mappedRoom = edRoomService.getMappedRoom();
 
-		edRoomService.setDisplayRoomInfoType('location');
-		edRoomService.setSelectMultipleRooms(false);
-
 		activate();
 
 		function activate() {
 			edSidebarService.setLockSidebar(false);
+			edRoomService.setDisplayRoomInfoType('location');
 			locateRoom(vm.mappedRoom);
 		}
 
