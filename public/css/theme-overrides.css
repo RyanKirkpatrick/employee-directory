@@ -169,10 +169,10 @@ Sidebar
   transform: rotate(0);
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li > span:nth-child(1) {
-  font-size: 25px;
+  font-size: 23px;
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li > a > span:nth-child(1) {
-  font-size: 25px;
+  font-size: 23px;
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li span:nth-child(2) {
   opacity: 0.1;
