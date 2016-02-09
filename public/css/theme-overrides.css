@@ -152,11 +152,11 @@ Sidebar
 }
 #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
   font-size: 16px;
-  -webkit-transition: font-size 0.5s ease;
-  -moz-transition: font-size 0.5s ease;
-  -o-transition: font-size 0.5s ease;
-  -ms-transition: font-size 0.5s ease;
-  transition: font-size 0.5s ease;
+  -webkit-transition: font-size 0.2s ease;
+  -moz-transition: font-size 0.2s ease;
+  -o-transition: font-size 0.2s ease;
+  -ms-transition: font-size 0.2s ease;
+  transition: font-size 0.2s ease;
 }
 #sidebar_left.sidebar-left-sm {
   width: 50px;
@@ -169,10 +169,10 @@ Sidebar
   transform: rotate(0);
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li > span:nth-child(1) {
-  font-size: 20px;
+  font-size: 25px;
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li > a > span:nth-child(1) {
-  font-size: 20px;
+  font-size: 25px;
 }
 #sidebar_left.sidebar-left-sm .sidebar-menu > li span:nth-child(2) {
   opacity: 0.1;
