@@ -2,6 +2,7 @@
     ul.nav.nav-list.nav-list-topbar
         li.profile-tab(ui-sref-active="active")
             a(ui-sref="rooms.profile") Room Profiles
+                span.label.label-xs.bg-primary.ml10(ng-if="vm.selectedRooms.length > 0") {{vm.selectedRooms.length}}
         li.location-tab(ui-sref-active="active")
             a(ui-sref="rooms.map") Room Location
         li.location-tab(ui-sref-active="active")

@@ -64,7 +64,7 @@
 			selectedRooms = rooms;
 			selectedRoomAdded = true;
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedRoomChange', selectedRooms);
+			$rootScope.$broadcast('selectedRoomsChange', selectedRooms);
 			return selectedRooms;
 		}
 
@@ -170,7 +170,7 @@
 				}
 			}
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedRoomChange', selectedRooms);
+			$rootScope.$broadcast('selectedRoomsChange', selectedRooms);
 			return selectedRooms;
 		}
 
@@ -183,7 +183,7 @@
 			});
 			selectedRooms = [];
 			selectedRoomAdded = false;
-			$rootScope.$broadcast('selectedRoomChange', selectedRooms);
+			$rootScope.$broadcast('selectedRoomsChange', selectedRooms);
 		}
 
 		/**

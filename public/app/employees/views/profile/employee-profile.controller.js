@@ -188,7 +188,7 @@
 			$document.scrollTopAnimated(0, 300);
 		}
 
-		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var deregister = $scope.$on('selectedEmployeesChange', function (event, selectedEmployees) {
 			vm.selectedEmployees = selectedEmployees;
 			// If we added to selected employees, go to first page and scroll to the top
 			if (edEmployeeService.getSelectedEmployeeAdded()) {

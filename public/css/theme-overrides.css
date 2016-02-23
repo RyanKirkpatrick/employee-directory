@@ -15,7 +15,8 @@
 }
 #topbar .nav.nav-list-topbar li a {
   border: none;
-  padding-bottom: 15px;
+  line-height: 27px;
+  padding: 12px 14px 11px;
   position: relative;
 }
 #topbar .nav.nav-list-topbar li a:before {
@@ -32,11 +33,21 @@
   transition: width 0.5s ease;
   width: 0;
 }
+#topbar .nav.nav-list-topbar li a .label {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
 #topbar .nav.nav-list-topbar li.active a {
   border: none;
 }
 #topbar .nav.nav-list-topbar li.active a:before {
   width: 100%;
+}
+#topbar .nav.nav-list-topbar li.active a .label {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 #topbar .nav.nav-list-topbar li.location-tab a:before,
 #topbar .nav.nav-list-topbar li.active.location-tab a:before {
