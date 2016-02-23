@@ -1,7 +1,7 @@
 
 <div class="topbar-left">
   <ul class="nav nav-list nav-list-topbar">
-    <li ui-sref-active="active" class="profile-tab"><a ui-sref="printers.profile">Printer Profiles</a></li>
+    <li ui-sref-active="active" class="profile-tab"><a ui-sref="printers.profile">Printer Profiles<span ng-if="vm.selectedPrinters.length &gt; 0" class="label label-xs bg-primary ml10">{{vm.selectedPrinters.length}}</span></a></li>
     <li ui-sref-active="active" class="location-tab"><a ui-sref="printers.map">Printer Location</a></li>
     <li ui-sref-active="active" class="location-tab"><a ui-sref="printers.map.buf-6">BUF 6</a></li>
     <li ui-sref-active="active" class="location-tab"><a ui-sref="printers.map.buf-7">BUF 7</a></li>

@@ -36,7 +36,7 @@
 			edDeskService.getAllDesks().$promise.then(deskFilter);
 		}
 
-		var deregisterEmployee = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var deregisterEmployee = $scope.$on('selectedEmployeesChange', function (event, selectedEmployees) {
 			checkForSelectedEmployee(selectedEmployees);
 		});
 

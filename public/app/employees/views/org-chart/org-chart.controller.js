@@ -55,7 +55,7 @@
 			$state.go('employees.profile.employee', {'employee': vm.selectedEmployee.eid});
 		}
 
-		var deregister = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var deregister = $scope.$on('selectedEmployeesChange', function (event, selectedEmployees) {
 			vm.selectedEmployee = selectedEmployees[0];
 
 			if (vm.selectedEmployee) {

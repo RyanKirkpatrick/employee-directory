@@ -22,7 +22,8 @@ liazon-green = #00B259
 
     li a
       border none
-      padding-bottom 15px
+      line-height 27px
+      padding 12px 14px 11px
       position relative
 
       &:before
@@ -35,11 +36,17 @@ liazon-green = #00B259
         transition width 0.5s ease
         width 0
 
+      .label
+        opacity .5
+
     li.active a
       border none
 
       &:before
         width 100%
+
+      .label
+        opacity 1
 
     li.location-tab a:before,
     li.active.location-tab a:before

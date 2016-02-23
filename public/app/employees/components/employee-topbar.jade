@@ -2,6 +2,7 @@
     ul.nav.nav-list.nav-list-topbar
         li.profile-tab(ui-sref-active="active")
             a(ui-sref="employees.profile") Employee Profiles
+                span.label.label-xs.bg-primary.ml10(ng-if="vm.selectedEmployees.length > 0") {{vm.selectedEmployees.length}}
         li.location-tab(ui-sref-active="active")
             a(ui-sref="employees.map") Employee Location
         li.location-tab(ui-sref-active="active")

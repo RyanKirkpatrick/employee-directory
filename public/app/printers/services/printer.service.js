@@ -64,7 +64,7 @@
 			selectedPrinters = printers;
 			selectedPrinterAdded = true;
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedPrinterChange', selectedPrinters);
+			$rootScope.$broadcast('selectedPrintersChange', selectedPrinters);
 			return selectedPrinters;
 		}
 
@@ -170,7 +170,7 @@
 				}
 			}
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedPrinterChange', selectedPrinters);
+			$rootScope.$broadcast('selectedPrintersChange', selectedPrinters);
 			return selectedPrinters;
 		}
 
@@ -183,7 +183,7 @@
 			});
 			selectedPrinters = [];
 			selectedPrinterAdded = false;
-			$rootScope.$broadcast('selectedPrinterChange', selectedPrinters);
+			$rootScope.$broadcast('selectedPrintersChange', selectedPrinters);
 		}
 
 		/**

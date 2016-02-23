@@ -66,7 +66,7 @@
 			selectedEmployees = employees;
 			selectedEmployeeAdded = true;
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
+			$rootScope.$broadcast('selectedEmployeesChange', selectedEmployees);
 			return selectedEmployees;
 		}
 
@@ -188,7 +188,7 @@
 				}
 			}
 			// Broadcast event for listeners
-			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
+			$rootScope.$broadcast('selectedEmployeesChange', selectedEmployees);
 			return selectedEmployees;
 		}
 
@@ -201,7 +201,7 @@
 			});
 			selectedEmployees = [];
 			selectedEmployeeAdded = false;
-			$rootScope.$broadcast('selectedEmployeeChange', selectedEmployees);
+			$rootScope.$broadcast('selectedEmployeesChange', selectedEmployees);
 		}
 
 		/**

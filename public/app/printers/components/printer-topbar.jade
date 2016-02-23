@@ -2,6 +2,7 @@
     ul.nav.nav-list.nav-list-topbar
         li.profile-tab(ui-sref-active="active")
             a(ui-sref="printers.profile") Printer Profiles
+                span.label.label-xs.bg-primary.ml10(ng-if="vm.selectedPrinters.length > 0") {{vm.selectedPrinters.length}}
         li.location-tab(ui-sref-active="active")
             a(ui-sref="printers.map") Printer Location
         li.location-tab(ui-sref-active="active")

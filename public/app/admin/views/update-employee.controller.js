@@ -112,7 +112,7 @@
 			filterManagers(vm.selectedEmployee);
 		}
 
-		var selectedEmployeeChangeEvent = $scope.$on('selectedEmployeeChange', function (event, selectedEmployees) {
+		var selectedEmployeesChangeEvent = $scope.$on('selectedEmployeesChange', function (event, selectedEmployees) {
 			if (selectedEmployees.length === 1) {
 				populateEmployee(selectedEmployees);
 			} else {
@@ -120,7 +120,7 @@
 			}
 		});
 
-		$scope.$on('$destroy', selectedEmployeeChangeEvent);
+		$scope.$on('$destroy', selectedEmployeesChangeEvent);
 
 		var employeesUpdatedEvent = $scope.$on('employeesUpdated', function () {
 			edEmployeeService.getAllEmployees().$promise.then(createManagerList);

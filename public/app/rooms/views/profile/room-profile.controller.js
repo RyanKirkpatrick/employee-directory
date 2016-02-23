@@ -82,7 +82,7 @@
 			$document.scrollTopAnimated(0, 300);
 		}
 
-		var deregister = $scope.$on('selectedRoomChange', function (event, selectedRooms) {
+		var deregister = $scope.$on('selectedRoomsChange', function (event, selectedRooms) {
 			vm.selectedRooms = selectedRooms;
 			// If we added to selected rooms, go to first page and scroll to the top
 			if (edRoomService.getSelectedRoomAdded()) {

@@ -81,7 +81,7 @@
 			$document.scrollTopAnimated(0, 300);
 		}
 
-		var deregister = $scope.$on('selectedPrinterChange', function (event, selectedPrinters) {
+		var deregister = $scope.$on('selectedPrintersChange', function (event, selectedPrinters) {
 			vm.selectedPrinters = selectedPrinters;
 			// If we added to selected printers, go to first page and scroll to the top
 			if (edPrinterService.getSelectedPrinterAdded()) {
