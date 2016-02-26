@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edEmployeeSelectorCtrl', edEmployeeSelectorCtrl);
 
-	edEmployeeSelectorCtrl.$inject = ['$scope', '$document', 'edEmployeeService', 'edNotifierService', 'edPrinterService', 'edRoomService'];
+	edEmployeeSelectorCtrl.$inject = ['$scope', '$state', '$document', 'edEmployeeService', 'edNotifierService', 'edPrinterService', 'edRoomService'];
 
-	function edEmployeeSelectorCtrl($scope, $document, edEmployeeService, edNotifierService, edPrinterService, edRoomService) {
+	function edEmployeeSelectorCtrl($scope, $state, $document, edEmployeeService, edNotifierService, edPrinterService, edRoomService) {
 		var vm = this;
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.selectedEmployees = edEmployeeService.getSelectedEmployees();
@@ -31,18 +31,6 @@
 			'8': false
 		};
 		vm.floors = [];
-
-		function selectEmployee(employee) {
-			if (vm.displayEmployeeInfoType === 'profile') {
-				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
-			}
-			else if (vm.displayEmployeeInfoType === 'location') {
-				// Only allow 1 thing to be mapped at a time
-				edPrinterService.updateMappedPrinter(null);
-				edRoomService.updateMappedRoom(null);
-				edEmployeeService.updateMappedEmployee(employee);
-			}
-		}
 
 		function filterLocations(location) {
 			if (vm.location[location]) {
@@ -97,16 +85,37 @@
 			}
 		}
 
+		function selectEmployee(employee) {
+			if (vm.displayEmployeeInfoType === 'profile') {
+				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
+				if ($state.current.name !== 'employees.profile') {
+					$state.go('employees.profile');
+				}
+			}
+			else if (vm.displayEmployeeInfoType === 'location') {
+				// Only allow 1 thing to be mapped at a time
+				edPrinterService.updateMappedPrinter(null);
+				edRoomService.updateMappedRoom(null);
+				edEmployeeService.updateMappedEmployee(employee);
+			}
+		}
+
 		function selectAll() {
 			vm.selectedEmployees = edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
 			$document.scrollTopAnimated(0, 300);
 			if (vm.team === 'Prestige Worldwide') {
 				edNotifierService.info('Investors?  Possibly you!');
 			}
+			if ($state.current.name !== 'employees.profile') {
+				$state.go('employees.profile');
+			}
 		}
 
 		function selectNone() {
 			vm.selectedEmployees = edEmployeeService.removeAllSelectedEmployees();
+			if ($state.current.name !== 'employees.profile') {
+				$state.go('employees.profile');
+			}
 		}
 
 		function clearFilter() {

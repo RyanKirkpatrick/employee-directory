@@ -18,8 +18,8 @@
 
 		return directive;
 
-		function linkFunc(scope, el, attrs) {
-			scope.deselectPrinter = function (printer) {
+		function linkFunc(scope, el, attrs, vm) {
+			vm.deselectPrinter = function (printer) {
 				var parent = el.parent();
 				var child = el.children().first();
 				child.addClass('scale-down');

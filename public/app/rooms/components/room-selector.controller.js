@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edRoomSelectorCtrl', edRoomSelectorCtrl);
 
-	edRoomSelectorCtrl.$inject = ['$scope', '$document', 'edRoomService', 'edEmployeeService', 'edPrinterService'];
+	edRoomSelectorCtrl.$inject = ['$scope', '$state', '$document', 'edRoomService', 'edEmployeeService', 'edPrinterService'];
 
-	function edRoomSelectorCtrl($scope, $document, edRoomService, edEmployeeService, edPrinterService) {
+	function edRoomSelectorCtrl($scope, $state, $document, edRoomService, edEmployeeService, edPrinterService) {
 		var vm = this;
 		vm.rooms = edRoomService.getAllRooms();
 		vm.selectedRooms = edRoomService.getSelectedRooms();
@@ -31,18 +31,6 @@
 			'8': false
 		};
 		vm.floors = [];
-
-		function selectRoom(room) {
-			if (vm.displayRoomInfoType === 'profile') {
-				vm.selectedRooms = edRoomService.updateSelectedRooms(room);
-			}
-			else if (vm.displayRoomInfoType === 'location') {
-				// Only allow 1 thing to be mapped at a time
-				edEmployeeService.updateMappedEmployee(null);
-				edPrinterService.updateMappedPrinter(null);
-				edRoomService.updateMappedRoom(room);
-			}
-		}
 
 		function filterLocations(location) {
 			if (vm.location[location]) {
@@ -97,13 +85,34 @@
 			}
 		}
 
+		function selectRoom(room) {
+			if (vm.displayRoomInfoType === 'profile') {
+				vm.selectedRooms = edRoomService.updateSelectedRooms(room);
+				if ($state.current.name !== 'employees.profile') {
+					$state.go('rooms.profile');
+				}
+			}
+			else if (vm.displayRoomInfoType === 'location') {
+				// Only allow 1 thing to be mapped at a time
+				edEmployeeService.updateMappedEmployee(null);
+				edPrinterService.updateMappedPrinter(null);
+				edRoomService.updateMappedRoom(room);
+			}
+		}
+
 		function selectAll() {
 			vm.selectedRooms = edRoomService.addAllFilteredRooms(vm.filteredRooms);
 			$document.scrollTopAnimated(0, 300);
+			if ($state.current.name !== 'employees.profile') {
+				$state.go('rooms.profile');
+			}
 		}
 
 		function selectNone() {
 			vm.selectedRooms = edRoomService.removeAllSelectedRooms();
+			if ($state.current.name !== 'employees.profile') {
+				$state.go('rooms.profile');
+			}
 		}
 
 		function clearFilter() {

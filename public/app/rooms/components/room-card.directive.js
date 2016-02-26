@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edRoomCard', edRoomCard);
 
-	edRoomCard.$inject = ['$timeout', 'edRoomService'];
+	edRoomCard.$inject = ['$timeout', '$state', 'edRoomService'];
 
-	function edRoomCard($timeout, edRoomService) {
+	function edRoomCard($timeout, $state, edRoomService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/rooms/components/room-card',
@@ -18,14 +18,17 @@
 
 		return directive;
 
-		function linkFunc(scope, el, attrs) {
-			scope.deselectRoom = function (room) {
+		function linkFunc(scope, el, attrs, vm) {
+			vm.deselectRoom = function (room) {
 				var parent = el.parent();
 				var child = el.children().first();
 				child.addClass('scale-down');
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edRoomService.updateSelectedRooms(room);
+					if ($state.current.name !== 'employees.profile') {
+						$state.go('rooms.profile');
+					}
 				}, 250);
 			};
 		}

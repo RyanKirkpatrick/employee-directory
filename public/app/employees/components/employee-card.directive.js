@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edEmployeeCard', edEmployeeCard);
 
-	edEmployeeCard.$inject = ['$timeout', 'edEmployeeService'];
+	edEmployeeCard.$inject = ['$timeout', '$state', 'edEmployeeService'];
 
-	function edEmployeeCard($timeout, edEmployeeService) {
+	function edEmployeeCard($timeout, $state, edEmployeeService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/employees/components/employee-card',
@@ -18,16 +18,19 @@
 
 		return directive;
 
-		function linkFunc(scope, el, attrs) {
-			scope.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
+		function linkFunc(scope, el, attrs, vm) {
+			vm.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
 
-			scope.deselectEmployee = function (employee) {
+			vm.deselectEmployee = function (employee) {
 				var parent = el.parent();
 				var child = el.children().first();
 				child.addClass('scale-down');
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edEmployeeService.updateSelectedEmployees(employee);
+					if ($state.current.name !== 'employees.profile') {
+						$state.go('employees.profile');
+					}
 				}, 250);
 			};
 		}
