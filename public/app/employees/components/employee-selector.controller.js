@@ -88,10 +88,10 @@
 		function selectEmployee(employee) {
 			if (vm.displayEmployeeInfoType === 'profile') {
 				vm.selectedEmployees = edEmployeeService.updateSelectedEmployees(employee);
-				// If the user is not viewing the generic profile p[age or an admin page
+				// If the user is viewing an employee profile page other than the generic employee profile page
 				// go back to the generic profile page
 				var currentState = $state.current.name;
-				if (currentState !== 'employees.profile' && currentState.indexOf("admin") !== 0) {
+				if (currentState !== 'employees.profile' && currentState.indexOf("employees.profile") === 0) {
 					$state.go('employees.profile');
 				}
 			}
