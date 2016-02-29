@@ -40,6 +40,7 @@
 			'Infrastructure / Tech Ops',
 			'Marketing',
 			'Product Strategy',
+			'Strategic Operational Support',
 			'QA / Reporting / Billing'
 		];
 
