@@ -19,7 +19,12 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs, vm) {
-			vm.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
+			// Some people have a different username for lync than their liazon email address
+			if (scope.employee.lync) {
+				vm.twEmail = scope.employee.lync + '@towerswatson.com';
+			} else {
+				vm.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
+			}
 
 			vm.deselectEmployee = function (employee) {
 				var parent = el.parent();

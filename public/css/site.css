@@ -163,6 +163,13 @@ Directory Item Card
 .directory-item-card .memberships li:hover {
   background-color: #ccc;
 }
+.directory-item-card .employee-actions li {
+  font-size: 2em;
+}
+.directory-item-card .employee-actions li a {
+  color: #999;
+  text-decoration: none;
+}
 /**************************************************
 Help styles
 **************************************************/

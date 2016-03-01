@@ -21,6 +21,10 @@ var employeeSchema = mongoose.Schema({
 		type: String,
 		unique: true
 	},
+	lync: {
+		type: String,
+		unique: true
+	},
 	phone: {
 		type: Number
 	},
