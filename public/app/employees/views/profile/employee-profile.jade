@@ -2,7 +2,8 @@
     .text-center
         .icon.icon-Leslie.fs100.mb30.profile-color
         div.fs20 Select some people to view their profile
-.row(vertilize-container)
-    div.col-lg-6.col-xl-4.directory-item-card(dir-paginate="employee in vm.selectedEmployees | itemsPerPage: 12 track by employee.eid", current-page="vm.currentPage", vertilize, page="profile")
-        ed-employee-card(employee="employee")
+.row
+    ul.profile-stage.clearfix(vertilize-container)
+        li.col-lg-6.col-xl-4.directory-item-card(dir-paginate="employee in vm.selectedEmployees | itemsPerPage: 12 track by employee.eid", current-page="vm.currentPage", vertilize, page="profile")
+            ed-employee-card(employee="employee")
 dir-pagination-controls.center-block.text-center(on-page-change="vm.changePage(newPageNumber)")

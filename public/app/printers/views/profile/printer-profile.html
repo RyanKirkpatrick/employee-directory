@@ -5,9 +5,11 @@
     <div class="fs20">Select some printers to view their profile</div>
   </div>
 </div>
-<div vertilize-container="vertilize-container" class="row">
-  <div dir-paginate="printer in vm.selectedPrinters | itemsPerPage: 12 track by printer._id" current-page="vm.currentPage" vertilize="vertilize" class="col-sm-6 col-md-4 col-xl-3 directory-item-card">
-    <ed-printer-card printer="printer"></ed-printer-card>
-  </div>
+<div class="row">
+  <ul vertilize-container="vertilize-container" class="profile-stage clearfix">
+    <li dir-paginate="printer in vm.selectedPrinters | itemsPerPage: 12 track by printer._id" current-page="vm.currentPage" vertilize="vertilize" class="col-sm-6 col-md-4 col-xl-3 directory-item-card">
+      <ed-printer-card printer="printer"></ed-printer-card>
+    </li>
+  </ul>
 </div>
 <dir-pagination-controls on-page-change="vm.changePage(newPageNumber)" class="center-block text-center"></dir-pagination-controls>

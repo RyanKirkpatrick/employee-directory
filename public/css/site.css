@@ -113,6 +113,9 @@ Directory Item Selector
 /**************************************************
 Directory Item Card
 **************************************************/
+.directory-item-card {
+  list-style: none;
+}
 .directory-item-card ed-employee-card .panel {
   min-width: 310px;
 }

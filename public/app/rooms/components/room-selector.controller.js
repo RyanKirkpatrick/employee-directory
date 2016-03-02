@@ -103,7 +103,9 @@
 		function selectAll() {
 			vm.selectedRooms = edRoomService.addAllFilteredRooms(vm.filteredRooms);
 			$document.scrollTopAnimated(0, 300);
-			if ($state.current.name !== 'employees.profile') {
+			// If the user is viewing a room profile page other than the generic room profile page
+			// go back to the generic room page
+			if ($state.current.name !== 'rooms.profile') {
 				$state.go('rooms.profile');
 			}
 		}

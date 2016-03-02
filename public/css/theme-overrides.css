@@ -293,6 +293,9 @@ Sidebar
 #content .main-view .pagination {
   margin: 0 auto 15px;
 }
+#content .profile-stage {
+  padding: 0;
+}
 #content-footer.affix {
   margin: 0;
   z-index: 4;

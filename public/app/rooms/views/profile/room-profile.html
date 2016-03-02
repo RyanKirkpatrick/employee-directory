@@ -5,9 +5,11 @@
     <div class="fs20">Select some rooms to view their profile</div>
   </div>
 </div>
-<div vertilize-container="vertilize-container" class="row">
-  <div dir-paginate="room in vm.selectedRooms | itemsPerPage: 12 track by room._id" current-page="vm.currentPage" vertilize="vertilize" class="col-sm-6 col-md-4 col-xl-3 directory-item-card">
-    <ed-room-card room="room"></ed-room-card>
-  </div>
+<div class="row">
+  <ul vertilize-container="vertilize-container" class="profile-stage clearfix">
+    <li dir-paginate="room in vm.selectedRooms | itemsPerPage: 12 track by room._id" current-page="vm.currentPage" vertilize="vertilize" class="col-sm-6 col-md-4 col-xl-3 directory-item-card">
+      <ed-room-card room="room"></ed-room-card>
+    </li>
+  </ul>
 </div>
 <dir-pagination-controls on-page-change="vm.changePage(newPageNumber)" class="center-block text-center"></dir-pagination-controls>

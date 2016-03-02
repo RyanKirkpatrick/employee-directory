@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edPrinterCard', edPrinterCard);
 
-	edPrinterCard.$inject = ['$timeout', 'edPrinterService'];
+	edPrinterCard.$inject = ['$timeout', '$state', 'edPrinterService'];
 
-	function edPrinterCard($timeout, edPrinterService) {
+	function edPrinterCard($timeout, $state, edPrinterService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/printers/components/printer-card',
@@ -26,6 +26,9 @@
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edPrinterService.updateSelectedPrinters(printer);
+					if ($state.current.name !== 'printers.profile') {
+						$state.go('printers.profile');
+					}
 				}, 250);
 			};
 		}

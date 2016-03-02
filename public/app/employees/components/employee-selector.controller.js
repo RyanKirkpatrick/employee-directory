@@ -91,7 +91,7 @@
 				// If the user is viewing an employee profile page other than the generic employee profile page
 				// go back to the generic profile page
 				var currentState = $state.current.name;
-				if (currentState !== 'employees.profile' && currentState.indexOf("employees.profile") === 0) {
+				if (currentState !== 'employees.profile' && currentState.indexOf('employees.profile') === 0) {
 					$state.go('employees.profile');
 				}
 			}

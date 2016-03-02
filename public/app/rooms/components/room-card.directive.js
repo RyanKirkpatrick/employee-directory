@@ -26,7 +26,7 @@
 				$timeout(function () {
 					parent.addClass('shrink-left');
 					edRoomService.updateSelectedRooms(room);
-					if ($state.current.name !== 'employees.profile') {
+					if ($state.current.name !== 'rooms.profile') {
 						$state.go('rooms.profile');
 					}
 				}, 250);

@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edPrinterSelectorCtrl', edPrinterSelectorCtrl);
 
-	edPrinterSelectorCtrl.$inject = ['$scope', '$document', 'edPrinterService', 'edEmployeeService', 'edRoomService'];
+	edPrinterSelectorCtrl.$inject = ['$scope', '$state', '$document', 'edPrinterService', 'edEmployeeService', 'edRoomService'];
 
-	function edPrinterSelectorCtrl($scope, $document, edPrinterService, edEmployeeService, edRoomService) {
+	function edPrinterSelectorCtrl($scope, $state, $document, edPrinterService, edEmployeeService, edRoomService) {
 		var vm = this;
 		vm.printers = edPrinterService.getAllPrinters();
 		vm.selectedPrinters = edPrinterService.getSelectedPrinters();
@@ -31,18 +31,6 @@
 			'8': false
 		};
 		vm.floors = [];
-
-		function selectPrinter(printer) {
-			if (vm.displayPrinterInfoType === 'profile') {
-				vm.selectedPrinters = edPrinterService.updateSelectedPrinters(printer);
-			}
-			else if (vm.displayPrinterInfoType === 'location') {
-				// Only allow 1 thing to be mapped at a time
-				edEmployeeService.updateMappedEmployee(null);
-				edRoomService.updateMappedRoom(null);
-				edPrinterService.updateMappedPrinter(printer);
-			}
-		}
 
 		function filterLocations(location) {
 			if (vm.location[location]) {
@@ -97,13 +85,36 @@
 			}
 		}
 
+		function selectPrinter(printer) {
+			if (vm.displayPrinterInfoType === 'profile') {
+				vm.selectedPrinters = edPrinterService.updateSelectedPrinters(printer);
+				// If the user is viewing a printer profile page other than the generic printer profile page
+				// go back to the generic profile page
+				if ($state.current.name !== 'printers.profile') {
+					$state.go('printers.profile');
+				}
+			}
+			else if (vm.displayPrinterInfoType === 'location') {
+				// Only allow 1 thing to be mapped at a time
+				edEmployeeService.updateMappedEmployee(null);
+				edRoomService.updateMappedRoom(null);
+				edPrinterService.updateMappedPrinter(printer);
+			}
+		}
+
 		function selectAll() {
 			vm.selectedPrinters = edPrinterService.addAllFilteredPrinters(vm.filteredPrinters);
 			$document.scrollTopAnimated(0, 300);
+			if ($state.current.name !== 'printers.profile') {
+				$state.go('printers.profile');
+			}
 		}
 
 		function selectNone() {
 			vm.selectedPrinters = edPrinterService.removeAllSelectedPrinters();
+			if ($state.current.name !== 'printers.profile') {
+				$state.go('printers.profile');
+			}
 		}
 
 		function clearFilter() {

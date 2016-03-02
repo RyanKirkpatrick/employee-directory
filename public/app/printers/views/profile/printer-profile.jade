@@ -2,7 +2,8 @@
     .text-center
         .icon-print.fs100.mb30.profile-color
         div.fs20 Select some printers to view their profile
-.row(vertilize-container)
-    div.col-sm-6.col-md-4.col-xl-3.directory-item-card(dir-paginate="printer in vm.selectedPrinters | itemsPerPage: 12 track by printer._id" current-page="vm.currentPage" vertilize)
-        ed-printer-card(printer="printer")
+.row
+    ul.profile-stage.clearfix(vertilize-container)
+        li.col-sm-6.col-md-4.col-xl-3.directory-item-card(dir-paginate="printer in vm.selectedPrinters | itemsPerPage: 12 track by printer._id" current-page="vm.currentPage" vertilize)
+            ed-printer-card(printer="printer")
 dir-pagination-controls.center-block.text-center(on-page-change="vm.changePage(newPageNumber)")
