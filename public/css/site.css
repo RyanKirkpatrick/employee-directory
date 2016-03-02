@@ -157,6 +157,10 @@ Directory Item Card
   -webkit-border-radius: 1px;
   border-radius: 1px;
   margin: 4px;
+  padding: 0;
+}
+.directory-item-card .memberships li a {
+  display: block;
   padding: 4px;
 }
 .directory-item-card .memberships li img {
