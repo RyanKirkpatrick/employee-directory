@@ -11,14 +11,14 @@
             .col-xs-4.text-center.va-t.of-h
                 img.employee-photo.mt10.mb5(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
-                ul.list-inline.employee-actions
+                ul.list-inline.employee-list-icons.employee-actions
                     li
                         a.fa.fa-comment(href="sip:{{::vm.twEmail}}")
                     li
                         a.fa.fa-sitemap.profile-color(ui-sref="employees.org-chart({employee: employee.eid})")
                     li
                         a.fa.fa-map-marker.location-color(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)", href="")
-                ul.list-inline.memberships
+                ul.list-inline.employee-list-icons.memberships
                     li(ng-repeat="guild in employee.guilds")
                         a.link-unstyled(ui-sref="guilds.{{::guild}}")
                             img(ng-src="/images/guild-icons/{{::guild}}.svg")

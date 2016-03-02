@@ -151,7 +151,7 @@ Directory Item Card
   filter: none;
   top: 0;
 }
-.directory-item-card .memberships li {
+.directory-item-card .employee-list-icons li {
   background-color: #f3f3f3;
   border: 1px solid #e2e2e2;
   -webkit-border-radius: 1px;
@@ -159,16 +159,16 @@ Directory Item Card
   margin: 4px;
   padding: 0;
 }
-.directory-item-card .memberships li a {
+.directory-item-card .employee-list-icons li a {
   display: block;
   padding: 4px;
 }
-.directory-item-card .memberships li img {
+.directory-item-card .employee-list-icons li:hover {
+  background-color: #ccc;
+}
+.directory-item-card .memberships li a img {
   height: 32px;
   width: 32px;
-}
-.directory-item-card .memberships li:hover {
-  background-color: #ccc;
 }
 .directory-item-card .employee-actions li {
   font-size: 2em;
@@ -176,6 +176,7 @@ Directory Item Card
 .directory-item-card .employee-actions li a {
   color: #999;
   text-decoration: none;
+  width: 40px;
 }
 /**************************************************
 Help styles
