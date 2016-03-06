@@ -2,7 +2,7 @@
 <div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
   <div class="directory-item-filter">
     <div class="panel">
-      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Printers Filter</span><span ng-if="vm.brand || vm.printerName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Printers Filter</span><span ng-if="vm.brand || vm.printerName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls bg-primary"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
       <div class="panel-body p10">
         <form name="printersFilter" class="form-horizontal">
           <div class="form-group mln mrn">
@@ -30,15 +30,15 @@
                 <label for="nyc" class="location">NYC</label>
               </div></span></div>
           <div ng-class="{'floors-disabled' : vm.nycOnly()}" class="form-group mln mrn"><span class="control-label pn pull-left">
-              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">Floors</label></span><span class="pn pl20 pull-left">
+              <label ng-class="{'text-primary' : vm.floors.length &gt; 0}">BUF Floor</label></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
                 <input type="checkbox" id="floor6" ng-model="vm.floor['6']" ng-change="vm.filterFloors(6)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor6">6</label>
-              </div></span><span class="pn pl20 pull-left">
+              </div></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
                 <input type="checkbox" id="floor7" ng-model="vm.floor['7']" ng-change="vm.filterFloors(7)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor7">7</label>
-              </div></span><span class="pn pl20 pull-left">
+              </div></span><span class="pn pl15 pull-left">
               <div class="checkbox-custom checkbox-default">
                 <input type="checkbox" id="floor8" ng-model="vm.floor['8']" ng-change="vm.filterFloors(8)" ng-disabled="vm.nycOnly()"/>
                 <label for="floor8">8</label>

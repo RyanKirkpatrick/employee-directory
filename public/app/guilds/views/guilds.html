@@ -1,6 +1,6 @@
 
-<div ng-if="!vm.guild" class="center-block guild mw600">
-  <div class="text-center guild-header mb30"><img src="/images/guild-icons/guilds.svg" class="mb20"/>
+<div ng-if="!vm.guild" class="center-block employee-group mw600">
+  <div class="text-center employee-group-header mb30"><img src="/images/guild-icons/guilds.svg" class="mb20"/>
     <div class="fs20">Developer Guilds</div>
   </div>
   <p>Developer Guilds are made up of subject matter experts from different development teams.  The members of each guild are responsible for defining standards, disseminating information and maintaining consistency and quality with regard to the subject matter of their guild.</p>
@@ -10,13 +10,13 @@
         <h4>Front-End Developers</h4></a></div>
   </div>
 </div>
-<div ng-if="vm.guild" class="center-block guild">
-  <div class="text-center guild-header mb30"><span class="icon icon-guild-front-end fs120 guild-front-end-color"></span>
+<div ng-if="vm.guild" class="center-block employee-group">
+  <div class="text-center employee-group-header mb30"><span class="icon icon-guild-front-end fs120 guild-front-end-color"></span>
     <div class="fs20 mt20"><span>{{vm.guild}}</span>&nbsp;Developer Guild</div>
   </div>
   <p>The Front-End Developer Guild was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace, Bright Choices, and Global Access Products. Each Feature Team has one embedded Guild Member who works towards keeping the employee portals solid, inventive and easy to use.</p>
   <h3 class="mv30 fw400 text-center">Members</h3>
-  <ul vertilize-container="vertilize-container" class="text-center guild-members">
+  <ul vertilize-container="vertilize-container" class="text-center employee-group-members">
     <li ng-repeat="member in vm.guildMembers" ng-click="vm.profileEmployee(member)" vertilize="vertilize" page="org-chart"><img ng-src="/images/employee-photos/{{member.image}}" ng-show="member.image"/><span ng-hide="member.image" class="fa fa-user fs70"></span>
       <h5>{{member.displayName}}</h5>
       <h6>{{member.title}}</h6>

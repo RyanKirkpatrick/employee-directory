@@ -101,7 +101,7 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
               <div class="section">
                 <label class="field">
                   <input name="ext" type="text" placeholder="Ext" ng-model="vm.selectedEmployee.ext" class="gui-input"/>
@@ -135,10 +135,20 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field md-datepicker-label append-icon">
+                  <md-datepicker ng-model="vm.selectedEmployee.birthdate" md-placeholder="Birthday"></md-datepicker>
+                  <label class="field-icon"><i class="fa fa-birthday-cake"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
               <div class="section">
                 <label class="option option-primary mt10">
-                  <input type="checkbox" name="hasReports" ng-model="vm.selectedEmployee.hasReports"/><span class="checkbox"></span>Has Reports
+                  <input type="checkbox" name="hasReports" ng-model="vm.selectedEmployee.hasReports"/><span class="checkbox"></span>This employees has people that report directory to them
                 </label>
               </div>
             </div>

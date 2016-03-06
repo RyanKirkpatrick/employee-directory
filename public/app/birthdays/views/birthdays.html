@@ -1,0 +1,25 @@
+
+<div ng-if="!vm.requestedMonth" class="center-block employee-group mw600">
+  <div class="text-center employee-group-header mb30">
+    <div class="fa fa-birthday-cake fs100 mb30 text-system"></div>
+    <div class="fs20">Birthdays</div>
+  </div>
+  <p>Wish your coworkers a happy birthday!  Choose a month to see who celebrates their special day.</p>
+  <div class="row">
+    <div ng-repeat="month in vm.months" class="col-md-4"><a ui-sref="birthdays.month({month: '{{::month}}'})" ng-class="{'current-month': vm.currentMonth === $index}" class="boxed-link text-only text-center">
+        <h4 class="cap">{{::month}}</h4></a></div>
+  </div>
+</div>
+<div ng-if="vm.requestedMonth" class="center-block employee-group birthdays">
+  <div class="text-center employee-group-header mb30"></div>
+  <h3 class="mv30 fw400 text-center"><span class="cap">{{::vm.requestedMonth}} Birthdays</span></h3>
+  <ul vertilize-container="vertilize-container" class="text-center employee-group-members">
+    <li ng-repeat="employee in vm.birthMonthEmployees" ng-click="vm.profileEmployee(employee)" vertilize="vertilize" ng-class="{'birthday-today': employee.birthdayToday}" page="org-chart">
+      <div ng-class="{'bg-system': employee.birthdayToday}" class="birthday cap">{{::vm.requestedMonth}}
+        <div>{{::employee.birthday}}</div>
+      </div><img ng-src="/images/employee-photos/{{::employee.image}}" ng-show="employee.image"/><span ng-hide="employee.image" class="fa fa-user fs70"></span>
+      <h5>{{::employee.displayName}}</h5>
+      <h6>{{::employee.title}}</h6>
+    </li>
+  </ul>
+</div>

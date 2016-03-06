@@ -14,7 +14,7 @@
 
 		function query(cacheBust) {
 			if (!employees || cacheBust) {
-				employees = edEmployeeResourceService.query({cacheKill: new Date().getTime()}, function(ees) {
+				employees = edEmployeeResourceService.query({cacheKill: new Date().getTime()}, function (ees) {
 					angular.forEach(ees, function (employee) {
 						// Create a manager property for each employee
 						var manager = _.find(ees, {'eid': employee.mid});
@@ -30,6 +30,11 @@
 							employee.displayName = employee.nickname + ' ' + employee.lastName;
 						} else {
 							employee.displayName = employee.firstName + ' ' + employee.lastName;
+						}
+
+						// Convert ISO date string to date object
+						if (employee.birthdate) {
+							employee.birthdate = new Date(employee.birthdate);
 						}
 					});
 				});

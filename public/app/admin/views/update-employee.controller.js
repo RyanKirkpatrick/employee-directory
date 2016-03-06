@@ -77,7 +77,8 @@
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
-				mid: selectedEmployees[0].mid
+				mid: selectedEmployees[0].mid,
+				birthdate: selectedEmployees[0].birthdate
 			};
 
 			_.forEach(selectedEmployees[0].guilds, function (guild) {
@@ -148,7 +149,8 @@
 				floor: vm.selectedEmployee.floor,
 				seat: vm.selectedEmployee.seat,
 				hasReports: vm.selectedEmployee.hasReports,
-				mid: vm.selectedEmployee.mid
+				mid: vm.selectedEmployee.mid,
+				birthdate: vm.selectedEmployee.birthdate
 			};
 
 			// Add all the selected guilds

@@ -65,7 +65,7 @@
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.phone.$invalid}")
                                     input.gui-input(name="phone", type="text", placeholder="Phone", ng-model="vm.selectedEmployee.phone", ng-pattern="/^[0-9]{10}$/")
-                        .col-md-2
+                        .col-md-1
                             .section
                                 label.field
                                     input.gui-input(name="ext", type="text", placeholder="Ext", ng-model="vm.selectedEmployee.ext")
@@ -87,12 +87,19 @@
                                     select(name="seat", ng-disabled="!vm.selectedEmployee.floor", ng-model="vm.selectedEmployee.seat", ng-options="desk.seat as desk.seat for desk in vm.desks | filterBy: ['location'] : vm.selectedEmployee.location  | filterBy: ['floor'] : vm.selectedEmployee.floor | orderBy: ['section','seat']")
                                         option(disabled, value="") Seat
                                     i.arrow
-                        .col-md-2
+                        .col-md-3
+                            .section
+                                label.field.md-datepicker-label.append-icon
+                                    md-datepicker(ng-model="vm.selectedEmployee.birthdate", md-placeholder="Birthday")
+                                    label.field-icon
+                                        i.fa.fa-birthday-cake
+                    .row
+                        .col-md-6
                             .section
                                 label.option.option-primary.mt10
                                     input(type="checkbox", name="hasReports", ng-model="vm.selectedEmployee.hasReports")
                                     span.checkbox
-                                    | Has Reports
+                                    | This employees has people that report directory to them
                     div(ng-if="vm.identity.isAuthorized('super-admin')")
                         .section-divider
                             span Guilds

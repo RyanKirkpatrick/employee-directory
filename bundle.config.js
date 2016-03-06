@@ -11,7 +11,9 @@ module.exports = {
 				'./bower_components/toastr/toastr.min.js',
 				'./bower_components/angular/angular.min.js',
 				'./bower_components/angular-resource/angular-resource.min.js',
+				'./bower_components/angular-aria/angular-aria.min.js',
 				'./bower_components/angular-ui-router/release/angular-ui-router.min.js',
+				'./bower_components/angular-material/angular-material.js',
 				'./bower_components/angular-animate/angular-animate.min.js',
 				'./bower_components/ng-file-upload/ng-file-upload.min.js',
 				'./bower_components/angular-filter/dist/angular-filter.min.js',
@@ -21,6 +23,7 @@ module.exports = {
 				'./bower_components/angularUtils-pagination/dirPagination.js',
 				'./bower_components/lodash/lodash.min.js',
 				'./bower_components/ng-focus-if/focusIf.min.js',
+				'./bower_components/moment/min/moment.min.js',
 				'./public/analytics/google-analytics.js'
 			]
 		}

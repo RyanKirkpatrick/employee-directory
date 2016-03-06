@@ -1,5 +1,5 @@
-.center-block.committee.mw600(ng-if="!vm.committee.name")
-    .text-center.committee-header.mb30
+.center-block.employee-group.mw600(ng-if="!vm.committee.name")
+    .text-center.employee-group-header.mb30
         img.mb20(src="/images/committee-icons/committees.svg")
         div.fs20 Liazon Committees
     p The Liazon Celebration &amp; Service Committee's mission is focused around three core components:
@@ -27,8 +27,8 @@
                 img(ng-src="/images/committee-icons/beautification.svg")
                 h4 Beautification Committee
 
-.center-block.committee(ng-if="vm.committee.name")
-    .text-center.committee-header.mb30
+.center-block.employee-group(ng-if="vm.committee.name")
+    .text-center.employee-group-header.mb30
         img.mb20(ng-src="/images/committee-icons/{{::vm.committee.name}}.svg")
         div.fs20
             span {{::vm.committee.text}} Committee
@@ -37,7 +37,7 @@
     p(ng-if="vm.committee.name === 'wellness'") The Wellness Committee is dedicated to providing opportunities for employees to live a healthy and balanced lifestyle. Through our leadership, collaboration and teamwork we will develop fun and supportive programs that will include options through which they can empower their mind, body and spirit. The Liazon wellness committee will inspire our company to participate in a commitment to health and well-being through various education programs and activities that will enable them to work towards achieving living a healthy lifestyle both in and out of the workplace.
     p(ng-if="vm.committee.name === 'beautification'") The Beautification Committee is dedicated to enhancing, restoring &amp; maintaining the beauty of our Buffalo and NYC offices.  The committee will look to add art work, establish a "Kudos Wall", maintain floral arrangements around the offices and otherwise decorate and improve the look of the offices overall.
     h3.mv30.fw400.text-center Members
-    ul.text-center.committee-members(vertilize-container)
+    ul.text-center.employee-group-members(vertilize-container)
         li(ng-repeat="member in vm.committeeMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
             img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
             span.fa.fa-user.fs70(ng-hide="member.image")

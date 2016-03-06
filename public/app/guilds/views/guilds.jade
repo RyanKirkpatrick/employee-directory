@@ -1,5 +1,5 @@
-.center-block.guild.mw600(ng-if="!vm.guild")
-    .text-center.guild-header.mb30
+.center-block.employee-group.mw600(ng-if="!vm.guild")
+    .text-center.employee-group-header.mb30
         img.mb20(src="/images/guild-icons/guilds.svg")
         div.fs20 Developer Guilds
     p Developer Guilds are made up of subject matter experts from different development teams.  The members of each guild are responsible for defining standards, disseminating information and maintaining consistency and quality with regard to the subject matter of their guild.
@@ -9,15 +9,15 @@
                 .icon.icon-guild-front-end.fs120.guild-front-end-color
                 h4 Front-End Developers
 
-.center-block.guild(ng-if="vm.guild")
-    .text-center.guild-header.mb30
+.center-block.employee-group(ng-if="vm.guild")
+    .text-center.employee-group-header.mb30
         span.icon.icon-guild-front-end.fs120.guild-front-end-color
         div.fs20.mt20
             span {{vm.guild}}
             | &nbsp;Developer Guild
     p The Front-End Developer Guild was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace, Bright Choices, and Global Access Products. Each Feature Team has one embedded Guild Member who works towards keeping the employee portals solid, inventive and easy to use.
     h3.mv30.fw400.text-center Members
-    ul.text-center.guild-members(vertilize-container)
+    ul.text-center.employee-group-members(vertilize-container)
         li(ng-repeat="member in vm.guildMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
             img(ng-src="/images/employee-photos/{{member.image}}", ng-show="member.image")
             span.fa.fa-user.fs70(ng-hide="member.image")

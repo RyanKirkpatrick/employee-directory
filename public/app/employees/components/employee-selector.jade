@@ -5,7 +5,7 @@
                 span.panel-icon
                     i.fa.fa-filter.text-primary
                 span.panel-title Employees Filter
-                span.panel-controls(ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
+                span.panel-controls.bg-primary(ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
                     a.panel-control-remove(ng-click="vm.clearFilter()")
             .panel-body.p10
                 form.form-horizontal(name="employeesFilter")
@@ -52,7 +52,7 @@
                     button.btn.btn-xs.btn-success.pull-right(ng-if="vm.allowSelectAll", type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'") Select All
                     button.btn.btn-xs.btn-warning.pull-left(type="button", ng-click="vm.selectNone()", ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'") Select None
     h5
-        span.fa.fa-users
+        span.fa.fa-user
         span Select Employees
         span.label.label-xs.bg-primary {{vm.filteredEmployees.length}}
     ul.nav.tray-nav.tray-nav-border

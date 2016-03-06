@@ -3,9 +3,14 @@
   <div ed-nanoscroller="ed-nanoscroller" class="sidebar-left-content nano-content">
     <div ng-click="vm.toggleSidebar()" ng-class="{'sidebar-locked' : vm.sidebarLocked}" class="sidebar-left-toggle"><span class="fa fa-bars"></span></div>
     <ul ng-click="vm.closeSidebar()" class="nav sidebar-menu">
-      <li ui-sref-active="active"><a ui-sref="employees.profile"><span class="fa fa-users"></span><span class="sidebar-title">Employee Profiles</span></a></li>
+      <li ui-sref-active="active"><a ui-sref="employees.profile"><span class="fa fa-user"></span><span class="sidebar-title">Employee Profiles</span></a></li>
       <li ui-sref-active="active" class="location-item"><a ui-sref="employees.map"><span class="fa fa-map-marker"></span><span class="sidebar-title">Employee Location</span></a></li>
       <li ui-sref-active="active"><a ui-sref="employees.org-chart"><span class="fa fa-sitemap"></span><span class="sidebar-title">Organization Chart</span></a></li>
+    </ul>
+    <ul ng-click="vm.closeSidebar()" class="nav sidebar-menu">
+      <li ui-sref-active="active" class="committees-item"><a ui-sref="committees"><span class="fa fa fa-users"></span><span class="sidebar-title">Liazon Committees</span></a></li>
+      <li ui-sref-active="active" class="guilds-item"><a ui-sref="guilds"><span class="fa fa-shield"></span><span class="sidebar-title">Developer Guilds</span></a></li>
+      <li ui-sref-active="active" class="birthdays-item"><a ui-sref="birthdays"><span class="fa fa-birthday-cake"></span><span class="sidebar-title">Employee Birthdays</span></a></li>
     </ul>
     <ul ng-click="vm.closeSidebar()" class="nav sidebar-menu">
       <li ui-sref-active="active"><a ui-sref="rooms.profile"><span class="fa fa-building-o"></span><span class="sidebar-title">Room Profiles</span></a></li>

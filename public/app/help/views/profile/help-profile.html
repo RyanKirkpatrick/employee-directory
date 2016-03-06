@@ -8,17 +8,17 @@
       <div class="p25 bg-light">
         <p>The directory allows you to view profiles of employees, rooms and printers.  Profile filters allow you to focus on a particular individual or group to select from.</p>
         <hr class="short alt"/>
-        <h3><i class="fa fa-users text-primary fa-lg pr10"></i>Employee Profiles</h3>
+        <h3><i class="fa fa-user text-primary fa-lg pr10"></i>Employee Profiles</h3>
         <p>Employee profiles display information about individual employees and allow you to find out more information or communicate easily with an employee.</p>
-        <h4>The header of the employee profile card has the following options:</h4>
+        <h4>The employee profile card has the following options under the employee picture:</h4>
         <div class="well">
           <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
             <li><i class="fa fa-comment"></i><span>Opens a Lync chat session with the employee</span></li>
             <li><i class="fa fa-sitemap"></i><span>Displays the employee in the Organization Chart</span></li>
             <li><i class="fa fa-map-marker"></i><span>Displays the employee's desk location on a map of the office</span></li>
-            <li><i class="fa fa-times"></i><span>Removes the employee's profile card from display</span></li>
           </ul>
         </div>
+        <p>Any groups which the employee is apart of (committees, developer guilds, etc.) will also have an icon displayed below their picture.</p>
         <h4>The employee profile card displays specific information about the employee including:</h4>
         <div class="well">
           <ul class="fs14 list-unstyled list-spacing-10 mbn">
@@ -129,13 +129,6 @@
         <hr class="short alt"/>
         <h3><i class="fa fa-building-o text-primary fa-lg pr10"></i>Room Profiles</h3>
         <p>Room profiles display information about individual rooms and allow you to find out more information about a room.</p>
-        <h4>The header of the room profile card has the following options:</h4>
-        <div class="well">
-          <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
-            <li><i class="fa fa-map-marker"></i><span>Displays the room's location on a map of the office</span></li>
-            <li><i class="fa fa-times"></i><span>Removes the room's profile card from display</span></li>
-          </ul>
-        </div>
         <h4>The room profile card displays specific information about the room including:</h4>
         <div class="well">
           <ul class="fs14 list-unstyled list-spacing-10 mbn">
@@ -145,7 +138,11 @@
             <li>Direct Dial Phone Number</li>
             <li>URL for Display</li>
             <li>Capacity</li>
-            <li>Location - clicking the location will display the room's location on a map of the office</li>
+            <li>Location
+              <ul>
+                <li>clicking the location will display the room's location on a map of the office</li>
+              </ul>
+            </li>
           </ul>
         </div>
         <h4>You can direct link to a particular room or group of rooms using one of the following query strings:</h4>
@@ -172,20 +169,17 @@
         <hr class="short alt"/>
         <h3><i class="icon-print text-primary fa-lg pr10"></i>Printer Profiles</h3>
         <p>Printer profiles display information about individual printers and allow you to find out more information about a printer.</p>
-        <h4>The header of the printer profile card has the following options:</h4>
-        <div class="well">
-          <ul class="fs14 list-unstyled list-spacing-10 fa-icon-list mbn">
-            <li><i class="fa fa-map-marker"></i><span>Displays the printer's location on a map of the office</span></li>
-            <li><i class="fa fa-times"></i><span>Removes the printer's profile card from display</span></li>
-          </ul>
-        </div>
         <h4>The printer profile card displays specific information about the printer including:</h4>
         <div class="well">
           <ul class="fs14 list-unstyled list-spacing-10 mbn">
             <li>Network Name</li>
             <li>Color Type</li>
             <li>Manufacturer and Model</li>
-            <li>Location - clicking the location will display the printer's location on a map of the office</li>
+            <li>Location
+              <ul>
+                <li>clicking the location will display the printer's location on a map of the office</li>
+              </ul>
+            </li>
           </ul>
         </div>
         <h4>You can direct link to a particular printer or group of printers using one of the following query strings:</h4>

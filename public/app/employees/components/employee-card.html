@@ -7,7 +7,7 @@
         <ul class="list-inline employee-list-icons employee-actions">
           <li><a href="sip:{{::vm.twEmail}}" class="fa fa-comment"></a></li>
           <li><a ui-sref="employees.org-chart({employee: employee.eid})" class="fa fa-sitemap profile-color"></a></li>
-          <li><a ng-if="employee.seat" ng-click="vm.mapEmployee(employee)" href="" class="fa fa-map-marker location-color"></a></li>
+          <li ng-if="employee.seat"><a ng-click="vm.mapEmployee(employee)" href="" class="fa fa-map-marker location-color"></a></li>
         </ul>
         <ul class="list-inline employee-list-icons memberships">
           <li ng-repeat="guild in employee.guilds"><a ui-sref="guilds.{{::guild}}" class="link-unstyled"><img ng-src="/images/guild-icons/{{::guild}}.svg"/></a></li>

@@ -16,8 +16,8 @@
                         a.fa.fa-comment(href="sip:{{::vm.twEmail}}")
                     li
                         a.fa.fa-sitemap.profile-color(ui-sref="employees.org-chart({employee: employee.eid})")
-                    li
-                        a.fa.fa-map-marker.location-color(ng-if="employee.seat", ng-click="vm.mapEmployee(employee)", href="")
+                    li(ng-if="employee.seat")
+                        a.fa.fa-map-marker.location-color(ng-click="vm.mapEmployee(employee)", href="")
                 ul.list-inline.employee-list-icons.memberships
                     li(ng-repeat="guild in employee.guilds")
                         a.link-unstyled(ui-sref="guilds.{{::guild}}")

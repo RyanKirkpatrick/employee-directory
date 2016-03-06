@@ -1,0 +1,22 @@
+.center-block.employee-group.mw600(ng-if="!vm.requestedMonth")
+    .text-center.employee-group-header.mb30
+        .fa.fa-birthday-cake.fs100.mb30.text-system
+        div.fs20 Birthdays
+    p Wish your coworkers a happy birthday!  Choose a month to see who celebrates their special day.
+    .row
+        .col-md-4(ng-repeat="month in vm.months")
+            a.boxed-link.text-only.text-center(ui-sref="birthdays.month({month: '{{::month}}'})", ng-class="{'current-month': vm.currentMonth === $index}")
+                h4.cap {{::month}}
+
+.center-block.employee-group.birthdays(ng-if="vm.requestedMonth")
+    .text-center.employee-group-header.mb30
+    h3.mv30.fw400.text-center
+        span.cap {{::vm.requestedMonth}} Birthdays
+    ul.text-center.employee-group-members(vertilize-container)
+        li(ng-repeat="employee in vm.birthMonthEmployees", ng-click="vm.profileEmployee(employee)", vertilize, ng-class="{'birthday-today': employee.birthdayToday}", page="org-chart")
+            .birthday.cap(ng-class="{'bg-system': employee.birthdayToday}") {{::vm.requestedMonth}}
+                div {{::employee.birthday}}
+            img(ng-src="/images/employee-photos/{{::employee.image}}", ng-show="employee.image")
+            span.fa.fa-user.fs70(ng-hide="employee.image")
+            h5 {{::employee.displayName}}
+            h6 {{::employee.title}}

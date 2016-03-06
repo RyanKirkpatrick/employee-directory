@@ -629,6 +629,31 @@
 					}
 				}
 			})
+			.state('birthdays', {
+				url: '/birthdays',
+				views: {
+					'main@': {
+						templateUrl: '/partials/birthdays/views/birthdays',
+						controller: 'edBirthdaysCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/birthdays/components/birthdays-topbar',
+						controller: 'edBirthdaysTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('birthdays.month', {
+				url: '/:month',
+				views: {
+					'main@': {
+						templateUrl: '/partials/birthdays/views/birthdays',
+						controller: 'edBirthdaysCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('help', {
 				url: '/help',
 				views: {

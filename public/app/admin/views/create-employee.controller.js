@@ -70,7 +70,8 @@
 				floor: '',
 				seat: '',
 				hasReports: '',
-				mid: ''
+				mid: '',
+				birthdate: ''
 			};
 		}
 
@@ -104,7 +105,8 @@
 				floor: vm.newEmployee.floor,
 				seat: vm.newEmployee.seat,
 				hasReports: vm.newEmployee.hasReports,
-				mid: vm.newEmployee.mid
+				mid: vm.newEmployee.mid,
+				birthdate: vm.newEmployee.birthdate
 			};
 
 			// Add all the selected guilds
