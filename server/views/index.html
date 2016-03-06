@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/bower_components/toastr/toastr.css">
     <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/bower_components/icomoon-bower/dist/css/style.css">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,700,600">
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/css/theme-overrides.css">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="/css/org-chart.css">
     <link rel="stylesheet" href="/css/guilds.css">
     <link rel="stylesheet" href="/css/committees.css">
+    <link rel="stylesheet" href="/css/birthdays.css">
     <link rel="stylesheet" href="/css/seat-map.css">
     <link rel="stylesheet" href="/css/map-marker.css">
     <link rel="stylesheet" href="/css/fonts.css">
@@ -35,7 +37,105 @@
       </section>
       <ed-footer></ed-footer>
     </div>
-    <script type="text/javascript" src="build-assets/vendor-d779002c7d.js"></script>
-    <script type="text/javascript" src="build-assets/main-a939fe65c1.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-scroll/angular-scroll.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-vertilize/angular-vertilize.js"></script>
+    <script type="text/javascript" src="/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script type="text/javascript" src="/bower_components/lodash/lodash.min.js"></script>
+    <script type="text/javascript" src="/bower_components/ng-focus-if/focusIf.min.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/app/app.module.js"></script>
+    <script type="text/javascript" src="/app/app.routes.js"></script>
+    <script type="text/javascript" src="/app/app.run.js"></script>
+    <script type="text/javascript" src="/app/common/services/identity.service.js"></script>
+    <script type="text/javascript" src="/app/common/services/notifier.service.js"></script>
+    <script type="text/javascript" src="/app/common/services/sidebar.service.js"></script>
+    <script type="text/javascript" src="/app/common/services/artifact.service.js"></script>
+    <script type="text/javascript" src="/app/common/services/artifact-resource.service.js"></script>
+    <script type="text/javascript" src="/app/common/services/cached-artifact-resource.service.js"></script>
+    <script type="text/javascript" src="/app/common/filters/custom-filters.js"></script>
+    <script type="text/javascript" src="/app/common/views/index.controller.js"></script>
+    <script type="text/javascript" src="/app/common/views/floor.controller.js"></script>
+    <script type="text/javascript" src="/app/common/components/index-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/common/components/sidebar-left.directive.js"></script>
+    <script type="text/javascript" src="/app/common/components/header.directive.js"></script>
+    <script type="text/javascript" src="/app/common/components/footer.directive.js"></script>
+    <script type="text/javascript" src="/app/common/components/artifact.directive.js"></script>
+    <script type="text/javascript" src="/app/common/utilities/nanoscroller.directive.js"></script>
+    <script type="text/javascript" src="/app/employees/services/employee.service.js"></script>
+    <script type="text/javascript" src="/app/employees/services/employee-resource.service.js"></script>
+    <script type="text/javascript" src="/app/employees/services/cached-employee-resource.service.js"></script>
+    <script type="text/javascript" src="/app/employees/services/desk.service.js"></script>
+    <script type="text/javascript" src="/app/employees/services/desk-resource.service.js"></script>
+    <script type="text/javascript" src="/app/employees/services/cached-desk-resource.service.js"></script>
+    <script type="text/javascript" src="/app/employees/views/employee.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/views/profile/employee-profile.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/views/map/employee-map.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/views/org-chart/org-chart.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/components/employee-selector.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/components/employee-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/employees/components/desk.directive.js"></script>
+    <script type="text/javascript" src="/app/employees/components/employee-card.directive.js"></script>
+    <script type="text/javascript" src="/app/rooms/services/room.service.js"></script>
+    <script type="text/javascript" src="/app/rooms/services/room-resource.service.js"></script>
+    <script type="text/javascript" src="/app/rooms/services/cached-room-resource.service.js"></script>
+    <script type="text/javascript" src="/app/rooms/views/room.controller.js"></script>
+    <script type="text/javascript" src="/app/rooms/views/profile/room-profile.controller.js"></script>
+    <script type="text/javascript" src="/app/rooms/views/map/room-map.controller.js"></script>
+    <script type="text/javascript" src="/app/rooms/components/room-selector.controller.js"></script>
+    <script type="text/javascript" src="/app/rooms/components/room-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/rooms/components/room.directive.js"></script>
+    <script type="text/javascript" src="/app/rooms/components/room-card.directive.js"></script>
+    <script type="text/javascript" src="/app/printers/services/printer.service.js"></script>
+    <script type="text/javascript" src="/app/printers/services/printer-resource.service.js"></script>
+    <script type="text/javascript" src="/app/printers/services/cached-printer-resource.service.js"></script>
+    <script type="text/javascript" src="/app/printers/views/printer.controller.js"></script>
+    <script type="text/javascript" src="/app/printers/views/profile/printer-profile.controller.js"></script>
+    <script type="text/javascript" src="/app/printers/views/map/printer-map.controller.js"></script>
+    <script type="text/javascript" src="/app/printers/components/printer-selector.controller.js"></script>
+    <script type="text/javascript" src="/app/printers/components/printer-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/printers/components/printer.directive.js"></script>
+    <script type="text/javascript" src="/app/printers/components/printer-card.directive.js"></script>
+    <script type="text/javascript" src="/app/admin/services/user.service.js"></script>
+    <script type="text/javascript" src="/app/admin/services/user-resource.service.js"></script>
+    <script type="text/javascript" src="/app/admin/services/cached-user-resource.service.js"></script>
+    <script type="text/javascript" src="/app/admin/services/auth.service.js"></script>
+    <script type="text/javascript" src="/app/admin/services/employee-admin.service.js"></script>
+    <script type="text/javascript" src="/app/admin/views/login.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/user-list.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/user-profile.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/create-user.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/update-user.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/create-employee.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/update-employee.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/seat-picker.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/views/seat-picker-floor.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/components/user-selector.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/components/admin-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/components/seat-picker-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/admin/components/seat-picker-desk.directive.js"></script>
+    <script type="text/javascript" src="/app/guilds/views/guilds.controller.js"></script>
+    <script type="text/javascript" src="/app/guilds/components/guilds-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/committees/views/committees.controller.js"></script>
+    <script type="text/javascript" src="/app/committees/components/committees-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/birthdays/views/birthdays.controller.js"></script>
+    <script type="text/javascript" src="/app/birthdays/components/birthdays-topbar.controller.js"></script>
+    <script type="text/javascript" src="/app/help/views/help.controller.js"></script>
+    <script type="text/javascript" src="/app/help/views/navigation/help-navigation.controller.js"></script>
+    <script type="text/javascript" src="/app/help/views/profile/help-profile.controller.js"></script>
+    <script type="text/javascript" src="/app/help/views/location/help-location.controller.js"></script>
+    <script type="text/javascript" src="/app/help/views/org-chart/help-org-chart.controller.js"></script>
+    <script type="text/javascript" src="/app/help/components/help-topbar.controller.js"></script>
+    <script type="text/javascript" src="/analytics/google-analytics.js"></script>
   </body>
 </html>

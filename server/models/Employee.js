@@ -17,6 +17,9 @@ var employeeSchema = mongoose.Schema({
 	nickname: {
 		type: String
 	},
+	birthdate: {
+		type: Date
+	},
 	email: {
 		type: String,
 		unique: true

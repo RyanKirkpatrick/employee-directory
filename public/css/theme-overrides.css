@@ -105,6 +105,24 @@ Sidebar
 #sidebar_left .sidebar-menu > li.active.location-item > a > span:nth-child(1) {
   color: #de5858;
 }
+#sidebar_left .sidebar-menu > li.active.guilds-item > a:after {
+  background-color: #64c556;
+}
+#sidebar_left .sidebar-menu > li.active.guilds-item > a > span:nth-child(1) {
+  color: #64c556;
+}
+#sidebar_left .sidebar-menu > li.active.committees-item > a:after {
+  background-color: #967adc;
+}
+#sidebar_left .sidebar-menu > li.active.committees-item > a > span:nth-child(1) {
+  color: #967adc;
+}
+#sidebar_left .sidebar-menu > li.active.birthdays-item > a:after {
+  background-color: #37bc9b;
+}
+#sidebar_left .sidebar-menu > li.active.birthdays-item > a > span:nth-child(1) {
+  color: #37bc9b;
+}
 #sidebar_left .sidebar-menu > li.active > a:after {
   background-color: #3498db;
 }
@@ -349,6 +367,9 @@ Sidebar
   -ms-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
+.boxed-link.text-only {
+  height: auto;
+}
 .boxed-link > div {
   height: 128px;
 }
@@ -373,4 +394,27 @@ Sidebar
 }
 .fs120 {
   font-size: 120px !important;
+}
+.cap {
+  text-transform: capitalize;
+}
+.panel-controls.bg-primary > a {
+  color: #fff;
+}
+/**************************************************
+Material Design Overrides
+**************************************************/
+.md-calendar-day-header th {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.md-datepicker-label {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.md-datepicker-input-container {
+  border-bottom: none;
 }

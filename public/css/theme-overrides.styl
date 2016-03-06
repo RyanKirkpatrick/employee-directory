@@ -3,7 +3,10 @@
 primary-color-blue = #3498db
 primary-color-red = #de5858
 liazon-blue = #005295
-liazon-green = #00B259
+liazon-green = #00b259
+birthdays-color = #37bc9b
+committees-color = #967adc
+guilds-color = #64c556
 
 .navbar-brand img
   height 60px
@@ -95,6 +98,30 @@ Sidebar
 
         > a > span:nth-child(1)
           color primary-color-red
+
+      &.guilds-item
+
+        > a:after
+          background-color guilds-color
+
+        > a > span:nth-child(1)
+          color guilds-color
+
+      &.committees-item
+
+        > a:after
+          background-color committees-color
+
+        > a > span:nth-child(1)
+          color committees-color
+
+      &.birthdays-item
+
+        > a:after
+          background-color birthdays-color
+
+        > a > span:nth-child(1)
+          color birthdays-color
 
       > a:after
         background-color primary-color-blue
@@ -291,6 +318,9 @@ Sidebar
   padding 15px
   transition all 0.1s linear
 
+  &.text-only
+    height auto
+
   > div
     height 128px
 
@@ -313,3 +343,23 @@ Sidebar
 
 .fs120
   font-size 120px !important
+
+.cap
+  text-transform capitalize
+
+.panel-controls.bg-primary > a
+  color #fff
+
+/**************************************************
+Material Design Overrides
+**************************************************/
+.md-calendar-day-header th
+  box-sizing content-box
+
+.md-datepicker-label
+  background-color #fff
+  border 1px solid #ddd
+  border-radius 3px
+
+.md-datepicker-input-container
+  border-bottom none
