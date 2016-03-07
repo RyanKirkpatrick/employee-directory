@@ -24,7 +24,6 @@
     "icomoon-bower": "icomoon#~0.0.3",
     "lodash": "~3.10.1",
     "ng-focus-if": "~1.0.2",
-    "angular-material": "~1.0.6",
     "moment": "~2.11.2"
   }
 }

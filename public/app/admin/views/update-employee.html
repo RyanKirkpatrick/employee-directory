@@ -137,8 +137,8 @@
             </div>
             <div class="col-md-3">
               <div class="section">
-                <label class="field md-datepicker-label append-icon">
-                  <md-datepicker ng-model="vm.selectedEmployee.birthdate" md-placeholder="Birthday"></md-datepicker>
+                <label for="birthday" class="field prepend-icon">
+                  <input type="date" id="birthday" ng-model="vm.selectedEmployee.birthdate" class="gui-input hasDatepicker"/>
                   <label class="field-icon"><i class="fa fa-birthday-cake"></i></label>
                 </label>
               </div>

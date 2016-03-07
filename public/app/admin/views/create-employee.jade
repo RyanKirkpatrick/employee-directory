@@ -88,8 +88,8 @@
                                     i.arrow
                         .col-md-3
                             .section
-                                label.field.md-datepicker-label.append-icon
-                                    md-datepicker(ng-model="vm.newEmployee.birthdate", md-placeholder="Birthday")
+                                label.field.prepend-icon(for="birthday")
+                                    input.gui-input.hasDatepicker(type="date", id="birthday", ng-model="vm.newEmployee.birthdate")
                                     label.field-icon
                                         i.fa.fa-birthday-cake
                     .row

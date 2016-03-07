@@ -401,20 +401,3 @@ Sidebar
 .panel-controls.bg-primary > a {
   color: #fff;
 }
-/**************************************************
-Material Design Overrides
-**************************************************/
-.md-calendar-day-header th {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-.md-datepicker-label {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.md-datepicker-input-container {
-  border-bottom: none;
-}
