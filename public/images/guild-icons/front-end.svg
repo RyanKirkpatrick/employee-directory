@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
 <defs>
 <g id="Guild_Icon_22_0_Layer3_0_FILL">
-<path fill="#000000" stroke="none" d="
+<path fill="#64c556" stroke="none" d="
 M 165.7 29.1
 L 165.85 24.7 161.35 24
 Q 128.9 19.3 104.6 8.75 104.4982421875 8.7060546875 104.4 8.65
@@ -23,13 +23,13 @@ L 105.15 65.5 105.15 43.05 145.65 82.4 105.05 121.6 105.05 99.1 122.9 82.25 Z"/>
 </g>
 
 <g id="Guild_Icon_22_0_Layer3_1_FILL">
-<path fill="#000000" stroke="none" d="
+<path fill="#64c556" stroke="none" d="
 M 60.05 98.7
 L 42.65 82.25 59.95 65.95 59.95 40.7 17.05 82.4 60.05 123.95 60.05 98.7 Z"/>
 </g>
 
 <g id="Guild_Icon_22_0_Layer2_0_MEMBER_0_FILL">
-<path fill="#000000" stroke="none" d="
+<path fill="#64c556" stroke="none" d="
 M 80.95 -8.35
 L 80.6 -8.15 80.6 8.4
 Q 90.4591796875 14.6755859375 102.1 19.7
@@ -53,7 +53,7 @@ L 80.95 -8.35 Z"/>
 </g>
 
 <g id="Guild_Icon_22_0_Layer2_0_MEMBER_1_FILL">
-<path fill="#000000" stroke="none" d="
+<path fill="#64c556" stroke="none" d="
 M 79.7 -8.35
 L 79.65 -8.35 75.75 -5.7
 Q 65.4 1.45 52.75 6.9 28.65 17.4 -3.5 22.05

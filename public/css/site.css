@@ -158,25 +158,25 @@ Directory Item Card
   border-radius: 1px;
   margin: 4px;
   padding: 0;
+  vertical-align: top;
 }
 .directory-item-card .employee-list-icons li a {
+  color: #999;
   display: block;
+  height: 32px;
   padding: 4px;
+  text-decoration: none;
+  width: 32px;
+}
+.directory-item-card .employee-list-icons li a.fa {
+  font-size: 24px;
+}
+.directory-item-card .employee-list-icons li a img {
+  height: 24px;
+  width: 24px;
 }
 .directory-item-card .employee-list-icons li:hover {
   background-color: #ccc;
-}
-.directory-item-card .memberships li a img {
-  height: 32px;
-  width: 32px;
-}
-.directory-item-card .employee-actions li {
-  font-size: 2em;
-}
-.directory-item-card .employee-actions li a {
-  color: #999;
-  text-decoration: none;
-  width: 40px;
 }
 /**************************************************
 Employee Group

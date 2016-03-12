@@ -4,12 +4,10 @@
   <div class="panel-body pn">
     <div class="row table-layout">
       <div class="col-xs-4 text-center va-t of-h"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="employee-photo mt10 mb5"/><span ng-if="!employee.image" class="fa fa-user fs100 mt20"></span>
-        <ul class="list-inline employee-list-icons employee-actions">
+        <ul class="list-inline employee-list-icons">
           <li><a href="sip:{{::vm.twEmail}}" class="fa fa-comment"></a></li>
           <li><a ui-sref="employees.org-chart({employee: employee.eid})" class="fa fa-sitemap profile-color"></a></li>
           <li ng-if="employee.seat"><a ng-click="vm.mapEmployee(employee)" href="" class="fa fa-map-marker location-color"></a></li>
-        </ul>
-        <ul class="list-inline employee-list-icons memberships">
           <li ng-repeat="guild in employee.guilds"><a ui-sref="guilds.{{::guild}}" class="link-unstyled"><img ng-src="/images/guild-icons/{{::guild}}.svg"/></a></li>
           <li ng-repeat="committee in employee.committees"><a ui-sref="committees.{{::committee}}" class="link-unstyled"><img ng-src="/images/committee-icons/{{::committee}}.svg"/></a></li>
         </ul>
