@@ -61,6 +61,6 @@
   </div>
   <h5><span class="fa fa-user"></span><span>Select Employees</span><span class="label label-xs bg-primary">{{vm.filteredEmployees.length}}</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['lastName', 'displayName', 'fullName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
+    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['displayName', 'fullName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
   </ul>
 </div>
