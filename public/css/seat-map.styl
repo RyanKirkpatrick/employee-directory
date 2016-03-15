@@ -5,9 +5,21 @@ floor
   background-repeat no-repeat
   display table
   height 1149px
-  margin-bottom 20px
+  margin-bottom 40px
   position relative
   width 1256px
+
+.toggle-show-seat-numbers-swicth
+  bottom 50px
+  right 25px
+  position absolute
+
+/* Show seat numbers */
+.seat > span
+  visibility hidden
+
+&.show-seat-numbers + floor .seat > span
+  visibility visible
 
 .buf-6
   background-image url('/images/buf-6.png')
@@ -250,14 +262,6 @@ desk
     font-size 12px
     text-align center
     vertical-align middle
-
-    /* seat number */
-    span
-      text-align center
-      visibility hidden
-
-      &.admin
-        visibility visible
 
   .marker
     position absolute

@@ -12,6 +12,7 @@
 		vm.mappedPrinter = edPrinterService.getMappedPrinter();
 		vm.selectedRooms = edRoomService.setSelectMultipleRooms(true);
 		vm.mappedRoom = edRoomService.getMappedRoom();
+		vm.showSeatNumbers = false;
 		vm.desks = null;
 		vm.rooms = null;
 		vm.printers = null;
