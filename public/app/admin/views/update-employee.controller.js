@@ -77,9 +77,12 @@
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
-				mid: selectedEmployees[0].mid,
-				birthdate: moment(selectedEmployees[0].birthdate).format('LL')
+				mid: selectedEmployees[0].mid
 			};
+
+			if (selectedEmployees[0].birthdate) {
+				vm.selectedEmployee.birthdate = moment(selectedEmployees[0].birthdate).format('LL');
+			}
 
 			_.forEach(selectedEmployees[0].guilds, function (guild) {
 				vm.selectedEmployee.guilds[guild] = true;
