@@ -474,6 +474,32 @@
 					}
 				}
 			})
+			.state('admin.create-event', {
+				url: '/create-event',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/events/create-event',
+						controller: 'edCreateEventCtrl',
+						controllerAs: 'vm'
+					}
+				},
+				resolve: {
+					auth: routeRoleChecks.admin
+				}
+			})
+			.state('admin.update-event', {
+				url: '/update-event',
+				views: {
+					'main@': {
+						templateUrl: '/partials/admin/views/events/update-event',
+						controller: 'edUpdateEventCtrl',
+						controllerAs: 'vm'
+					}
+				},
+				resolve: {
+					auth: routeRoleChecks.admin
+				}
+			})
 			.state('admin.seat-picker', {
 				url: '/seat-picker',
 				views: {
@@ -650,6 +676,26 @@
 					'main@': {
 						templateUrl: '/partials/birthdays/views/birthdays',
 						controller: 'edBirthdaysCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('events', {
+				url: '/events',
+				views: {
+					'main@': {
+						templateUrl: '/partials/events/views/event',
+						controller: 'edEventCtrl',
+						controllerAs: 'vm'
+					},
+					'sidebar@': {
+						templateUrl: '/partials/events/components/event-sidebar',
+						controller: 'edEventSidebarCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/events/components/event-topbar',
+						controller: 'edEventTopbarCtrl',
 						controllerAs: 'vm'
 					}
 				}

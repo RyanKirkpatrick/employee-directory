@@ -35,3 +35,6 @@ form .gui-input-mod {
   font-size: 13px;
   top: -15px;
 }
+.admin-form .section .moment-picker .moment-picker-container {
+  margin-top: 26px;
+}

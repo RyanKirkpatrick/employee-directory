@@ -209,6 +209,9 @@ Sidebar
   filter: alpha(opacity=10);
   padding-left: 20px;
 }
+/**************************************************
+Sidebar (secondary)
+**************************************************/
 #sidebar_left_secondary {
   background: #f5f5f5;
   border-right: 1px solid #ddd;
@@ -283,6 +286,9 @@ Sidebar
 #sidebar_left_secondary .sidebar-return-top span:hover {
   color: #666;
 }
+/**************************************************
+Nano Scroller
+**************************************************/
 .nano.affix > .nano-pane {
   background: rgba(0,0,0,0.05);
   bottom: 104px;
@@ -299,6 +305,9 @@ Sidebar
   filter: alpha(opacity=50);
   width: 7px;
 }
+/**************************************************
+Misc
+**************************************************/
 @media (max-width: 1100px) {
   #content_wrapper {
     margin-left: 250px;

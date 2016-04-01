@@ -34,11 +34,6 @@
 
 						// Create a fullName property for each employee
 						employee.fullName = employee.firstName + ' ' + employee.lastName;
-
-						// Convert ISO date string to date object
-						if (employee.birthdate) {
-							employee.birthdate = new Date(employee.birthdate);
-						}
 					});
 				});
 			}

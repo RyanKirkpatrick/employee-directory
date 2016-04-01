@@ -22,6 +22,10 @@
 			$timeout(function () {
 				angular.element('.nano').nanoScroller();
 			}, 3000);
+			// Do this again after a few seconds to wait for the model to populate
+			$timeout(function () {
+				angular.element('.nano').nanoScroller();
+			}, 10000);
 		}
 	}
 })();

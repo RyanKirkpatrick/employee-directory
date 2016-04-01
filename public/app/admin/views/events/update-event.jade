@@ -1,0 +1,54 @@
+.mw1000.center-block
+    .admin-form.theme-primary
+        form(name="updateEventForm", novalidate)
+            .panel.heading-border.panel-primary
+                .panel-body.bg-light
+                    .section-divider
+                        span Update Event
+                    .row
+                        .col-md-6
+                            .section
+                                label.field(ng-class="{'state-error': updateEventForm.title.$invalid && !updateEventForm.title.$pristine}")
+                                    input.gui-input(name="title", type="text", placeholder="Title", ng-model="vm.selectedEvent.title", focus-if="true", focus-delay="1000", required)
+                        .col-md-3
+                            .section
+                                label.field.prepend-icon(moment-picker="vm.selectedEvent.start", format="LLL" , max-date="vm.selectedEvent.end")
+                                    input.gui-input(id="start", placeholder="Start Date / Time", ng-model="vm.selectedEvent.start", ng-model-options="{ updateOn: 'blur' }", required)
+                                    label.field-icon(for="start")
+                                        i.fa.fa-calendar
+                        .col-md-3
+                            .section
+                                label.field.prepend-icon(moment-picker="vm.selectedEvent.end", format="LLL" , min-date="vm.selectedEvent.start")
+                                    input.gui-input(id="end", placeholder="End Date / Time", ng-model="vm.selectedEvent.end", ng-model-options="{ updateOn: 'blur' }")
+                                    label.field-icon(for="end")
+                                        i.fa.fa-calendar
+                    .row
+                        .col-md-12
+                            .section
+                                label.field.prepend-icon
+                                    textarea.gui-textarea(id="details" name="details" placeholder="Event Details", ng-model="vm.selectedEvent.details")
+                                    label.field-icon(for="details")
+                                        i.fa.fa-comments
+                    .row
+                        .col-md-3
+                            .section
+                                label.field
+                                    input.gui-input(name="className", type="text", placeholder="Classification", ng-model="vm.selectedEvent.className")
+                        .col-md-3
+                            .section
+                                label.field
+                                    input.gui-input(name="url", type="text", placeholder="URL for Event", ng-model="vm.selectedEvent.url")
+                        .col-md-3
+                            .section
+                                label.field
+                                    input.gui-input(name="link", type="text", placeholder="Link for Event Details", ng-model="vm.selectedEvent.link")
+                        .col-md-3
+                            .section
+                                label.option.option-primary.mt10
+                                    input(type="checkbox", name="allDay", ng-model="vm.selectedEvent.allDay")
+                                    span.checkbox
+                                    | All Day Event
+                .panel-footer.text-right
+                    button.button.btn-danger.pull-left(type="button", ng-click="vm.deleteEvent()") Delete Event
+                    button.button.btn-primary(type="submit", ng-click="vm.updateEvent()",  ng-disabled="updateEventForm.$invalid") Submit
+                    button.button.btn-default(type="button", ng-click="vm.cancelUpdateEvent()") Cancel

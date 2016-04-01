@@ -59,5 +59,14 @@
 		function scrollSidebarTop() {
 			$('.nano').nanoScroller({scroll: 'top'});
 		}
+
+		// Use this to trigger the highlighter directive
+		var deregisterSelectedEventChange = $scope.$on('selectedEventChange', function (event, selectedEvent) {
+			if (selectedEvent) {
+				vm.selectedEvent = angular.copy(selectedEvent._id);
+			}
+		});
+
+		$scope.$on('$destroy', deregisterSelectedEventChange);
 	}
 })();

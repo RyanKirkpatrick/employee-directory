@@ -9,6 +9,7 @@
     </ul>
     <ul ng-click="vm.closeSidebar()" class="nav sidebar-menu">
       <li ui-sref-active="active" class="committees-item"><a ui-sref="committees"><span class="fa fa fa-users"></span><span class="sidebar-title">Liazon Committees</span></a></li>
+      <li ui-sref-active="active"><a ui-sref="events"><span class="fa fa-calendar"></span><span class="sidebar-title">Events Calendar</span></a></li>
       <li ui-sref-active="active" class="guilds-item"><a ui-sref="guilds"><span class="fa fa-shield"></span><span class="sidebar-title">Developer Guilds</span></a></li>
       <!--li.birthdays-item(ui-sref-active="active")
       a(ui-sref="birthdays")
@@ -30,11 +31,12 @@
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('admin')" class="location-item"><a ui-sref="admin.seat-picker"><span class="fa fa-map-marker"></span><span class="sidebar-title">Seat Assignment</span></a></li>
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.create-user"><span class="fa fa-plus-square"></span><span class="sidebar-title">Create User</span></a></li>
       <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.update-user"><span class="fa fa-pencil-square"></span><span class="sidebar-title">Update User</span></a></li>
+      <li ui-sref-active="active" ng-if="vm.identity.isAuthorized('super-admin')"><a ui-sref="admin.create-event"><span class="fa fa-calendar-plus-o"></span><span class="sidebar-title">Create Event</span></a></li>
     </ul>
   </div>
 </aside>
 <aside id="sidebar_left_secondary" class="nano nano-content sidebar-default affix">
-  <div class="sidebar-left-content nano-content"><span ng-click="vm.scrollSidebarTop()" class="sidebar-return-top"><span class="fa fa-arrow-up"></span></span>
+  <div ed-highlighter="vm.selectedEvent" duration="500" class="sidebar-left-content nano-content"><span ng-click="vm.scrollSidebarTop()" class="sidebar-return-top"><span class="fa fa-arrow-up"></span></span>
     <div ui-view="sidebar" class="sidebar-view"></div>
   </div>
 </aside>

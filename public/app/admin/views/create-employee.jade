@@ -88,9 +88,9 @@
                                     i.arrow
                         .col-md-3
                             .section
-                                label.field.prepend-icon(for="birthday")
-                                    input.gui-input.hasDatepicker(type="date", id="birthday", ng-model="vm.newEmployee.birthdate")
-                                    label.field-icon
+                                label.field.prepend-icon(moment-picker="vm.newEmployee.birthdate", format="LL")
+                                    input.gui-input(id="birthday", placeholder="Birthday", ng-model="vm.newEmployee.birthdate", ng-model-options="{ updateOn: 'blur' }")
+                                    label.field-icon(for="birthday")
                                         i.fa.fa-birthday-cake
                     .row
                         .col-md-6

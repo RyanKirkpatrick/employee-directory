@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 	deskModel = require('../models/Desk'),
 	roomModel = require('../models/Room'),
 	printerModel = require('../models/Printer'),
-  artifactModel = require('../models/Artifact');
+  artifactModel = require('../models/Artifact'),
+  eventModel = require('../models/Event');
 
 module.exports = function (config) {
 	mongoose.connect(config.db);
@@ -20,4 +21,5 @@ module.exports = function (config) {
 	roomModel.createDefaultRooms();
 	printerModel.createDefaultPrinters();
 	artifactModel.createDefaultArtifacts();
+	eventModel.createDefaultEvents();
 };

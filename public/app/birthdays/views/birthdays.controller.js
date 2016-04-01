@@ -24,9 +24,9 @@
 			var currentDay = moment().date();
 			vm.birthMonthEmployees = _.sortBy(_.filter(employees, function (employee) {
 				// If the employee has a birthday and it is in the month we are looking at, display them
-				if (employee.birthdate && vm.requestedMonth === vm.months[employee.birthdate.getMonth()]) {
+				if (employee.birthdate && vm.requestedMonth === vm.months[moment(employee.birthdate).month()]) {
 					// Get the day of the month to display
-					employee.birthday = employee.birthdate.getDate();
+					employee.birthday = moment(employee.birthdate).date();
 					// If the employee's birthday is today, set a property to use
 					if (vm.requestedMonth === vm.months[vm.currentMonth] && currentDay === employee.birthday) {
 						employee.birthdayToday = true;

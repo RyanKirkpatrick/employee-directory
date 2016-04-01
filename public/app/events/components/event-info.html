@@ -1,0 +1,13 @@
+
+<h5 class="text-primary">{{selectedEvent.title}}</h5>
+<h5> Date:</h5>
+<p>{{selectedEvent.day}}</p>
+<div ng-if="!selectedEvent.allDay">
+  <h5>Time:</h5>
+  <p>{{selectedEvent.start}} - {{selectedEvent.end}}</p>
+</div>
+<h5> Details:</h5>
+<p ng-bind-html="selectedEvent.details"></p>
+<div ng-if="selectedEvent.link">
+  <h5>Link:</h5><a href="{{selectedEvent.link}}" target="_blank">Click Here</a>
+</div>

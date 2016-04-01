@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edUpdateEmployeeCtrl', edUpdateEmployeeCtrl);
 
-	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', 'edSidebarService', '_'];
+	edUpdateEmployeeCtrl.$inject = ['$scope', 'edNotifierService', 'edEmployeeService', 'edDeskService', 'edEmployeeAdminService', 'edIdentityService', 'edSidebarService', '_', 'moment'];
 
-	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, edSidebarService, _) {
+	function edUpdateEmployeeCtrl($scope, edNotifierService, edEmployeeService, edDeskService, edEmployeeAdminService, edIdentityService, edSidebarService, _, moment) {
 		var vm = this;
 		vm.identity = edIdentityService;
 		vm.updateEmployee = updateEmployee;
@@ -78,7 +78,7 @@
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
 				mid: selectedEmployees[0].mid,
-				birthdate: selectedEmployees[0].birthdate
+				birthdate: moment(selectedEmployees[0].birthdate).format('LL')
 			};
 
 			_.forEach(selectedEmployees[0].guilds, function (guild) {

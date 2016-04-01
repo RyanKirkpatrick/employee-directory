@@ -22,6 +22,9 @@ module.exports = {
 				'./bower_components/lodash/lodash.min.js',
 				'./bower_components/ng-focus-if/focusIf.min.js',
 				'./bower_components/moment/min/moment.min.js',
+				'./bower_components/angular-ui-calendar/src/calendar.js',
+				'./bower_components/fullcalendar/dist/fullcalendar.min.js',
+				'./bower_components/angular-moment-picker/dist/angular-moment-picker.min.js',
 				'./public/analytics/google-analytics.js'
 			]
 		}

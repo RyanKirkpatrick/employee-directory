@@ -1,0 +1,81 @@
+
+<div class="mw1000 center-block">
+  <div class="admin-form theme-primary">
+    <form name="createEventForm" novalidate="novalidate">
+      <div class="panel heading-border panel-primary">
+        <div class="panel-body bg-light">
+          <div class="section-divider"><span>Create New Event</span></div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="section">
+                <label ng-class="{'state-error': createEventForm.title.$invalid &amp;&amp; !createEventForm.title.$pristine}" class="field">
+                  <input name="title" type="text" placeholder="Title" ng-model="vm.newEvent.title" focus-if="true" focus-delay="1000" required="required" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label moment-picker="vm.newEvent.start" format="LLL" max-date="vm.newEvent.end" class="field prepend-icon">
+                  <input id="start" placeholder="Start Date / Time" ng-model="vm.newEvent.start" ng-model-options="{ updateOn: 'blur' }" required="required" class="gui-input"/>
+                  <label for="start" class="field-icon"><i class="fa fa-calendar"></i></label>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label moment-picker="vm.newEvent.end" format="LLL" min-date="vm.newEvent.start" class="field prepend-icon">
+                  <input id="end" placeholder="End Date / Time" ng-model="vm.newEvent.end" ng-model-options="{ updateOn: 'blur' }" class="gui-input"/>
+                  <label for="end" class="field-icon"><i class="fa fa-calendar"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section">
+                <label class="field prepend-icon">
+                  <textarea id="details" name="details" placeholder="Event Details" ng-model="vm.newEvent.details" class="gui-textarea"></textarea>
+                  <label for="details" class="field-icon"><i class="fa fa-comments"></i></label>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field">
+                  <input name="className" type="text" placeholder="Classification" ng-model="vm.newEvent.className" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field">
+                  <input name="url" type="text" placeholder="URL for Event" ng-model="vm.newEvent.url" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field">
+                  <input name="link" type="text" placeholder="Link for Event Details" ng-model="vm.newEvent.link" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label class="option option-primary mt10">
+                  <input type="checkbox" name="allDay" ng-model="vm.newEvent.allDay"/><span class="checkbox"></span>All Day Event
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer text-right">
+          <button type="submit" ng-click="vm.createEvent()" ng-disabled="createEventForm.$invalid" class="button btn-primary">Submit</button>
+          <button type="reset" class="button btn-default">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

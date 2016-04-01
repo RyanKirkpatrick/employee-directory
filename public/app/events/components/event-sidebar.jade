@@ -1,0 +1,8 @@
+div.sidebar-events-info(ed-nanoscroller)
+    h3 Event Details
+        a.pull-right(ng-if="vm.identity.isAuthorized('super-admin') && vm.selectedEvent", ui-sref="admin.update-event")
+            i.fa.fa-pencil
+    hr.short
+    div(ng-if="!vm.selectedEvent") Select an event from the calendar to view its details
+    div(ng-show="vm.selectedEvent")
+        ed-event-info

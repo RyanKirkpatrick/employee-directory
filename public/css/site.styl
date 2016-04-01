@@ -210,6 +210,26 @@ Employee Group
         box-shadow 1px 1px 10px 1px rgba(0,0,0,0.3)
         transform scale(1.1)
 
+/**************************************************
+Events Info
+**************************************************/
+.sidebar-events-info
+  padding 10px
+
+  ed-event-info
+    display block
+
+    h5
+      margin-bottom 5px
+
+.fc-event
+  transition all 300ms ease
+
+.fc-event.selected
+  border-color primary-color-blue
+
+  &.fc-day-grid-event
+    transform scale(1.2)
 
 /**************************************************
 Help styles
@@ -289,3 +309,20 @@ Misc Transitions
   opacity 0
   transform scale(0)
   transition 0.2s linear all
+
+.slide-out
+  animation moveToLeft .2s ease both
+
+.slide-in
+  animation moveFromRight .2s ease both
+
+.activate
+  animation: flash .5s ease-out
+
+@keyframes flash
+  0%
+    background-color none
+  50%
+    background-color #fefec8
+  100%
+    background-color none

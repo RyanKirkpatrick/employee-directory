@@ -1,0 +1,11 @@
+h5.text-primary {{selectedEvent.title}}
+h5  Date:
+p {{selectedEvent.day}}
+div(ng-if="!selectedEvent.allDay")
+    h5 Time:
+    p {{selectedEvent.start}} - {{selectedEvent.end}}
+h5  Details:
+p(ng-bind-html="selectedEvent.details")
+div(ng-if="selectedEvent.link")
+    h5 Link:
+    a(href="{{selectedEvent.link}}" target="_blank") Click Here

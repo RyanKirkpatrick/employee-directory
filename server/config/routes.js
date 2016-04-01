@@ -5,6 +5,7 @@ var auth      = require('./auth'),
     rooms     = require('../controllers/rooms'),
     printers  = require('../controllers/printers'),
     artifacts = require('../controllers/artifacts'),
+    events    = require('../controllers/events'),
     mongoose  = require('mongoose');
 
 module.exports = function (app) {
@@ -22,6 +23,10 @@ module.exports = function (app) {
 	app.get('/api/rooms', rooms.getRooms);
 	app.get('/api/printers', printers.getPrinters);
 	app.get('/api/artifacts', artifacts.getArtifacts);
+
+	app.get('/api/events', events.getEvents);
+	app.post('/api/events', auth.requiresRole('admin'), events.createEvent);
+	app.put('/api/events', auth.requiresRole('admin'), events.updateEvent);
 
 	app.get('/partials/*', function (req, res) {
 		res.render('../../public/app/' + req.params[0]);
