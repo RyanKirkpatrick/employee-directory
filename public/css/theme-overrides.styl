@@ -7,6 +7,7 @@ liazon-green = #00b259
 birthdays-color = #37bc9b
 committees-color = #967adc
 guilds-color = #64c556
+events-color = #f6bb42
 
 .navbar-brand img
   height 60px
@@ -122,6 +123,14 @@ Sidebar
 
         > a > span:nth-child(1)
           color birthdays-color
+
+      &.events-item
+
+        > a:after
+          background-color events-color
+
+        > a > span:nth-child(1)
+          color events-color
 
       > a:after
         background-color primary-color-blue

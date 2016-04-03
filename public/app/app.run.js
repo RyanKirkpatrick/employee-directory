@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').run(appRun);
 
-	appRun.$inject = ['$rootScope', '$state', '$stateParams', '$document'];
+	appRun.$inject = ['$rootScope', '$state', '$stateParams', '$document', 'edSidebarService'];
 
-	function appRun($rootScope, $state, $stateParams, $document) {
+	function appRun($rootScope, $state, $stateParams, $document, edSidebarService) {
 		$rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
 			if (error === 'not authorized') {
 				$state.go('admin');
@@ -23,6 +23,10 @@
 			$stateParams.employee = null;
 			$stateParams.team = null;
 			$stateParams.department = null;
+		});
+
+		$rootScope.$on('$stateChangeStart', function () {
+			edSidebarService.openTodayPanel(false);
 		});
 	}
 })();

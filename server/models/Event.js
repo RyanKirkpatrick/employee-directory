@@ -27,6 +27,10 @@ var eventSchema = mongoose.Schema({
 	allDay: {
 		type: Boolean
 	},
+	stick: {
+		type: Boolean,
+		default: true
+	},
 	deleted: {
 		type: Boolean,
 		default: false
@@ -43,7 +47,8 @@ function createDefaultEvents() {
 				start: new Date(2016, 3, 28, 9, 0),
 				end: new Date(2016, 3, 28, 15, 0),
 				details: 'This is more info about the event',
-				className: ['event-class']
+				className: ['event-class'],
+				stick: true
 			});
 		}
 	});

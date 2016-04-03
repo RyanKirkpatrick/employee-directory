@@ -2,15 +2,17 @@
 	'use strict';
 	angular.module('app').controller('edIndexCtrl', edIndexCtrl);
 
-	edIndexCtrl.$inject = ['edSidebarService'];
+	edIndexCtrl.$inject = ['edSidebarService', 'edIdentityService'];
 
-	function edIndexCtrl(edSidebarService) {
+	function edIndexCtrl(edSidebarService, edIdentityService) {
 		var vm = this;
+		vm.identity = edIdentityService;
 
 		activate();
 
 		function activate() {
 			edSidebarService.setLockSidebar(true);
+			edSidebarService.openTodayPanel(true);
 		}
 	}
 })();

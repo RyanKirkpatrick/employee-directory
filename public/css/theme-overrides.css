@@ -123,6 +123,12 @@ Sidebar
 #sidebar_left .sidebar-menu > li.active.birthdays-item > a > span:nth-child(1) {
   color: #37bc9b;
 }
+#sidebar_left .sidebar-menu > li.active.events-item > a:after {
+  background-color: #f6bb42;
+}
+#sidebar_left .sidebar-menu > li.active.events-item > a > span:nth-child(1) {
+  color: #f6bb42;
+}
 #sidebar_left .sidebar-menu > li.active > a:after {
   background-color: #3498db;
 }

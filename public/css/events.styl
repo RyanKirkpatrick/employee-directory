@@ -1,0 +1,28 @@
+events-color = #f6bb42
+
+.events-color
+  color events-color
+
+#topbar .nav.nav-list-topbar.events-topbar li a:before
+  background-color events-color
+
+/**************************************************
+Events Info
+**************************************************/
+.sidebar-events-info
+  padding 10px 10px 50px 10px
+
+  ed-event-info
+    display block
+
+    h5
+      margin-bottom 5px
+
+.fc-event
+  transition all 300ms ease
+
+.fc-event.selected
+  border-color events-color
+
+  &.fc-day-grid-event
+    transform scale(1.1)

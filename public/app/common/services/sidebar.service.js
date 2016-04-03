@@ -8,7 +8,8 @@
 		var sidebarLocked = false;
 		var service = {
 			setLockSidebar: setLockSidebar,
-			getLockSidebar: getLockSidebar
+			getLockSidebar: getLockSidebar,
+			openTodayPanel: openTodayPanel
 		};
 
 		return service;
@@ -21,6 +22,10 @@
 
 		function getLockSidebar() {
 			return sidebarLocked;
+		}
+
+		function openTodayPanel(open) {
+			$rootScope.$broadcast('openTodayPanel', open);
 		}
 	}
 })();

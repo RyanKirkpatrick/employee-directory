@@ -236,33 +236,46 @@ Employee Group
   transform: scale(1.1);
 }
 /**************************************************
-Events Info
+Today Panel
 **************************************************/
-.sidebar-events-info {
-  padding: 10px;
+#skin-toolbox.toolbox-open + #main .homepage {
+  margin-right: 230px;
 }
-.sidebar-events-info ed-event-info {
-  display: block;
+.today-panel#skin-toolbox {
+  top: 60px;
 }
-.sidebar-events-info ed-event-info h5 {
-  margin-bottom: 5px;
+.today-panel#skin-toolbox .panel-heading {
+  background-color: #eee;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  height: 51px;
+  line-height: 49px;
 }
-.fc-event {
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  -ms-transition: all 300ms ease;
-  transition: all 300ms ease;
+.today-panel#skin-toolbox .panel-heading .calendar-group {
+  margin-top: 8px;
 }
-.fc-event.selected {
-  border-color: #3498db;
+.today-panel#skin-toolbox .panel-heading .calendar-group .calendar-text-month {
+  font-size: 0.8em;
+  margin-top: -1.9em;
 }
-.fc-event.selected.fc-day-grid-event {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+.today-panel#skin-toolbox .panel-heading .calendar-group .calendar-text {
+  margin-top: 0.3em;
+}
+.today-panel#skin-toolbox .panel-heading .panel-title {
+  font-weight: bold;
+  padding-left: 30px;
+}
+.today-panel .birthday a {
+  display: table;
+}
+.today-panel .birthday a .fa {
+  display: inline-block;
+  text-align: center;
+  width: 40px;
+}
+.today-panel .birthday a span {
+  display: table-cell;
+  vertical-align: middle;
 }
 /**************************************************
 Help styles
