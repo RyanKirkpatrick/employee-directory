@@ -243,6 +243,11 @@ Today Panel
 }
 .today-panel#skin-toolbox {
   top: 60px;
+  -webkit-transition: right 0.2s ease-in-out;
+  -moz-transition: right 0.2s ease-in-out;
+  -o-transition: right 0.2s ease-in-out;
+  -ms-transition: right 0.2s ease-in-out;
+  transition: right 0.2s ease-in-out;
 }
 .today-panel#skin-toolbox .panel-heading {
   background-color: #eee;
@@ -276,6 +281,11 @@ Today Panel
 .today-panel .birthday a span {
   display: table-cell;
   vertical-align: middle;
+}
+.today-panel .today-more-link {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 5px;
 }
 /**************************************************
 Help styles

@@ -36,34 +36,12 @@
 
 		var today = moment();
 
-		/**
-		 * Filters employees with the specified birthday
-		 *
-		 * @param {Array} employees, employees to search for a birthday
-		 * @param {Object} date, birthday
-		 * @return {Array} employees
-		 */
 		function filterEmployeesByBirthday(employees) {
-			vm.birthdays = _.filter(employees, function (employee) {
-				if (employee.birthdate && moment(employee.birthdate).date() === moment().date() && moment(employee.birthdate).month() === moment().month()) {
-					return employee;
-				}
-			});
+			vm.birthdays = edEmployeeService.filterEmployeesByBirthday(employees, today);
 		}
 
-		/**
-		 * Filters events for the specified date (excluding year)
-		 *
-		 * @param {Array} events, events to search for one that starts on the specified date
-		 * @param {Object} date, event date
-		 * @return {Array} events
-		 */
 		function filterEventsByDate(events) {
-			vm.events =  _.filter(events, function (event) {
-				if (moment(event.start).isSame(today, 'day')) {
-					return event;
-				}
-			});
+			vm.events = edEventService.filterEventsByDate(events, today);
 		}
 
 		var deregister = $scope.$on('openTodayPanel', function (event, open) {

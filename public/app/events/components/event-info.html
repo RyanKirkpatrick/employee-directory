@@ -6,8 +6,9 @@
   <h5>Time:</h5>
   <p>{{selectedEvent.start}} - {{selectedEvent.end}}</p>
 </div>
+<div ng-if="selectedEvent.location">
+  <h5>Office:</h5>
+  <p>{{selectedEvent.location}}</p>
+</div>
 <h5> Details:</h5>
 <p ng-bind-html="selectedEvent.details"></p>
-<div ng-if="selectedEvent.link">
-  <h5>Link:</h5><a href="{{selectedEvent.link}}" target="_blank">Click Here</a>
-</div>

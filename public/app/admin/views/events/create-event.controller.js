@@ -9,6 +9,20 @@
 		vm.identity = edIdentityService;
 		vm.createEvent = createEvent;
 		vm.newEvent = {};
+		vm.locationOptions = [
+			{
+				value: 'buf',
+				text: 'Buffalo'
+			},
+			{
+				value: 'nyc',
+				text: 'NYC'
+			},
+			{
+				value: 'both',
+				text: 'Buffalo & NYC'
+			}
+		];
 
 		activate();
 
@@ -25,7 +39,7 @@
 				details: '',
 				className: '',
 				url: '',
-				link: '',
+				location: '',
 				allDay: ''
 			};
 		}
@@ -38,7 +52,7 @@
 				details: vm.newEvent.details,
 				className: [],
 				url: vm.newEvent.url,
-				link: vm.newEvent.link,
+				location: vm.newEvent.location,
 				allDay: vm.newEvent.allDay
 			};
 

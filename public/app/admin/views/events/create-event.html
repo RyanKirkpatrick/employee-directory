@@ -43,6 +43,15 @@
           <div class="row">
             <div class="col-md-3">
               <div class="section">
+                <label class="field select">
+                  <select name="location" ng-model="vm.newEvent.location" ng-options="location.value as location.text for location in vm.locationOptions">
+                    <option disabled="disabled" value="">Location</option>
+                  </select><i class="arrow"></i>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
                 <label class="field">
                   <input name="className" type="text" placeholder="Classification" ng-model="vm.newEvent.className" class="gui-input"/>
                 </label>
@@ -52,13 +61,6 @@
               <div class="section">
                 <label class="field">
                   <input name="url" type="text" placeholder="URL for Event" ng-model="vm.newEvent.url" class="gui-input"/>
-                </label>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="section">
-                <label class="field">
-                  <input name="link" type="text" placeholder="Link for Event Details" ng-model="vm.newEvent.link" class="gui-input"/>
                 </label>
               </div>
             </div>

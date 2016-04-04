@@ -32,16 +32,18 @@
                     .row
                         .col-md-3
                             .section
+                                label.field.select
+                                    select(name="location", ng-model="vm.newEvent.location", ng-options="location.value as location.text for location in vm.locationOptions")
+                                        option(disabled, value="") Location
+                                    i.arrow
+                        .col-md-3
+                            .section
                                 label.field
                                     input.gui-input(name="className", type="text", placeholder="Classification", ng-model="vm.newEvent.className")
                         .col-md-3
                             .section
                                 label.field
                                     input.gui-input(name="url", type="text", placeholder="URL for Event", ng-model="vm.newEvent.url")
-                        .col-md-3
-                            .section
-                                label.field
-                                    input.gui-input(name="link", type="text", placeholder="Link for Event Details", ng-model="vm.newEvent.link")
                         .col-md-3
                             .section
                                 label.option.option-primary.mt10

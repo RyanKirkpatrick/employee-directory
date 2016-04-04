@@ -11,6 +11,20 @@
 		vm.deleteEvent = deleteEvent;
 		vm.cancelUpdateEvent = cancelUpdateEvent;
 		vm.selectedEvent = edEventService.getSelectedEvent();
+		vm.locationOptions = [
+			{
+				value: 'buf',
+				text: 'Buffalo'
+			},
+			{
+				value: 'nyc',
+				text: 'NYC'
+			},
+			{
+				value: 'both',
+				text: 'Buffalo & NYC'
+			}
+		];
 
 		activate();
 
@@ -32,7 +46,7 @@
 				details: vm.selectedEvent.details,
 				className: [],
 				url: vm.selectedEvent.url,
-				link: vm.selectedEvent.link,
+				location: vm.selectedEvent.location,
 				allDay: vm.selectedEvent.allDay
 			};
 

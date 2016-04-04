@@ -37,6 +37,12 @@
 
 			function populateEventInfo(event) {
 				scope.selectedEvent = angular.copy(event);
+				var locations = {
+					buf: 'Buffalo',
+					nyc: 'NYC',
+					both: 'Buffalo & NYC'
+				};
+				scope.selectedEvent.location = locations[event.location];
 				if (!scope.selectedEvent.allDay) {
 					scope.selectedEvent.start = moment(event.start).format('h:mm a');
 					scope.selectedEvent.end = moment(event.end).format('h:mm a');

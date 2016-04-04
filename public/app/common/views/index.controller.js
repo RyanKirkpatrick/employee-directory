@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').controller('edIndexCtrl', edIndexCtrl);
 
-	edIndexCtrl.$inject = ['edSidebarService', 'edIdentityService'];
+	edIndexCtrl.$inject = ['edSidebarService', 'edIdentityService', 'edEmployeeService', 'edEventService', 'moment'];
 
-	function edIndexCtrl(edSidebarService, edIdentityService) {
+	function edIndexCtrl(edSidebarService, edIdentityService, edEmployeeService, edEventService, moment) {
 		var vm = this;
 		vm.identity = edIdentityService;
 
@@ -12,7 +12,22 @@
 
 		function activate() {
 			edSidebarService.setLockSidebar(true);
-			edSidebarService.openTodayPanel(true);
+			edEmployeeService.getAllEmployees().$promise.then(filterEmployeesByBirthday);
+			edEventService.getAllEvents().$promise.then(filterEventsByDate);
+		}
+
+		var today = moment();
+
+		function filterEmployeesByBirthday(employees) {
+			if (edEmployeeService.filterEmployeesByBirthday(employees, today).length > 0) {
+				edSidebarService.openTodayPanel(true);
+			}
+		}
+
+		function filterEventsByDate(events) {
+			if (edEventService.filterEventsByDate(events, today).length > 0) {
+				edSidebarService.openTodayPanel(true);
+			}
 		}
 	}
 })();

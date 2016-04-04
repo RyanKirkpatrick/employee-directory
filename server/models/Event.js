@@ -21,7 +21,7 @@ var eventSchema = mongoose.Schema({
 	url: {
 		type: String
 	},
-	link: {
+	location: {
 		type: String
 	},
 	allDay: {
@@ -48,6 +48,7 @@ function createDefaultEvents() {
 				end: new Date(2016, 3, 28, 15, 0),
 				details: 'This is more info about the event',
 				className: ['event-class'],
+				location: 'buf',
 				stick: true
 			});
 		}

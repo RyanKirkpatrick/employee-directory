@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').factory('edEmployeeService', edEmployeeService);
 
-	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService', 'edNotifierService', '_'];
+	edEmployeeService.$inject = ['$rootScope', 'edCachedEmployeeResourceService', 'edNotifierService', '_', 'moment'];
 
-	function edEmployeeService($rootScope, edCachedEmployeeResourceService, edNotifierService, _) {
+	function edEmployeeService($rootScope, edCachedEmployeeResourceService, edNotifierService, _, moment) {
 		var selectedEmployees = [];
 		var selectedEmployeeAdded = false;
 		var profilePageNumber = 1;
@@ -26,7 +26,8 @@
 			getDisplayEmployeeInfoType: getDisplayEmployeeInfoType,
 			getSelectedEmployeeAdded: getSelectedEmployeeAdded,
 			setProfilePageNumber: setProfilePageNumber,
-			getProfilePageNumber: getProfilePageNumber
+			getProfilePageNumber: getProfilePageNumber,
+			filterEmployeesByBirthday: filterEmployeesByBirthday
 		};
 		return service;
 
@@ -257,6 +258,19 @@
 		 */
 		function getSelectMultipleEmployees() {
 			return selectMultipleEmployees;
+		}
+
+		/**
+		 * Filters all employees who have a specified birthday
+		 *
+		 * @return {Array} birthdayEmployees
+		 */
+		function filterEmployeesByBirthday(employees, date) {
+			return _.filter(employees, function (employee) {
+				if (employee.birthdate && moment(employee.birthdate).date() === moment(date).date() && moment(employee.birthdate).month() === moment(date).month()) {
+					return employee;
+				}
+			});
 		}
 	}
 })();

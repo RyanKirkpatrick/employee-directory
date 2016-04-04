@@ -4,8 +4,8 @@ p {{selectedEvent.day}}
 div(ng-if="!selectedEvent.allDay")
     h5 Time:
     p {{selectedEvent.start}} - {{selectedEvent.end}}
+div(ng-if="selectedEvent.location")
+    h5 Office:
+    p {{selectedEvent.location}}
 h5  Details:
 p(ng-bind-html="selectedEvent.details")
-div(ng-if="selectedEvent.link")
-    h5 Link:
-    a(href="{{selectedEvent.link}}" target="_blank") Click Here

@@ -2,14 +2,15 @@
 	'use strict';
 	angular.module('app').factory('edEventService', edEventService);
 
-	edEventService.$inject = ['$rootScope', 'edCachedEventResourceService', '_'];
+	edEventService.$inject = ['$rootScope', 'edCachedEventResourceService', '_', 'moment'];
 
-	function edEventService($rootScope, edCachedEventResourceService, _) {
+	function edEventService($rootScope, edCachedEventResourceService, _, moment) {
 		var selectedEvent = null;
 		var service = {
 			getAllEvents: getAllEvents,
 			getSelectedEvent: getSelectedEvent,
-			updateSelectedEvent: updateSelectedEvent
+			updateSelectedEvent: updateSelectedEvent,
+			filterEventsByDate: filterEventsByDate
 		};
 		return service;
 
@@ -52,6 +53,21 @@
 			}
 			$rootScope.$broadcast('selectedEventChange', selectedEvent);
 			return selectedEvent;
+		}
+
+		/**
+		 * Filters events for the specified date
+		 *
+		 * @param {Array} events, events to search for one that starts on the specified date
+		 * @param {Object} date, event date
+		 * @return {Array} events
+		 */
+		function filterEventsByDate(events, date) {
+			return _.filter(events, function (event) {
+				if (moment(event.start).isSame(date, 'day')) {
+					return event;
+				}
+			});
 		}
 	}
 })();

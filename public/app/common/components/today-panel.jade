@@ -1,28 +1,32 @@
 #skin-toolbox.today-panel(ng-class="{'toolbox-open': vm.panelOpen}", ng-show="vm.identity.isAuthorized('super-admin')")
     .panel
         .panel-heading(ng-click="vm.togglePanel()")
-            span.fa-stack.text-primary.calendar-group
+            span.fa-stack.calendar-group(ng-class="{'text-primary': vm.panelOpen}")
                 i.fa.fa-calendar-o.fa-stack-2x
                 strong.fa-stack-1x.calendar-text-month {{::vm.monthOfYear}}
                 strong.fa-stack-1x.calendar-text {{::vm.dayOfMonth}}
-            span.panel-title  What's happening today?
+            span.panel-title.text-primary  What's happening today?
         .panel-body.pn
             div.p10
                 h4
                     span.fa.fa-birthday-cake.mr5.birthdays-color
                     span Birthdays
-                div.birthday.mb10(ng-repeat="employee in vm.birthdays", ng-if="vm.birthdays.length > 0")
-                    a(ui-sref="employees.profile.employee({employee: employee.eid})")
-                        img.mw40.br64.mr5(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
-                        span.fa.fa-user.fs40.mr5(ng-if="!employee.image")
-                        span {{::employee.displayName}}
-                div.mb10(ng-if="vm.birthdays.length === 0") Nobody today :(
-                a(ui-sref="birthdays") Birthday Calendar
+                hr.mt10.mb10
+                ul.list-divide-items.pn
+                    li.birthday.mb10(ng-repeat="employee in vm.birthdays", ng-if="vm.birthdays.length > 0")
+                        a(ui-sref="employees.profile.employee({employee: employee.eid})")
+                            img.mw40.mr5(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
+                            span.fa.fa-user.fs40.mr5(ng-if="!employee.image")
+                            span {{::employee.displayName}}
+                    li.mb10.pl5(ng-if="vm.birthdays.length === 0") Nobody today :(
+                a.today-more-link(ui-sref="birthdays") Birthday Calendar
             div.br-t.p10
                 h4
                     span.fa.fa-calendar.mr5.events-color
                     span Events
-                div.mb10(ng-repeat="event in vm.events", ng-if="vm.events.length > 0")
-                    a(ui-sref="events") {{::event.title}}
-                div.mb10(ng-if="vm.events.length === 0") None today :(
-                a(ui-sref="events") Event Calendar
+                hr.mt10.mb10
+                ul.list-divide-items.pn
+                    li.mb10.pl5(ng-repeat="event in vm.events", ng-if="vm.events.length > 0")
+                        a(ui-sref="events") {{::event.title}}
+                    li.mb10.pl5(ng-if="vm.events.length === 0") None today :(
+                a.today-more-link(ui-sref="events") Event Calendar

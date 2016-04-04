@@ -1,17 +1,23 @@
 
 <div id="skin-toolbox" ng-class="{'toolbox-open': vm.panelOpen}" ng-show="vm.identity.isAuthorized('super-admin')" class="today-panel">
   <div class="panel">
-    <div ng-click="vm.togglePanel()" class="panel-heading"><span class="fa-stack text-primary calendar-group"><i class="fa fa-calendar-o fa-stack-2x"></i><strong class="fa-stack-1x calendar-text-month">{{::vm.monthOfYear}}</strong><strong class="fa-stack-1x calendar-text">{{::vm.dayOfMonth}}</strong></span><span class="panel-title"> What's happening today?</span></div>
+    <div ng-click="vm.togglePanel()" class="panel-heading"><span ng-class="{'text-primary': vm.panelOpen}" class="fa-stack calendar-group"><i class="fa fa-calendar-o fa-stack-2x"></i><strong class="fa-stack-1x calendar-text-month">{{::vm.monthOfYear}}</strong><strong class="fa-stack-1x calendar-text">{{::vm.dayOfMonth}}</strong></span><span class="panel-title text-primary"> What's happening today?</span></div>
     <div class="panel-body pn">
       <div class="p10">
         <h4><span class="fa fa-birthday-cake mr5 birthdays-color"></span><span>Birthdays</span></h4>
-        <div ng-repeat="employee in vm.birthdays" ng-if="vm.birthdays.length &gt; 0" class="birthday mb10"><a ui-sref="employees.profile.employee({employee: employee.eid})"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="mw40 br64 mr5"/><span ng-if="!employee.image" class="fa fa-user fs40 mr5"></span><span>{{::employee.displayName}}</span></a></div>
-        <div ng-if="vm.birthdays.length === 0" class="mb10">Nobody today :(</div><a ui-sref="birthdays">Birthday Calendar</a>
+        <hr class="mt10 mb10"/>
+        <ul class="list-divide-items pn">
+          <li ng-repeat="employee in vm.birthdays" ng-if="vm.birthdays.length &gt; 0" class="birthday mb10"><a ui-sref="employees.profile.employee({employee: employee.eid})"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="mw40 mr5"/><span ng-if="!employee.image" class="fa fa-user fs40 mr5"></span><span>{{::employee.displayName}}</span></a></li>
+          <li ng-if="vm.birthdays.length === 0" class="mb10 pl5">Nobody today :(</li>
+        </ul><a ui-sref="birthdays" class="today-more-link">Birthday Calendar</a>
       </div>
       <div class="br-t p10">
         <h4><span class="fa fa-calendar mr5 events-color"></span><span>Events</span></h4>
-        <div ng-repeat="event in vm.events" ng-if="vm.events.length &gt; 0" class="mb10"><a ui-sref="events">{{::event.title}}</a></div>
-        <div ng-if="vm.events.length === 0" class="mb10">None today :(</div><a ui-sref="events">Event Calendar</a>
+        <hr class="mt10 mb10"/>
+        <ul class="list-divide-items pn">
+          <li ng-repeat="event in vm.events" ng-if="vm.events.length &gt; 0" class="mb10 pl5"><a ui-sref="events">{{::event.title}}</a></li>
+          <li ng-if="vm.events.length === 0" class="mb10 pl5">None today :(</li>
+        </ul><a ui-sref="events" class="today-more-link">Event Calendar</a>
       </div>
     </div>
   </div>
