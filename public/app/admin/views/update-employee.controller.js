@@ -82,10 +82,14 @@
 
 			if (selectedEmployees[0].birthdate) {
 				vm.selectedEmployee.birthdate = moment(selectedEmployees[0].birthdate).format('LL');
+			} else {
+				vm.selectedEmployee.birthdate = null;
 			}
 
 			if (selectedEmployees[0].hireDate) {
 				vm.selectedEmployee.hireDate = moment(selectedEmployees[0].hireDate).format('LL');
+			} else {
+				vm.selectedEmployee.hireDate = null;
 			}
 
 			_.forEach(selectedEmployees[0].guilds, function (guild) {
