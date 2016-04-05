@@ -20,11 +20,11 @@ div.homepage
             a.boxed-link.text-center(ui-sref="guilds")
                 img(ng-src="/images/guild-icons/guilds.svg")
                 h4 Developer Guilds
-        .col-md-4.col-xl-3(ng-if="vm.identity.isAuthorized('super-admin')")
+        .col-md-4.col-xl-3
             a.boxed-link.text-center(ui-sref="birthdays")
                 .fa.fa-birthday-cake.fs100.birthdays-color
                 h4 Employee Birthdays
-        .col-md-4.col-xl-3(ng-if="vm.identity.isAuthorized('super-admin')")
+        .col-md-4.col-xl-3
             a.boxed-link.text-center(ui-sref="events")
                 .fa.fa-calendar.fs100.text-warning
                 h4 Events Calendar

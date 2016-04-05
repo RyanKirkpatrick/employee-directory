@@ -20,7 +20,7 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="committees")
                     span.fa.fa.fa-users
                     span.sidebar-title Liazon Committees
-            li.events-item(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
+            li.events-item(ui-sref-active="active")
                 a(ui-sref="events")
                     span.fa.fa-calendar
                     span.sidebar-title Events Calendar
@@ -28,7 +28,7 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="guilds")
                     span.fa.fa-shield
                     span.sidebar-title Developer Guilds
-            li.birthdays-item(ui-sref-active="active", ng-if="vm.identity.isAuthorized('super-admin')")
+            li.birthdays-item(ui-sref-active="active")
                 a(ui-sref="birthdays")
                     span.fa.fa-birthday-cake
                     span.sidebar-title Employee Birthdays

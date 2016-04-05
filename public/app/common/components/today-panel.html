@@ -1,5 +1,5 @@
 
-<div id="skin-toolbox" ng-class="{'toolbox-open': vm.panelOpen}" ng-show="vm.identity.isAuthorized('super-admin')" class="today-panel">
+<div id="skin-toolbox" ng-class="{'toolbox-open': vm.panelOpen}" class="today-panel">
   <div class="panel">
     <div ng-click="vm.togglePanel()" class="panel-heading"><span ng-class="{'text-primary': vm.panelOpen}" class="fa-stack calendar-group"><i class="fa fa-calendar-o fa-stack-2x"></i><strong class="fa-stack-1x calendar-text-month">{{::vm.monthOfYear}}</strong><strong class="fa-stack-1x calendar-text">{{::vm.dayOfMonth}}</strong></span><span class="panel-title text-primary"> What's happening today?</span></div>
     <div class="panel-body pn">
@@ -17,7 +17,7 @@
         <ul class="list-divide-items pn">
           <li ng-repeat="event in vm.events" ng-if="vm.events.length &gt; 0" class="mb10 pl5"><a ui-sref="events">{{::event.title}}</a></li>
           <li ng-if="vm.events.length === 0" class="mb10 pl5">None today :(</li>
-        </ul><a ui-sref="events" class="today-more-link">Event Calendar</a>
+        </ul><a ui-sref="events" class="today-more-link">Events Calendar</a>
       </div>
     </div>
   </div>

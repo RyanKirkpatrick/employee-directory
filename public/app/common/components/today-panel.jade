@@ -1,4 +1,4 @@
-#skin-toolbox.today-panel(ng-class="{'toolbox-open': vm.panelOpen}", ng-show="vm.identity.isAuthorized('super-admin')")
+#skin-toolbox.today-panel(ng-class="{'toolbox-open': vm.panelOpen}")
     .panel
         .panel-heading(ng-click="vm.togglePanel()")
             span.fa-stack.calendar-group(ng-class="{'text-primary': vm.panelOpen}")
@@ -29,4 +29,4 @@
                     li.mb10.pl5(ng-repeat="event in vm.events", ng-if="vm.events.length > 0")
                         a(ui-sref="events") {{::event.title}}
                     li.mb10.pl5(ng-if="vm.events.length === 0") None today :(
-                a.today-more-link(ui-sref="events") Event Calendar
+                a.today-more-link(ui-sref="events") Events Calendar
