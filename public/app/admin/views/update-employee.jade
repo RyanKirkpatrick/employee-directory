@@ -27,7 +27,7 @@
                                 label.field
                                     input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.selectedEmployee.nickname")
                     .row
-                        .col-md-6
+                        .col-md-5
                             .section
                                 label.field.prepend-icon.file
                                     span.button.btn-primary Choose File
@@ -35,10 +35,16 @@
                                     input.gui-input(type="text", placeholder="Employee Photo", id="employee-photo")
                                     label.field-icon
                                         i.fa.fa-upload
-                        .col-md-6
+                        .col-md-4
                             .section
                                 label.field(ng-class="{'state-error': updateEmployeeForm.email.$invalid}")
                                     input.gui-input(name="email", type="email", placeholder="Email", ng-model="vm.selectedEmployee.email", required)
+                        .col-md-3
+                            .section
+                                label.field.prepend-icon(moment-picker="vm.selectedEmployee.hireDate", format="LL")
+                                    input.gui-input(id="hireDate", placeholder="Hire Date", ng-model="vm.selectedEmployee.hireDate", ng-model-options="{ updateOn: 'blur' }")
+                                    label.field-icon(for="hireDate")
+                                        i.fa.fa-calendar-plus-o
                     .row
                         .col-md-3
                             .section

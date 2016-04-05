@@ -23,7 +23,7 @@
                                 label.field
                                     input.gui-input(name="nickname", type="text", placeholder="Nickname", ng-model="vm.newEmployee.nickname")
                     .row
-                        .col-md-6
+                        .col-md-5
                             .section
                                 label.field.prepend-icon.file
                                     span.button.btn-primary Choose File
@@ -31,10 +31,16 @@
                                     input.gui-input(type="text", placeholder="Employee Photo", id="employee-photo")
                                     label.field-icon
                                         i.fa.fa-upload
-                        .col-md-6
+                        .col-md-4
                             .section
                                 label.field(ng-class="{'state-error': createEmployeeForm.email.$invalid && !createEmployeeForm.email.$pristine}")
                                     input.gui-input(name="email", type="email", placeholder="Email", ng-model="vm.newEmployee.email", required)
+                        .col-md-3
+                            .section
+                                label.field.prepend-icon(moment-picker="vm.newEmployee.hireDate", format="LL")
+                                    input.gui-input(id="hireDate", placeholder="Hire Date", ng-model="vm.newEmployee.hireDate", ng-model-options="{ updateOn: 'blur' }")
+                                    label.field-icon(for="hireDate")
+                                        i.fa.fa-calendar-plus-o
                     .row
                         .col-md-3
                             .section

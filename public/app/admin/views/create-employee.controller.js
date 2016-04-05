@@ -71,7 +71,8 @@
 				seat: '',
 				hasReports: '',
 				mid: '',
-				birthdate: ''
+				birthdate: '',
+				hireDate: ''
 			};
 		}
 
@@ -106,7 +107,8 @@
 				seat: vm.newEmployee.seat,
 				hasReports: vm.newEmployee.hasReports,
 				mid: vm.newEmployee.mid,
-				birthdate: vm.newEmployee.birthdate
+				birthdate: vm.newEmployee.birthdate,
+				hireDate: vm.newEmployee.hireDate
 			};
 
 			// Add all the selected guilds

@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="section">
                 <label class="field prepend-icon file"><span class="button btn-primary">Choose File</span>
                   <input type="file" name="imageFile" ng-model="vm.selectedEmployee.imageFile" ngf-select="ngf-select" ngf-max-size="'300KB'" ngf-pattern="'image/*'" accept="image/*" onchange="document.getElementById('employee-photo').focus(); document.getElementById('employee-photo').value = this.value.replace('C:\\fakepath\\', '')" class="gui-file"/>
@@ -51,10 +51,18 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="section">
                 <label ng-class="{'state-error': updateEmployeeForm.email.$invalid}" class="field">
                   <input name="email" type="email" placeholder="Email" ng-model="vm.selectedEmployee.email" required="required" class="gui-input"/>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="section">
+                <label moment-picker="vm.selectedEmployee.hireDate" format="LL" class="field prepend-icon">
+                  <input id="hireDate" placeholder="Hire Date" ng-model="vm.selectedEmployee.hireDate" ng-model-options="{ updateOn: 'blur' }" class="gui-input"/>
+                  <label for="hireDate" class="field-icon"><i class="fa fa-calendar-plus-o"></i></label>
                 </label>
               </div>
             </div>

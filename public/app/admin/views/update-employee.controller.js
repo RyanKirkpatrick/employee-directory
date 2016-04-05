@@ -84,6 +84,10 @@
 				vm.selectedEmployee.birthdate = moment(selectedEmployees[0].birthdate).format('LL');
 			}
 
+			if (selectedEmployees[0].hireDate) {
+				vm.selectedEmployee.hireDate = moment(selectedEmployees[0].hireDate).format('LL');
+			}
+
 			_.forEach(selectedEmployees[0].guilds, function (guild) {
 				vm.selectedEmployee.guilds[guild] = true;
 			});
@@ -153,7 +157,8 @@
 				seat: vm.selectedEmployee.seat,
 				hasReports: vm.selectedEmployee.hasReports,
 				mid: vm.selectedEmployee.mid,
-				birthdate: vm.selectedEmployee.birthdate
+				birthdate: vm.selectedEmployee.birthdate,
+				hireDate: vm.selectedEmployee.hireDate
 			};
 
 			// Add all the selected guilds
