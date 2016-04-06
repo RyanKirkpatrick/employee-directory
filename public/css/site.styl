@@ -5,6 +5,7 @@ primary-color = #4a89dc
 primary-a-color = #3498db
 primary-color-blue = #3498db
 primary-color-red = #de5858
+birthdays-color = #37bc9b
 
 .location-color
   color primary-color-red !important
@@ -160,6 +161,57 @@ Directory Item Card
 
     &:hover
       background-color #ccc
+
+    &.no-square
+      background none
+      border none
+      height 40px
+      padding 0
+      margin 0
+      width 40px
+
+    &.yos-badge
+
+      .year-5
+        color #C98910
+
+      .year-3
+        color #A8A8A8
+
+      .year-1
+        color #965A38
+
+      .fa-stack
+        font-size 20px
+        height 40px
+        padding 0
+        width 40px
+
+        .fa-stack-1x
+          color #fff
+          font-size .7em
+          font-weight bold
+          margin-top -5px
+
+        .yos-year-label
+          font-size: .5em;
+          margin-top: 5px;
+
+    &.bday-icon
+
+      .fa-stack
+        height 40px
+        padding 0
+        width 40px
+
+        .fa-stack-1x
+          color birthdays-color
+          font-size 1.7em
+          margin-top 14px
+
+        .bday-month-day
+          font-size .8em
+          margin-top -5px
 
 /**************************************************
 Employee Group

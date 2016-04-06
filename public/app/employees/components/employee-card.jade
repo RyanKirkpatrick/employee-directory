@@ -24,6 +24,16 @@
                     li(ng-repeat="committee in employee.committees")
                         a.link-unstyled(ui-sref="committees.{{::committee}}")
                             img(ng-src="/images/committee-icons/{{::committee}}.svg")
+                    li.no-square.bday-icon(ng-if="vm.birthMonthOfYear")
+                        a.fa-stack(ui-sref="birthdays.month({month: vm.birthMonthOfYear})")
+                            i.fa.fa-birthday-cake.fa-stack-1x
+                            strong.fa-stack-1x.bday-month-day {{::vm.birthDayAndMonth}}
+                    li.no-square.yos-badge(ng-if="vm.yos > 0")
+                        span.fa-stack(ng-class="vm.yosClass")
+                            i.fa.fa-certificate.fa-stack-2x
+                            strong.fa-stack-1x {{::vm.yos}}
+                            span.fa-stack-1x.yos-year-label(ng-if="vm.yos < 2") yr
+                            span.fa-stack-1x.yos-year-label(ng-if="vm.yos >= 2") yrs
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody

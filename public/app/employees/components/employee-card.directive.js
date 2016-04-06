@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edEmployeeCard', edEmployeeCard);
 
-	edEmployeeCard.$inject = ['$timeout', '$state', 'edEmployeeService'];
+	edEmployeeCard.$inject = ['$timeout', '$state', 'edEmployeeService', 'moment'];
 
-	function edEmployeeCard($timeout, $state, edEmployeeService) {
+	function edEmployeeCard($timeout, $state, edEmployeeService, moment) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/employees/components/employee-card',
@@ -19,11 +19,29 @@
 		return directive;
 
 		function linkFunc(scope, el, attrs, vm) {
-			// Some people have a different username for lync than their liazon email address
+			// Some people have a different usernames for lync than their liazon email address
 			if (scope.employee.lync) {
 				vm.twEmail = scope.employee.lync + '@towerswatson.com';
 			} else {
 				vm.twEmail = scope.employee.email.split('@')[0] + '@towerswatson.com';
+			}
+
+			// Years of Service
+			if (scope.employee.hireDate) {
+				vm.yos = moment().diff(scope.employee.hireDate, 'years');
+				if (vm.yos >= 5) {
+					vm.yosClass = 'year-5';
+				} else if (vm.yos >= 3) {
+					vm.yosClass = 'year-3';
+				} else if (vm.yos >= 1) {
+					vm.yosClass = 'year-1';
+				}
+			}
+
+			// Birthday
+			if (scope.employee.birthdate) {
+				vm.birthDayAndMonth = moment(scope.employee.birthdate).format('MMM D');
+				vm.birthMonthOfYear = moment(scope.employee.birthdate).format('MMMM').toLowerCase();
 			}
 
 			vm.deselectEmployee = function (employee) {
