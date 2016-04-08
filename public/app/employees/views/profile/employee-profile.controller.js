@@ -40,6 +40,9 @@
 			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
 				if ($stateParams.employee) {
+					if ($stateParams.employee === '1209615') {
+						vm.s = 's1209615';
+					}
 					// Split eid query on comma
 					var employeeids = $stateParams.employee.split(',');
 					angular.forEach(employeeids, function (eid) {

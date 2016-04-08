@@ -156,7 +156,7 @@ Directory Item Card
   border: 1px solid #e2e2e2;
   -webkit-border-radius: 1px;
   border-radius: 1px;
-  margin: 4px;
+  margin: 3px;
   padding: 0;
   vertical-align: top;
 }
@@ -218,8 +218,8 @@ Directory Item Card
 }
 .directory-item-card .employee-list-icons li.bday-icon .fa-stack .fa-stack-1x {
   color: #37bc9b;
-  font-size: 1.7em;
-  margin-top: 14px;
+  font-size: 1.5em;
+  margin-top: 13px;
 }
 .directory-item-card .employee-list-icons li.bday-icon .fa-stack .bday-month-day {
   font-size: 0.8em;

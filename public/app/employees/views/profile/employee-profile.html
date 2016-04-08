@@ -8,7 +8,7 @@
 <div class="row">
   <ul vertilize-container="vertilize-container" class="profile-stage clearfix">
     <li dir-paginate="employee in vm.selectedEmployees | itemsPerPage: 12 track by employee.eid" current-page="vm.currentPage" vertilize="vertilize" page="profile" class="col-lg-6 col-xl-4 directory-item-card">
-      <ed-employee-card employee="employee"></ed-employee-card>
+      <ed-employee-card employee="employee" ng-class="vm.s"></ed-employee-card>
     </li>
   </ul>
 </div>

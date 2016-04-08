@@ -416,3 +416,11 @@ Misc
 .panel-controls.bg-primary > a {
   color: #fff;
 }
+.s1209615 .panel-body {
+  background-image: url("/images/s1209615.jpg");
+}
+.s1209615 .panel-body .admin-form,
+.s1209615 .panel-body .admin-form .text-muted {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
