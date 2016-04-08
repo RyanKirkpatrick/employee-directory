@@ -56,7 +56,7 @@
         span Select Employees
         span.label.label-xs.bg-primary {{vm.filteredEmployees.length}}
     ul.nav.tray-nav.tray-nav-border
-        li.directory-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['displayName', 'fullName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
+        li.directory-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['displayName', 'fullName', 'funnyName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
             a(ng-click="vm.selectEmployee(employee)")
                 span {{::employee.lastName}},&nbsp;
                 span(ng-if="employee.nickname") {{::employee.nickname}}
