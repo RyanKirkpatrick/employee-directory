@@ -28,12 +28,11 @@
                         a.fa-stack(ui-sref="birthdays.month({month: vm.birthMonthOfYear})")
                             i.fa.fa-birthday-cake.fa-stack-1x
                             strong.fa-stack-1x.bday-month-day {{::vm.birthDayAndMonth}}
-                    li.no-square.yos-badge(ng-if="vm.yos > 0")
-                        span.fa-stack(ng-class="vm.yosClass")
+                    li.no-square.seniority-badge(ng-if="vm.yos > 0")
+                        a.fa-stack(ui-sref="seniority.yos({yos: '{{::vm.seniorityBucket}}'})", ng-class="vm.seniorityClass")
                             i.fa.fa-certificate.fa-stack-2x
-                            strong.fa-stack-1x {{::vm.yos}}
-                            span.fa-stack-1x.yos-year-label(ng-if="vm.yos < 2") yr
-                            span.fa-stack-1x.yos-year-label(ng-if="vm.yos >= 2") yrs
+                            strong.fa-stack-1x {{::vm.yos}}+
+                            span.fa-stack-1x.seniority-year-label yrs
             .col-xs-8.br-l.pn.admin-form
                 table.table.mbn
                     tbody

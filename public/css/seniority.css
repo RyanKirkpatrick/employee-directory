@@ -1,0 +1,51 @@
+.seniority-color {
+  color: #c98910;
+}
+#topbar .nav.nav-list-topbar.seniority-topbar li.years-1 a:before {
+  background-color: #965a38;
+}
+#topbar .nav.nav-list-topbar.seniority-topbar li.years-3 a:before {
+  background-color: #a8a8a8;
+}
+#topbar .nav.nav-list-topbar.seniority-topbar li.years-5 a:before {
+  background-color: #c98910;
+}
+.seniority.years-1 .fa-certificate {
+  color: #965a38;
+}
+.seniority.years-3 .fa-certificate {
+  color: #a8a8a8;
+}
+.seniority.years-5 .fa-certificate {
+  color: #c98910;
+}
+.seniority .employee-group-header .fa-stack-1x {
+  color: #fff;
+  margin-top: -8px;
+}
+.seniority .employee-group-header .seniority-year-label {
+  font-size: 0.3em;
+  margin-top: 21px;
+}
+.seniority .employee-group-header .seniority-plus {
+  font-size: 0.5em;
+  margin-left: 21px;
+}
+.seniority.years-1 .yos {
+  background-color: #965a38;
+}
+.seniority.years-3 .yos {
+  background-color: #a8a8a8;
+}
+.seniority.years-5 .yos {
+  background-color: #c98910;
+}
+.seniority .yos {
+  color: #fff;
+  font-weight: bold;
+  margin-top: 6px;
+  padding: 5px 0;
+}
+.seniority .yos div {
+  font-size: 0.75em;
+}

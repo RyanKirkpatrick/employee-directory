@@ -1,0 +1,25 @@
+
+<div ng-if="!vm.requestedYos" class="center-block employee-group mw600">
+  <div class="text-center employee-group-header mb30">
+    <div class="fa fa-certificate fs100 mb30 seniority-color"></div>
+    <div class="fs20">Liazon Years of Service</div>
+  </div>
+  <p>Select a number of years to see who has been working at Liazon for that long.</p>
+  <div class="row">
+    <div ng-repeat="year in vm.years" class="col-md-4"><a ui-sref="seniority.yos({yos: '{{::year}}'})" class="boxed-link text-only text-center">
+        <h4>{{::year}}+ Years</h4></a></div>
+  </div>
+</div>
+<div ng-if="vm.requestedYos" class="center-block employee-group seniority years-{{vm.requestedYos}}">
+  <div class="text-center employee-group-header"><span class="fa-stack fs50"><i class="fa fa-certificate fa-stack-2x"></i><strong class="fa-stack-1x">{{::vm.requestedYos}}</strong><span class="fa-stack-1x seniority-plus">+</span><span class="fa-stack-1x seniority-year-label">years</span></span></div>
+  <p ng-if="vm.nextYos &lt; 100" class="text-center">(but less than {{vm.nextYos}} years)</p>
+  <ul vertilize-container="vertilize-container" class="text-center employee-group-members mt30">
+    <li ng-repeat="employee in vm.yosEmployees" ng-click="vm.profileEmployee(employee)" vertilize="vertilize" page="org-chart">
+      <div class="yos">{{::employee.yos}}+ Years
+        <div>{{::employee.displayHireDate}}</div>
+      </div><img ng-src="/images/employee-photos/{{::employee.image}}" ng-show="employee.image"/><span ng-hide="employee.image" class="fa fa-user fs70"></span>
+      <h5>{{::employee.displayName}}</h5>
+      <h6>{{::employee.title}}</h6>
+    </li>
+  </ul>
+</div>

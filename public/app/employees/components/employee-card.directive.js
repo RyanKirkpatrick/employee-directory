@@ -30,11 +30,14 @@
 			if (scope.employee.hireDate) {
 				vm.yos = moment().diff(scope.employee.hireDate, 'years');
 				if (vm.yos >= 5) {
-					vm.yosClass = 'year-5';
+					vm.seniorityClass = 'years-5';
+					vm.seniorityBucket = 5;
 				} else if (vm.yos >= 3) {
-					vm.yosClass = 'year-3';
+					vm.seniorityClass = 'years-3';
+					vm.seniorityBucket = 3;
 				} else if (vm.yos >= 1) {
-					vm.yosClass = 'year-1';
+					vm.seniorityClass = 'years-1';
+					vm.seniorityBucket = 1;
 				}
 			}
 

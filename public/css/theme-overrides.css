@@ -129,6 +129,12 @@ Sidebar
 #sidebar_left .sidebar-menu > li.active.events-item > a > span:nth-child(1) {
   color: #f6bb42;
 }
+#sidebar_left .sidebar-menu > li.active.seniority-item > a:after {
+  background-color: #c98910;
+}
+#sidebar_left .sidebar-menu > li.active.seniority-item > a > span:nth-child(1) {
+  color: #c98910;
+}
 #sidebar_left .sidebar-menu > li.active > a:after {
   background-color: #3498db;
 }

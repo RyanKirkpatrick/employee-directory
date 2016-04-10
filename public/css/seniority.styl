@@ -1,0 +1,60 @@
+seniority-color = #c98910
+seniority-years-1 = #965a38
+seniority-years-3 = #a8a8a8
+seniority-years-5 = #c98910
+
+.seniority-color
+  color seniority-color
+
+#topbar .nav.nav-list-topbar.seniority-topbar li
+  &.years-1 a:before
+    background-color seniority-years-1
+
+  &.years-3 a:before
+    background-color seniority-years-3
+
+  &.years-5 a:before
+    background-color seniority-years-5
+
+.seniority
+
+  &.years-1 .fa-certificate
+    color seniority-years-1
+
+  &.years-3 .fa-certificate
+    color seniority-years-3
+
+  &.years-5 .fa-certificate
+    color seniority-years-5
+
+  .employee-group-header
+
+    .fa-stack-1x
+      color #fff
+      margin-top -8px
+
+    .seniority-year-label
+      font-size .3em
+      margin-top 21px
+
+    .seniority-plus
+      font-size .5em
+      margin-left 21px
+
+  &.years-1 .yos
+    background-color seniority-years-1
+
+  &.years-3 .yos
+    background-color seniority-years-3
+
+  &.years-5 .yos
+    background-color seniority-years-5
+
+  .yos
+    color #fff
+    font-weight bold
+    margin-top 6px
+    padding 5px 0
+
+    div
+      font-size .75em

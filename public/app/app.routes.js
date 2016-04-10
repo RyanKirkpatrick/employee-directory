@@ -680,6 +680,31 @@
 					}
 				}
 			})
+			.state('seniority', {
+				url: '/seniority',
+				views: {
+					'main@': {
+						templateUrl: '/partials/seniority/views/seniority',
+						controller: 'edSeniorityCtrl',
+						controllerAs: 'vm'
+					},
+					'topbar@': {
+						templateUrl: '/partials/seniority/components/seniority-topbar',
+						controller: 'edSeniorityTopbarCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('seniority.yos', {
+				url: '/:yos',
+				views: {
+					'main@': {
+						templateUrl: '/partials/seniority/views/seniority',
+						controller: 'edSeniorityCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('events', {
 				url: '/events',
 				views: {

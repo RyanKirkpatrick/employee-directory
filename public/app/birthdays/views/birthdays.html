@@ -6,7 +6,7 @@
   </div>
   <p>Wish your coworkers a happy birthday!  Choose a month to see who celebrates their special day.</p>
   <div class="row">
-    <div ng-repeat="month in vm.months" class="col-md-4"><a ui-sref="birthdays.month({month: '{{::month}}'})" ng-class="{'current-month': vm.currentMonth === $index}" class="boxed-link text-only text-center">
+    <div ng-repeat="month in vm.months" class="col-md-4"><a ui-sref="birthdays.month({month: '{{::month}}'})" class="boxed-link text-only text-center">
         <h4 class="cap">{{::month}}</h4></a></div>
   </div>
 </div>

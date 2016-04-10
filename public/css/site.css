@@ -186,28 +186,28 @@ Directory Item Card
   margin: 0;
   width: 40px;
 }
-.directory-item-card .employee-list-icons li.yos-badge .year-5 {
-  color: #c98910;
-}
-.directory-item-card .employee-list-icons li.yos-badge .year-3 {
-  color: #a8a8a8;
-}
-.directory-item-card .employee-list-icons li.yos-badge .year-1 {
+.directory-item-card .employee-list-icons li.seniority-badge .years-1 {
   color: #965a38;
 }
-.directory-item-card .employee-list-icons li.yos-badge .fa-stack {
+.directory-item-card .employee-list-icons li.seniority-badge .years-3 {
+  color: #a8a8a8;
+}
+.directory-item-card .employee-list-icons li.seniority-badge .years-5 {
+  color: #c98910;
+}
+.directory-item-card .employee-list-icons li.seniority-badge .fa-stack {
   font-size: 20px;
   height: 40px;
   padding: 0;
   width: 40px;
 }
-.directory-item-card .employee-list-icons li.yos-badge .fa-stack .fa-stack-1x {
+.directory-item-card .employee-list-icons li.seniority-badge .fa-stack .fa-stack-1x {
   color: #fff;
   font-size: 0.7em;
   font-weight: bold;
   margin-top: -5px;
 }
-.directory-item-card .employee-list-icons li.yos-badge .fa-stack .yos-year-label {
+.directory-item-card .employee-list-icons li.seniority-badge .fa-stack .seniority-year-label {
   font-size: 0.5em;
   margin-top: 5px;
 }

@@ -1,0 +1,10 @@
+.topbar-left
+    ul.nav.nav-list.nav-list-topbar.seniority-topbar
+        li.years-5(ui-sref-active-eq="active")
+            a(ui-sref="seniority") Years of Service
+        li.years-1(ui-sref-active-eq="active")
+            a(ui-sref="seniority.yos({yos: '1'})") 1+ Years
+        li.years-3(ui-sref-active-eq="active")
+            a(ui-sref="seniority.yos({yos: '3'})") 3+ Years
+        li.years-5(ui-sref-active-eq="active")
+            a(ui-sref="seniority.yos({yos: '5'})") 5+ Years

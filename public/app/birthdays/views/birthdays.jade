@@ -5,7 +5,7 @@
     p Wish your coworkers a happy birthday!  Choose a month to see who celebrates their special day.
     .row
         .col-md-4(ng-repeat="month in vm.months")
-            a.boxed-link.text-only.text-center(ui-sref="birthdays.month({month: '{{::month}}'})", ng-class="{'current-month': vm.currentMonth === $index}")
+            a.boxed-link.text-only.text-center(ui-sref="birthdays.month({month: '{{::month}}'})")
                 h4.cap {{::month}}
 
 .center-block.employee-group.birthdays(ng-if="vm.requestedMonth")

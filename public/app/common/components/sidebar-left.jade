@@ -32,6 +32,10 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="birthdays")
                     span.fa.fa-birthday-cake
                     span.sidebar-title Employee Birthdays
+            li.seniority-item(ui-sref-active="active")
+                a(ui-sref="seniority")
+                    span.fa.fa-certificate
+                    span.sidebar-title Years of Service
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active="active")
                 a(ui-sref="rooms.profile")

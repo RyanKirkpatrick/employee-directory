@@ -11,7 +11,7 @@
           <li ng-repeat="guild in employee.guilds"><a ui-sref="guilds.{{::guild}}" class="link-unstyled"><img ng-src="/images/guild-icons/{{::guild}}.svg"/></a></li>
           <li ng-repeat="committee in employee.committees"><a ui-sref="committees.{{::committee}}" class="link-unstyled"><img ng-src="/images/committee-icons/{{::committee}}.svg"/></a></li>
           <li ng-if="vm.birthMonthOfYear" class="no-square bday-icon"><a ui-sref="birthdays.month({month: vm.birthMonthOfYear})" class="fa-stack"><i class="fa fa-birthday-cake fa-stack-1x"></i><strong class="fa-stack-1x bday-month-day">{{::vm.birthDayAndMonth}}</strong></a></li>
-          <li ng-if="vm.yos &gt; 0" class="no-square yos-badge"><span ng-class="vm.yosClass" class="fa-stack"><i class="fa fa-certificate fa-stack-2x"></i><strong class="fa-stack-1x">{{::vm.yos}}</strong><span ng-if="vm.yos &lt; 2" class="fa-stack-1x yos-year-label">yr</span><span ng-if="vm.yos &gt;= 2" class="fa-stack-1x yos-year-label">yrs</span></span></li>
+          <li ng-if="vm.yos &gt; 0" class="no-square seniority-badge"><a ui-sref="seniority.yos({yos: '{{::vm.seniorityBucket}}'})" ng-class="vm.seniorityClass" class="fa-stack"><i class="fa fa-certificate fa-stack-2x"></i><strong class="fa-stack-1x">{{::vm.yos}}+</strong><span class="fa-stack-1x seniority-year-label">yrs</span></a></li>
         </ul>
       </div>
       <div class="col-xs-8 br-l pn admin-form">

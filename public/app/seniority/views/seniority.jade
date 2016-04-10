@@ -1,0 +1,26 @@
+.center-block.employee-group.mw600(ng-if="!vm.requestedYos")
+    .text-center.employee-group-header.mb30
+        .fa.fa-certificate.fs100.mb30.seniority-color
+        div.fs20 Liazon Years of Service
+    p Select a number of years to see who has been working at Liazon for that long.
+    .row
+        .col-md-4(ng-repeat="year in vm.years")
+            a.boxed-link.text-only.text-center(ui-sref="seniority.yos({yos: '{{::year}}'})")
+                h4 {{::year}}+ Years
+
+.center-block.employee-group.seniority(ng-if="vm.requestedYos", class="years-{{vm.requestedYos}}")
+    .text-center.employee-group-header
+        span.fa-stack.fs50
+            i.fa.fa-certificate.fa-stack-2x
+            strong.fa-stack-1x {{::vm.requestedYos}}
+            span.fa-stack-1x.seniority-plus +
+            span.fa-stack-1x.seniority-year-label years
+    p.text-center(ng-if="vm.nextYos < 100") (but less than {{vm.nextYos}} years)
+    ul.text-center.employee-group-members.mt30(vertilize-container)
+        li(ng-repeat="employee in vm.yosEmployees", ng-click="vm.profileEmployee(employee)", vertilize, page="org-chart")
+            .yos {{::employee.yos}}+ Years
+                div {{::employee.displayHireDate}}
+            img(ng-src="/images/employee-photos/{{::employee.image}}", ng-show="employee.image")
+            span.fa.fa-user.fs70(ng-hide="employee.image")
+            h5 {{::employee.displayName}}
+            h6 {{::employee.title}}

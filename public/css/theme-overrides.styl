@@ -8,6 +8,7 @@ birthdays-color = #37bc9b
 committees-color = #967adc
 guilds-color = #64c556
 events-color = #f6bb42
+seniority-color = #c98910
 
 .navbar-brand img
   height 60px
@@ -131,6 +132,14 @@ Sidebar
 
         > a > span:nth-child(1)
           color events-color
+
+      &.seniority-item
+
+        > a:after
+          background-color seniority-color
+
+        > a > span:nth-child(1)
+          color seniority-color
 
       > a:after
         background-color primary-color-blue

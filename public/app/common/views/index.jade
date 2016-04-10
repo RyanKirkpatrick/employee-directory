@@ -17,6 +17,10 @@ div.homepage
                 img(ng-src="/images/committee-icons/committees.svg")
                 h4 Liazon Committees
         .col-md-4.col-xl-3
+            a.boxed-link.text-center(ui-sref="events")
+                .fa.fa-calendar.fs100.text-warning
+                h4 Events Calendar
+        .col-md-4.col-xl-3
             a.boxed-link.text-center(ui-sref="guilds")
                 img(ng-src="/images/guild-icons/guilds.svg")
                 h4 Developer Guilds
@@ -25,6 +29,6 @@ div.homepage
                 .fa.fa-birthday-cake.fs100.birthdays-color
                 h4 Employee Birthdays
         .col-md-4.col-xl-3
-            a.boxed-link.text-center(ui-sref="events")
-                .fa.fa-calendar.fs100.text-warning
-                h4 Events Calendar
+            a.boxed-link.text-center(ui-sref="seniority")
+                .fa.fa-certificate.fs100.seniority-color
+                h4 Years of Service
