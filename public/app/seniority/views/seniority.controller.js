@@ -9,7 +9,7 @@
 		vm.yos = null;
 		vm.yosEmployees = [];
 		vm.profileEmployee = profileEmployee;
-		vm.years = [1, 3, 5];
+		vm.years = [1, 2, 3, 4, 5];
 		vm.requestedYos = null;
 
 		activate();

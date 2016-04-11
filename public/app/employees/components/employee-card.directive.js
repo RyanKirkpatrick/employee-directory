@@ -32,9 +32,15 @@
 				if (vm.yos >= 5) {
 					vm.seniorityClass = 'years-5';
 					vm.seniorityBucket = 5;
+				} else if (vm.yos >= 4) {
+					vm.seniorityClass = 'years-3';
+					vm.seniorityBucket = 4;
 				} else if (vm.yos >= 3) {
 					vm.seniorityClass = 'years-3';
 					vm.seniorityBucket = 3;
+				} else if (vm.yos >= 2) {
+					vm.seniorityClass = 'years-1';
+					vm.seniorityBucket = 2;
 				} else if (vm.yos >= 1) {
 					vm.seniorityClass = 'years-1';
 					vm.seniorityBucket = 1;

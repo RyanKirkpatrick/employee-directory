@@ -11,6 +11,7 @@
 		vm.profileEmployee = profileEmployee;
 		vm.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 		vm.requestedMonth = $stateParams.month;
+		vm.currentMonth = moment().month();
 
 		activate();
 
