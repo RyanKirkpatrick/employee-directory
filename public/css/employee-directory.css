@@ -734,6 +734,13 @@ form .gui-input-mod {
   -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
+.main-view .homepage {
+  -webkit-transition: margin-right 0.2s ease-in-out;
+  -moz-transition: margin-right 0.2s ease-in-out;
+  -o-transition: margin-right 0.2s ease-in-out;
+  -ms-transition: margin-right 0.2s ease-in-out;
+  transition: margin-right 0.2s ease-in-out;
+}
 #skin-toolbox.toolbox-open + #main .homepage {
   margin-right: 230px;
 }
