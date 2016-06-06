@@ -1,4 +1,4 @@
-.center-block.employee-group.mw600(ng-if="!vm.guild")
+.center-block.employee-group.mw600(ng-if="!vm.guild.name")
     .text-center.employee-group-header.mb30
         img.mb20(src="/images/guild-icons/guilds.svg")
         div.fs20 Developer Guilds
@@ -6,16 +6,26 @@
     .row
         .col-md-6
             a.boxed-link.text-center(ui-sref="guilds.front-end")
-                .icon.icon-guild-front-end.fs120.guild-front-end-color
-                h4 Front-End Developers
+                .icon-guild.icon-guild-front-end.fs120.guilds-color
+                h4 Front-End
+        .col-md-6
+            a.boxed-link.text-center(ui-sref="guilds.architecture")
+                .icon-guild.icon-guild-architecture.fs120.guilds-color
+                h4 Architecture
+        .col-md-6
+            a.boxed-link.text-center(ui-sref="guilds.quality")
+                .icon-guild.icon-guild-quality.fs120.guilds-color
+                h4 Quality
 
-.center-block.employee-group(ng-if="vm.guild")
+.center-block.employee-group(ng-if="vm.guild.name")
     .text-center.employee-group-header.mb30
-        span.icon.icon-guild-front-end.fs120.guild-front-end-color
+        span.icon-guild.fs120.guilds-color(class="icon-guild-{{::vm.guild.name}}")
         div.fs20.mt20
-            span {{vm.guild}}
+            span {{::vm.guild.name}}
             | &nbsp;Developer Guild
-    p The Front-End Developer Guild was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace, Bright Choices, and Global Access Products. Each Feature Team has one embedded Guild Member who works towards keeping the employee portals solid, inventive and easy to use.
+    p(ng-if="vm.guild.name === 'front-end'") The Front-End Developer Guild was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace, Bright Choices, and Global Access Products. Each Feature Team has one embedded Guild Member who works towards keeping the employee portals solid, inventive and easy to use.
+    p(ng-if="vm.guild.name === 'architecture'") The Architecture Developer Guild does something....
+    p(ng-if="vm.guild.name === 'quality'") The Quality Developer Guild does something....
     h3.mv30.fw400.text-center Members
     ul.text-center.employee-group-members(vertilize-container)
         li(ng-repeat="member in vm.guildMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")

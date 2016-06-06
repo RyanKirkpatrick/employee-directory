@@ -112,9 +112,21 @@
                             .col-md-2
                                 .section
                                     label.option.option-primary.mt10
-                                        input(type="checkbox", name="guild-font-end", ng-model="vm.newEmployee.guilds['front-end']")
+                                        input(type="checkbox", name="guild-front-end", ng-model="vm.newEmployee.guilds['front-end']")
                                         span.checkbox
                                         | Front-End
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="guild-architecture", ng-model="vm.newEmployee.guilds['architecture']")
+                                        span.checkbox
+                                        | Architecture
+                            .col-md-2
+                                .section
+                                    label.option.option-primary.mt10
+                                        input(type="checkbox", name="guild-quality", ng-model="vm.newEmployee.guilds['quality']")
+                                        span.checkbox
+                                        | Quality
                     div(ng-if="vm.identity.isAuthorized('super-admin')")
                         .section-divider
                             span Committees

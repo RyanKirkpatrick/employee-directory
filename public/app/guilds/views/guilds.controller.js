@@ -16,16 +16,18 @@
 			edSidebarService.setLockSidebar(true);
 			// Get the guild based on the current state
 			var currentState = $state.current.name;
-			vm.guild = currentState.split('.')[1];
+			vm.guild = {
+				name: currentState.split('.')[1]
+			};
 
-			if (vm.guild) {
+			if (vm.guild.name) {
 				edEmployeeService.getAllEmployees().$promise.then(filterEmployeesByGuild);
 			}
 		}
 
 		function filterEmployeesByGuild(employees) {
 			vm.guildMembers = _.sortBy(_.filter(employees, function (employee) {
-				if (employee.guilds && _.indexOf(employee.guilds, vm.guild) > -1) {
+				if (employee.guilds && _.indexOf(employee.guilds, vm.guild.name) > -1) {
 					return employee;
 				}
 			}), 'lastName');

@@ -600,6 +600,26 @@
 					}
 				}
 			})
+			.state('guilds.architecture', {
+				url: '/architecture',
+				views: {
+					'main@': {
+						templateUrl: '/partials/guilds/views/guilds',
+						controller: 'edGuildsCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
+			.state('guilds.quality', {
+				url: '/quality',
+				views: {
+					'main@': {
+						templateUrl: '/partials/guilds/views/guilds',
+						controller: 'edGuildsCtrl',
+						controllerAs: 'vm'
+					}
+				}
+			})
 			.state('committees', {
 				url: '/committees',
 				views: {
