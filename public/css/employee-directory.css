@@ -1834,6 +1834,11 @@ artifact.womens-room-6 {
   -moz-background-size: 32px 32px;
   background-size: 32px 32px;
 }
+artifact.observation-6-1,
+artifact.observation-6-2 {
+  height: 108px;
+  width: 67px;
+}
 artifact.liazon-cafe {
   height: 91px;
   width: 216px;
