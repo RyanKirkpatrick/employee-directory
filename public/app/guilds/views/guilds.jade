@@ -25,7 +25,7 @@
             | &nbsp;Developer Guild
     p(ng-if="vm.guild.name === 'front-end'") The Front-End Developer Guild was created to develop and enforce front-end standards and ensure consistency, quality, and continued innovation for the Benefits Marketplace, Bright Choices, and Global Access Products. Each Feature Team has one embedded Guild Member who works towards keeping the employee portals solid, inventive and easy to use.
     p(ng-if="vm.guild.name === 'architecture'") The Architecture Standards and Conventions Guild was created to develop and enforce architectural standards and ensure consistency and quality of code across all development projects. Each Engineering Team has one embedded Guild Member who works on creating department wide architectural standards and is responsible for enforcement on their own team.
-    p(ng-if="vm.guild.name === 'quality'") The Quality Developer Guild does something....
+    p(ng-if="vm.guild.name === 'quality'") The Quality Guild was formed to develop standards and guidelines around quality best practices for all development projects. The Quality Guild consists of one member from each feature delivery team that will come together to create and enforce standards across the teams for high quality, user friendly and consistent employee portals.
     h3.mv30.fw400.text-center Members
     ul.text-center.employee-group-members(vertilize-container)
         li(ng-repeat="member in vm.guildMembers", ng-click="vm.profileEmployee(member)", vertilize, page="org-chart")
