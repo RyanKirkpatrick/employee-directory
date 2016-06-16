@@ -1,4 +1,4 @@
 
-<desk id="desk-{{seat}}" ng-class="[classification, orientation]" ng-style="{'left': xpos + 'px', 'top': ypos + 'px'}" ng-click="vm.mapEmployee(seat, location)">
-  <div class="seat"><span>{{seat}}</span></div>
+<desk id="desk-{{vm.seat}}" ng-class="[vm.classification, vm.orientation]" ng-style="{'left': vm.xpos + 'px', 'top': vm.ypos + 'px'}" ng-click="vm.mapEmployee(vm.seat, vm.location)">
+  <div class="seat"><span class="seat-number">{{vm.seat}}</span><span ng-repeat="employee in vm.employee" class="employee-name">{{employee.displayName}}</span></div>
 </desk>

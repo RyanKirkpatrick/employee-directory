@@ -14,12 +14,15 @@ floor
   right 25px
   position absolute
 
-/* Show seat numbers */
+/* Show seat numbers OR employee names */
 .seat > span
-  visibility hidden
+  display none
 
-&.show-seat-numbers + floor .seat > span
-  visibility visible
+&.show-seat-numbers + floor .seat > .seat-number
+  display block
+
+&.show-employee-names + floor .seat > .employee-name
+  display block
 
 .buf-6
   background-image url('/images/buf-6.png')
@@ -249,7 +252,6 @@ desk
   display table
   position absolute
   transition background-color 0.2s linear
-  white-space nowrap
 
   &:hover
     background-color rgba(222, 88, 88,.5);
@@ -262,6 +264,11 @@ desk
     font-size 12px
     text-align center
     vertical-align middle
+
+    .employee-name
+      font-family verdana
+      font-size 9px
+      line-height 10px
 
   .marker
     position absolute
@@ -278,6 +285,10 @@ desk
   &.employee
     height $employee-height
     width $employee-width
+
+    .employee-name
+      overflow hidden
+      width $employee-width - 2px
 
     /* Horizontal Employee Desks are the default */
     .mapped-label
@@ -361,6 +372,9 @@ $floor6-manager-height = 69px
     height $floor6-employee-height
     width $floor6-employee-width
 
+    .employee-name
+      width $floor6-employee-width - 2px
+
   &.vert
     height $floor6-employee-width
     width $floor6-employee-height
@@ -374,7 +388,7 @@ $floor6-manager-height = 69px
 NYC
 *********************************/
 $nyc-employee-width = 54px
-$nyc-employee-height = 20px
+$nyc-employee-height = 22px
 $nyc-cube-width = 62px
 $nyc-cube-height = 46px
 
@@ -384,6 +398,9 @@ $nyc-cube-height = 46px
     border 1px solid #808080
     height $nyc-employee-height
     width $nyc-employee-width
+
+    .employee-name
+      width $nyc-employee-width - 2px
 
     &.vert
       height $nyc-employee-width

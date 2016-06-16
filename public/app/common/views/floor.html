@@ -1,5 +1,5 @@
 
-<div ng-class="{'show-seat-numbers': vm.showSeatNumbers}" class="switch switch-primary round switch-inline toggle-show-seat-numbers-swicth">
+<div ng-class="vm.showSeatNumbers ? 'show-seat-numbers': 'show-employee-names'" class="switch switch-primary round switch-inline toggle-show-seat-numbers-swicth">
   <input id="toggle-show-seat-numbers" type="checkbox" ng-model="vm.showSeatNumbers"/>
   <label for="toggle-show-seat-numbers"></label>
 </div>

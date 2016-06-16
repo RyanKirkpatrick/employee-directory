@@ -1359,10 +1359,13 @@ floor {
   position: absolute;
 }
 .seat > span {
-  visibility: hidden;
+  display: none;
 }
-.show-seat-numbers + floor .seat > span {
-  visibility: visible;
+.show-seat-numbers + floor .seat > .seat-number {
+  display: block;
+}
+.show-employee-names + floor .seat > .employee-name {
+  display: block;
 }
 .buf-6 {
   background-image: url("/images/buf-6.png");
@@ -1589,7 +1592,6 @@ desk {
   -o-transition: background-color 0.2s linear;
   -ms-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
-  white-space: nowrap;
 /* Employee Specific */
 /* Manager Specific */
 /* Office Specific */
@@ -1605,6 +1607,11 @@ desk .seat {
   font-size: 12px;
   text-align: center;
   vertical-align: middle;
+}
+desk .seat .employee-name {
+  font-family: verdana;
+  font-size: 9px;
+  line-height: 10px;
 }
 desk .marker {
   position: absolute;
@@ -1622,6 +1629,10 @@ desk.employee {
   width: 58px;
 /* Horizontal Employee Desks are the default */
 /* Vertical Employee Desks */
+}
+desk.employee .employee-name {
+  overflow: hidden;
+  width: 56px;
 }
 desk.employee .mapped-label {
   bottom: -25px;
@@ -1702,6 +1713,9 @@ desk.office .mapped-label {
   height: 24px;
   width: 55px;
 }
+.buf-6 desk.employee .employee-name {
+  width: 53px;
+}
 .buf-6 desk.vert {
   height: 55px;
   width: 24px;
@@ -1712,12 +1726,15 @@ desk.office .mapped-label {
 }
 .nyc-6 desk.employee {
   border: 1px solid #808080;
-  height: 20px;
+  height: 22px;
   width: 54px;
+}
+.nyc-6 desk.employee .employee-name {
+  width: 52px;
 }
 .nyc-6 desk.employee.vert {
   height: 54px;
-  width: 20px;
+  width: 22px;
 }
 .nyc-6 desk.cube {
   height: 46px;

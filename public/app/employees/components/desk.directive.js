@@ -19,20 +19,21 @@
 			},
 			link: linkFunc,
 			controller: ctrlFunc,
-			controllerAs: 'vm'
+			controllerAs: 'vm',
+			bindToController: true
 		};
 
 		return directive;
 
 		function linkFunc(scope, el, attrs) {
-			scope.mappedEmployee = edEmployeeService.getMappedEmployee();
+			scope.vm.mappedEmployee = edEmployeeService.getMappedEmployee();
 
 			// If coming from the profile page via a link in the employee card
-			if ($stateParams.seat === attrs.seat && scope.mappedEmployee) {
+			if ($stateParams.seat === attrs.seat && scope.vm.mappedEmployee) {
 				$timeout(function () {
 					$document.scrollToElement(el, 300, 300).then(function () {
 						el.addClass('mapped').append($compile('<div class="marker"><div class="pulse"></div><div class="pin"></div>' +
-							'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + scope.mappedEmployee.displayName + '</div></div>')(scope));
+							'<div class="mapped-label label bg-danger" ng-click="vm.viewProfile()">' + scope.vm.mappedEmployee.displayName + '</div></div>')(scope));
 						// Do some math to figure out how to center the label
 						var markerLabel = $('.mapped-label');
 						var leftPos = (el.outerWidth() / 2) - (markerLabel.outerWidth() / 2);
@@ -73,8 +74,18 @@
 		vm.employees = edEmployeeService.getAllEmployees();
 		vm.mappedEmployee = null;
 		vm.identity = edIdentityService;
+		vm.employee = null;
 
 		var viewingProfile = false;
+
+		activate();
+
+		function activate() {
+			// Get all the employee names to display on the desks
+			vm.employee = _.filter(vm.employees, function (employee) {
+				return employee.seat === vm.seat && employee.location === vm.location;
+			});
+		}
 
 		function mapEmployee(seat, location) {
 			// Don't map employee if the user wants to view the profile
