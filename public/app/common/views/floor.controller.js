@@ -126,7 +126,7 @@
 
 		function mapEmployeeBySeat(employees) {
 			var mappedEmployeeArray = _.filter(employees, function (employee) {
-				return employee.seat === $stateParams.seat;
+				return employee.seat === $stateParams.seat && employee.location === vm.location;
 			});
 
 			if (mappedEmployeeArray.length > 0) {
