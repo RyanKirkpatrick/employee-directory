@@ -17,17 +17,29 @@
 				ypos: '@'
 			},
 			controller: ctrlFunc,
-			controllerAs: 'vm'
+			controllerAs: 'vm',
+			bindToController: true
 		};
 
 		return directive;
 	}
 
-	ctrlFunc.$inject = ['edEmployeeAdminService', 'edNotifierService'];
+	ctrlFunc.$inject = ['edEmployeeAdminService', 'edNotifierService', 'edEmployeeService', '_'];
 
-	function ctrlFunc(edEmployeeAdminService, edNotifierService) {
+	function ctrlFunc(edEmployeeAdminService, edNotifierService, edEmployeeService, _) {
 		var vm = this;
+		vm.employees = edEmployeeService.getAllEmployees();
+		vm.employee = null;
 		vm.assignSeat = assignSeat;
+
+		activate();
+
+		function activate() {
+			// Get all the employee names to display on the desks
+			vm.employee = _.filter(vm.employees, function (employee) {
+				return employee.seat === vm.seat && employee.location === vm.location;
+			});
+		}
 
 		function assignSeat(location, floor, seat) {
 			var newEmployeeData = {

@@ -1,4 +1,8 @@
-<span class="show-seat-numbers"></span>
+
+<div ng-class="vm.showSeatNumbers ? 'show-seat-numbers': 'show-employee-names'" class="switch switch-primary round switch-inline toggle-show-seat-numbers-swicth">
+  <input id="toggle-show-seat-numbers" type="checkbox" ng-model="vm.showSeatNumbers"/>
+  <label for="toggle-show-seat-numbers"></label>
+</div>
 <floor ng-if="vm.floor" class="{{vm.location}}-{{vm.floor}}"><span class="floor-label"><span class="label bg-primary fs20">{{vm.locationName}} Floor {{vm.floor}}</span></span>
   <ed-seat-picker-desk ng-repeat="desk in vm.desks" location="{{vm.location}}" floor="{{vm.floor}}" seat="{{desk.seat}}" orientation="{{desk.orientation}}" classification="{{desk.classification}}" xpos="{{desk.xpos}}" ypos="{{desk.ypos}}"></ed-seat-picker-desk>
 </floor>

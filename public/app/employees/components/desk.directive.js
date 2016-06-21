@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app').directive('edDesk', edDesk);
 
-	edDesk.$inject = ['$stateParams', '$document', '$timeout', '$compile', 'edEmployeeService', '_'];
+	edDesk.$inject = ['$stateParams', '$document', '$timeout', '$compile', 'edEmployeeService'];
 
-	function edDesk($stateParams, $document, $timeout, $compile, edEmployeeService, _) {
+	function edDesk($stateParams, $document, $timeout, $compile, edEmployeeService) {
 		var directive = {
 			restrict: 'E',
 			templateUrl: '/partials/employees/components/desk',
@@ -65,9 +65,9 @@
 		}
 	}
 
-	ctrlFunc.$inject = ['$state', 'edEmployeeService', 'edNotifierService', 'edIdentityService', 'edPrinterService', 'edRoomService'];
+	ctrlFunc.$inject = ['$state', 'edEmployeeService', 'edNotifierService', 'edIdentityService', 'edPrinterService', 'edRoomService', '_'];
 
-	function ctrlFunc($state, edEmployeeService, edNotifierService, edIdentityService, edPrinterService, edRoomService) {
+	function ctrlFunc($state, edEmployeeService, edNotifierService, edIdentityService, edPrinterService, edRoomService, _) {
 		var vm = this;
 		vm.mapEmployee = mapEmployee;
 		vm.viewProfile = viewProfile;

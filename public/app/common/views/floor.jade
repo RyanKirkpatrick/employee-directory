@@ -1,7 +1,6 @@
 div.switch.switch-primary.round.switch-inline.toggle-show-seat-numbers-swicth(ng-class="vm.showSeatNumbers ? 'show-seat-numbers': 'show-employee-names'")
     input(id="toggle-show-seat-numbers" type="checkbox", ng-model="vm.showSeatNumbers")
     label(for="toggle-show-seat-numbers")
-
 floor(class="{{vm.location}}-{{vm.floor}}", ng-if="vm.floor")
     span.floor-label
         span.label.bg-primary.fs20 {{vm.locationName}} Floor {{vm.floor}}
