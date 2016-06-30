@@ -11,7 +11,7 @@
             .col-xs-4.text-center.va-t.of-h
                 img.employee-photo.mt10.mb5(ng-src="/images/employee-photos/{{::employee.image}}", ng-if="employee.image")
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
-                ul.list-inline.employee-list-icons
+                ul.list-inline.employee-list-icons.mb10
                     li
                         a.fa.fa-comment(href="sip:{{::vm.twEmail}}")
                     li
@@ -33,7 +33,7 @@
                             i.fa.fa-certificate.fa-stack-2x
                             strong.fa-stack-1x {{::vm.yos}}+
                             span.fa-stack-1x.seniority-year-label yrs
-            .col-xs-8.br-l.pn.admin-form
+            .col-xs-8.br-l.pn.admin-form.va-t
                 table.table.mbn
                     tbody
                         tr

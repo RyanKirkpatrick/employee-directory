@@ -4,7 +4,7 @@
   <div class="panel-body pn">
     <div class="row table-layout">
       <div class="col-xs-4 text-center va-t of-h"><img ng-src="/images/employee-photos/{{::employee.image}}" ng-if="employee.image" class="employee-photo mt10 mb5"/><span ng-if="!employee.image" class="fa fa-user fs100 mt20"></span>
-        <ul class="list-inline employee-list-icons">
+        <ul class="list-inline employee-list-icons mb10">
           <li><a href="sip:{{::vm.twEmail}}" class="fa fa-comment"></a></li>
           <li><a ui-sref="employees.org-chart({employee: employee.eid})" class="fa fa-sitemap profile-color"></a></li>
           <li ng-if="employee.seat"><a ng-click="vm.mapEmployee(employee)" href="" class="fa fa-map-marker location-color"></a></li>
@@ -14,7 +14,7 @@
           <li ng-if="vm.yos &gt; 0" class="no-square seniority-badge"><a ui-sref="seniority.yos({yos: '{{::vm.seniorityBucket}}'})" ng-class="vm.seniorityClass" class="fa-stack"><i class="fa fa-certificate fa-stack-2x"></i><strong class="fa-stack-1x">{{::vm.yos}}+</strong><span class="fa-stack-1x seniority-year-label">yrs</span></a></li>
         </ul>
       </div>
-      <div class="col-xs-8 br-l pn admin-form">
+      <div class="col-xs-8 br-l pn admin-form va-t">
         <table class="table mbn">
           <tbody>
             <tr>
