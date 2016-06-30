@@ -43,6 +43,13 @@
 			'Strategic Operational Support',
 			'QA / Reporting / Billing'
 		];
+		vm.legacyCompanies = [
+			'Liazon',
+			'Towers Watson',
+			'Acclaris',
+			'Extend Health',
+			'Watson Wyatt'
+		];
 
 		activate();
 
@@ -72,7 +79,8 @@
 				hasReports: '',
 				mid: '',
 				birthdate: '',
-				hireDate: ''
+				hireDate: '',
+				legacyCompany: ''
 			};
 		}
 
@@ -108,7 +116,8 @@
 				hasReports: vm.newEmployee.hasReports,
 				mid: vm.newEmployee.mid,
 				birthdate: vm.newEmployee.birthdate,
-				hireDate: vm.newEmployee.hireDate
+				hireDate: vm.newEmployee.hireDate,
+				legacyCompany: vm.newEmployee.legacyCompany
 			};
 
 			// Add all the selected guilds

@@ -3,9 +3,9 @@
         .panel
             .panel-heading
                 span.panel-icon
-                    i.fa.fa-filter.text-primary
-                span.panel-title Printers Filter
-                span.panel-controls.bg-primary(ng-if="vm.brand || vm.printerName || vm.locations.length > 0 || vm.floors.length > 0")
+                    i.ico.icon-print.text-primary
+                span.panel-title.text-primary Search Printers
+                span.panel-controls(ng-if="vm.brand || vm.printerName || vm.locations.length > 0 || vm.floors.length > 0")
                     a.panel-control-remove(ng-click="vm.clearFilter()")
             .panel-body.p10
                 form.form-horizontal(name="printersFilter")
@@ -16,7 +16,7 @@
                         .pn
                             div.bs-component
                                 select.form-control.input-sm(name="brand", ng-model="vm.brand", ng-options="printer.brand as printer.brand for printer in vm.printers | unique: 'brand' | orderBy: 'brand'")
-                                    option(value="", selected) All Manufacturers
+                                    option(value="", selected) Manufacturer
                     .form-group.mln.mrn
                         span.control-label.pn.pull-left
                             label(ng-class="{'text-primary' : vm.locations.length > 0}") Locations
@@ -49,8 +49,8 @@
     h5
         span.ico.icon-print
         span Select Printers
-        span.label.label-xs.bg-primary {{vm.filteredPrinters.length}}
+        span.label.label-xs.bg-primary(ng-if="vm.filteredPrinters.length !== vm.printers.length") {{vm.filteredPrinters.length}}
     ul.nav.tray-nav.tray-nav-border
-        li.directory-item(ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': printer.selected, 'mapped': printer.mapped}")
+        li.directory-item(ng-if="vm.filteredPrinters.length !== vm.printers.length" ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': printer.selected, 'mapped': printer.mapped}")
             a(ng-click="vm.selectPrinter(printer)")
                 span {{::printer.name}}

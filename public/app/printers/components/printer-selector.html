@@ -2,7 +2,7 @@
 <div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
   <div class="directory-item-filter">
     <div class="panel">
-      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Printers Filter</span><span ng-if="vm.brand || vm.printerName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls bg-primary"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-heading"><span class="panel-icon"><i class="ico icon-print text-primary"></i></span><span class="panel-title text-primary">Search Printers</span><span ng-if="vm.brand || vm.printerName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
       <div class="panel-body p10">
         <form name="printersFilter" class="form-horizontal">
           <div class="form-group mln mrn">
@@ -14,7 +14,7 @@
             <div class="pn">
               <div class="bs-component">
                 <select name="brand" ng-model="vm.brand" ng-options="printer.brand as printer.brand for printer in vm.printers | unique: 'brand' | orderBy: 'brand'" class="form-control input-sm">
-                  <option value="" selected="selected">All Manufacturers</option>
+                  <option value="" selected="selected">Manufacturer</option>
                 </select>
               </div>
             </div>
@@ -50,8 +50,8 @@
       </div>
     </div>
   </div>
-  <h5><span class="ico icon-print"></span><span>Select Printers</span><span class="label label-xs bg-primary">{{vm.filteredPrinters.length}}</span></h5>
+  <h5><span class="ico icon-print"></span><span>Select Printers</span><span ng-if="vm.filteredPrinters.length !== vm.printers.length" class="label label-xs bg-primary">{{vm.filteredPrinters.length}}</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': printer.selected, 'mapped': printer.mapped}" class="directory-item"><a ng-click="vm.selectPrinter(printer)"><span>{{::printer.name}}</span></a></li>
+    <li ng-if="vm.filteredPrinters.length !== vm.printers.length" ng-repeat="printer in (vm.filteredPrinters = (vm.printers | orderBy: ['name'] | filter: (vm.brand || undefined) | filterBy: ['name'] : vm.printerName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': printer.selected, 'mapped': printer.mapped}" class="directory-item"><a ng-click="vm.selectPrinter(printer)"><span>{{::printer.name}}</span></a></li>
   </ul>
 </div>

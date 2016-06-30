@@ -73,6 +73,9 @@ var employeeSchema = mongoose.Schema({
 	mid: {
 		type: Number
 	},
+	legacyCompany: {
+		type: String
+	},
 	deleted: {
 		type: Boolean,
 		default: false

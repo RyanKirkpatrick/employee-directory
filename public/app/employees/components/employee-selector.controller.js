@@ -106,9 +106,6 @@
 		function selectAll() {
 			vm.selectedEmployees = edEmployeeService.addAllFilteredEmployees(vm.filteredEmployees);
 			$document.scrollTopAnimated(0, 300);
-			if (vm.team === 'Prestige Worldwide') {
-				edNotifierService.info('Investors?  Possibly you!');
-			}
 			if ($state.current.name !== 'employees.profile') {
 				$state.go('employees.profile');
 			}
@@ -135,7 +132,7 @@
 				'nyc': false
 			};
 			vm.department = '';
-			vm.team = '';
+			vm.legacyCompany = '';
 		}
 
 		var deregisterEmployeesUpdated = $scope.$on('employeesUpdated', function (event, employees) {

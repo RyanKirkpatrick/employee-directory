@@ -16,6 +16,24 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.fa.fa-sitemap
                     span.sidebar-title Organization Chart
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
+            li(ui-sref-active="active")
+                a(ui-sref="rooms.profile")
+                    span.fa.fa-building-o
+                    span.sidebar-title Room Profiles
+            li.location-item(ui-sref-active="active")
+                a(ui-sref="rooms.map")
+                    span.fa.fa-map-marker
+                    span.sidebar-title Room Location
+        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
+            li(ui-sref-active="active")
+                a(ui-sref="printers.profile")
+                    span.icon-print
+                    span.sidebar-title Printer Profiles
+            li.location-item(ui-sref-active="active")
+                a(ui-sref="printers.map")
+                    span.fa.fa-map-marker
+                    span.sidebar-title Printer Location
+        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li.committees-item(ui-sref-active="active")
                 a(ui-sref="committees")
                     span.fa.fa.fa-users
@@ -36,24 +54,6 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                 a(ui-sref="seniority")
                     span.fa.fa-certificate
                     span.sidebar-title Years of Service
-        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li(ui-sref-active="active")
-                a(ui-sref="rooms.profile")
-                    span.fa.fa-building-o
-                    span.sidebar-title Room Profiles
-            li.location-item(ui-sref-active="active")
-                a(ui-sref="rooms.map")
-                    span.fa.fa-map-marker
-                    span.sidebar-title Room Location
-        ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
-            li(ui-sref-active="active")
-                a(ui-sref="printers.profile")
-                    span.icon-print
-                    span.sidebar-title Printer Profiles
-            li.location-item(ui-sref-active="active")
-                a(ui-sref="printers.map")
-                    span.fa.fa-map-marker
-                    span.sidebar-title Printer Location
         ul.nav.sidebar-menu(ng-click="vm.closeSidebar()")
             li(ui-sref-active="active", ng-if="vm.identity.isAuthorized('admin')")
                 a(ui-sref="admin.create-employee")
@@ -81,6 +81,6 @@ aside#sidebar_left.nano.nano-light.sidebar-default.affix(ng-class="{'sidebar-lef
                     span.sidebar-title Create Event
 aside#sidebar_left_secondary.nano.nano-content.sidebar-default.affix
     .sidebar-left-content.nano-content(ed-highlighter="vm.selectedEvent", duration="500")
-        span.sidebar-return-top(ng-click="vm.scrollSidebarTop()")
+        //span.sidebar-return-top(ng-click="vm.scrollSidebarTop()")
             span.fa.fa-arrow-up
         div.sidebar-view(ui-view="sidebar")

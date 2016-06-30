@@ -46,6 +46,13 @@
 			'Strategic Operational Support',
 			'QA / Reporting / Billing'
 		];
+		vm.legacyCompanies = [
+			'Liazon',
+			'Towers Watson',
+			'Acclaris',
+			'Extend Health',
+			'Watson Wyatt'
+		];
 
 		activate();
 
@@ -77,7 +84,8 @@
 				floor: selectedEmployees[0].floor,
 				seat: selectedEmployees[0].seat,
 				hasReports: selectedEmployees[0].hasReports,
-				mid: selectedEmployees[0].mid
+				mid: selectedEmployees[0].mid,
+				legacyCompany: selectedEmployees[0].legacyCompany
 			};
 
 			if (selectedEmployees[0].birthdate) {
@@ -162,7 +170,8 @@
 				hasReports: vm.selectedEmployee.hasReports,
 				mid: vm.selectedEmployee.mid,
 				birthdate: vm.selectedEmployee.birthdate,
-				hireDate: vm.selectedEmployee.hireDate
+				hireDate: vm.selectedEmployee.hireDate,
+				legacyCompany: vm.selectedEmployee.legacyCompany
 			};
 
 			// Add all the selected guilds

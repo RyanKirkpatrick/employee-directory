@@ -2,7 +2,7 @@
 <div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
   <div class="directory-item-filter">
     <div class="panel">
-      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Employees Filter</span><span ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls bg-primary"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-user text-primary"></i></span><span class="panel-title text-primary">Search Employees</span><span ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
       <div class="panel-body p10">
         <form name="employeesFilter" class="form-horizontal">
           <div class="form-group mln mrn">
@@ -14,7 +14,7 @@
             <div class="pn">
               <div class="bs-component">
                 <select name="department" ng-model="vm.department" ng-options="employee.department as employee.department for employee in vm.employees | unique: 'department' | orderBy: 'department'" class="form-control input-sm">
-                  <option value="" selected="selected">All Departments</option>
+                  <option value="" selected="selected">Department</option>
                 </select>
               </div>
             </div>
@@ -22,8 +22,8 @@
           <div class="form-group mln mrn">
             <div class="pn">
               <div class="bs-component">
-                <select name="team" ng-model="vm.team" ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department || undefined} | omit: '!team' | unique: 'team' | orderBy: 'team'" class="form-control input-sm">
-                  <option value="" selected="selected">All Teams</option>
+                <select name="legacy-company" ng-model="vm.legacyCompany" ng-options="employee.legacyCompany as employee.legacyCompany for employee in vm.employees | omit: '!legacyCompany' | unique: 'legacyCompany' | orderBy: 'legacyCompany'" class="form-control input-sm">
+                  <option value="" selected="selected">Legacy Company</option>
                 </select>
               </div>
             </div>
@@ -59,8 +59,8 @@
       </div>
     </div>
   </div>
-  <h5><span class="fa fa-user"></span><span>Select Employees</span><span class="label label-xs bg-primary">{{vm.filteredEmployees.length}}</span></h5>
+  <h5 ng-if="vm.filteredEmployees.length !== vm.employees.length"><span class="fa fa-user"></span><span>Select Employees</span><span ng-if="vm.filteredEmployees.length !== vm.employees.length" class="label label-xs bg-primary">{{vm.filteredEmployees.length}}</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['displayName', 'fullName', 'funnyName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
+    <li ng-if="vm.filteredEmployees.length !== vm.employees.length" ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['legacyCompany']: (vm.legacyCompany || undefined) | filterBy: ['displayName', 'fullName', 'funnyName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': employee.selected, 'mapped': employee.mapped}" class="directory-item"><a ng-click="vm.selectEmployee(employee)"><span>{{::employee.lastName}},&nbsp;</span><span ng-if="employee.nickname">{{::employee.nickname}}</span><span ng-if="!employee.nickname">{{::employee.firstName}}</span></a></li>
   </ul>
 </div>

@@ -3,9 +3,9 @@
         .panel
             .panel-heading
                 span.panel-icon
-                    i.fa.fa-filter.text-primary
-                span.panel-title Rooms Filter
-                span.panel-controls.bg-primary(ng-if="vm.type || vm.roomName || vm.locations.length > 0 || vm.floors.length > 0")
+                    i.fa.fa-building.text-primary
+                span.panel-title.text-primary Search Rooms
+                span.panel-controls(ng-if="vm.type || vm.roomName || vm.locations.length > 0 || vm.floors.length > 0")
                     a.panel-control-remove(ng-click="vm.clearFilter()")
             .panel-body.p10
                 form.form-horizontal(name="roomsFilter")
@@ -16,7 +16,7 @@
                         .pn
                             div.bs-component
                                 select.form-control.input-sm(name="type", ng-model="vm.type", ng-options="room.type as room.type for room in vm.rooms | unique: 'type' | orderBy: 'type'")
-                                    option(value="", selected) All Types
+                                    option(value="", selected) Type
                     .form-group.mln.mrn
                         span.control-label.pn.pull-left
                             label(ng-class="{'text-primary' : vm.locations.length > 0}") Locations
@@ -49,8 +49,8 @@
     h5
         span.fa.fa-building-o
         span Select Rooms
-        span.label.label-xs.bg-primary {{vm.filteredRooms.length}}
+        span.label.label-xs.bg-primary(ng-if="vm.filteredRooms.length !== vm.rooms.length") {{vm.filteredRooms.length}}
     ul.nav.tray-nav.tray-nav-border
-        li.directory-item(ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': room.selected, 'mapped': room.mapped}")
+        li.directory-item(ng-if="vm.filteredRooms.length !== vm.rooms.length" ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': room.selected, 'mapped': room.mapped}")
             a(ng-click="vm.selectRoom(room)")
                 span {{::room.name}}

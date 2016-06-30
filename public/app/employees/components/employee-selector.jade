@@ -3,9 +3,9 @@
         .panel
             .panel-heading
                 span.panel-icon
-                    i.fa.fa-filter.text-primary
-                span.panel-title Employees Filter
-                span.panel-controls.bg-primary(ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
+                    i.fa.fa-user.text-primary
+                span.panel-title.text-primary Search Employees
+                span.panel-controls(ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
                     a.panel-control-remove(ng-click="vm.clearFilter()")
             .panel-body.p10
                 form.form-horizontal(name="employeesFilter")
@@ -16,12 +16,12 @@
                         .pn
                             div.bs-component
                                 select.form-control.input-sm(name="department", ng-model="vm.department", ng-options="employee.department as employee.department for employee in vm.employees | unique: 'department' | orderBy: 'department'")
-                                    option(value="", selected) All Departments
+                                    option(value="", selected) Department
                     .form-group.mln.mrn
                         .pn
                             div.bs-component
-                                select.form-control.input-sm(name="team", ng-model="vm.team", ng-options="employee.team as employee.team for employee in vm.employees | filter: {department: vm.department || undefined} | omit: '!team' | unique: 'team' | orderBy: 'team'")
-                                    option(value="", selected) All Teams
+                                select.form-control.input-sm(name="legacy-company", ng-model="vm.legacyCompany", ng-options="employee.legacyCompany as employee.legacyCompany for employee in vm.employees | omit: '!legacyCompany' | unique: 'legacyCompany' | orderBy: 'legacyCompany'")
+                                    option(value="", selected) Legacy Company
                     .form-group.mln.mrn
                         span.control-label.pn.pull-left
                             label(ng-class="{'text-primary' : vm.locations.length > 0}") Locations
@@ -51,12 +51,12 @@
                     button.btn.btn-xs.btn-success.pull-right(ng-if="!vm.allowSelectAll", type="submit", ng-click="vm.selectEmployee(vm.filteredEmployees[0])", ng-disabled="vm.filteredEmployees.length !== 1") Select All
                     button.btn.btn-xs.btn-success.pull-right(ng-if="vm.allowSelectAll", type="submit", ng-click="vm.selectAll()", ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'") Select All
                     button.btn.btn-xs.btn-warning.pull-left(type="button", ng-click="vm.selectNone()", ng-disabled="!vm.allowSelectAll || vm.displayEmployeeInfoType !== 'profile'") Select None
-    h5
+    h5(ng-if="vm.filteredEmployees.length !== vm.employees.length")
         span.fa.fa-user
         span Select Employees
-        span.label.label-xs.bg-primary {{vm.filteredEmployees.length}}
+        span.label.label-xs.bg-primary(ng-if="vm.filteredEmployees.length !== vm.employees.length") {{vm.filteredEmployees.length}}
     ul.nav.tray-nav.tray-nav-border
-        li.directory-item(ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['team']: (vm.team || undefined) | filterBy: ['displayName', 'fullName', 'funnyName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
+        li.directory-item(ng-if="vm.filteredEmployees.length !== vm.employees.length" ng-repeat="employee in (vm.filteredEmployees = (vm.employees | orderBy: ['lastName', 'firstName'] | filterBy: ['department']: (vm.department || undefined) | filterBy: ['legacyCompany']: (vm.legacyCompany || undefined) | filterBy: ['displayName', 'fullName', 'funnyName'] : (vm.employeeName || undefined) | filter: vm.locationFilter | filter: vm.floorFilter))", ng-class="{'active': employee.selected, 'mapped': employee.mapped}")
             a(ng-click="vm.selectEmployee(employee)")
                 span {{::employee.lastName}},&nbsp;
                 span(ng-if="employee.nickname") {{::employee.nickname}}

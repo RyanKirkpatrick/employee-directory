@@ -2,7 +2,7 @@
 <div ed-nanoscroller="ed-nanoscroller" class="directory-item-selector">
   <div class="directory-item-filter">
     <div class="panel">
-      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-filter text-primary"></i></span><span class="panel-title">Rooms Filter</span><span ng-if="vm.type || vm.roomName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls bg-primary"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
+      <div class="panel-heading"><span class="panel-icon"><i class="fa fa-building text-primary"></i></span><span class="panel-title text-primary">Search Rooms</span><span ng-if="vm.type || vm.roomName || vm.locations.length &gt; 0 || vm.floors.length &gt; 0" class="panel-controls"><a ng-click="vm.clearFilter()" class="panel-control-remove"></a></span></div>
       <div class="panel-body p10">
         <form name="roomsFilter" class="form-horizontal">
           <div class="form-group mln mrn">
@@ -14,7 +14,7 @@
             <div class="pn">
               <div class="bs-component">
                 <select name="type" ng-model="vm.type" ng-options="room.type as room.type for room in vm.rooms | unique: 'type' | orderBy: 'type'" class="form-control input-sm">
-                  <option value="" selected="selected">All Types</option>
+                  <option value="" selected="selected">Type</option>
                 </select>
               </div>
             </div>
@@ -50,8 +50,8 @@
       </div>
     </div>
   </div>
-  <h5><span class="fa fa-building-o"></span><span>Select Rooms</span><span class="label label-xs bg-primary">{{vm.filteredRooms.length}}</span></h5>
+  <h5><span class="fa fa-building-o"></span><span>Select Rooms</span><span ng-if="vm.filteredRooms.length !== vm.rooms.length" class="label label-xs bg-primary">{{vm.filteredRooms.length}}</span></h5>
   <ul class="nav tray-nav tray-nav-border">
-    <li ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': room.selected, 'mapped': room.mapped}" class="directory-item"><a ng-click="vm.selectRoom(room)"><span>{{::room.name}}</span></a></li>
+    <li ng-if="vm.filteredRooms.length !== vm.rooms.length" ng-repeat="room in (vm.filteredRooms = (vm.rooms | orderBy: ['name'] | filter: (vm.type || undefined) | filterBy: ['name'] : vm.roomName | filter: vm.locationFilter | filter: vm.floorFilter))" ng-class="{'active': room.selected, 'mapped': room.mapped}" class="directory-item"><a ng-click="vm.selectRoom(room)"><span>{{::room.name}}</span></a></li>
   </ul>
 </div>

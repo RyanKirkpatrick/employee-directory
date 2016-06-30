@@ -49,7 +49,7 @@
                         .col-md-3
                             .section
                                 label.field.select
-                                    select(name="department", ng-model="vm.selectedEmployee.department", ng-options="department for department in vm.departments | orderBy: 'department'", required)
+                                    select(name="department", ng-model="vm.selectedEmployee.department", ng-options="department for department in vm.departments | orderBy: 'toString()'", required)
                                         option(disabled, value="") Department
                                     i.arrow
                         .col-md-3
@@ -100,6 +100,12 @@
                                     label.field-icon(for="birthday")
                                         i.fa.fa-birthday-cake
                     .row
+                        .col-md-3
+                            .section
+                                label.field.select
+                                    select(name="legacy-company", ng-model="vm.selectedEmployee.legacyCompany", ng-options="legacyCompany for legacyCompany in vm.legacyCompanies | orderBy:'toString()'")
+                                        option(disabled, value="") Legacy Company
+                                    i.arrow
                         .col-md-6
                             .section
                                 label.option.option-primary.mt10

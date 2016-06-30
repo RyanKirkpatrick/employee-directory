@@ -33,6 +33,10 @@ Directory Item Selector
         border-right 0
         height 51px
 
+        .panel-controls
+          padding-left 0
+          padding-right 2px
+
       .panel-body
         border-left 0
         border-top 0
@@ -72,6 +76,7 @@ Directory Item Selector
     font-size 14px
     margin 0
     padding 12px 12px
+    position relative
 
     .fa, .ico
       margin-right 10px
@@ -82,6 +87,21 @@ Directory Item Selector
       padding 0 3px
       line-height 16px
       font-size 11px
+
+    &.ng-enter
+      transition 0.15s linear all
+      left -200px
+
+    &.ng-enter.ng-enter-active
+      left 0
+
+    &.ng-leave
+      transition 0.15s linear all
+      left 0
+
+    &.ng-leave.ng-leave-active
+      left -200px
+
 
   .directory-item:last-child
     border-bottom 1px solid #dddddd

@@ -32,6 +32,10 @@
 							employee.displayName = employee.firstName + ' ' + employee.lastName;
 						}
 
+						if (!employee.legacyCompany) {
+							employee.legacyCompany = 'Liazon';
+						}
+
 						// Create a fullName property for each employee
 						employee.fullName = employee.firstName + ' ' + employee.lastName;
 					});

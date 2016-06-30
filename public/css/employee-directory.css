@@ -54,6 +54,9 @@
   background-color: #de5858;
 }
 #sidebar_left {
+  padding-bottom: 65px !important;
+  padding-top: 0;
+  top: 60px;
   -webkit-transition: width 0.5s ease;
   -moz-transition: width 0.5s ease;
   -o-transition: width 0.5s ease;
@@ -482,6 +485,10 @@ form .gui-input-mod {
   border-right: 0;
   height: 51px;
 }
+.directory-item-selector .directory-item-filter .panel .panel-heading .panel-controls {
+  padding-left: 0;
+  padding-right: 2px;
+}
 .directory-item-selector .directory-item-filter .panel .panel-body {
   border-left: 0;
   border-top: 0;
@@ -527,6 +534,7 @@ form .gui-input-mod {
   font-size: 14px;
   margin: 0;
   padding: 12px 12px;
+  position: relative;
 }
 .directory-item-selector h5 .fa,
 .directory-item-selector h5 .ico {
@@ -538,6 +546,28 @@ form .gui-input-mod {
   padding: 0 3px;
   line-height: 16px;
   font-size: 11px;
+}
+.directory-item-selector h5.ng-enter {
+  -webkit-transition: 0.15s linear all;
+  -moz-transition: 0.15s linear all;
+  -o-transition: 0.15s linear all;
+  -ms-transition: 0.15s linear all;
+  transition: 0.15s linear all;
+  left: -200px;
+}
+.directory-item-selector h5.ng-enter.ng-enter-active {
+  left: 0;
+}
+.directory-item-selector h5.ng-leave {
+  -webkit-transition: 0.15s linear all;
+  -moz-transition: 0.15s linear all;
+  -o-transition: 0.15s linear all;
+  -ms-transition: 0.15s linear all;
+  transition: 0.15s linear all;
+  left: 0;
+}
+.directory-item-selector h5.ng-leave.ng-leave-active {
+  left: -200px;
 }
 .directory-item-selector .directory-item:last-child {
   border-bottom: 1px solid #ddd;

@@ -71,7 +71,7 @@
             <div class="col-md-3">
               <div class="section">
                 <label class="field select">
-                  <select name="department" ng-model="vm.selectedEmployee.department" ng-options="department for department in vm.departments | orderBy: 'department'" required="required">
+                  <select name="department" ng-model="vm.selectedEmployee.department" ng-options="department for department in vm.departments | orderBy: 'toString()'" required="required">
                     <option disabled="disabled" value="">Department</option>
                   </select><i class="arrow"></i>
                 </label>
@@ -153,6 +153,15 @@
             </div>
           </div>
           <div class="row">
+            <div class="col-md-3">
+              <div class="section">
+                <label class="field select">
+                  <select name="legacy-company" ng-model="vm.selectedEmployee.legacyCompany" ng-options="legacyCompany for legacyCompany in vm.legacyCompanies | orderBy:'toString()'">
+                    <option disabled="disabled" value="">Legacy Company</option>
+                  </select><i class="arrow"></i>
+                </label>
+              </div>
+            </div>
             <div class="col-md-6">
               <div class="section">
                 <label class="option option-primary mt10">

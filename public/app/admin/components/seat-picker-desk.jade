@@ -1,4 +1,4 @@
-desk(id="desk-{{vm.seat}}" ng-class="[vm.classification, vm.orientation]" ng-style="{'left': vm.xpos + 'px', 'top': vm.ypos + 'px'}", ng-click="vm.assignSeat(vm.location, vm.floor,vm.seat)")
+desk(id="desk-{{vm.seat}}" ng-class="[vm.classification, vm.orientation]" ng-style="{'left': vm.xpos + 'px', 'top': vm.ypos + 'px'}", ng-click="vm.assignSeat(vm.location, vm.floor, vm.seat)")
     .seat
         span.seat-number {{vm.seat}}
         span.employee-name(ng-repeat="employee in vm.employee") {{employee.displayName}}

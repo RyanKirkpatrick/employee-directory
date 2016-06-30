@@ -99,6 +99,12 @@
                                     label.field-icon(for="birthday")
                                         i.fa.fa-birthday-cake
                     .row
+                        .col-md-3
+                            .section
+                                label.field.select
+                                    select(name="legacy-company", ng-model="vm.newEmployee.legacyCompany", ng-options="legacyCompany for legacyCompany in vm.legacyCompanies | orderBy:'toString()'")
+                                        option(disabled, value="") Legacy Company
+                                    i.arrow
                         .col-md-6
                             .section
                                 label.option.option-primary.mt10
