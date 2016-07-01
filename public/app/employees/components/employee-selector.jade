@@ -5,7 +5,7 @@
                 span.panel-icon
                     i.fa.fa-user.text-primary
                 span.panel-title.text-primary Search Employees
-                span.panel-controls(ng-if="vm.team || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
+                span.panel-controls(ng-if="vm.legacyCompany || vm.department || vm.employeeName || vm.locations.length > 0 || vm.floors.length > 0")
                     a.panel-control-remove(ng-click="vm.clearFilter()")
             .panel-body.p10
                 form.form-horizontal(name="employeesFilter")

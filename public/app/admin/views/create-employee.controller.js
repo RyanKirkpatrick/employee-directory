@@ -48,7 +48,8 @@
 			'Towers Watson',
 			'Acclaris',
 			'Extend Health',
-			'Watson Wyatt'
+			'Watson Wyatt',
+			'Towers Perrin'
 		];
 
 		activate();

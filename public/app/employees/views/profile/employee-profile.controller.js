@@ -37,24 +37,22 @@
 		}
 
 		function selectEmployeeById(employees) {
+			// Split eid query on comma
+			var employeeids = $stateParams.employee.split(',');
 			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.employee) {
-					if ($stateParams.employee === '1209615') {
-						vm.s = 's1209615';
-					}
-					// Split eid query on comma
-					var employeeids = $stateParams.employee.split(',');
-					angular.forEach(employeeids, function (eid) {
-						// If the employee's id is part of the query
-						if (employee.hasOwnProperty('eid') && employee.eid === parseInt(eid)) {
-							match = true;
-						} else {
-							return false;
-						}
-					});
-					return match;
+				if ($stateParams.employee === '1209615') {
+					vm.s = 's1209615';
 				}
+				angular.forEach(employeeids, function (eid) {
+					// If the employee's id is part of the query
+					if (employee.hasOwnProperty('eid') && employee.eid === parseInt(eid)) {
+						match = true;
+					} else {
+						return false;
+					}
+				});
+					return match;
 			});
 
 			angular.forEach(selectedEmployees, function (employee) {
@@ -63,21 +61,19 @@
 		}
 
 		function selectEmployeeByTeam(employees) {
+			// Split teams query on comma
+			var teams = $stateParams.team.split(',');
 			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.team) {
-					// Split teams query on comma
-					var teams = $stateParams.team.split(',');
-					angular.forEach(teams, function (team) {
-						// If the employee's team is part of the query
-						if (employee.hasOwnProperty('team') && employee.team.toLowerCase() === team.toLowerCase()) {
-							match = true;
-						} else {
-							return false;
-						}
-					});
+				angular.forEach(teams, function (team) {
+					// If the employee's team is part of the query
+					if (employee.hasOwnProperty('team') && employee.team.toLowerCase() === team.toLowerCase()) {
+						match = true;
+					} else {
+						return false;
+					}
+				});
 					return match;
-				}
 			}), 'lastName').reverse();
 
 			angular.forEach(selectedEmployees, function (employee) {
@@ -86,21 +82,19 @@
 		}
 
 		function selectEmployeeByDepartment(employees) {
+			// Split departments query on comma
+			var departments = $stateParams.department.split(',');
 			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.department) {
-					// Split departments query on comma
-					var departments = $stateParams.department.split(',');
-					angular.forEach(departments, function (department) {
-						// If the employee's department is part of the query
-						if (employee.hasOwnProperty('department') && employee.department.toLowerCase() === department.toLowerCase()) {
-							match = true;
-						} else {
-							return false;
-						}
-					});
+				angular.forEach(departments, function (department) {
+					// If the employee's department is part of the query
+					if (employee.hasOwnProperty('department') && employee.department.toLowerCase() === department.toLowerCase()) {
+						match = true;
+					} else {
+						return false;
+					}
+				});
 					return match;
-				}
 			}), 'lastName').reverse();
 
 			angular.forEach(selectedEmployees, function (employee) {
@@ -109,21 +103,19 @@
 		}
 
 		function selectEmployeeByTitle(employees) {
+			// Split titles query on pipe
+			var titles = $stateParams.title.split('|');
 			var selectedEmployees = _.sortBy(_.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.title) {
-					// Split titles query on pipe
-					var titles = $stateParams.title.split('|');
-					angular.forEach(titles, function (title) {
-						// If the employee's title is part of the query
-						if (employee.hasOwnProperty('title') && employee.title.toLowerCase() === title.toLowerCase()) {
-							match = true;
-						} else {
-							return false;
-						}
-					});
+				angular.forEach(titles, function (title) {
+					// If the employee's title is part of the query
+					if (employee.hasOwnProperty('title') && employee.title.toLowerCase() === title.toLowerCase()) {
+						match = true;
+					} else {
+						return false;
+					}
+				});
 					return match;
-				}
 			}), 'lastName').reverse();
 
 			angular.forEach(selectedEmployees, function (employee) {
@@ -132,20 +124,26 @@
 		}
 
 		function selectEmployeeByName(employees) {
+			if ($stateParams.firstname) {
+				// Split first name query on comma
+				var firstnames = $stateParams.firstname.split(',');
+			}
+			if ($stateParams.lastname) {
+				var lastnames = $stateParams.lastname.split(',');
+			}
+				// Loop over all the last names
 			var selectedEmployees = _.filter(employees, function (employee) {
 				var match = false;
-				if ($stateParams.firstname) {
-					// Split first name query on comma
-					var firstnames = $stateParams.firstname.split(',');
+				if (firstnames && firstnames.length > 0) {
 					// Loop over each first name
 					angular.forEach(firstnames, function (firstname) {
 						// If the employee's first name (or nickname) is part of the query check the last names
 						if (employee.firstName.toLowerCase() === firstname.toLowerCase() ||
 							(employee.hasOwnProperty('nickname') && employee.nickname.toLowerCase() === firstname.toLowerCase())) {
 							// If last names are on the query string
-							if ($stateParams.lastname) {
+							if (lastnames && lastnames.length > 0) {
 								// Split last name query on comma
-								var lastnames = $stateParams.lastname.split(',');
+								lastnames = $stateParams.lastname.split(',');
 								// Loop over all the last names
 								angular.forEach(lastnames, function (lastname) {
 									// If the employee's last name is part of the query string we have match
@@ -165,8 +163,7 @@
 						}
 					});
 					// No first name query so only worry about the last name
-				} else if ($stateParams.lastname) {
-					var lastnames = $stateParams.lastname.split(',');
+				} else if (lastnames && lastnames.length > 0) {
 					// Loop over all the last names
 					angular.forEach(lastnames, function (lastname) {
 						// If the employee's last name is part of the query string we have match
