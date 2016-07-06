@@ -13,7 +13,7 @@
                 span.fa.fa-user.fs100.mt20(ng-if="!employee.image")
                 ul.list-inline.employee-list-icons.mb10
                     li
-                        a.fa.fa-comment(href="sip:{{::vm.twEmail}}")
+                        a.fa.fa-skype.chat-color(href="sip:{{::vm.twEmail}}")
                     li
                         a.fa.fa-sitemap.profile-color(ui-sref="employees.org-chart({employee: employee.eid})")
                     li(ng-if="employee.seat")

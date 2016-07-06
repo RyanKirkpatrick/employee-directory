@@ -468,6 +468,9 @@ form .gui-input-mod {
 .profile-color {
   color: #3498db !important;
 }
+.chat-color {
+  color: #00aff0 !important;
+}
 .directory-item-selector .directory-item-filter {
   color: #666;
   position: relative;
