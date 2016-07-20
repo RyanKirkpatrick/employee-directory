@@ -1,14 +1,5 @@
-var gulp = require('gulp');
-var minifyCss = require('gulp-minify-css');
-var concatCss = require('gulp-concat-css');
-var bundle = require('gulp-bundle-assets');
-
-gulp.task('bundleCSS', function() {
-  gulp.src('public/css/*.css')
-      .pipe(minifyCss())
-      .pipe(concatCss('style.min.css'))
-      .pipe(gulp.dest('public/css'))
-});
+var gulp = require('gulp'),
+	bundle = require('gulp-bundle-assets');
 
 gulp.task('bundle', function () {
 	return gulp.src('./bundle.config.js')
